@@ -1,0 +1,4 @@
+module org.mauikit.imagetools
+plugin MauiKitImageTools
+classname ImageToolsPlugin
+typeinfo plugins.qmltypes
