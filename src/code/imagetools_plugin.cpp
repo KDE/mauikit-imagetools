@@ -14,5 +14,6 @@ void ImageToolsPlugin::registerTypes(const char *uri)
     #endif
     
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageViewer.qml")), uri, 1, 0, "ImageViewer");   
+    qmlRegisterType(resolveFileUrl(QStringLiteral("ImageEditor.qml")), uri, 1, 0, "ImageEditor"); 
 }
 

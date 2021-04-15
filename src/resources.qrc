@@ -6,5 +6,9 @@ SPDX-License-Identifier: LGPL-2.1-or-later
 <RCC>
   <qresource prefix="/">
       <file alias="ImageViewer.qml">controls/ImageViewer.qml</file>
+      <file alias="ImageEditor.qml">controls/ImageEditor.qml</file>
+      <file alias="private/Ruler.qml">controls/private/Ruler.qml</file>
+      <file alias="private/ColourBar.qml">controls/private/ColourBar.qml</file>
+      <file alias="private/TransformationBar.qml">controls/private/TransformationBar.qml</file>
   </qresource>
 </RCC>
