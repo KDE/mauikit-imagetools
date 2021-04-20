@@ -11,7 +11,7 @@ import QtQuick.Controls 2.12
 
 import org.kde.kirigami 2.8 as Kirigami
 
-import org.mauikit.controls 1.2 as Maui
+import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
 
@@ -66,13 +66,15 @@ Maui.Dialog
     FB.TagsBar
     {
         Layout.fillWidth: true
+        visible: count > 0
         allowEditMode: false
         list.urls: [control.url]
         list.strict: false
     }
 
-    Kirigami.Separator
+    Maui.Separator
     {
+        edge: Qt.BottomEdge
         Layout.fillWidth: true
     }
 

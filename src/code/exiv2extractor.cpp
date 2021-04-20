@@ -21,6 +21,10 @@
 #include "exiv2extractor.h"
 // #include "exiv2.hpp"
 
+//#include "reversegeocoder.h"
+#include <QGeoAddress>
+
+#include <QDateTime>
 #include <QDebug>
 #include <QFile>
 #include <QTextCodec>
@@ -28,21 +32,39 @@
 #include <MauiKit/Core/fmh.h>
 
 Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(parent)
-    , m_latitude(0)
-    , m_longitude(0)
     , m_error(true)
     , m_url(url)
+    //  , m_geoCoder( new ReverseGeoCoder)
 {
     if (!FMH::fileExists(m_url) || m_url.isEmpty() || !m_url.isValid()) {
         m_error = true;
     }    
     
-    m_image = Exiv2::ImageFactory::open(m_url.toLocalFile().toStdString());
-    assert(m_image.get() != 0);
+    try {
+        m_image =  Exiv2::ImageFactory::open(m_url.toLocalFile().toStdString());
+    } catch (const std::exception &) {
+        return;
+    }
+    if (!m_image.get()) {
+        return;
+    }
     
-    m_image->readMetadata();
-    
+    if (!m_image->good()) {
+        return;
+    }
+        
+    try {
+        m_image->readMetadata();
+    } catch (const std::exception &) {
+        return;
+    }
+        
     m_error = false;
+}
+
+Exiv2Extractor::~Exiv2Extractor()
+{
+    //    delete m_geoCoder;
 }
 
 Exiv2::ExifData & Exiv2Extractor::exifData() const
@@ -54,7 +76,6 @@ Exiv2::ExifData & Exiv2Extractor::exifData() const
     
     return exifData;
 }
-
 
 static QDateTime dateTimeFromString(const QString &dateString)
 {
@@ -134,6 +155,7 @@ static QDateTime dateTimeFromString(const QString &dateString)
 
     return dateTime;
 }
+
 static QDateTime toDateTime(const Exiv2::Value &value)
 {
     if (value.typeId() == Exiv2::asciiString) {
@@ -148,65 +170,25 @@ static QDateTime toDateTime(const Exiv2::Value &value)
     return QDateTime();
 }
 
-void Exiv2Extractor::extract(const QString &filePath)
+Coordinates Exiv2Extractor::extractGPS()
 {
-    QByteArray arr = QFile::encodeName(filePath);
-    std::string fileString(arr.data(), arr.length());
+   double latitude = fetchGpsDouble("Exif.GPSInfo.GPSLatitude");
+   double longitude = fetchGpsDouble("Exif.GPSInfo.GPSLongitude");
 
-    Exiv2::LogMsg::setLevel(Exiv2::LogMsg::mute);
-#if EXIV2_TEST_VERSION(0, 27, 99)
-    Exiv2::Image::UniquePtr image;
-#else
-    Exiv2::Image::AutoPtr image;
-#endif
-    try {
-        image = Exiv2::ImageFactory::open(fileString);
-    } catch (const std::exception &) {
-        return;
-    }
-    if (!image.get()) {
-        return;
-    }
-
-    if (!image->good()) {
-        return;
-    }
-
-    try {
-        image->readMetadata();
-    } catch (const std::exception &) {
-        return;
-    }
-
-    const Exiv2::ExifData &data = image->exifData();
-
-    Exiv2::ExifData::const_iterator it = data.findKey(Exiv2::ExifKey("Exif.Photo.DateTimeOriginal"));
-    if (it != data.end()) {
-        m_dateTime = toDateTime(it->value());
-    }
-    if (m_dateTime.isNull()) {
-        it = data.findKey(Exiv2::ExifKey("Exif.Image.DateTime"));
-        if (it != data.end()) {
-            m_dateTime = toDateTime(it->value());
-        }
-    }
-
-    m_latitude = fetchGpsDouble(data, "Exif.GPSInfo.GPSLatitude");
-    m_longitude = fetchGpsDouble(data, "Exif.GPSInfo.GPSLongitude");
-
-    QByteArray latRef = fetchByteArray(data, "Exif.GPSInfo.GPSLatitudeRef");
+    QByteArray latRef = getExifTagData("Exif.GPSInfo.GPSLatitudeRef");
     if (!latRef.isEmpty() && latRef[0] == 'S')
-        m_latitude *= -1;
+        latitude *= -1;
 
-    QByteArray longRef = fetchByteArray(data, "Exif.GPSInfo.GPSLongitudeRef");
+    QByteArray longRef = getExifTagData("Exif.GPSInfo.GPSLongitudeRef");
     if (!longRef.isEmpty() && longRef[0] == 'W')
-        m_longitude *= -1;
-
-    m_error = false;
+        longitude *= -1;
+    
+    return {latitude, longitude};
 }
 
-double Exiv2Extractor::fetchGpsDouble(const Exiv2::ExifData &data, const char *name)
+double Exiv2Extractor::fetchGpsDouble(const char *name)
 {
+    Exiv2::ExifData &data = (exifData());
     Exiv2::ExifData::const_iterator it = data.findKey(Exiv2::ExifKey(name));
     if (it != data.end() && it->count() == 3) {
         double n = 0.0;
@@ -249,17 +231,6 @@ double Exiv2Extractor::fetchGpsDouble(const Exiv2::ExifData &data, const char *n
     }
 
     return 0.0;
-}
-
-QByteArray Exiv2Extractor::fetchByteArray(const Exiv2::ExifData &data, const char *name)
-{
-    Exiv2::ExifData::const_iterator it = data.findKey(Exiv2::ExifKey(name));
-    if (it != data.end()) {
-        std::string str = it->value().toString();
-        return QByteArray(str.c_str(), str.size());
-    }
-
-    return QByteArray();
 }
 
 bool Exiv2Extractor::error() const
@@ -418,7 +389,7 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
 static bool isUtf8(const char* const buffer)
 {
     int i, n;
-    register unsigned char c;
+     unsigned char c;
     bool gotone = false;
     
     if (!buffer)
@@ -736,4 +707,55 @@ QString Exiv2Extractor::getExifComment() const
     return QString();
 }
 
+static std::string gpsToString(Exiv2::Metadatum& value)
+{
+    char r[500];
+    int l = 0;
+    l += sprintf(r+l,"count = %ld ",value.count());
+    l += sprintf(r+l,"type = %d ",value.typeId());
+    switch ( value.typeId() ) {
+        case Exiv2::unsignedRational:
+        {
+            l += sprintf(r+l,"Exiv2::unsignedRational ");
+            double decimal = 0 ;
+            double denom   = 1 ;
+            for ( int i = 0 ; i < value.count() ; i++) {
+                Exiv2::Rational rational = value.toRational(i);
+                l += sprintf(r+l,"%d/%d ",rational.first,rational.second);
+                decimal += value.toFloat(i) / denom;
+                denom   *= 60;
+            }
+            l+= sprintf(r+l,"decimal = '%f' ",decimal);
+            l+= sprintf(r+l,"string = '%s' ",value.toString().c_str());
+        } break;
+        
+        default:
+            break;
+    }
+    
+    return std::string(r);
+}
 
+QString Exiv2Extractor::GPSString() const
+{
+    
+    //    double latitude = extractor.gpsLatitude();
+    //    double longitude = extractor.gpsLongitude();
+    
+    //    if (latitude != 0.0 && longitude != 0.0)
+    //    {
+    //        if (!m_geoCoder->initialized())
+    //        {
+    //            m_geoCoder->init();
+    //        }
+    //        QVariantMap map = m_geoCoder->lookup(latitude, longitude);
+    
+    //        QGeoAddress addr;
+    //        addr.setCountry(map.value("country").toString());
+    //        addr.setState(map.value("admin1").toString());
+    //        addr.setCity(map.value("admin2").toString());
+    //        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Location"}, {FMH::MODEL_KEY::VALUE, addr.text()}};
+    //    }
+    //    m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Origin"}, {FMH::MODEL_KEY::VALUE, extractor.dateTime().toString()}};
+    return QString();
+}

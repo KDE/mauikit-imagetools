@@ -13,7 +13,6 @@
 
 #include <QFileInfo>
 
-class ReverseGeoCoder;
 class PicInfoModel : public MauiList
 {
     Q_OBJECT
@@ -23,7 +22,6 @@ class PicInfoModel : public MauiList
 public:
     enum ROLES { KEY, VALUE };
     explicit PicInfoModel(QObject *parent = nullptr);
-    ~PicInfoModel();
 
     QUrl url() const;
     void componentComplete() override final;
@@ -35,7 +33,6 @@ private:
     QUrl m_url;
     QString m_fileName;
     FMH::MODEL_LIST m_data;
-    ReverseGeoCoder *m_geoCoder;
 
     void parse();
 

@@ -23,32 +23,21 @@
 
 #include <exiv2/exiv2.hpp>
 
-#include <QDateTime>
 #include <QString>
 #include <QVariant>
 #include <QUrl>
 
 typedef QMap<QString, QString> MetaDataMap;
+typedef QPair<double, double> Coordinates;
 
+class ReverseGeoCoder;
 class Exiv2Extractor : public QObject
 {
 public:
     Exiv2Extractor(const QUrl &url, QObject * parent = nullptr);
-
-    void extract(const QString &filePath);
-
-    double gpsLatitude()
-    {
-        return m_latitude;
-    }
-    double gpsLongitude()
-    {
-        return m_longitude;
-    }
-    QDateTime dateTime()
-    {
-        return m_dateTime;
-    }
+    ~Exiv2Extractor();
+    
+    Coordinates extractGPS();
 
     bool error() const;
     
@@ -58,22 +47,23 @@ public:
     MetaDataMap getExifTagsDataList( const QStringList & exifKeysFilter = QStringList(), bool invertSelection = false ) const;
     QString getExifComment() const;
     
+    QString GPSString() const;
+    
 private:
-    double fetchGpsDouble(const Exiv2::ExifData &data, const char *name);
-    QByteArray fetchByteArray(const Exiv2::ExifData &data, const char *name);
-
-    double m_latitude;
-    double m_longitude;
-    QDateTime m_dateTime;
+    double fetchGpsDouble(const char *name);
 
     bool m_error;
     
     QUrl m_url;
+    
+    ReverseGeoCoder *m_geoCoder;    
+    
     #if EXIV2_TEST_VERSION(0, 27, 99)
     Exiv2::Image::UniquePtr m_image;
     #else
     Exiv2::Image::AutoPtr m_image;
     #endif
+    
     Exiv2::ExifData & exifData() const;
 };
 
