@@ -5,6 +5,7 @@
 #include <QQmlEngine>
 #include <QResource>
 
+#include "picinfomodel.h"
 #include "imagetools_plugin.h"
 
 void ImageToolsPlugin::registerTypes(const char *uri)
@@ -15,5 +16,8 @@ void ImageToolsPlugin::registerTypes(const char *uri)
     
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageViewer.qml")), uri, 1, 0, "ImageViewer");   
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageEditor.qml")), uri, 1, 0, "ImageEditor"); 
+
+    qmlRegisterType<PicInfoModel>(uri, 1, 3, "PicInfoModel");
+    qmlRegisterType(resolveFileUrl(QStringLiteral("ImageInfoDialog.qml")), uri, 1, 3, "ImageInfoDialog");     
 }
 

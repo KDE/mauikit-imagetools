@@ -8,6 +8,13 @@ set(KF5_VERSION "5.70.0")
 set(REQUIRED_QT_VERSION 5.15.0)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
 
 project(ImageTools LANGUAGES CXX VERSION 1.2.2)
 
@@ -21,6 +28,7 @@ include(KDECMakeSettings)
 include(KDECompilerSettings)
 include(FeatureSummary)
 include(ECMPoQmTools)
+include(ECMQMLModules)
 include(ECMSetupVersion)
 include(CMakePackageConfigHelpers)
 #include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
@@ -58,8 +66,23 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
         DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
         COMPONENT Devel)
                 
-find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick REQUIRED)
-    
+find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Sql Positioning REQUIRED)
+find_package(LibExiv2 0.21 REQUIRED)
+
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Config CoreAddons)
+find_package(MauiKit REQUIRED)
+
+ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
+find_package(KQuickImageEditor COMPONENTS)
+set_package_properties(KQuickImageEditor PROPERTIES
+    TYPE REQUIRED
+    DESCRIPTION "Simple image editor for QtQuick applications"
+    URL "https://invent.kde.org/libraries/kquickimageeditor/"
+    PURPOSE "Add image editing capability to image attachments"
+)
+
+kde_enable_exceptions()
+
 add_subdirectory(src)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

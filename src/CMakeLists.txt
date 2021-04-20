@@ -6,10 +6,22 @@ ecm_create_qm_loader(imagetools_QM_LOADER libimagetoolsplugin_qt)
 
 set(
     sources
-    code/imagetools_plugin.cpp  
+    code/imagetools_plugin.cpp     
+     code/picinfomodel.cpp
+         code/exiv2extractor.cpp
+
     resources.qrc
     ${imagetools_QM_LOADER}
 )
+
+set(
+    headers
+         code/picinfomodel.h
+    code/imagetools_plugin.h
+    code/exiv2extractor.h
+    code/reversegeocoder.h
+    code/kdtree.h
+    )
 
 set(
     pluginData
@@ -38,11 +50,18 @@ target_include_directories(MauiKitImageTools PUBLIC "$<BUILD_INTERFACE:${CMAKE_C
 
 target_link_libraries(
     MauiKitImageTools
-       
+ 
     PRIVATE
-        Qt5::Core
+          Qt5::Core
         Qt5::Quick
         Qt5::Qml
+        Qt5::Sql
+           LibExiv2::LibExiv2
+       Qt5::Positioning
+       KF5::CoreAddons
+       KF5::ConfigCore
+               MauiKit
+
 )
 
 install(TARGETS MauiKitImageTools EXPORT MauiKitImageToolsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
