@@ -21,22 +21,18 @@
 #include "exiv2extractor.h"
 // #include "exiv2.hpp"
 
-//#include "reversegeocoder.h"
 #include <QGeoAddress>
-
+#include <QFileInfo>
 #include <QDateTime>
 #include <QDebug>
 #include <QFile>
 #include <QTextCodec>
 
-#include <MauiKit/Core/fmh.h>
-
 Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(parent)
     , m_error(true)
     , m_url(url)
-    //  , m_geoCoder( new ReverseGeoCoder)
-{
-    if (!FMH::fileExists(m_url) || m_url.isEmpty() || !m_url.isValid()) {
+    {
+    if (!QFileInfo::exists(m_url.toLocalFile()) || m_url.isEmpty() || !m_url.isValid()) {
         m_error = true;
     }    
     
@@ -62,10 +58,6 @@ Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(paren
     m_error = false;
 }
 
-Exiv2Extractor::~Exiv2Extractor()
-{
-    //    delete m_geoCoder;
-}
 
 Exiv2::ExifData & Exiv2Extractor::exifData() const
 {   
@@ -77,100 +69,7 @@ Exiv2::ExifData & Exiv2Extractor::exifData() const
     return exifData;
 }
 
-static QDateTime dateTimeFromString(const QString &dateString)
-{
-    QDateTime dateTime;
-
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy-MM-dd"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("dd-MM-yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy-MM"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("MM-yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy.MM.dd"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("dd.MM.yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("dd MMMM yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("MM.yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy.MM"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yy"));
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, Qt::ISODate);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("dddd d MMM yyyy h':'mm':'ss AP"));
-        dateTime.setTimeSpec(Qt::LocalTime);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, QStringLiteral("yyyy:MM:dd hh:mm:ss"));
-        dateTime.setTimeSpec(Qt::LocalTime);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, Qt::SystemLocaleDate);
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, Qt::SystemLocaleShortDate);
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        dateTime = QDateTime::fromString(dateString, Qt::SystemLocaleLongDate);
-        dateTime.setTimeSpec(Qt::UTC);
-    }
-    if (!dateTime.isValid()) {
-        qWarning() << "Could not determine correct datetime format from:" << dateString;
-        return QDateTime();
-    }
-
-    return dateTime;
-}
-
-static QDateTime toDateTime(const Exiv2::Value &value)
-{
-    if (value.typeId() == Exiv2::asciiString) {
-        QDateTime val = dateTimeFromString(value.toString().c_str());
-        if (val.isValid()) {
-            // Datetime is stored in exif as local time.
-            val.setOffsetFromUtc(0);
-            return val;
-        }
-    }
-
-    return QDateTime();
-}
-
-Coordinates Exiv2Extractor::extractGPS()
+Coordinates Exiv2Extractor::extractGPS() const
 {
    double latitude = fetchGpsDouble("Exif.GPSInfo.GPSLatitude");
    double longitude = fetchGpsDouble("Exif.GPSInfo.GPSLongitude");
@@ -186,7 +85,7 @@ Coordinates Exiv2Extractor::extractGPS()
     return {latitude, longitude};
 }
 
-double Exiv2Extractor::fetchGpsDouble(const char *name)
+double Exiv2Extractor::fetchGpsDouble(const char *name) const
 {
     Exiv2::ExifData &data = (exifData());
     Exiv2::ExifData::const_iterator it = data.findKey(Exiv2::ExifKey(name));
@@ -707,37 +606,21 @@ QString Exiv2Extractor::getExifComment() const
     return QString();
 }
 
-static std::string gpsToString(Exiv2::Metadatum& value)
+QString Exiv2Extractor::GPSString()
 {
-    char r[500];
-    int l = 0;
-    l += sprintf(r+l,"count = %ld ",value.count());
-    l += sprintf(r+l,"type = %d ",value.typeId());
-    switch ( value.typeId() ) {
-        case Exiv2::unsignedRational:
-        {
-            l += sprintf(r+l,"Exiv2::unsignedRational ");
-            double decimal = 0 ;
-            double denom   = 1 ;
-            for ( int i = 0 ; i < value.count() ; i++) {
-                Exiv2::Rational rational = value.toRational(i);
-                l += sprintf(r+l,"%d/%d ",rational.first,rational.second);
-                decimal += value.toFloat(i) / denom;
-                denom   *= 60;
-            }
-            l+= sprintf(r+l,"decimal = '%f' ",decimal);
-            l+= sprintf(r+l,"string = '%s' ",value.toString().c_str());
-        } break;
-        
-        default:
-            break;
-    }
+    auto coordinates = extractGPS();
     
-    return std::string(r);
-}
-
-QString Exiv2Extractor::GPSString() const
-{
+    auto latitude = coordinates.first;
+    auto longitude = coordinates.second;
+    if (latitude != 0.0 && longitude != 0.0) {
+        QVariantMap map = m_geoCoder.lookup(latitude, longitude);
+        
+        QGeoAddress addr;
+        addr.setCountry(map.value("country").toString());
+        addr.setState(map.value("admin1").toString());
+        addr.setCity(map.value("admin2").toString());
+       return addr.text();
+    }
     
     //    double latitude = extractor.gpsLatitude();
     //    double longitude = extractor.gpsLongitude();

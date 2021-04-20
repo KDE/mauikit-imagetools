@@ -1,129 +1,303 @@
-// SPDX-License-Identifier: BSD-3-Clause
+#ifndef __KDTREE_H__
+#define __KDTREE_H__
 
-/*
-This file is part of ``kdtree'', a library for working with kd-trees.
-Copyright (C) 2007-2011 John Tsiombikas <nuclear@member.fsf.org>
+#include <vector>
+#include <numeric>
+#include <algorithm>
+#include <exception>
+#include <functional>
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
+namespace kdt
+{
+    /** @brief k-d tree class.
+     */
+    template <class PointT>
+    class KDTree
+    {
+    public:
+        /** @brief The constructors.
+         */
+        KDTree() : root_(nullptr) {};
+        KDTree(const std::vector<PointT>& points) : root_(nullptr) { build(points); }
+        
+        /** @brief The destructor.
+         */
+        ~KDTree() { clear(); }
+        
+        /** @brief Re-builds k-d tree.
+         */
+        void build(const std::vector<PointT>& points)
+        {
+            clear();
+            
+            points_ = points;
+            
+            std::vector<int> indices(points.size());
+            std::iota(std::begin(indices), std::end(indices), 0);
+            
+            root_ = buildRecursive(indices.data(), (int)points.size(), 0);
+        }
+        
+        /** @brief Clears k-d tree.
+         */
+        void clear()
+        { 
+            clearRecursive(root_);
+            root_ = nullptr;
+            points_.clear();
+        }
+        
+        /** @brief Validates k-d tree.
+         */
+        bool validate() const
+        {
+            try
+            {
+                validateRecursive(root_, 0);
+            }
+            catch (const Exception&)
+            {
+                return false;
+            }
+            
+            return true;
+        }
+        
+        /** @brief Searches the nearest neighbor.
+         */
+        int nnSearch(const PointT& query, double* minDist = nullptr) const
+        {
+            int guess;
+            double _minDist = std::numeric_limits<double>::max();
+            
+            nnSearchRecursive(query, root_, &guess, &_minDist);
+            
+            if (minDist)
+                *minDist = _minDist;
+            
+            return guess;
+        }
+        
+        /** @brief Searches k-nearest neighbors.
+         */
+        std::vector<int> knnSearch(const PointT& query, int k) const
+        {
+            KnnQueue queue(k);
+            knnSearchRecursive(query, root_, queue, k);
+            
+            std::vector<int> indices(queue.size());
+            for (size_t i = 0; i < queue.size(); i++)
+                indices[i] = queue[i].second;
+            
+            return indices;
+        }
+        
+        /** @brief Searches neighbors within radius.
+         */
+        std::vector<int> radiusSearch(const PointT& query, double radius) const
+        {
+            std::vector<int> indices;
+            radiusSearchRecursive(query, root_, indices, radius);
+            return indices;
+        }
+        
+    private:
+        
+        /** @brief k-d tree node.
+         */
+        struct Node
+        {
+            int idx;       //!< index to the original point
+            Node* next[2]; //!< pointers to the child nodes
+            int axis;      //!< dimension's axis
+            
+            Node() : idx(-1), axis(-1) { next[0] = next[1] = nullptr; }
+        };
+        
+        /** @brief k-d tree exception.
+         */
+        class Exception : public std::exception { using std::exception::exception; };
+        
+        /** @brief Bounded priority queue.
+         */
+        template <class T, class Compare = std::less<T>>
+        class BoundedPriorityQueue
+        {
+        public:
+            
+            BoundedPriorityQueue() = delete;
+            BoundedPriorityQueue(size_t bound) : bound_(bound) { elements_.reserve(bound + 1); };
+            
+            void push(const T& val)
+            {
+                auto it = std::find_if(std::begin(elements_), std::end(elements_),
+                                       [&](const T& element){ return Compare()(val, element); });
+                elements_.insert(it, val);
+                
+                if (elements_.size() > bound_)
+                    elements_.resize(bound_);
+            }
+            
+            const T& back() const { return elements_.back(); };
+            const T& operator[](size_t index) const { return elements_[index]; }
+            size_t size() const { return elements_.size(); }
+            
+        private:
+            size_t bound_;
+            std::vector<T> elements_;
+        };
+        
+        /** @brief Priority queue of <distance, index> pair.
+         */
+        using KnnQueue = BoundedPriorityQueue<std::pair<double, int>>;
+        
+        /** @brief Builds k-d tree recursively.
+         */
+        Node* buildRecursive(int* indices, int npoints, int depth)
+        {
+            if (npoints <= 0)
+                return nullptr;
+            
+            const int axis = depth % PointT::DIM;
+            const int mid = (npoints - 1) / 2;
+            
+            std::nth_element(indices, indices + mid, indices + npoints, [&](int lhs, int rhs)
+            {
+                return points_[lhs][axis] < points_[rhs][axis];
+            });
+            
+            Node* node = new Node();
+            node->idx = indices[mid];
+            node->axis = axis;
+            
+            node->next[0] = buildRecursive(indices, mid, depth + 1);
+            node->next[1] = buildRecursive(indices + mid + 1, npoints - mid - 1, depth + 1);
+            
+            return node;
+        }
+        
+        /** @brief Clears k-d tree recursively.
+         */
+        void clearRecursive(Node* node)
+        {
+            if (node == nullptr)
+                return;
+            
+            if (node->next[0])
+                clearRecursive(node->next[0]);
+            
+            if (node->next[1])
+                clearRecursive(node->next[1]);
+            
+            delete node;
+        }
+        
+        /** @brief Validates k-d tree recursively.
+         */
+        void validateRecursive(const Node* node, int depth) const
+        {
+            if (node == nullptr)
+                return;
+            
+            const int axis = node->axis;
+            const Node* node0 = node->next[0];
+            const Node* node1 = node->next[1];
+            
+            if (node0 && node1)
+            {
+                if (points_[node->idx][axis] < points_[node0->idx][axis])
+                    throw Exception();
+                
+                if (points_[node->idx][axis] > points_[node1->idx][axis])
+                    throw Exception();
+            }
+            
+            if (node0)
+                validateRecursive(node0, depth + 1);
+            
+            if (node1)
+                validateRecursive(node1, depth + 1);
+        }
+        
+        static double distance(const PointT& p, const PointT& q)
+        {
+            double dist = 0;
+            for (size_t i = 0; i < PointT::DIM; i++)
+                dist += (p[i] - q[i]) * (p[i] - q[i]);
+            return sqrt(dist);
+        }
+        
+        /** @brief Searches the nearest neighbor recursively.
+         */
+        void nnSearchRecursive(const PointT& query, const Node* node, int *guess, double *minDist) const
+        {
+            if (node == nullptr)
+                return;
+            
+            const PointT& train = points_[node->idx];
+            
+            const double dist = distance(query, train);
+            if (dist < *minDist)
+            {
+                *minDist = dist;
+                *guess = node->idx;
+            }
+            
+            const int axis = node->axis;
+            const int dir = query[axis] < train[axis] ? 0 : 1;
+            nnSearchRecursive(query, node->next[dir], guess, minDist);
+            
+            const double diff = fabs(query[axis] - train[axis]);
+            if (diff < *minDist)
+                nnSearchRecursive(query, node->next[!dir], guess, minDist);
+        }
+        
+        /** @brief Searches k-nearest neighbors recursively.
+         */
+        void knnSearchRecursive(const PointT& query, const Node* node, KnnQueue& queue, int k) const
+        {
+            if (node == nullptr)
+                return;
+            
+            const PointT& train = points_[node->idx];
+            
+            const double dist = distance(query, train);
+            queue.push(std::make_pair(dist, node->idx));
+            
+            const int axis = node->axis;
+            const int dir = query[axis] < train[axis] ? 0 : 1;
+            knnSearchRecursive(query, node->next[dir], queue, k);
+            
+            const double diff = fabs(query[axis] - train[axis]);
+            if ((int)queue.size() < k || diff < queue.back().first)
+                knnSearchRecursive(query, node->next[!dir], queue, k);
+        }
+        
+        /** @brief Searches neighbors within radius.
+         */
+        void radiusSearchRecursive(const PointT& query, const Node* node, std::vector<int>& indices, double radius) const
+        {
+            if (node == nullptr)
+                return;
+            
+            const PointT& train = points_[node->idx];
+            
+            const double dist = distance(query, train);
+            if (dist < radius)
+                indices.push_back(node->idx);
+            
+            const int axis = node->axis;
+            const int dir = query[axis] < train[axis] ? 0 : 1;
+            radiusSearchRecursive(query, node->next[dir], indices, radius);
+            
+            const double diff = fabs(query[axis] - train[axis]);
+            if (diff < radius)
+                radiusSearchRecursive(query, node->next[!dir], indices, radius);
+        }
+        
+        Node* root_;                 //!< root node
+        std::vector<PointT> points_; //!< points
+    };
+} // kdt
 
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-3. The name of the author may not be used to endorse or promote products
-   derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
-EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT
-OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
-IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
-OF SUCH DAMAGE.
-*/
-#ifndef KOKO_KDTREE_H_
-#define KOKO_KDTREE_H_
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-struct kdtree;
-struct kdres;
-
-/* create a kd-tree for "k"-dimensional data */
-struct kdtree *kd_create(int k);
-
-/* free the struct kdtree */
-void kd_free(struct kdtree *tree);
-
-/* remove all the elements from the tree */
-void kd_clear(struct kdtree *tree);
-
-/* if called with non-null 2nd argument, the function provided
- * will be called on data pointers (see kd_insert) when nodes
- * are to be removed from the tree.
- */
-void kd_data_destructor(struct kdtree *tree, void (*destr)(void *));
-
-/* insert a node, specifying its position, and optional data */
-int kd_insert(struct kdtree *tree, const double *pos, void *data);
-int kd_insertf(struct kdtree *tree, const float *pos, void *data);
-int kd_insert3(struct kdtree *tree, double x, double y, double z, void *data);
-int kd_insert3f(struct kdtree *tree, float x, float y, float z, void *data);
-
-/* Find the nearest node from a given point.
- *
- * This function returns a pointer to a result set with at most one element.
- */
-struct kdres *kd_nearest(struct kdtree *tree, const double *pos);
-struct kdres *kd_nearestf(struct kdtree *tree, const float *pos);
-struct kdres *kd_nearest3(struct kdtree *tree, double x, double y, double z);
-struct kdres *kd_nearest3f(struct kdtree *tree, float x, float y, float z);
-
-/* Find the N nearest nodes from a given point.
- *
- * This function returns a pointer to a result set, with at most N elements,
- * which can be manipulated with the kd_res_* functions.
- * The returned pointer can be null as an indication of an error. Otherwise
- * a valid result set is always returned which may contain 0 or more elements.
- * The result set must be deallocated with kd_res_free after use.
- */
-/*
-struct kdres *kd_nearest_n(struct kdtree *tree, const double *pos, int num);
-struct kdres *kd_nearest_nf(struct kdtree *tree, const float *pos, int num);
-struct kdres *kd_nearest_n3(struct kdtree *tree, double x, double y, double z);
-struct kdres *kd_nearest_n3f(struct kdtree *tree, float x, float y, float z);
-*/
-
-/* Find any nearest nodes from a given point within a range.
- *
- * This function returns a pointer to a result set, which can be manipulated
- * by the kd_res_* functions.
- * The returned pointer can be null as an indication of an error. Otherwise
- * a valid result set is always returned which may contain 0 or more elements.
- * The result set must be deallocated with kd_res_free after use.
- */
-struct kdres *kd_nearest_range(struct kdtree *tree, const double *pos, double range);
-struct kdres *kd_nearest_rangef(struct kdtree *tree, const float *pos, float range);
-struct kdres *kd_nearest_range3(struct kdtree *tree, double x, double y, double z, double range);
-struct kdres *kd_nearest_range3f(struct kdtree *tree, float x, float y, float z, float range);
-
-/* frees a result set returned by kd_nearest_range() */
-void kd_res_free(struct kdres *set);
-
-/* returns the size of the result set (in elements) */
-int kd_res_size(struct kdres *set);
-
-/* rewinds the result set iterator */
-void kd_res_rewind(struct kdres *set);
-
-/* returns non-zero if the set iterator reached the end after the last element */
-int kd_res_end(struct kdres *set);
-
-/* advances the result set iterator, returns non-zero on success, zero if
- * there are no more elements in the result set.
- */
-int kd_res_next(struct kdres *set);
-
-/* returns the data pointer (can be null) of the current result set item
- * and optionally sets its position to the pointers(s) if not null.
- */
-void *kd_res_item(struct kdres *set, double *pos);
-void *kd_res_itemf(struct kdres *set, float *pos);
-void *kd_res_item3(struct kdres *set, double *x, double *y, double *z);
-void *kd_res_item3f(struct kdres *set, float *x, float *y, float *z);
-
-/* equivalent to kd_res_item(set, 0) */
-void *kd_res_item_data(struct kdres *set);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif /* KOKO_KDTREE_H_ */
+#endif // !__KDTREE_H__

@@ -9,7 +9,8 @@ set(
     code/imagetools_plugin.cpp     
      code/picinfomodel.cpp
          code/exiv2extractor.cpp
-
+    code/reversegeocoder.cpp
+  #code/kdtree.cpp
     resources.qrc
     ${imagetools_QM_LOADER}
 )
@@ -20,7 +21,7 @@ set(
     code/imagetools_plugin.h
     code/exiv2extractor.h
     code/reversegeocoder.h
-    code/kdtree.h
+    #code/kdtree.h
     )
 
 set(

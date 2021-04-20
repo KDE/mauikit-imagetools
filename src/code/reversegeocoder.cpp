@@ -1,22 +1,7 @@
-// SPDX-License-Identifier: LGPL-3.0-or-later
-
 /*
- * Copyright (C) 2015  Vishesh Handa <vhanda@kde.org>
+ * SPDX-FileCopyrightText: (C) 2015 Vishesh Handa <me@vhanda.in>
  *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public
- * License along with this library; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
- *
+ * SPDX-License-Identifier: LGPL-2.1-or-later
  */
 
 #include "reversegeocoder.h"
@@ -26,9 +11,12 @@
 #include <QTextStream>
 
 #include <QDebug>
+#include <QMutexLocker>
+
+using namespace Koko;
 
 ReverseGeoCoder::ReverseGeoCoder()
-    : m_tree(0)
+//     : m_tree(0)
 {
 }
 
@@ -38,7 +26,7 @@ ReverseGeoCoder::~ReverseGeoCoder()
 }
 
 void ReverseGeoCoder::init()
-{
+{/*
     m_tree = kd_create(2);
 
     QString citiesPath = QStandardPaths::locate(QStandardPaths::DataLocation, "cities1000.txt");
@@ -138,27 +126,33 @@ void ReverseGeoCoder::init()
         m_admin2Map.insert(code, name);
     }
     Q_ASSERT_X(!m_admin2Map.isEmpty(), "", "admin2Codes.txt file is empty. Packaging issue");
-}
+*/}
 
 void ReverseGeoCoder::deinit()
 {
-    if (m_tree) {
-        kd_free(m_tree);
-        m_tree = 0;
-    }
-
-    m_countryMap.clear();
-    m_admin1Map.clear();
-    m_admin2Map.clear();
+//     QMutexLocker locker(&m_mutex);
+//     if (m_tree) {
+//         kd_free(m_tree);
+//         m_tree = 0;
+//     }
+// 
+//     m_countryMap.clear();
+//     m_admin1Map.clear();
+//     m_admin2Map.clear();
 }
 
 bool ReverseGeoCoder::initialized()
 {
-    return m_tree;
+//     return m_tree;
+    return false;
 }
 
-QVariantMap ReverseGeoCoder::lookup(double lat, double lon) const
-{
+QVariantMap ReverseGeoCoder::lookup(double lat, double lon)
+{/*
+    QMutexLocker locker(&m_mutex);
+    if (!initialized()) {
+        init();
+    }
     Q_ASSERT(m_tree);
 
     kdres *res = kd_nearest3(m_tree, lat, lon, 0.0);
@@ -181,4 +175,7 @@ QVariantMap ReverseGeoCoder::lookup(double lat, double lon) const
     vMap.insert("admin2", m_admin2Map.value(admin2));
 
     return vMap;
+    */
+    
+    return QVariantMap();
 }

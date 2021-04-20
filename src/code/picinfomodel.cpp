@@ -70,6 +70,8 @@ void PicInfoModel::parse()
     Exiv2Extractor extractor(m_url);
     if (!extractor.error())
     {        
+        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Location"}, {FMH::MODEL_KEY::VALUE,  extractor.GPSString()}, {FMH::MODEL_KEY::ICON, "map-globe"}};
+        
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Aperture"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Photo.MaxApertureValue")}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Camera"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Image.Make")}, {FMH::MODEL_KEY::ICON, "camera-video"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Camera Model"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Image.Model")}, {FMH::MODEL_KEY::ICON, "documentinfo"}};

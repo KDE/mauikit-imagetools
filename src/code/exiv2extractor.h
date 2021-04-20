@@ -23,6 +23,8 @@
 
 #include <exiv2/exiv2.hpp>
 
+#include "reversegeocoder.h"
+
 #include <QString>
 #include <QVariant>
 #include <QUrl>
@@ -30,14 +32,13 @@
 typedef QMap<QString, QString> MetaDataMap;
 typedef QPair<double, double> Coordinates;
 
-class ReverseGeoCoder;
+using namespace Koko;
 class Exiv2Extractor : public QObject
 {
 public:
     Exiv2Extractor(const QUrl &url, QObject * parent = nullptr);
-    ~Exiv2Extractor();
     
-    Coordinates extractGPS();
+    Coordinates extractGPS() const;
 
     bool error() const;
     
@@ -47,16 +48,16 @@ public:
     MetaDataMap getExifTagsDataList( const QStringList & exifKeysFilter = QStringList(), bool invertSelection = false ) const;
     QString getExifComment() const;
     
-    QString GPSString() const;
+    QString GPSString() ;
     
 private:
-    double fetchGpsDouble(const char *name);
+    double fetchGpsDouble(const char *name) const;
 
     bool m_error;
     
     QUrl m_url;
     
-    ReverseGeoCoder *m_geoCoder;    
+    ReverseGeoCoder m_geoCoder;    
     
     #if EXIV2_TEST_VERSION(0, 27, 99)
     Exiv2::Image::UniquePtr m_image;
