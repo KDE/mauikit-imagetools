@@ -43,6 +43,14 @@ set_target_properties(MauiKitImageTools PROPERTIES
     SOVERSION ${ImageTools_SOVERSION}
     EXPORT_NAME ImageTools
 )
+
+if(UNIX AND NOT ANDROID)
+    target_link_libraries(
+        MauiKitImageTools 
+        PRIVATE          
+        KF5::ConfigCore
+    )
+endif()
     
 target_include_directories(MauiKitImageTools
     INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/MauiKit/ImageTools>")

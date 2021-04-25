@@ -69,7 +69,13 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Sql Positioning REQUIRED)
 find_package(LibExiv2 0.21 REQUIRED)
 
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n Config CoreAddons)
+if(UNIX AND NOT ANDROID)
+
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Config)
+
+endif()
+
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
 
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
