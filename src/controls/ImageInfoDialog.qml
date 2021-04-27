@@ -21,6 +21,7 @@ Maui.Dialog
     property alias url : _infoModel.url
     maxHeight: 800
     maxWidth: 500
+    hint: 1
     defaultButtons: false
     title: _infoModel.fileName
     headBar.visible: true

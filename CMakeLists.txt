@@ -70,9 +70,7 @@ find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Sql Positioning RE
 find_package(LibExiv2 0.21 REQUIRED)
 
 if(UNIX AND NOT ANDROID)
-
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Config)
-
 endif()
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)

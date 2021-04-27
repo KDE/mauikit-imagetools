@@ -117,7 +117,7 @@ text: control.value + "°"
             width: height
             color: Kirigami.Theme.textColor
             isMask: true
-            source: "qrc:/assets/arrow-up.svg"
+            source: "qrc:/data/arrow-up.svg"
         }
 
     }

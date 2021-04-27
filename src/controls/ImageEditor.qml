@@ -16,31 +16,16 @@ Maui.Page
     property url url
 
     property bool ready : String(control.url).length
+    
+    property alias editor : imageDoc
 
     headBar.visible: control.ready
-
-
-    headBar.rightContent:  Maui.ToolButtonMenu
-    {
-        icon.name: "document-save"
-        
-        MenuItem
-        {
-            text: i18n("Save as")
-            icon.name: "document-save-as"
-        }
-
-        MenuItem
-        {
-            text: i18n("Save")
-            icon.name: "document-save"
-        }
-    }
 
     headBar.leftContent: ToolButton
         {
             icon.name: "edit-undo"
             enabled: imageDoc.edited
+            onClicked: imageDoc.undo()
         }
     
 
@@ -49,6 +34,7 @@ Maui.Page
         id: _editTools
         autoExclusive: true
         currentIndex : 1
+        expanded: control.width > Kirigami.Units.gridUnit * 30
         display: ToolButton.TextBesideIcon
 
         Action
