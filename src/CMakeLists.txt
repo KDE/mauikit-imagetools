@@ -65,7 +65,7 @@ target_link_libraries(
     Qt5::Quick
     Qt5::Qml
     Qt5::Sql
-    LibExiv2::LibExiv2
+    PkgConfig::LibExiv2
     Qt5::Positioning
     KF5::CoreAddons
     MauiKit
