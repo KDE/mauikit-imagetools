@@ -148,7 +148,10 @@ bool ReverseGeoCoder::initialized()
 }
 
 QVariantMap ReverseGeoCoder::lookup(double lat, double lon)
-{/*
+{
+    Q_UNUSED(lat)
+    Q_UNUSED(lon)
+    /*
     QMutexLocker locker(&m_mutex);
     if (!initialized()) {
         init();

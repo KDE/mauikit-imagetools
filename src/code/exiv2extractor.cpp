@@ -160,7 +160,7 @@ QString Exiv2Extractor::getExifTagString(const char* exifTagName, bool escapeCR)
     }
     catch( Exiv2::Error& e )
     {
-        qWarning() << (QString::fromLatin1("Cannot find Exif key '%1' into image using Exiv2 ").arg(QString::fromLatin1(exifTagName)), e.what());
+        qWarning() << QString("Cannot find Exif key '%1' into image using Exiv2 ").arg(QString::fromLatin1(exifTagName)) << e.what();
     }
     catch(...)
     {
@@ -190,7 +190,7 @@ QByteArray Exiv2Extractor::getExifTagData(const char* exifTagName) const
     }
     catch( Exiv2::Error& e )
     {
-        qWarning() << (QString::fromLatin1("Cannot find Exif key '%1' into image using Exiv2 ").arg(QString::fromLatin1(exifTagName)), e.what());
+        qWarning() << QString("Cannot find Exif key '%1' into image using Exiv2 ").arg(QString::fromLatin1(exifTagName)) << e.what();
     }
     catch(...)
     {
@@ -275,7 +275,7 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
     }
     catch( Exiv2::Error& e )
     {
-       qWarning () << (QString::fromLatin1("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(exifTagName)), e.what());
+       qWarning () << QString("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(exifTagName)) << e.what();
     }
     catch(...)
     {
@@ -490,7 +490,6 @@ MetaDataMap Exiv2Extractor::getExifTagsDataList(const QStringList& exifKeysFilte
         Exiv2::ExifData &data = exifData();
         data.sortByKey();
         
-        QString     ifDItemName;
         MetaDataMap metaDataMap;
         
         for (Exiv2::ExifData::iterator md = data.begin(); md != data.end(); ++md)

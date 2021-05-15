@@ -53,7 +53,6 @@ static FMH::MODEL_LIST basicInfo(const QUrl &url)
 
 void PicInfoModel::parse()
 {
-    qDebug() << "PARSE @gadominguez URI: " << m_url.toString();
     if (!FMH::fileExists(m_url) || m_url.isEmpty() || !m_url.isValid()) {
         return;
     }
@@ -65,7 +64,6 @@ void PicInfoModel::parse()
     emit preListChanged();
     m_data.clear();
     m_data << basicInfo(m_url);
-    FMH::MODEL model;
     
     Exiv2Extractor extractor(m_url);
     if (!extractor.error())
@@ -95,9 +93,6 @@ void PicInfoModel::parse()
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Longitude"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLongitude")}, {FMH::MODEL_KEY::ICON, "user"}};
         
     }
-    
-    
-    //       qDebug() << "ISOOOOOOOOO" << extractor.getExifTagsDataList();
        
     emit postListChanged();
 }
