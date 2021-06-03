@@ -19,7 +19,6 @@
 */
 
 #include "exiv2extractor.h"
-// #include "exiv2.hpp"
 
 #include <QGeoAddress>
 #include <QFileInfo>
@@ -607,37 +606,8 @@ QString Exiv2Extractor::getExifComment() const
 
 QString Exiv2Extractor::GPSString()
 {
-    auto coordinates = extractGPS();
+    //auto coordinates = extractGPS();
     
-    auto latitude = coordinates.first;
-    auto longitude = coordinates.second;
-    if (latitude != 0.0 && longitude != 0.0) {
-        QVariantMap map = m_geoCoder.lookup(latitude, longitude);
-        
-        QGeoAddress addr;
-        addr.setCountry(map.value("country").toString());
-        addr.setState(map.value("admin1").toString());
-        addr.setCity(map.value("admin2").toString());
-       return addr.text();
-    }
-    
-    //    double latitude = extractor.gpsLatitude();
-    //    double longitude = extractor.gpsLongitude();
-    
-    //    if (latitude != 0.0 && longitude != 0.0)
-    //    {
-    //        if (!m_geoCoder->initialized())
-    //        {
-    //            m_geoCoder->init();
-    //        }
-    //        QVariantMap map = m_geoCoder->lookup(latitude, longitude);
-    
-    //        QGeoAddress addr;
-    //        addr.setCountry(map.value("country").toString());
-    //        addr.setState(map.value("admin1").toString());
-    //        addr.setCity(map.value("admin2").toString());
-    //        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Location"}, {FMH::MODEL_KEY::VALUE, addr.text()}};
-    //    }
-    //    m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Origin"}, {FMH::MODEL_KEY::VALUE, extractor.dateTime().toString()}};
+
     return QString();
 }

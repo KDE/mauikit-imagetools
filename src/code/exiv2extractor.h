@@ -29,11 +29,12 @@
 #include <QVariant>
 #include <QUrl>
 
+#include "imagetools_export.h"
+
 typedef QMap<QString, QString> MetaDataMap;
 typedef QPair<double, double> Coordinates;
 
-using namespace Koko;
-class Exiv2Extractor : public QObject
+class IMAGETOOLS_EXPORT Exiv2Extractor : public QObject
 {
 public:
     Exiv2Extractor(const QUrl &url, QObject * parent = nullptr);
@@ -56,9 +57,7 @@ private:
     bool m_error;
     
     QUrl m_url;
-    
-    ReverseGeoCoder m_geoCoder;    
-    
+       
     #if EXIV2_TEST_VERSION(0, 27, 99)
     Exiv2::Image::UniquePtr m_image;
     #else
