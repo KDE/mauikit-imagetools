@@ -23,8 +23,6 @@
 
 #include <exiv2/exiv2.hpp>
 
-#include "reversegeocoder.h"
-
 #include <QString>
 #include <QVariant>
 #include <QUrl>
