@@ -9,17 +9,23 @@ set(
     code/imagetools_plugin.cpp
     code/picinfomodel.cpp
     code/exiv2extractor.cpp
+    Cities/City.cpp
+    Cities/Cities.cpp
+    Cities/KDTree.cpp
 #    code/reversegeocoder.cpp
     #code/kdtree.cpp
     resources.qrc
     ${imagetools_QM_LOADER}
-    )
+        Cities/Cities.cpp Cities/Cities.h)
 
 set(
     headers
     code/picinfomodel.h
     code/imagetools_plugin.h
     code/exiv2extractor.h
+    Cities/City.h
+    Cities/Cities.h
+    Cities/KDTree.hpp
 #    code/reversegeocoder.h
     #code/kdtree.h
     )

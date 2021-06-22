@@ -87,11 +87,10 @@ void PicInfoModel::parse()
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Compression"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Photo.WhiteBalance")}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Notes"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifComment()}, {FMH::MODEL_KEY::ICON, "note"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Author"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Image.Artist")}, {FMH::MODEL_KEY::ICON, "user"}};
-        
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Latitude"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLatitude")}, {FMH::MODEL_KEY::ICON, "user"}};
-        
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Longitude"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLongitude")}, {FMH::MODEL_KEY::ICON, "user"}};
-        
+        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "City"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLongitude")}, {FMH::MODEL_KEY::ICON, "user"}};
+
     }
        
     emit postListChanged();
