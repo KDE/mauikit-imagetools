@@ -9,25 +9,21 @@ set(
     code/imagetools_plugin.cpp
     code/picinfomodel.cpp
     code/exiv2extractor.cpp
-    Cities/City.cpp
-    Cities/Cities.cpp
-    Cities/KDTree.cpp
-#    code/reversegeocoder.cpp
-    #code/kdtree.cpp
+    code/geolocation/city.cpp
+    code/geolocation/cities.cpp
+    code/geolocation/kdtree.cpp
     resources.qrc
     ${imagetools_QM_LOADER}
-        Cities/Cities.cpp Cities/Cities.h)
+    )
 
 set(
     headers
     code/picinfomodel.h
     code/imagetools_plugin.h
     code/exiv2extractor.h
-    Cities/City.h
-    Cities/Cities.h
-    Cities/KDTree.hpp
-#    code/reversegeocoder.h
-    #code/kdtree.h
+    code/geolocation/city.h
+    code/geolocation/cities.h
+    code/geolocation/kdtree.hpp
     )
 
 set(
@@ -97,11 +93,7 @@ if (BUILD_SHARED_LIBS)
 
     install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
 
-    #include(ECMGeneratePriFile)
-    #ecm_generate_pri_file(BASE_NAME KQuickImageEditor LIB_NAME KQuickImageEditor DEPS "core qml quick svg" FILENAME_VAR PRI_FILENAME )
-    #install(FILES ${PRI_FILENAME}
-    #DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
-
+    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/code/geolocation/cities1000.txt DESTINATION ${KDE_INSTALL_DATADIR}/pix)
 endif()
 
 install(TARGETS MauiKitImageTools DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools )
