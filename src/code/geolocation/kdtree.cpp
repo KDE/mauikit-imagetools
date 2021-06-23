@@ -19,7 +19,7 @@
 #include <memory>
 #include <vector>
 
-#include "KDTree.hpp"
+#include "kdtree.hpp"
 
 KDNode::KDNode() = default;
 
