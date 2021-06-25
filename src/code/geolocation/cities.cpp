@@ -51,8 +51,8 @@ void Cities::parseCities()
         double lon = list[5].toDouble();
         QString countryPrefix = list[8];
         QString continent = list[17];
-        
-        m_citiesMap.insert(cityID, new City{cityID, name, continent, countryPrefix, lat, lon});
+
+        m_citiesMap.insert(cityID, new City{cityID, name, continent, countryPrefix, lat, lon, this});
         pointVector.push_back({lat, lon});
     }
     
@@ -62,6 +62,7 @@ void Cities::parseCities()
 
 QString Cities::findCity(double latitude, double longitude)
 {
+    qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
     auto pointNear = m_citiesTree.nearest_point({latitude, longitude});
     
     for (const auto &c : m_citiesMap)
