@@ -9,6 +9,8 @@
 #include <QStringList>
 #include <QCoreApplication>
 
+#include "city.h"
+
 Cities *Cities::m_instance = nullptr;
 
 Cities::Cities(QObject * parent) : QObject(parent)
@@ -51,7 +53,7 @@ void Cities::parseCities()
         double lon = list[5].toDouble();
         QString countryPrefix = list[8];
         QString continent = list[17];
-
+        
         m_citiesMap.insert(cityID, new City{cityID, name, continent, countryPrefix, lat, lon, this});
         pointVector.push_back({lat, lon});
     }
@@ -60,7 +62,7 @@ void Cities::parseCities()
     emit citiesReady(); 
 }
 
-QString Cities::findCity(double latitude, double longitude)
+const City* Cities::findCity(double latitude, double longitude)
 {
     qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
     auto pointNear = m_citiesTree.nearest_point({latitude, longitude});
@@ -69,9 +71,19 @@ QString Cities::findCity(double latitude, double longitude)
     {
         if(c->match(pointNear[0], pointNear[1]))
         {
-            return c->name();
+            return c;
         }
     }
     
-    return QString();
+    return new City(this);
+}
+
+const City * Cities::city(const QString &cityId)
+{
+    if(m_citiesMap.contains(cityId))
+    {
+        return m_citiesMap[cityId];
+    }
+    
+    return new City(this);
 }

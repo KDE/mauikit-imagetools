@@ -15,6 +15,10 @@ City::City(const QString &cityID, const QString &name, const QString &continent,
     
 }
 
+City::City(QObject* parent) : QObject(parent)
+{
+}
+
 QString City::id() const
 {
     return m_cityID;
@@ -33,6 +37,11 @@ QString City::continent() const
 QString City::country() const
 {
     return m_country;
+}
+
+bool City::valid() const
+{
+return !m_cityID.isEmpty();    
 }
 
 bool City::match(double latitude, double longitude)

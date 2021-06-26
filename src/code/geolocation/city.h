@@ -8,12 +8,16 @@
 #include <QObject>
 #include <QString>
 
-class City : public QObject
+#include "imagetools_export.h"
+
+class IMAGETOOLS_EXPORT City : public QObject
 {
     Q_OBJECT
     
 public:
     City(const QString &cityID, const QString &name, const QString &continent, const QString &country, const double &latitude, const double &longitude, QObject *parent = nullptr);
+    
+    explicit City(QObject *parent = nullptr);
     
     bool match(double latitude, double longitude);
     
@@ -29,6 +33,8 @@ public:
     QString name() const;
     QString country() const;
     QString continent() const;
+    
+    bool valid() const;
     
 private:
     QString m_cityID;

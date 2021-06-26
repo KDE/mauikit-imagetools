@@ -32,6 +32,7 @@
 typedef QMap<QString, QString> MetaDataMap;
 typedef QPair<double, double> Coordinates;
 
+class City;
 class IMAGETOOLS_EXPORT Exiv2Extractor : public QObject
 {
 public:
@@ -47,7 +48,9 @@ public:
     MetaDataMap getExifTagsDataList( const QStringList & exifKeysFilter = QStringList(), bool invertSelection = false ) const;
     QString getExifComment() const;
     
-    QString GPSString() ;
+    QString GPSString() const;
+    QString cityId() const;
+    const City* city() const;
     
 private:
     double fetchGpsDouble(const char *name) const;

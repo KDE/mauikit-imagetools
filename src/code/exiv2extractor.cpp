@@ -28,6 +28,7 @@
 #include <QTextCodec>
 
 #include "geolocation/cities.h"
+#include "geolocation/city.h"
 
 Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(parent)
     , m_error(true)
@@ -606,8 +607,22 @@ QString Exiv2Extractor::getExifComment() const
     return QString();
 }
 
-QString Exiv2Extractor::GPSString()
+QString Exiv2Extractor::GPSString() const
 {
-    auto c = extractGPS();
+   return city()->name();
+}
+
+QString Exiv2Extractor::cityId() const
+{
+   return city()->id();
+}
+
+const City * Exiv2Extractor::city() const
+{
+    if(error())
+    {
+        return new City(nullptr);
+    }
+     auto c = extractGPS();
    return Cities::instance()->findCity(c.first, c.second);
 }

@@ -9,10 +9,10 @@
 #include <QMap>
 
 #include "kdtree.hpp"
-#include "city.h"
 
 #include "imagetools_export.h"
 
+class City;
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
 Q_OBJECT
@@ -34,7 +34,8 @@ public:
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
 
-    QString findCity(double latitude, double longitude);
+     const City* findCity(double latitude, double longitude);
+    const City* city(const QString&);
 
 private:
     static Cities *m_instance;
