@@ -11,7 +11,6 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
-#include "city.h"
 
 Cities *Cities::m_instance = nullptr;
 
@@ -82,11 +81,11 @@ void Cities::parseCities()
     emit citiesReady();
 }
 
-const City* Cities::findCity(double latitude, double longitude)
+const City Cities::findCity(double latitude, double longitude)
 {
     if(m_error)
     {
-        return new City(this);
+        return City();
     }
     
     qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
@@ -106,19 +105,19 @@ const City* Cities::findCity(double latitude, double longitude)
 
     if(query.first())
     {
-        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
+        return City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble());
     }
 
     qWarning() << "City not found";
 
-    return new City(this);
+    return City();
 }
 
-const City * Cities::city(const QString &cityId)
+const City Cities::city(const QString &cityId)
 {
     if(m_error)
     {
-        return new City(this);
+        return City();
     }
 
     QSqlQuery query(m_db);
@@ -132,8 +131,8 @@ const City * Cities::city(const QString &cityId)
 
     if(query.first())
     {
-        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
+        return City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
     }
 
-    return new City(this);
+    return City();
 }

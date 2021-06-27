@@ -615,12 +615,12 @@ QString Exiv2Extractor::GPSString() const
     }
      auto m_city = city();
     
-    if(!m_city->isValid())
+    if(!m_city.isValid())
     {
         return QString();
     }
     
-    return m_city->name();
+    return m_city.name();
 }
 
 QString Exiv2Extractor::cityId() const
@@ -632,26 +632,26 @@ QString Exiv2Extractor::cityId() const
     
     auto m_city = city();
     
-    if(!m_city->isValid())
+    if(!m_city.isValid())
     {
         return QString();
     }
     
-    return m_city->id();
+    return m_city.id();
 }
 
-const City * Exiv2Extractor::city() const
+const City Exiv2Extractor::city() const
 {
     if(error())
     {
-        return new City(nullptr);
+        return City();
     }
     
     auto c = extractGPS();
     
     if(c.first == 0.0 || c.second == 0.0)
     {
-        return new City(nullptr);
+        return City();
     }
     
     return Cities::instance()->findCity(c.first, c.second);

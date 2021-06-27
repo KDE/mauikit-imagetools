@@ -11,7 +11,9 @@
 #include "kdtree.hpp"
 
 #include "imagetools_export.h"
-class City;
+
+#include "city.h"
+
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
     Q_OBJECT
@@ -33,8 +35,8 @@ public:
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
     
-    const City* findCity(double latitude, double longitude);
-    const City* city(const QString&);
+    const City findCity(double latitude, double longitude);
+    const City city(const QString&);
     
     bool error() const;
     
