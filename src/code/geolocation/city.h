@@ -34,7 +34,7 @@ public:
     QString country() const;
     QString continent() const;
     
-    bool valid() const;
+    bool isValid() const;
     
 private:
     QString m_cityID;

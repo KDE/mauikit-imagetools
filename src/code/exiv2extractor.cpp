@@ -1,22 +1,22 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 /*
-    Copyright (C) 2012-15  Vishesh Handa <vhanda@kde.org>
-
-    This library is free software; you can redistribute it and/or
-    modify it under the terms of the GNU Lesser General Public
-    License as published by the Free Software Foundation; either
-    version 2.1 of the License, or (at your option) any later version.
-
-    This library is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-    Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public
-    License along with this library; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
-*/
+ *    Copyright (C) 2012-15  Vishesh Handa <vhanda@kde.org>
+ * 
+ *    This library is free software; you can redistribute it and/or
+ *    modify it under the terms of the GNU Lesser General Public
+ *    License as published by the Free Software Foundation; either
+ *    version 2.1 of the License, or (at your option) any later version.
+ * 
+ *    This library is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *    Lesser General Public License for more details.
+ * 
+ *    You should have received a copy of the GNU Lesser General Public
+ *    License along with this library; if not, write to the Free Software
+ *    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
 
 #include "exiv2extractor.h"
 
@@ -31,9 +31,9 @@
 #include "geolocation/city.h"
 
 Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(parent)
-    , m_error(true)
-    , m_url(url)
-    {
+, m_error(true)
+, m_url(url)
+{
     if (!QFileInfo::exists(m_url.toLocalFile()) || m_url.isEmpty() || !m_url.isValid()) {
         m_error = true;
     }    
@@ -50,13 +50,13 @@ Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(paren
     if (!m_image->good()) {
         return;
     }
-        
+    
     try {
         m_image->readMetadata();
     } catch (const std::exception &) {
         return;
     }
-        
+    
     m_error = false;
 }
 
@@ -73,13 +73,13 @@ Exiv2::ExifData & Exiv2Extractor::exifData() const
 
 Coordinates Exiv2Extractor::extractGPS() const
 {
-   double latitude = fetchGpsDouble("Exif.GPSInfo.GPSLatitude");
-   double longitude = fetchGpsDouble("Exif.GPSInfo.GPSLongitude");
-
+    double latitude = fetchGpsDouble("Exif.GPSInfo.GPSLatitude");
+    double longitude = fetchGpsDouble("Exif.GPSInfo.GPSLongitude");
+    
     QByteArray latRef = getExifTagData("Exif.GPSInfo.GPSLatitudeRef");
     if (!latRef.isEmpty() && latRef[0] == 'S')
         latitude *= -1;
-
+    
     QByteArray longRef = getExifTagData("Exif.GPSInfo.GPSLongitudeRef");
     if (!longRef.isEmpty() && longRef[0] == 'W')
         longitude *= -1;
@@ -94,43 +94,43 @@ double Exiv2Extractor::fetchGpsDouble(const char *name) const
     if (it != data.end() && it->count() == 3) {
         double n = 0.0;
         double d = 0.0;
-
+        
         n = (*it).toRational(0).first;
         d = (*it).toRational(0).second;
-
+        
         if (d == 0) {
             return 0.0;
         }
-
+        
         double deg = n / d;
-
+        
         n = (*it).toRational(1).first;
         d = (*it).toRational(1).second;
-
+        
         if (d == 0) {
             return deg;
         }
-
+        
         double min = n / d;
         if (min != -1.0) {
             deg += min / 60.0;
         }
-
+        
         n = (*it).toRational(2).first;
         d = (*it).toRational(2).second;
-
+        
         if (d == 0) {
             return deg;
         }
-
+        
         double sec = n / d;
         if (sec != -1.0) {
             deg += sec / 3600.0;
         }
-
+        
         return deg;
     }
-
+    
     return 0.0;
 }
 
@@ -277,11 +277,11 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
     }
     catch( Exiv2::Error& e )
     {
-       qWarning () << QString("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(exifTagName)) << e.what();
+        qWarning () << QString("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(exifTagName)) << e.what();
     }
     catch(...)
     {
-       qWarning() << "Default exception from Exiv2";
+        qWarning() << "Default exception from Exiv2";
     }
     
     return QVariant();
@@ -290,7 +290,7 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
 static bool isUtf8(const char* const buffer)
 {
     int i, n;
-     unsigned char c;
+    unsigned char c;
     bool gotone = false;
     
     if (!buffer)
@@ -545,11 +545,11 @@ MetaDataMap Exiv2Extractor::getExifTagsDataList(const QStringList& exifKeysFilte
     }
     catch (Exiv2::Error& e)
     {
-       qWarning() << (QString::fromLatin1("Cannot parse EXIF metadata using Exiv2 "), e.what());
+        qWarning() << (QString::fromLatin1("Cannot parse EXIF metadata using Exiv2 "), e.what());
     }
     catch(...)
     {
-       qWarning() << "Default exception from Exiv2";
+        qWarning() << "Default exception from Exiv2";
     }
     
     return MetaDataMap();
@@ -609,12 +609,35 @@ QString Exiv2Extractor::getExifComment() const
 
 QString Exiv2Extractor::GPSString() const
 {
-   return city()->name();
+    if(error())
+    {
+        return QString();
+    }
+     auto m_city = city();
+    
+    if(!m_city->isValid())
+    {
+        return QString();
+    }
+    
+    return m_city->name();
 }
 
 QString Exiv2Extractor::cityId() const
 {
-   return city()->id();
+    if(error())
+    {
+        return QString();
+    }
+    
+    auto m_city = city();
+    
+    if(!m_city->isValid())
+    {
+        return QString();
+    }
+    
+    return m_city->id();
 }
 
 const City * Exiv2Extractor::city() const
@@ -623,6 +646,13 @@ const City * Exiv2Extractor::city() const
     {
         return new City(nullptr);
     }
-     auto c = extractGPS();
-   return Cities::instance()->findCity(c.first, c.second);
+    
+    auto c = extractGPS();
+    
+    if(c.first == 0.0 || c.second == 0.0)
+    {
+        return new City(nullptr);
+    }
+    
+    return Cities::instance()->findCity(c.first, c.second);
 }

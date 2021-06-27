@@ -15,8 +15,8 @@
 class City;
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
-Q_OBJECT
-
+    Q_OBJECT
+    
 public:
     static Cities *instance()
     {
@@ -28,27 +28,29 @@ public:
         m_instance = new Cities();
         return m_instance;
     }
- 
+    
     Cities(const Cities &) = delete;
     Cities &operator=(const Cities &) = delete;
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
-
-     const City* findCity(double latitude, double longitude);
+    
+    const City* findCity(double latitude, double longitude);
     const City* city(const QString&);
-
+    
+    bool error() const;
+    
 private:
     static Cities *m_instance;
+    
+    bool m_error = {true};
     Cities(QObject * parent = nullptr);
     QMap<QString, City*> m_citiesMap;
     KDTree m_citiesTree;
     
     void parseCities();
-
+    
 signals:
     void citiesReady();
 };
-
-
 
 #endif //IMAGETOOLS_CITIES_H

@@ -17,14 +17,19 @@ Cities::Cities(QObject * parent) : QObject(parent)
 {
     qDebug() << "Setting up Cities instance" << m_instance;
     
-        connect(qApp, &QCoreApplication::aboutToQuit, []()
+    connect(qApp, &QCoreApplication::aboutToQuit, []()
     {
         qDebug() << "Lets remove Cities singleton instance";
         delete m_instance;
         m_instance = nullptr;
     });
-        
+    
     parseCities(); //this maybe shoudl be in a different thread and hook to a signal when the file has been parsed.
+}
+
+bool Cities::error() const
+{
+    return m_error;
 }
 
 void Cities::parseCities()
@@ -36,7 +41,9 @@ void Cities::parseCities()
     pointVec pointVector;
     
     if (!file.open(QIODevice::ReadOnly)) {
-        Q_ASSERT_X(0, "", "Failed to open cities1000.txt file");
+        qWarning() <<  "Failed to open cities1000.txt file";
+        m_error = true;
+        return;
     }
     
     QTextStream fstream(&file);
@@ -59,11 +66,17 @@ void Cities::parseCities()
     }
     
     m_citiesTree = KDTree(pointVector);
+    m_error = false;
     emit citiesReady(); 
 }
 
 const City* Cities::findCity(double latitude, double longitude)
 {
+    if(m_error)
+    {
+        return new City(this);
+    }
+    
     qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
     auto pointNear = m_citiesTree.nearest_point({latitude, longitude});
     
@@ -80,6 +93,11 @@ const City* Cities::findCity(double latitude, double longitude)
 
 const City * Cities::city(const QString &cityId)
 {
+    if(m_error)
+    {
+        return new City(this);
+    }
+    
     if(m_citiesMap.contains(cityId))
     {
         return m_citiesMap[cityId];

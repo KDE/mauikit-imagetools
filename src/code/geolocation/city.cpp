@@ -39,7 +39,7 @@ QString City::country() const
     return m_country;
 }
 
-bool City::valid() const
+bool City::isValid() const
 {
 return !m_cityID.isEmpty();    
 }
