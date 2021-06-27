@@ -93,7 +93,6 @@ if (BUILD_SHARED_LIBS)
 
     install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
 
-    install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/code/geolocation/cities1000.txt DESTINATION ${KDE_INSTALL_DATADIR}/pix)
 endif()
 
 install(TARGETS MauiKitImageTools DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools )

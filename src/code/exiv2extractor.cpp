@@ -65,7 +65,7 @@ Exiv2::ExifData & Exiv2Extractor::exifData() const
 {   
     Exiv2::ExifData &exifData = m_image->exifData();
     if (exifData.empty()) {
-        qWarning() <<  "No EXIF data in : " << m_url.toString();
+//        qWarning() <<  "No EXIF data in : " << m_url.toString();
     }    
     
     return exifData;

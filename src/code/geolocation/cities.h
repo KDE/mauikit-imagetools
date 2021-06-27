@@ -6,12 +6,11 @@
 #define IMAGETOOLS_CITIES_H
 
 #include <QObject>
-#include <QMap>
+#include <QSqlDatabase>
 
 #include "kdtree.hpp"
 
 #include "imagetools_export.h"
-
 class City;
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
@@ -44,9 +43,8 @@ private:
     
     bool m_error = {true};
     Cities(QObject * parent = nullptr);
-    QMap<QString, City*> m_citiesMap;
     KDTree m_citiesTree;
-    
+    QSqlDatabase m_db;
     void parseCities();
     
 signals:

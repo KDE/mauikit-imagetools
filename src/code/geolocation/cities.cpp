@@ -4,10 +4,12 @@
 #include "cities.h"
 #include <QDebug>
 
-#include <QFile>
-#include <QTextStream>
 #include <QStringList>
 #include <QCoreApplication>
+
+#include <QSqlDriver>
+#include <QSqlError>
+#include <QSqlQuery>
 
 #include "city.h"
 
@@ -24,7 +26,30 @@ Cities::Cities(QObject * parent) : QObject(parent)
         m_instance = nullptr;
     });
     
-    parseCities(); //this maybe shoudl be in a different thread and hook to a signal when the file has been parsed.
+
+    if(QSqlDatabase::isDriverAvailable(QStringLiteral("QSQLITE")))
+    {
+        qDebug() << "opening Cities DB";
+        m_db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), "MauiKit::ImageTools::Cities");
+
+        m_db.setDatabaseName("/home/camilo/Coding/qml/mauiimageviewer/src/data/cities.db");
+
+        if(!m_db.open())
+        {
+            qWarning() << "Cities::DatabaseConnect - ERROR: " << m_db.lastError().text();
+            m_error = true;
+            return;
+        }
+    }
+    else
+    {
+        qWarning() << "Cities::DatabaseConnect - ERROR: no driver " << QStringLiteral("QSQLITE") << " available";
+        m_error = true;
+        return;
+    }
+
+    m_error = false;
+    parseCities();
 }
 
 bool Cities::error() const
@@ -33,41 +58,28 @@ bool Cities::error() const
 }
 
 void Cities::parseCities()
-{
-    
-    QFile file("/home/camilo/coding/mauiimageviewer/src/code/geolocation/cities1000.txt"); // this file shuld be installed in a common path to later be accessed easily, putting it on qrc is not a good idea
-    qDebug() << "Loading cities files" << file.exists();
-    
+{    
     pointVec pointVector;
-    
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() <<  "Failed to open cities1000.txt file";
-        m_error = true;
-        return;
-    }
-    
-    QTextStream fstream(&file);
-    
-    while (!fstream.atEnd()) 
+
+    QSqlQuery query(m_db);
+    query.prepare("SELECT lat, lon FROM CITIES");
+
+    if(!query.exec())
     {
-        QString str = fstream.readLine();
-        str.remove('\r');
-        
-        QStringList list = str.split('\t');
-        QString cityID = list[0];
-        QString name = list[1];
-        double lat = list[4].toDouble();
-        double lon = list[5].toDouble();
-        QString countryPrefix = list[8];
-        QString continent = list[17];
-        
-        m_citiesMap.insert(cityID, new City{cityID, name, continent, countryPrefix, lat, lon, this});
+        qWarning() << "Cities::ParsingCities - ERROR: " << query.lastError().text();
+        m_error = true;
+    }
+
+    while(query.next())
+    {
+        double lat = query.value("lat").toDouble();
+        double lon = query.value("lon").toDouble();
         pointVector.push_back({lat, lon});
     }
     
     m_citiesTree = KDTree(pointVector);
     m_error = false;
-    emit citiesReady(); 
+    emit citiesReady();
 }
 
 const City* Cities::findCity(double latitude, double longitude)
@@ -79,15 +91,26 @@ const City* Cities::findCity(double latitude, double longitude)
     
     qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
     auto pointNear = m_citiesTree.nearest_point({latitude, longitude});
-    
-    for (const auto &c : m_citiesMap)
+
+    QSqlQuery query(m_db);
+    query.prepare("SELECT * FROM CITIES where lat = ? and lon = ?");
+    query.addBindValue(pointNear[0]);
+    query.addBindValue(pointNear[1]);
+
+    qDebug() << query.lastQuery() << pointNear[0] << pointNear[1];
+
+    if(!query.exec())
     {
-        if(c->match(pointNear[0], pointNear[1]))
-        {
-            return c;
-        }
+        qWarning() << "Cities::FindCity - ERROR: " << query.lastError().text();
     }
-    
+
+    if(query.first())
+    {
+        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
+    }
+
+    qWarning() << "City not found";
+
     return new City(this);
 }
 
@@ -97,11 +120,20 @@ const City * Cities::city(const QString &cityId)
     {
         return new City(this);
     }
-    
-    if(m_citiesMap.contains(cityId))
+
+    QSqlQuery query(m_db);
+    query.prepare("SELECT * FROM CITIES where id = ?");
+    query.addBindValue(cityId);
+
+    if(!query.exec())
     {
-        return m_citiesMap[cityId];
+        qWarning() << "Cities::city - ERROR: " << query.lastError().text();
     }
-    
+
+    if(query.first())
+    {
+        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
+    }
+
     return new City(this);
 }
