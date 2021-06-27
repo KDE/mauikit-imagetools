@@ -4,6 +4,7 @@
 
 #ifndef IMAGETOOLS_CITIES_H
 #define IMAGETOOLS_CITIES_H
+#include <QDebug>
 
 #include <QObject>
 #include <QSqlDatabase>
@@ -14,26 +15,27 @@
 
 #include "city.h"
 
+class KDTree_Cities
+{
+
+public:
+    KDTree_Cities *instance()
+    {
+        static KDTree_Cities instance;
+        return &instance;
+    }
+
+private:
+    KDTree_Cities();
+
+};
+
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
     Q_OBJECT
     
 public:
-    static Cities *instance()
-    {
-        if(m_instance)
-        {
-            return m_instance;
-        }
-        
-        m_instance = new Cities();
-        return m_instance;
-    }
-    
-    Cities(const Cities &) = delete;
-    Cities &operator=(const Cities &) = delete;
-    Cities(Cities &&) = delete;
-    Cities &operator=(Cities &&) = delete;
+    Cities(QObject * parent = nullptr);
     
     const City findCity(double latitude, double longitude);
     const City city(const QString&);
@@ -41,11 +43,10 @@ public:
     bool error() const;
     
 private:
-    static Cities *m_instance;
-    
+    inline static pointVec m_pointVector;
+    inline static KDTree m_citiesTree;
+
     bool m_error = {true};
-    Cities(QObject * parent = nullptr);
-    KDTree m_citiesTree;
     QSqlDatabase m_db;
     void parseCities();
     

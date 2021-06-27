@@ -64,7 +64,7 @@ private:
     #else
     Exiv2::Image::AutoPtr m_image;
     #endif
-    
+
     Exiv2::ExifData & exifData() const;
 };
 

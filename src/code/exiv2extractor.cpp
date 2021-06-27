@@ -654,5 +654,5 @@ const City Exiv2Extractor::city() const
         return City();
     }
     
-    return Cities::instance()->findCity(c.first, c.second);
+    return Cities().findCity(c.first, c.second);
 }

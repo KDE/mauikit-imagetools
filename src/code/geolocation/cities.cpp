@@ -2,36 +2,28 @@
 // Created by gabridc on 5/6/21.
 //
 #include "cities.h"
-#include <QDebug>
 
 #include <QStringList>
-#include <QCoreApplication>
 
 #include <QSqlDriver>
 #include <QSqlError>
 #include <QSqlQuery>
 
+#include <QUuid>
 
-Cities *Cities::m_instance = nullptr;
+//Cities QMap<Qt:HANDLE, Cities*>::m_instances = {};
 
 Cities::Cities(QObject * parent) : QObject(parent)
 {
-    qDebug() << "Setting up Cities instance" << m_instance;
-    
-    connect(qApp, &QCoreApplication::aboutToQuit, []()
-    {
-        qDebug() << "Lets remove Cities singleton instance";
-        delete m_instance;
-        m_instance = nullptr;
-    });
-    
+    qDebug() << "Setting up Cities instance";
 
     if(QSqlDatabase::isDriverAvailable(QStringLiteral("QSQLITE")))
     {
         qDebug() << "opening Cities DB";
-        m_db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), "MauiKit::ImageTools::Cities");
+        m_db = QSqlDatabase::addDatabase(QStringLiteral("QSQLITE"), QUuid::createUuid().toString());
 
         m_db.setDatabaseName("/home/camilo/Coding/qml/mauiimageviewer/src/data/cities.db");
+        qDebug() << "Cities DB NAME" << m_db.connectionName();
 
         if(!m_db.open())
         {
@@ -58,27 +50,33 @@ bool Cities::error() const
 
 void Cities::parseCities()
 {    
-    pointVec pointVector;
-
-    QSqlQuery query(m_db);
-    query.prepare("SELECT lat, lon FROM CITIES");
-
-    if(!query.exec())
+    if(Cities::m_pointVector.empty())
     {
-        qWarning() << "Cities::ParsingCities - ERROR: " << query.lastError().text();
-        m_error = true;
+        qDebug() << "KDE TREE EMPTY FILLING IT";
+        QSqlQuery query(m_db);
+        query.prepare("SELECT lat, lon FROM CITIES");
+
+        if(!query.exec())
+        {
+            qWarning() << "Cities::ParsingCities - ERROR: " << query.lastError().text();
+            m_error = true;
+        }
+
+        while(query.next())
+        {
+            double lat = query.value("lat").toDouble();
+            double lon = query.value("lon").toDouble();
+            Cities::m_pointVector.push_back({lat, lon});
+        }
+
+        Cities::m_citiesTree = KDTree(Cities::m_pointVector);
+        m_error = false;
+        emit citiesReady();
+    }else
+    {
+        m_error = false;
     }
 
-    while(query.next())
-    {
-        double lat = query.value("lat").toDouble();
-        double lon = query.value("lon").toDouble();
-        pointVector.push_back({lat, lon});
-    }
-    
-    m_citiesTree = KDTree(pointVector);
-    m_error = false;
-    emit citiesReady();
 }
 
 const City Cities::findCity(double latitude, double longitude)
