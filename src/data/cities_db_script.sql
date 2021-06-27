@@ -23,5 +23,14 @@ PRIMARY KEY(id)
 
 .separator "\t"
 
-.import cities1000.txt Cities
+.import cities1000.txt CITIES
 
+CREATE TABLE IF NOT EXISTS COUNTRIES (
+id TEXT,
+    name TEXT ,
+PRIMARY KEY(id)
+);
+
+.separator ","
+
+.import countries.csv COUNTRIES
