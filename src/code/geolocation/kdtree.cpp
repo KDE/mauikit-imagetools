@@ -153,6 +153,8 @@ KDTree::KDTree(pointVec point_array) {
     size_t level = 0;  // starting
 
     root = KDTree::make_tree(begin, end, length, level);
+
+    m_empty = point_array.size();
 }
 
 KDNodePtr KDTree::nearest_(   //
@@ -242,6 +244,11 @@ size_t KDTree::nearest_index(const point_t &pt) {
 pointIndex KDTree::nearest_pointIndex(const point_t &pt) {
     KDNodePtr Nearest = nearest_(pt);
     return pointIndex(point_t(*Nearest), size_t(*Nearest));
+}
+
+bool KDTree::empty()
+{
+    return m_empty;
 }
 
 pointIndexArr KDTree::neighborhood_(  //

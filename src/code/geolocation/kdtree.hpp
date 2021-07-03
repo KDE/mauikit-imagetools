@@ -99,6 +99,7 @@ class KDTree {
         const double &best_dist   //
     );
 
+    bool m_empty {true};
     // default caller
     KDNodePtr nearest_(const point_t &pt);
 
@@ -106,6 +107,7 @@ class KDTree {
     point_t nearest_point(const point_t &pt);
     size_t nearest_index(const point_t &pt);
     pointIndex nearest_pointIndex(const point_t &pt);
+    bool empty();
 
    private:
     pointIndexArr neighborhood_(  //

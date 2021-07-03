@@ -18,6 +18,8 @@ class PicInfoModel : public MauiList
     Q_OBJECT
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
+    Q_PROPERTY(double lat READ latitude NOTIFY dataReady FINAL)
+    Q_PROPERTY(double lon READ longitude NOTIFY dataReady FINAL)
 
 public:
     enum ROLES { KEY, VALUE };
@@ -29,16 +31,24 @@ public:
 public slots:
     void setUrl(QUrl url);
 
+    double latitude() const;
+    double longitude() const;
+
 private:
     QUrl m_url;
     QString m_fileName;
     FMH::MODEL_LIST m_data;
+
+    double m_longitude;
+    double m_latitude;
 
     void parse();
 
 signals:
     void urlChanged(QUrl url);
     void fileNameChanged();
+    void dataReady();
+
     // MauiList interface
 public:
     const FMH::MODEL_LIST &items() const override;

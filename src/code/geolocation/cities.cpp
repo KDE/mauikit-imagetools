@@ -80,13 +80,11 @@ const City Cities::city(const QString &id)
 
 void Cities::parseCities()
 {    
-    if(Cities::m_pointVector.empty())
+    if(Cities::m_citiesTree.empty())
     {
         qDebug() << "KDE TREE EMPTY FILLING IT";
 
-        Cities::m_pointVector = db()->cities();
-        Cities::m_citiesTree = KDTree(Cities::m_pointVector);
-
+        Cities::m_citiesTree = KDTree(db()->cities());
         emit citiesReady();
     }
 }
@@ -168,7 +166,7 @@ const City CitiesDB::city(const QString &cityId)
     }
 
     QSqlQuery query(m_db);
-    query.prepare("SELECT c.id, c.name, co.name as country, c.lat, c.lon FROM CITIES c inner join COUNTRIES co on c.country = co.id where c.id = ?");
+    query.prepare("SELECT c.id, c.name, co.name as country, c.lat, c.lon, c.tz FROM CITIES c inner join COUNTRIES co on c.country = co.id where c.id = ?");
     query.addBindValue(cityId);
 
     if(!query.exec())

@@ -11,7 +11,7 @@
 
 std::string gpsToString(Exiv2::Metadatum& value);
 PicInfoModel::PicInfoModel(QObject *parent)
-: MauiList(parent)
+    : MauiList(parent)
 {
 }
 
@@ -30,6 +30,16 @@ void PicInfoModel::setUrl(QUrl url)
 
     m_url = url;
     emit urlChanged(m_url);
+}
+
+double PicInfoModel::latitude() const
+{
+    return m_latitude;
+}
+
+double PicInfoModel::longitude() const
+{
+    return m_longitude;
 }
 
 QUrl PicInfoModel::url() const
@@ -68,7 +78,9 @@ void PicInfoModel::parse()
     Exiv2Extractor extractor(m_url);
     if (!extractor.error())
     {
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Location"}, {FMH::MODEL_KEY::VALUE,  extractor.GPSString()}, {FMH::MODEL_KEY::ICON, "map-globe"}};
+        auto gps = extractor.extractGPS();
+        m_latitude = gps.first;
+        m_longitude = gps.second;
 
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Aperture"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Photo.MaxApertureValue")}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Camera"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Image.Make")}, {FMH::MODEL_KEY::ICON, "camera-video"}};
@@ -87,13 +99,14 @@ void PicInfoModel::parse()
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Compression"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Photo.WhiteBalance")}, {FMH::MODEL_KEY::ICON, "documentinfo"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Notes"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifComment()}, {FMH::MODEL_KEY::ICON, "note"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Author"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.Image.Artist")}, {FMH::MODEL_KEY::ICON, "user"}};
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Latitude"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLatitude")}, {FMH::MODEL_KEY::ICON, "user"}};
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Longitude"}, {FMH::MODEL_KEY::VALUE,  extractor.getExifTagString("Exif.GPSInfo.GPSLongitude")}, {FMH::MODEL_KEY::ICON, "user"}};
+//        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Latitude"}, {FMH::MODEL_KEY::VALUE, QString::number(m_latitude)}, {FMH::MODEL_KEY::ICON, "user"}};
+//        m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "GPS Longitude"}, {FMH::MODEL_KEY::VALUE,  QString::number(m_longitude)}, {FMH::MODEL_KEY::ICON, "user"}};
         m_data << FMH::MODEL{{FMH::MODEL_KEY::KEY, "City"}, {FMH::MODEL_KEY::VALUE,  extractor.GPSString ()}, {FMH::MODEL_KEY::ICON, "user"}};
 
     }
 
     emit postListChanged();
+    emit dataReady();
 }
 
 const FMH::MODEL_LIST &PicInfoModel::items() const

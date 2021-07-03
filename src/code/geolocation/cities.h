@@ -80,7 +80,6 @@ private:
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
 
-    inline static pointVec m_pointVector;
     inline static KDTree m_citiesTree;
 
     void parseCities();

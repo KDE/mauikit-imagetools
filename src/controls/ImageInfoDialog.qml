@@ -9,6 +9,9 @@ import QtQuick 2.13
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 
+import QtLocation 5.6
+import QtPositioning 5.6
+
 import org.kde.kirigami 2.8 as Kirigami
 
 import org.mauikit.controls 1.3 as Maui
@@ -18,7 +21,9 @@ import org.mauikit.imagetools 1.3 as IT
 Maui.Dialog
 {
     id: control
+
     property alias url : _infoModel.url
+
     maxHeight: 800
     maxWidth: 500
     hint: 1
@@ -100,12 +105,11 @@ Maui.Dialog
             {
                 id: _delegateColumnInfo
                 width: parent.width
+                anchors.centerIn: parent
 
                 iconSource: model.icon
                 iconSizeHint: Maui.Style.iconSizes.medium
                 spacing: Maui.Style.space.medium
-                anchors.centerIn: parent
-                anchors.margins: Maui.Style.space.medium
 
                 label1.text: model.key
                 label1.font.weight: Font.Bold
@@ -115,4 +119,41 @@ Maui.Dialog
             }
         }
     }
+
+    Maui.Separator
+    {
+        edge: Qt.BottomEdge
+        Layout.fillWidth: true
+    }
+
+    Map
+    {
+        id: map
+        visible: _infoModel.lat !== 0 &&  _infoModel.lon !== 0
+        color: Kirigami.Theme.backgroundColor
+        Layout.fillWidth: true
+        Layout.preferredHeight: 400
+        implicitHeight: 400
+        gesture.acceptedGestures: MapGestureArea.NoGesture
+        gesture.flickDeceleration: 3000
+        gesture.enabled: true
+
+        plugin: Plugin {
+            id: mapPlugin
+            name: "mapboxgl" // "mapboxgl", "esri", ...
+            // specify plugin parameters if necessary
+            // PluginParameter {
+            //     name:
+            //     value:
+            // }
+        }
+//        center: QtPositioning.coordinate(_infoModel.lat, _infoModel.lon) // Oslo
+        zoomLevel: 16
+        center {
+            latitude: _infoModel.lat
+            longitude:_infoModel.lon
+        }
+
+    }
+
 }
