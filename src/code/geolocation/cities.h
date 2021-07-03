@@ -8,6 +8,7 @@
 
 #include <QObject>
 #include <QSqlDatabase>
+#include <QThread>
 
 #include "kdtree.hpp"
 
@@ -30,25 +31,62 @@ private:
 
 };
 
+class CitiesDB : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit CitiesDB(QObject * =nullptr);
+
+    const City findCity(double latitude, double longitude);
+    const City city(const QString&);
+    std::vector<point_t> cities();
+    bool error() const;
+
+private:
+    QSqlDatabase m_db;
+    bool m_error = {true};
+
+};
+
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
     Q_OBJECT
     
 public:
-    Cities(QObject * parent = nullptr);
-    
+
+    static Cities *getInstance()
+    {
+        qWarning() << "GETTIG CITIES INSTANCE" << QThread::currentThread();
+
+        if (m_instance)
+            return m_instance;
+
+        m_instance = new Cities;
+        return m_instance;
+    }
+
     const City findCity(double latitude, double longitude);
     const City city(const QString&);
     
-    bool error() const;
-    
 private:
+    static Cities *m_instance;
+
+    Cities(QObject * parent = nullptr);
+
+    ~Cities();
+    Cities(const Cities &) = delete;
+    Cities &operator=(const Cities &) = delete;
+    Cities(Cities &&) = delete;
+    Cities &operator=(Cities &&) = delete;
+
     inline static pointVec m_pointVector;
     inline static KDTree m_citiesTree;
 
-    bool m_error = {true};
-    QSqlDatabase m_db;
     void parseCities();
+
+    CitiesDB *db();
+    QHash<Qt::HANDLE, CitiesDB*> m_dbs;
     
 signals:
     void citiesReady();

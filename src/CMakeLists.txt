@@ -29,6 +29,7 @@ set(
 set(
     pluginData
     controls/qmldir
+    data/cities.db
     )
 
 add_library(
@@ -51,6 +52,14 @@ if(UNIX AND NOT ANDROID)
         MauiKitImageTools
         PRIVATE
         KF5::ConfigCore
+        )
+endif()
+
+if(ANDROID)
+    target_link_libraries(
+        MauiKitImageTools
+        PRIVATE
+        Qt5::AndroidExtras
         )
 endif()
 
@@ -95,4 +104,11 @@ if (BUILD_SHARED_LIBS)
 
 endif()
 
-install(TARGETS MauiKitImageTools DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools )
+if(ANDROID)
+    install (FILES data/cities.db DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+else()
+    install (FILES data/cities.db DESTINATION ${KDE_INSTALL_DATADIR}/org/mauikit/imagetools)
+endif()
+
+install(TARGETS MauiKitImageTools DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+

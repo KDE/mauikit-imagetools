@@ -74,6 +74,10 @@ if(UNIX AND NOT ANDROID)
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Config)
 endif()
 
+if(ANDROID)
+find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
+endif()
+
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
 
