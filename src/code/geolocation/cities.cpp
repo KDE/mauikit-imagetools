@@ -12,6 +12,7 @@
 #include <QUuid>
 #include <QFile>
 #include <QCoreApplication>
+#include <QDir>
 
 Cities *Cities::m_instance = nullptr;
 
@@ -19,13 +20,16 @@ static QString resolveDBFile()
 {
 #if defined(Q_OS_ANDROID)
 
-    QFile file(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "cities.db"));
-
+    QFile file(QStandardPaths::locate(QStandardPaths::GenericDataLocation, "/org/mauikit/imagetools/cities.db"));
     if(!file.exists())
     {
-        if(QFile::copy(":/android_rcc_bundle/qml/org/mauikit/imagetools/cities.db", QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation) + "/org/mauikit/imagetools/cities.db"))
+        if(QFile::copy(":/android_rcc_bundle/qml/org/mauikit/imagetools/cities.db", QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation)+"/cities.db"))
         {
             qDebug() << "Cities DB File was copied to";
+        }else
+        {
+            qDebug() << "Cities DB File was NOT copied to";
+
         }
     }
     return  QStandardPaths::locate(QStandardPaths::GenericDataLocation, "cities.db");
@@ -34,7 +38,6 @@ static QString resolveDBFile()
 #endif
 }
 
-const static QString DBFile = resolveDBFile();
 
 Cities::Cities(QObject * parent) : QObject(parent)
 {
@@ -107,6 +110,8 @@ CitiesDB *Cities::db()
 
 CitiesDB::CitiesDB(QObject *)
 {
+    QString DBFile = resolveDBFile();
+
     if(QSqlDatabase::isDriverAvailable(QStringLiteral("QSQLITE")))
     {
         qDebug() << "opening Cities DB";
@@ -114,6 +119,7 @@ CitiesDB::CitiesDB(QObject *)
 
         m_db.setDatabaseName(DBFile);
         qDebug() << "Cities DB NAME" << m_db.connectionName();
+        qDebug() << DBFile;
 
         if(!m_db.open())
         {
