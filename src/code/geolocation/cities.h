@@ -7,15 +7,14 @@
 #include <QDebug>
 
 #include <QObject>
-#include <QSqlDatabase>
 #include <QThread>
 
 #include "kdtree.hpp"
 
 #include "imagetools_export.h"
 
-#include "city.h"
-
+class City;
+class CitiesDB;
 class KDTree_Cities
 {
 
@@ -28,25 +27,6 @@ public:
 
 private:
     KDTree_Cities();
-
-};
-
-class CitiesDB : public QObject
-{
-    Q_OBJECT
-
-public:
-    explicit CitiesDB(QObject * =nullptr);
-
-    const City findCity(double latitude, double longitude);
-    const City city(const QString&);
-    std::vector<point_t> cities();
-    bool error() const;
-
-private:
-    QSqlDatabase m_db;
-    bool m_error = {true};
-
 };
 
 class IMAGETOOLS_EXPORT Cities : public QObject

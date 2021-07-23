@@ -11,6 +11,7 @@ set(
     code/exiv2extractor.cpp
     code/geolocation/city.cpp
     code/geolocation/cities.cpp
+    code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
     resources.qrc
     ${imagetools_QM_LOADER}
@@ -23,6 +24,7 @@ set(
     code/exiv2extractor.h
     code/geolocation/city.h
     code/geolocation/cities.h
+    code/geolocation/citiesdb.h
     code/geolocation/kdtree.hpp
     )
 
