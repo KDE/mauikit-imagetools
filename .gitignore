@@ -56,3 +56,13 @@ build/
 *.*~
 *.travis*
 *.kate-swp
+
+src/CMakeFiles/
+bin/
+*.cmake
+*_autogen*
+imagetools_version.h
+*manifest*
+*ECMQ*
+*_export.h
+prefix.sh

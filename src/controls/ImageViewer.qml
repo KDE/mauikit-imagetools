@@ -186,12 +186,14 @@ Flickable
                         zoomAnim.width = root.width;
                         zoomAnim.height = root.height;
                         zoomAnim.running = true;
+                        flick.interactive = !flick.interactive
                     } else {
                         zoomAnim.x = mouse.x * 2;
                         zoomAnim.y = mouse.y *2;
                         zoomAnim.width = root.width * 3;
                         zoomAnim.height = root.height * 3;
                         zoomAnim.running = true;
+                        flick.interactive = !flick.interactive
                     }
                 }
                 onWheel: {
