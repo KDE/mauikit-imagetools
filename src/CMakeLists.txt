@@ -49,14 +49,6 @@ set_target_properties(MauiKitImageTools PROPERTIES
     EXPORT_NAME ImageTools
     )
 
-if(UNIX AND NOT ANDROID)
-    target_link_libraries(
-        MauiKitImageTools
-        PRIVATE
-        KF5::ConfigCore
-        )
-endif()
-
 if(ANDROID)
     target_link_libraries(
         MauiKitImageTools

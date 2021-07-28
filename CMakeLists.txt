@@ -67,12 +67,8 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
         DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
         COMPONENT Devel)
                 
-find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Sql Positioning REQUIRED)
+find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Qml Sql Positioning REQUIRED)
 find_package(LibExiv2 0.21 REQUIRED)
-
-if(UNIX AND NOT ANDROID)
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS Config)
-endif()
 
 if(ANDROID)
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
