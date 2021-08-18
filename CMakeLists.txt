@@ -55,7 +55,7 @@ install(FILES
         DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
         FILE MauiKitImageToolsTargets.cmake
         NAMESPACE MauiKit::)
-        
+
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX ImageTools
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
@@ -64,9 +64,9 @@ ecm_setup_version(${PROJECT_VERSION}
 )
 
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
-        DESTINATION "${KDE_INSTALL_INCLUDEDIR_KF5}"
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/MauiKit/FileBrowsing
         COMPONENT Devel)
-                
+
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Qml Sql Positioning REQUIRED)
 find_package(LibExiv2 0.21 REQUIRED)
 
