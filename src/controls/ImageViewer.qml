@@ -6,11 +6,8 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
-import QtQuick 2.12
-import QtQuick.Window 2.2
-import QtQuick.Controls 2.10 as Controls
-import QtGraphicalEffects 1.0 as Effects
-import QtQuick.Layouts 1.3
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import org.kde.kirigami 2.9 as Kirigami
 
 Flickable
@@ -25,18 +22,19 @@ Flickable
     interactive: contentWidth > width || contentHeight > height
     clip: true
 
-    Controls.ScrollBar.vertical: Controls.ScrollBar {
+    ScrollBar.vertical: ScrollBar {
         visible: false
     }
-    Controls.ScrollBar.horizontal: Controls.ScrollBar {
+    ScrollBar.horizontal: ScrollBar {
         visible: false
     }
 
     /**
       * image : Image
       */
-//    property alias image: _imageLoader.item
+   property alias image:  image
 
+   property alias sourceSize : image.sourceSize
     /**
       * fillMode : Image.fillMode
       */
@@ -45,22 +43,22 @@ Flickable
     /**
       * asynchronous : bool
       */
-    property bool asynchronous : true
+    property alias asynchronous : image.asynchronous
 
     /**
       * cache : bool
       */
-    property bool cache: false
+    property alias cache: image.cache
 
     /**
       * imageWidth : int
       */
-    property int imageWidth: width
+    property alias imageWidth: image.sourceSize.width
 
     /**
       * imageHeight : int
       */
-    property int imageHeight: height
+    property alias imageHeight: image.sourceSize.height
 
     /**
       * animated : bool
@@ -70,7 +68,7 @@ Flickable
     /**
       * source : url
       */
-    property url source
+    property alias source : image.source
 
     /**
       * rightClicked
@@ -162,11 +160,10 @@ Flickable
             width: flick.contentWidth
             height: flick.contentHeight
             fillMode: Image.PreserveAspectFit
-            source: flick.source
             autoTransform: true
             asynchronous: true
 
-            Controls.BusyIndicator
+            BusyIndicator
             {
                 anchors.centerIn: parent
                 running: parent.status === Image.Loading
