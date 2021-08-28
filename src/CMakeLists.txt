@@ -95,7 +95,6 @@ if (BUILD_SHARED_LIBS)
         )
 
     install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
-
 endif()
 
 if(ANDROID)
