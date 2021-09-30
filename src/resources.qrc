@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/mauikit/imagetools">
         <file alias="ImageViewer.qml">controls/ImageViewer.qml</file>
         <file alias="ImageEditor.qml">controls/ImageEditor.qml</file>
         <file alias="private/Ruler.qml">controls/private/Ruler.qml</file>

@@ -13,7 +13,6 @@ set(
     code/geolocation/cities.cpp
     code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
-    resources.qrc
     ${imagetools_QM_LOADER}
     )
 
@@ -34,13 +33,24 @@ set(
     data/cities.db
     )
 
+if(QUICK_COMPILER)
+    qtquick_compiler_add_resources(imagetools_QML_QRC resources.qrc)
+else()
+    qt5_add_resources(imagetools_QML_QRC resources.qrc)
+endif()
+
 add_library(
     MauiKitImageTools
     SHARED
-    ${sources} ${pluginData}
+    ${sources} ${pluginData} ${imagetools_QML_QRC}
     )
 
 add_library(MauiKit::ImageTools ALIAS MauiKitImageTools)
+
+if(QUICK_COMPILER)
+    add_definitions(-DQUICK_COMPILER)
+    target_compile_definitions(MauiKitImageTools PUBLIC QUICK_COMPILER)
+endif()
 
 generate_export_header(MauiKitImageTools BASE_NAME ImageTools)
 set_target_properties(MauiKitImageTools PROPERTIES

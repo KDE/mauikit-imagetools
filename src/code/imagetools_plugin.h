@@ -14,21 +14,17 @@ class ImageToolsPlugin : public QQmlExtensionPlugin
 public:
     void registerTypes(const char *uri) override;
 private:
-    
-    QString resolveFilePath(const QString &path) const
-    {
-#if defined(Q_OS_ANDROID)
-        return QStringLiteral(":/android_rcc_bundle/qml/org/mauikit/imagetools/") + path;
-#else
-        return baseUrl().toLocalFile() + QLatin1Char('/') + path;
-#endif
-    }
+
     QString resolveFileUrl(const QString &filePath) const
     {
 #if defined(Q_OS_ANDROID)
         return QStringLiteral("qrc:/android_rcc_bundle/qml/org/mauikit/imagetools/") + filePath;
 #else
+#ifdef QUICK_COMPILER
+        return QStringLiteral("qrc:/mauikit/imagetools/") + filePath;
+#else
         return baseUrl().toString() + QLatin1Char('/') + filePath;
+#endif
 #endif
     }
 };

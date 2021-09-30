@@ -22,6 +22,8 @@ project(ImageTools LANGUAGES CXX VERSION 2.1.0)
 find_package(ECM ${KF5_VERSION} NO_MODULE)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 
+option(QUICK_COMPILER "Use QtQuick compiler to improve performance" TRUE)
+
 include(GenerateExportHeader)
 include(GNUInstallDirs)
 include(KDEInstallDirs)
@@ -76,6 +78,14 @@ endif()
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
+
+if(QUICK_COMPILER)
+        find_package(Qt5QuickCompiler)
+        set_package_properties(Qt5QuickCompiler PROPERTIES
+                DESCRIPTION "Compile QML at build time"
+                TYPE OPTIONAL
+        )
+endif()
 
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
 find_package(KQuickImageEditor COMPONENTS)
