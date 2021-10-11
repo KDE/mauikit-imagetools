@@ -104,7 +104,11 @@ if (BUILD_SHARED_LIBS)
         copy $<TARGET_FILE:MauiKitImageTools> ${CMAKE_BINARY_DIR}/bin/org/mauikit/imagetools/
         )
 
-    install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+    if(QUICK_COMPILER AND NOT ANDROID )
+        install(FILES controls/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+    else()
+        install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+    endif()
 endif()
 
 if(ANDROID)
