@@ -84,38 +84,29 @@ Maui.Dialog
         Layout.fillWidth: true
     }
 
-    Repeater
+    Maui.SettingsSection
     {
-        model: Maui.BaseModel
+        Layout.fillWidth: true
+
+        title: i18n("Details")
+        description: i18n("File information")
+
+        Repeater
         {
-            list: IT.PicInfoModel
+            model: Maui.BaseModel
             {
-                id:_infoModel
+                list: IT.PicInfoModel
+                {
+                    id:_infoModel
+                }
             }
-        }
 
-        Maui.AlternateListItem
-        {
-            visible: model.value.length
-            Layout.fillWidth: true
-            implicitHeight: visible ? _delegateColumnInfo.implicitHeight + Maui.Style.space.large : 0
-            lastOne: index === _infoModel.count-1
-
-            Maui.ListItemTemplate
+            delegate: Maui.SettingTemplate
             {
-                id: _delegateColumnInfo
-                width: parent.width
-                anchors.centerIn: parent
-
-                iconSource: model.icon
-                iconSizeHint: Maui.Style.iconSizes.medium
-                spacing: Maui.Style.space.medium
-
+                visible: model.value && String(model.value).length > 0
+                Layout.fillWidth: true
                 label1.text: model.key
-                label1.font.weight: Font.Bold
-                label1.font.bold: true
                 label2.text: model.value
-                label2.font.weight: Font.Light
             }
         }
     }
@@ -124,6 +115,7 @@ Maui.Dialog
     {
         edge: Qt.BottomEdge
         Layout.fillWidth: true
+        visible: map.visible
     }
 
     Map
@@ -138,7 +130,8 @@ Maui.Dialog
         gesture.flickDeceleration: 3000
         gesture.enabled: true
 
-        plugin: Plugin {
+        plugin: Plugin
+        {
             id: mapPlugin
             name: "mapboxgl" // "mapboxgl", "esri", ...
             // specify plugin parameters if necessary
@@ -149,11 +142,10 @@ Maui.Dialog
         }
 //        center: QtPositioning.coordinate(_infoModel.lat, _infoModel.lon) // Oslo
         zoomLevel: 16
-        center {
+        center
+        {
             latitude: _infoModel.lat
             longitude:_infoModel.lon
         }
-
     }
-
 }
