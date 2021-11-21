@@ -7,4 +7,5 @@ Dependencies:
     'frameworks/extra-cmake-modules': '@latest'
     'frameworks/ki18n': '@latest'
     'frameworks/kcoreaddons': '@latest'
+    'libraries/kquickimageeditor': '@latest'
     'maui/mauikit': '@same'
