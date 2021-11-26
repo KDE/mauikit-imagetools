@@ -15,7 +15,7 @@ class IMAGETOOLS_EXPORT City : public QObject
     Q_OBJECT
     
 public:
-    City(const QString &cityID, const QString &name, const QString &continent, const QString &country, const double &latitude, const double &longitude, QObject *parent = nullptr);
+    explicit City(const QString &cityID, const QString &name, const QString &continent, const QString &country, const double &latitude, const double &longitude, QObject *parent = nullptr);
     
     explicit City(QObject *parent = nullptr);
     

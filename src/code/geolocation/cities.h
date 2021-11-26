@@ -46,8 +46,8 @@ public:
         return m_instance;
     }
 
-    const City findCity(double latitude, double longitude);
-    const City city(const QString&);
+    City *findCity(double latitude, double longitude);
+    City *city(const QString&);
     
 private:
     static Cities *m_instance;
@@ -60,7 +60,7 @@ private:
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
 
-    inline static KDTree m_citiesTree;
+    static KDTree *m_citiesTree;
 
     void parseCities();
 

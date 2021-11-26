@@ -11,6 +11,7 @@
 #include "citiesdb.h"
 
 Cities *Cities::m_instance = nullptr;
+KDTree *Cities::m_citiesTree = nullptr;
 
 Cities::Cities(QObject * parent) : QObject(parent)
 {
@@ -32,30 +33,30 @@ Cities::Cities(QObject * parent) : QObject(parent)
 
 Cities::~Cities()
 {
-
+    delete Cities::m_citiesTree;
 }
 
-const City Cities::findCity(double latitude, double longitude)
+City* Cities::findCity(double latitude, double longitude)
 {
     qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
-    auto pointNear = m_citiesTree.nearest_point({latitude, longitude});
+    auto pointNear = Cities::m_citiesTree->nearest_point({latitude, longitude});
     qDebug()  << pointNear[0] << pointNear[1];
 
    return db()->findCity(pointNear[0], pointNear[1]);
 }
 
-const City Cities::city(const QString &id)
+City *Cities::city(const QString &id)
 {
     return db()->city(id);
 }
 
 void Cities::parseCities()
 {    
-    if(Cities::m_citiesTree.empty())
+    if(!Cities::m_citiesTree || Cities::m_citiesTree->empty())
     {
         qDebug() << "KDE TREE EMPTY FILLING IT";
 
-        Cities::m_citiesTree = KDTree(db()->cities());
+        Cities::m_citiesTree = new KDTree(db()->cities());
         emit citiesReady();
     }
 }
