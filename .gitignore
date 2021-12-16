@@ -66,3 +66,11 @@ imagetools_version.h
 *ECMQ*
 *_export.h
 prefix.sh
+
+# LSP & IDE
+/.clang-format
+/compile_commands.json
+.clangd
+.cache
+.idea
+/cmake-build*
