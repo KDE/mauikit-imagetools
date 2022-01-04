@@ -78,12 +78,6 @@ Maui.Dialog
         list.strict: false
     }
 
-    Maui.Separator
-    {
-        edge: Qt.BottomEdge
-        Layout.fillWidth: true
-    }
-
     Maui.SettingsSection
     {
         Layout.fillWidth: true
@@ -111,10 +105,10 @@ Maui.Dialog
         }
     }
 
-    Maui.Separator
+    Kirigami.Separator
     {
-        edge: Qt.BottomEdge
         Layout.fillWidth: true
+//        weight: Kirigami.Separator.Th
         visible: map.visible
     }
 

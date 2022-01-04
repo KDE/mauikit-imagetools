@@ -616,6 +616,11 @@ QString Exiv2Extractor::GPSString() const
 
     std::unique_ptr<City>m_city(city());
 
+    if(!m_city)
+    {
+        return QString();
+    }
+
     if(!m_city->isValid())
     {
         return QString();
@@ -632,7 +637,12 @@ QString Exiv2Extractor::cityId() const
     }
     
     std::unique_ptr<City>m_city(city());
-    
+
+    if(!m_city)
+    {
+        return QString();
+    }
+
     if(!m_city->isValid())
     {
         return QString();
