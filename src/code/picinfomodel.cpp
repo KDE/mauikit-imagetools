@@ -8,6 +8,7 @@
 
 #include <QDateTime>
 #include <QDebug>
+#include <QLocale>
 
 std::string gpsToString(Exiv2::Metadatum& value);
 PicInfoModel::PicInfoModel(QObject *parent)
@@ -51,9 +52,10 @@ static FMH::MODEL_LIST basicInfo(const QUrl &url)
 {
     FMH::MODEL_LIST res;
     QFileInfo file(url.toLocalFile());
-
+QLocale locale;
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Name"}, {FMH::MODEL_KEY::VALUE, file.fileName()}, {FMH::MODEL_KEY::ICON, "edit-rename"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Path"}, {FMH::MODEL_KEY::VALUE, url.toLocalFile()}, {FMH::MODEL_KEY::ICON, "folder"}};
+    res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Size"}, {FMH::MODEL_KEY::VALUE, locale.formattedDataSize(file.size())}, {FMH::MODEL_KEY::ICON, "folder"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Last Modified"}, {FMH::MODEL_KEY::VALUE, file.lastModified().toString()}, {FMH::MODEL_KEY::ICON, "view-media-recent"}};
     res << FMH::MODEL{{FMH::MODEL_KEY::KEY, "Date"}, {FMH::MODEL_KEY::VALUE, file.birthTime().toString()}, {FMH::MODEL_KEY::ICON, "view-calendar-birthday"}};
 

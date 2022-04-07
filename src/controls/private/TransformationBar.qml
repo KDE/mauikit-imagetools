@@ -99,25 +99,26 @@ ColumnLayout
         {
             color: Kirigami.Theme.backgroundColor
         }
-        middleContent: [
-            ToolButton
+        middleContent: Maui.ToolActions
+        {
+            autoExclusive: true
+            Layout.alignment: Qt.AlignHCenter
+            Action
             {
                 id: _cropButton
                 checkable: true
-                autoExclusive: true
                 icon.name:  "transform-crop"
                 text:  i18nc("@action:button Crop an image", "Crop");
-            },
+            }
 
-            ToolButton
+            Action
             {
                 id: _freeRotationButton
-                autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
                 text: i18nc("@action:button Rotate an image", "Rotate");
             }
-        ]
+        }
 
         leftContent: ToolButton
         {

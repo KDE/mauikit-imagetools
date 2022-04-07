@@ -43,46 +43,47 @@ configure_package_config_file(
     "${CMAKE_CURRENT_BINARY_DIR}/MauiKitImageToolsConfig.cmake"
     INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
     PATH_VARS KF5_INCLUDE_INSTALL_DIR CMAKE_INSTALL_PREFIX
-)
+    )
 
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/MauiKitImageToolsConfigVersion.cmake"
     "${CMAKE_CURRENT_BINARY_DIR}/MauiKitImageToolsConfig.cmake"
     DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
     COMPONENT Devel
-)
+    )
 
-    install(EXPORT MauiKitImageToolsTargets
-        DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
-        FILE MauiKitImageToolsTargets.cmake
-        NAMESPACE MauiKit::)
+install(EXPORT MauiKitImageToolsTargets
+    DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+    FILE MauiKitImageToolsTargets.cmake
+    NAMESPACE MauiKit::)
 
 ecm_setup_version(${PROJECT_VERSION}
     VARIABLE_PREFIX ImageTools
     VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
     PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/MauiKitImageToolsConfigVersion.cmake"
     SOVERSION ${PROJECT_VERSION_MAJOR}
-)
+    )
 
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
     DESTINATION ${KDE_INSTALL_INCLUDEDIR}/MauiKit/FileBrowsing
-        COMPONENT Devel)
+    COMPONENT Devel)
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Qml Sql Positioning REQUIRED)
 find_package(LibExiv2 0.21 REQUIRED)
+find_package(ImageMagick)
 
 if(ANDROID)
-find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
+    find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
 endif()
 
 find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
 
 if(QUICK_COMPILER)
-        find_package(Qt5QuickCompiler)
-        set_package_properties(Qt5QuickCompiler PROPERTIES
-                DESCRIPTION "Compile QML at build time"
-                TYPE OPTIONAL
+    find_package(Qt5QuickCompiler)
+    set_package_properties(Qt5QuickCompiler PROPERTIES
+        DESCRIPTION "Compile QML at build time"
+        TYPE OPTIONAL
         )
 endif()
 
@@ -93,7 +94,7 @@ set_package_properties(KQuickImageEditor PROPERTIES
     DESCRIPTION "Simple image editor for QtQuick applications"
     URL "https://invent.kde.org/libraries/kquickimageeditor/"
     PURPOSE "Add image editing capability to image attachments"
-)
+    )
 
 kde_enable_exceptions()
 

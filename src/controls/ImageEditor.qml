@@ -22,16 +22,16 @@ Maui.Page
     headBar.visible: control.ready
 
     headBar.leftContent: ToolButton
-        {
-            icon.name: "edit-undo"
-            enabled: imageDoc.edited
-            onClicked: imageDoc.undo()
-        }
-    
+    {
+        icon.name: "edit-undo"
+        enabled: imageDoc.edited
+        onClicked: imageDoc.undo()
+    }
 
     headBar.middleContent: Maui.ToolActions
     {
         id: _editTools
+        Layout.alignment: Qt.AlignHCenter
         autoExclusive: true
         currentIndex : 1
         expanded: control.width > Kirigami.Units.gridUnit * 30
@@ -53,10 +53,86 @@ Maui.Page
         }
     }
 
-    KQuickImageEditor.ImageDocument
+    KQuickImageEditor.ImageItem
     {
-        id: imageDoc
-        path: control.url
+        id: editImage
+        readonly property real ratioX: editImage.paintedWidth / editImage.nativeWidth;
+        readonly property real ratioY: editImage.paintedHeight / editImage.nativeHeight;
+
+        fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
+        image: imageDoc.image
+        anchors.fill: parent
+        anchors.margins: Maui.Style.space.medium
+
+        rotation: _transBar.rotationSlider.value
+
+        KQuickImageEditor.ImageDocument
+        {
+            id: imageDoc
+            path: control.url
+        }
+
+        KQuickImageEditor.SelectionTool
+        {
+            id: selectionTool
+            visible: _transBar.cropButton.checked
+            width: editImage.paintedWidth
+            height: editImage.paintedHeight
+            x: editImage.horizontalPadding
+            y: editImage.verticalPadding
+
+            KQuickImageEditor.CropBackground
+            {
+                anchors.fill: parent
+                z: -1
+                insideX: selectionTool.selectionX
+                insideY: selectionTool.selectionY
+                insideWidth: selectionTool.selectionWidth
+                insideHeight: selectionTool.selectionHeight
+            }
+            Connections {
+                target: selectionTool.selectionArea
+                function onDoubleClicked() {
+                    control.crop()
+                }
+            }
+        }
+
+        onImageChanged:
+        {
+            selectionTool.selectionX = 0
+            selectionTool.selectionY = 0
+            selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
+            selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+        }
+
+
+        Canvas
+        {
+            visible: _transBar.rotationButton.checked
+            opacity: 0.15
+            anchors.fill : parent
+            property int wgrid: control.width / 20
+            onPaint: {
+                var ctx = getContext("2d")
+                ctx.lineWidth = 0.5
+                ctx.strokeStyle = Kirigami.Theme.textColor
+                ctx.beginPath()
+                var nrows = height/wgrid;
+                for(var i=0; i < nrows+1; i++){
+                    ctx.moveTo(0, wgrid*i);
+                    ctx.lineTo(width, wgrid*i);
+                }
+
+                var ncols = width/wgrid
+                for(var j=0; j < ncols+1; j++){
+                    ctx.moveTo(wgrid*j, 0);
+                    ctx.lineTo(wgrid*j, height);
+                }
+                ctx.closePath()
+                ctx.stroke()
+            }
+        }
     }
 
     footBar.visible: false
@@ -77,81 +153,12 @@ Maui.Page
         }
     ]
 
-    KQuickImageEditor.ImageItem
-    {
-        id: editImage
-        fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
-        image: imageDoc.image
-        anchors.fill: parent
-        rotation: _transBar.rotationSlider.value
-    }
-
-    Canvas {
-        visible: _transBar.rotationButton.checked
-        opacity: 0.15
-        anchors.fill : parent
-        property int wgrid: control.width / 20
-        onPaint: {
-            var ctx = getContext("2d")
-            ctx.lineWidth = 0.5
-            ctx.strokeStyle = Kirigami.Theme.textColor
-            ctx.beginPath()
-            var nrows = height/wgrid;
-            for(var i=0; i < nrows+1; i++){
-                ctx.moveTo(0, wgrid*i);
-                ctx.lineTo(width, wgrid*i);
-            }
-
-            var ncols = width/wgrid
-            for(var j=0; j < ncols+1; j++){
-                ctx.moveTo(wgrid*j, 0);
-                ctx.lineTo(wgrid*j, height);
-            }
-            ctx.closePath()
-            ctx.stroke()
-        }
-    }
-
-    KQuickImageEditor.ResizeRectangle
-    {
-        id: resizeRectangle
-
-        visible: _transBar.cropButton.checked
-
-        width: editImage.paintedWidth
-        height: editImage.paintedHeight
-        anchors.centerIn: parent
-        insideX: 100
-        insideY: 100
-        insideWidth: 100
-        insideHeight: 100
-
-        onAcceptSize: control.crop();
-
-        //resizeHandle: KQuickImageEditor.BasicResizeHandle { }
-
-        /*Rectangle {
-            radius: 2
-            width: Kirigami.Units.gridUnit * 8
-            height: Kirigami.Units.gridUnit * 3
-            anchors.centerIn: parent
-            Kirigami.Theme.colorSet: Kirigami.Theme.View
-            color: Kirigami.Theme.backgroundColor
-            QQC2.Label {
-                anchors.centerIn: parent
-                text: "x: " + (resizeRectangle.x - control.contentItem.width + editImage.paintedWidth)
-                    + " y: " +  (resizeRectangle.y - control.contentItem.height + editImage.paintedHeight)
-                    + "\nwidth: " + resizeRectangle.width
-                    + " height: " + resizeRectangle.height
-            }
-        }*/
-    }
 
     function crop() {
         console.log("CROP")
-        const ratioX = editImage.paintedWidth / editImage.nativeWidth;
-        const ratioY = editImage.paintedHeight / editImage.nativeHeight;
-        _transBar.cropButton.checked= false
-        imageDoc.crop(resizeRectangle.insideX / ratioX, resizeRectangle.insideY / ratioY, resizeRectangle.insideWidth / ratioX, resizeRectangle.insideHeight / ratioY);
+        imageDoc.crop(selectionTool.selectionX / editImage.ratioX,
+                      selectionTool.selectionY / editImage.ratioY,
+                      selectionTool.selectionWidth / editImage.ratioX,
+                      selectionTool.selectionHeight / editImage.ratioY);
     }
 }
