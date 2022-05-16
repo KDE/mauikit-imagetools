@@ -44,6 +44,8 @@ Maui.Dialog
             anchors.fill: parent
             source: control.url
             fillMode: Image.PreserveAspectCrop
+            sourceSize.width: width
+            sourceSize.height: height
 
             Rectangle
             {
@@ -62,7 +64,7 @@ Maui.Dialog
                 Label
                 {
                     anchors.centerIn: parent
-                    text: _img.sourceSize.width + " x " + _img.sourceSize.height
+                    text: _img.implicitWidth + " x " + _img.implicitHeight
                     color: "white"
                 }
             }
