@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.mauikit.controls 1.2 as Maui
-import org.kde.kirigami 2.8 as Kirigami
 
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 import QtGraphicalEffects 1.12
@@ -34,7 +33,7 @@ Maui.Page
         Layout.alignment: Qt.AlignHCenter
         autoExclusive: true
         currentIndex : 1
-        expanded: control.width > Kirigami.Units.gridUnit * 30
+        expanded: control.width > Maui.Style.units.gridUnit * 30
         display: ToolButton.TextBesideIcon
 
         Action
@@ -116,7 +115,7 @@ Maui.Page
             onPaint: {
                 var ctx = getContext("2d")
                 ctx.lineWidth = 0.5
-                ctx.strokeStyle = Kirigami.Theme.textColor
+                ctx.strokeStyle = Maui.Theme.textColor
                 ctx.beginPath()
                 var nrows = height/wgrid;
                 for(var i=0; i < nrows+1; i++){

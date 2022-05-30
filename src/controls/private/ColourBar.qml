@@ -35,7 +35,7 @@ ColumnLayout
 
         background: Rectangle
         {
-            color: Kirigami.Theme.backgroundColor
+            color: Maui.Theme.backgroundColor
         }
     }
 
@@ -46,7 +46,7 @@ ColumnLayout
 
         background: Rectangle
         {
-            color: Kirigami.Theme.backgroundColor
+            color: Maui.Theme.backgroundColor
         }
 
         middleContent: [

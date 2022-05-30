@@ -25,7 +25,7 @@ ColumnLayout
         visible: _freeRotationButton.checked
         background: Rectangle
         {
-            color: Kirigami.Theme.backgroundColor
+            color: Maui.Theme.backgroundColor
         }
         leftContent: [
             ToolButton
@@ -73,7 +73,7 @@ ColumnLayout
         position: ToolBar.Footer
         background: Rectangle
         {
-            color: Kirigami.Theme.backgroundColor
+            color: Maui.Theme.backgroundColor
         }
 
         Layout.fillWidth: true
@@ -97,7 +97,7 @@ ColumnLayout
         Layout.fillWidth: true
         background: Rectangle
         {
-            color: Kirigami.Theme.backgroundColor
+            color: Maui.Theme.backgroundColor
         }
         middleContent: Maui.ToolActions
         {

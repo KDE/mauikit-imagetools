@@ -51,7 +51,7 @@ Slider
                 implicitHeight: 2
 
                 Rectangle {
-                    color: Kirigami.Theme.textColor
+                    color: Maui.Theme.textColor
                     anchors.fill: parent
                 }
             }
@@ -61,7 +61,7 @@ Slider
                 implicitHeight: 2
 
                 Rectangle {
-                    color: Kirigami.Theme.textColor
+                    color: Maui.Theme.textColor
                     anchors.fill: parent
                 }
             }
@@ -72,7 +72,7 @@ Slider
 
                 Label {
                     visible: control.value !== styleData.value
-                    color: Kirigami.Theme.textColor
+                    color: Maui.Theme.textColor
                     text: styleData.value + "°"
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
@@ -96,7 +96,7 @@ Slider
         {
              width: parent.width
              height: 16
-             color: Kirigami.Theme.backgroundColor
+             color: Maui.Theme.backgroundColor
              radius: Maui.Style.radiusV
                 Label
                 {
@@ -115,7 +115,7 @@ text: control.value + "°"
             anchors.horizontalCenter: parent.horizontalCenter
             height: 32
             width: height
-            color: Kirigami.Theme.textColor
+            color: Maui.Theme.textColor
             isMask: true
             source: "qrc:/assets/data/arrow-up.svg"
         }

@@ -12,8 +12,6 @@ import QtQuick.Controls 2.12
 import QtLocation 5.6
 import QtPositioning 5.6
 
-import org.kde.kirigami 2.8 as Kirigami
-
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
@@ -36,7 +34,7 @@ Maui.Dialog
     {
         Layout.fillWidth: true
         Layout.preferredHeight: 200
-        color: Qt.darker(Kirigami.Theme.backgroundColor, 1.1)
+        color: Qt.darker(Maui.Theme.backgroundColor, 1.1)
 
         Image
         {
@@ -107,10 +105,10 @@ Maui.Dialog
         }
     }
 
-    Kirigami.Separator
+    Maui.Separator
     {
         Layout.fillWidth: true
-//        weight: Kirigami.Separator.Th
+//        weight: Maui.Separator.Th
         visible: map.visible
     }
 
@@ -118,7 +116,7 @@ Maui.Dialog
     {
         id: map
         visible: _infoModel.lat !== 0 &&  _infoModel.lon !== 0
-        color: Kirigami.Theme.backgroundColor
+        color: Maui.Theme.backgroundColor
         Layout.fillWidth: true
         Layout.preferredHeight: 400
         implicitHeight: 400
