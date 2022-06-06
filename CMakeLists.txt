@@ -70,7 +70,7 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/imagetools_version.h"
 
 find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS Core Quick Qml Sql Positioning REQUIRED)
 find_package(LibExiv2 0.21 REQUIRED)
-find_package(ImageMagick)
+#find_package(ImageMagick)
 
 if(ANDROID)
     find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
