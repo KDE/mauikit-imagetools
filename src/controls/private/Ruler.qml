@@ -5,8 +5,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Extras 1.4
 import QtQuick.Controls.Styles 1.4
 
-import org.mauikit.controls 1.2 as Maui
-import org.kde.kirigami 2.8 as Kirigami
+import org.mauikit.controls 1.3 as Maui
 
 Slider
 {
@@ -110,7 +109,7 @@ text: control.value + "°"
                 }
         }
 
-        Kirigami.Icon
+        Maui.Icon
         {
             anchors.horizontalCenter: parent.horizontalCenter
             height: 32
