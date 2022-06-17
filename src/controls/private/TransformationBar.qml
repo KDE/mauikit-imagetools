@@ -3,7 +3,6 @@ import QtQuick.Controls 2.14
 import QtQuick.Layouts 1.3
 
 import org.mauikit.controls 1.2 as Maui
-import org.kde.kirigami 2.8 as Kirigami
 
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 import QtGraphicalEffects 1.12
