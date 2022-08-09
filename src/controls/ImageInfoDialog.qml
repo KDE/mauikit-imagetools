@@ -28,7 +28,7 @@ Maui.Dialog
     defaultButtons: false
     title: _infoModel.fileName
     headBar.visible: true
-    spacing: 0
+    spacing: Maui.Style.space.huge
 
     Rectangle
     {
@@ -42,8 +42,8 @@ Maui.Dialog
             anchors.fill: parent
             source: control.url
             fillMode: Image.PreserveAspectCrop
-            sourceSize.width: width
-            sourceSize.height: height
+//            sourceSize.width: width
+//            sourceSize.height: height
 
             Rectangle
             {
