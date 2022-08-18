@@ -29,6 +29,21 @@ Maui.Dialog
     title: _infoModel.fileName
     headBar.visible: true
     spacing: Maui.Style.space.huge
+    
+    footBar.rightContent: [
+        ToolButton
+        {
+            icon.name: "list-add"
+            text: "Add Exif tag"
+            onClicked: _editTagDialog.open()
+        },
+        
+        ToolButton
+        {
+            icon.name: "file-open"
+            text: "Open"
+        }        
+    ]
 
     Rectangle
     {
@@ -77,7 +92,88 @@ Maui.Dialog
         list.urls: [control.url]
         list.strict: false
     }
-
+    
+    Maui.Dialog
+    {
+        id: _editTagDialog
+        property alias key : _keyField.text
+        property alias value : _valueField.text
+        
+        title: i18n ("Edit")
+        message: i18n("Editing Exif tag")
+        
+        TextField
+        {
+            id: _keyField
+            Layout.fillWidth: true
+            placeholderText: i18n("Tag key")
+        }        
+        
+        TextField
+        {
+            id: _valueField
+            Layout.fillWidth: true
+            placeholderText: i18n("Tag value")
+        }
+        
+        onAccepted:
+        {
+            console.log(_editTagDialog.key, _editTagDialog.value)
+             if(_infoModel.editTag(_editTagDialog.key, _editTagDialog.value))
+            {
+                _editTagDialog.close()
+            }else
+            {
+                _editTagDialog.alert(i18n("Could not edit the tag"), 2)
+            }
+        }
+        
+        onRejected:
+        {
+            _editTagDialog.close()
+        }
+        
+        function set(key, value)
+        {
+            _editTagDialog.key = key
+            _editTagDialog.value = value
+            _editTagDialog.open()
+        }
+    }
+    
+     Maui.Dialog
+    {
+        id: _removeTagDialog
+        property string key
+        property string value
+        
+        title: i18n ("Remove")
+        message: i18n("Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
+         
+        onAccepted:
+        {
+            if(_infoModel.removeTag(_removeTagDialog.key))
+            {
+                _removeTagDialog.close()
+            }else
+            {
+                _removeTagDialog.alert(i18n("Could not remove the tag"), 2)
+            }
+        }
+        
+        onRejected:
+        {
+            _removeTagDialog.close()
+        }
+        
+        function set(key, value)
+        {
+            _removeTagDialog.key = key
+            _removeTagDialog.value = value
+            _removeTagDialog.open()
+        }
+    }
+    
     Maui.SettingsSection
     {
         Layout.fillWidth: true
@@ -99,8 +195,22 @@ Maui.Dialog
             {
                 visible: model.value && String(model.value).length > 0
                 Layout.fillWidth: true
-                label1.text: model.key
+                label1.text: model.name
                 label2.text: model.value
+                
+                ToolButton
+                {
+                    visible: model.key
+                    icon.name: "document-edit"
+                    onClicked: _editTagDialog.set(model.key, model.value)
+                }
+                
+                  ToolButton
+                {
+                    visible: model.key
+                    icon.name: "edit-delete"
+                    onClicked: _removeTagDialog.set(model.key, model.value)
+                }
             }
         }
     }
@@ -108,7 +218,6 @@ Maui.Dialog
     Maui.Separator
     {
         Layout.fillWidth: true
-//        weight: Maui.Separator.Th
         visible: map.visible
     }
 
@@ -119,7 +228,6 @@ Maui.Dialog
         color: Maui.Theme.backgroundColor
         Layout.fillWidth: true
         Layout.preferredHeight: 400
-        implicitHeight: 400
         gesture.acceptedGestures: MapGestureArea.NoGesture
         gesture.flickDeceleration: 3000
         gesture.enabled: true

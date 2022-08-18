@@ -32,8 +32,21 @@
 
 Exiv2Extractor::Exiv2Extractor(const QUrl &url, QObject *parent) : QObject(parent)
 , m_error(true)
-, m_url(url)
+
 {
+    this->setUrl(url);
+}
+
+Exiv2Extractor::Exiv2Extractor(QObject *parent) : QObject(parent)
+, m_error(true)
+
+{
+    
+}
+
+void Exiv2Extractor::setUrl(const QUrl &url)
+{
+    m_url = url;
     if (!QFileInfo::exists(m_url.toLocalFile()) || m_url.isEmpty() || !m_url.isValid()) {
         m_error = true;
     }    
@@ -65,7 +78,7 @@ Exiv2::ExifData & Exiv2Extractor::exifData() const
 {   
     Exiv2::ExifData &exifData = m_image->exifData();
     if (exifData.empty()) {
-//        qWarning() <<  "No EXIF data in : " << m_url.toString();
+        qWarning() <<  "No EXIF data in : " << m_url.toString();
     }    
     
     return exifData;
@@ -221,8 +234,8 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
                 case Exiv2::signedLong:
                     if (it->count() > component)
                         return QVariant((int)it->toLong(component));
-                    else
-                        return QVariant(QVariant::Int);
+                else
+                    return QVariant(QVariant::Int);
                 case Exiv2::unsignedRational:
                 case Exiv2::signedRational:
                     
@@ -613,14 +626,14 @@ QString Exiv2Extractor::GPSString() const
     {
         return QString();
     }
-
+    
     std::unique_ptr<City>m_city(city());
-
+    
     if(!m_city)
     {
         return QString();
     }
-
+    
     if(!m_city->isValid())
     {
         return QString();
@@ -637,12 +650,12 @@ QString Exiv2Extractor::cityId() const
     }
     
     std::unique_ptr<City>m_city(city());
-
+    
     if(!m_city)
     {
         return QString();
     }
-
+    
     if(!m_city->isValid())
     {
         return QString();
@@ -667,3 +680,149 @@ City* Exiv2Extractor::city() const
     
     return Cities::getInstance()->findCity(c.first, c.second);
 }
+
+bool Exiv2Extractor::writeTag(const char *tagName, const QVariant &value)
+{
+    try
+    {
+        qDebug() << "trying to write tag4";
+        
+        Exiv2::ExifKey exifKey(tagName);
+        Exiv2::ExifData &data = (exifData());
+        Exiv2::ExifData::iterator it = data.findKey(exifKey);
+        qDebug() << "trying to write tag5";
+        
+        if (it != data.end())
+        {
+            qDebug() << "trying to write tag2";
+            
+            switch (it->typeId())
+            {
+                case Exiv2::unsignedByte:
+                case Exiv2::unsignedShort:
+                case Exiv2::unsignedLong:
+                case Exiv2::signedShort:
+                case Exiv2::signedLong:
+                case Exiv2::unsignedLongLong:
+                case Exiv2::signedLongLong:
+                {
+                    if(!value.canConvert<QString>())
+                        return false;
+                    
+                    qDebug() << "Writting number metadata" << tagName;
+                    
+                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::signedLongLong);
+                    v->read(value.toString().toStdString());
+                    it->setValue(v.get());
+                    break;
+                }
+                
+                case Exiv2::unsignedRational:
+                case Exiv2::signedRational:
+                {
+                    if(!value.canConvert<QString>())
+                        return false;                
+                                                            qDebug() << "Writting rational metadata" << tagName;
+
+                    Exiv2::RationalValue::AutoPtr rv(new Exiv2::RationalValue);
+                    rv->read(value.toString().toStdString());
+                    it->setValue(rv.get());
+                    break;               
+                    
+                }
+                case Exiv2::date:
+                case Exiv2::time:
+                {
+                    if(!value.canConvert<QString>())
+                        return false;
+                    
+                    auto date = value.toString();
+                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::asciiString);
+                    v->read(date.toStdString());
+                    it->setValue(v.get());
+                    break;
+                    
+                }
+                case Exiv2::asciiString:
+                case Exiv2::comment:
+                case Exiv2::string:
+                {
+                    if(!value.canConvert<QString>())
+                        return false;
+                    qDebug() << "Writting ascii metadata" << tagName;
+                    
+                    auto string = value.toString();
+                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::asciiString);
+                    v->read(string.toStdString());
+                    it->setValue(v.get());
+                    break;
+                    
+                    
+                }
+                default:
+                                        qDebug() << "Writting unkown metadata" << tagName;
+
+                    return false;
+            }
+            
+            qDebug() << "Writting metadata EXIF tag to file" << tagName;
+            //             m_image->setExifData(data);
+            m_image->writeMetadata();
+            return true;
+        }else
+        {
+            Exiv2::Exifdatum& tag = data[tagName];
+            std::string str = value.toString().toStdString();
+            tag.setValue(str);
+            m_image->writeMetadata();
+            return true;
+        }
+    }
+    catch( Exiv2::Error& e )
+    {
+        qWarning () << QString("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(tagName)) << e.what();
+        return false;
+        
+    }
+    catch(...)
+    {
+        qWarning() << "Default exception from Exiv2";
+        return false;
+        
+    }
+    return false;
+}
+
+bool Exiv2Extractor::removeTag(const char *tagName)
+{
+    
+    try
+    {
+        Exiv2::ExifKey key = Exiv2::ExifKey(tagName);
+        Exiv2::ExifData &data = (exifData());
+        
+        Exiv2::ExifData::iterator it = data.findKey(key);
+        
+        if (it != data.end())
+        {
+            data.erase(it);
+            m_image->writeMetadata();
+            return true;
+        }
+    }
+    catch( Exiv2::Error& e )
+    {
+        qWarning () << QString("Cannot find Exif key '%1' in the image using Exiv2 ").arg(QString::fromLatin1(tagName)) << e.what();
+        return false;
+        
+    }
+    catch(...)
+    {
+        qWarning() << "Default exception from Exiv2";
+        return false;
+        
+    }
+    
+    return false;
+}
+

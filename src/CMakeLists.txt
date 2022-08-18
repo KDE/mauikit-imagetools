@@ -8,6 +8,7 @@ set(
     sources
     code/imagetools_plugin.cpp
     code/picinfomodel.cpp
+    code/imagemetadata.cpp
     code/exiv2extractor.cpp
     code/geolocation/city.cpp
     code/geolocation/cities.cpp
@@ -19,6 +20,7 @@ set(
 set(
     headers
     code/picinfomodel.h
+    code/imagemetadata.h
     code/imagetools_plugin.h
     code/exiv2extractor.h
     code/geolocation/city.h

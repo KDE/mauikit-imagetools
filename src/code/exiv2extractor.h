@@ -37,6 +37,9 @@ class IMAGETOOLS_EXPORT Exiv2Extractor : public QObject
 {
 public:
     Exiv2Extractor(const QUrl &url, QObject * parent = nullptr);
+   explicit Exiv2Extractor(QObject * parent = nullptr);
+    
+    void setUrl(const QUrl &url);
     
     Coordinates extractGPS() const;
 
@@ -47,6 +50,9 @@ public:
     QVariant getExifTagVariant (const char *exifTagName, bool rationalAsListOfInts=true, bool escapeCR=true, int component=0) const;
     MetaDataMap getExifTagsDataList( const QStringList & exifKeysFilter = QStringList(), bool invertSelection = false ) const;
     QString getExifComment() const;
+    
+    bool writeTag(const char *tagName, const QVariant &value);
+    bool removeTag(const char *tagName);
     
     QString GPSString() const;
     QString cityId() const;

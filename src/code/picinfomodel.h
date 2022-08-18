@@ -13,6 +13,7 @@
 
 #include <QFileInfo>
 
+class Exiv2Extractor;
 class PicInfoModel : public MauiList
 {
     Q_OBJECT
@@ -33,8 +34,12 @@ public slots:
 
     double latitude() const;
     double longitude() const;
+    
+    bool removeTag(const QString &tag);
+    bool editTag(const QString &tag, const QString &value);
 
 private:
+    Exiv2Extractor *m_extractor;
     QUrl m_url;
     QString m_fileName;
     FMH::MODEL_LIST m_data;

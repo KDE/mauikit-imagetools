@@ -6,6 +6,7 @@
         <file alias="private/ColourBar.qml">controls/private/ColourBar.qml</file>
         <file alias="private/TransformationBar.qml">controls/private/TransformationBar.qml</file>
         <file alias="ImageInfoDialog.qml">controls/ImageInfoDialog.qml</file>
+        <file alias="MetadataEditor.qml">controls/MetadataEditor.qml</file>
     </qresource>
     <qresource prefix="/assets">
         <file>data/arrow-up.svg</file>

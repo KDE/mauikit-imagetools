@@ -10,14 +10,15 @@
 
 void ImageToolsPlugin::registerTypes(const char *uri)
 {
-#if defined(Q_OS_ANDROID)
+    #if defined(Q_OS_ANDROID)
     QResource::registerResource(QStringLiteral("assets:/android_rcc_bundle.rcc"));
     #endif
     
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageViewer.qml")), uri, 1, 0, "ImageViewer");   
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageEditor.qml")), uri, 1, 0, "ImageEditor"); 
-
+    
     qmlRegisterType<PicInfoModel>(uri, 1, 3, "PicInfoModel");
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageInfoDialog.qml")), uri, 1, 3, "ImageInfoDialog");     
+    qmlRegisterType(resolveFileUrl(QStringLiteral("MetadataEditor.qml")), uri, 1, 3, "MetadataEditor");     
 }
 
