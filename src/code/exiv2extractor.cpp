@@ -77,9 +77,9 @@ void Exiv2Extractor::setUrl(const QUrl &url)
 Exiv2::ExifData & Exiv2Extractor::exifData() const
 {   
     Exiv2::ExifData &exifData = m_image->exifData();
-    if (exifData.empty()) {
-        qWarning() <<  "No EXIF data in : " << m_url.toString();
-    }    
+//     if (exifData.empty()) {
+//         qWarning() <<  "No EXIF data in : " << m_url.toString();
+//     }    
     
     return exifData;
 }
