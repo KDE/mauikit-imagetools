@@ -107,7 +107,7 @@ ColumnLayout
 
         leftContent: ToolButton
         {
-            //                    text: i18n("Accept")
+            //                    text: i18nd("mauikitimagetools","Accept")
             icon.name: "dialog-apply"
             onClicked:
             {
@@ -117,7 +117,7 @@ ColumnLayout
 
         rightContent:  ToolButton
         {
-            //                    text: i18n("Cancel")
+            //                    text: i18nd("mauikitimagetools","Cancel")
             icon.name: "dialog-cancel"
             onClicked:
             {

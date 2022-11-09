@@ -60,7 +60,7 @@ ColumnLayout
 
         //                middleContent: Label
         //                {
-        //                    text: i18n("Rotate")
+        //                    text: i18nd("mauikitimagetools","Rotate")
         //                }
     }
 
@@ -121,7 +121,7 @@ ColumnLayout
 
         leftContent: ToolButton
         {
-            //                    text: i18n("Accept")
+            //                    text: i18nd("mauikitimagetools","Accept")
             visible: _freeRotationButton.checked || _cropButton.checked
 
             icon.name: "checkmark"
@@ -145,7 +145,7 @@ ColumnLayout
 
         rightContent:  ToolButton
         {
-            //                    text: i18n("Cancel")
+            //                    text: i18nd("mauikitimagetools","Cancel")
             visible: _freeRotationButton.checked || _cropButton.checked
             icon.name: "dialog-cancel"
             onClicked:

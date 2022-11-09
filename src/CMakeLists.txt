@@ -2,8 +2,6 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-ecm_create_qm_loader(imagetools_QM_LOADER libimagetoolsplugin_qt)
-
 set(
     sources
     code/imagetools_plugin.cpp
@@ -14,7 +12,6 @@ set(
     code/geolocation/cities.cpp
     code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
-    ${imagetools_QM_LOADER}
     )
 
 set(
@@ -46,6 +43,8 @@ add_library(
     SHARED
     ${sources} ${pluginData} ${imagetools_QML_QRC}
     )
+
+    ecm_create_qm_loader(MauiKitImageTools MauiKitImageToolsPlugin)
 
 add_library(MauiKit::ImageTools ALIAS MauiKitImageTools)
 

@@ -38,17 +38,17 @@ Maui.Page
 
         Action
         {
-            text: i18n("Color")
+            text: i18nd("mauikitimagetools","Color")
         }
 
         Action
         {
-            text: i18n("Transform")
+            text: i18nd("mauikitimagetools","Transform")
         }
 
         Action
         {
-            text: i18n("Layer")
+            text: i18nd("mauikitimagetools","Layer")
         }
     }
 

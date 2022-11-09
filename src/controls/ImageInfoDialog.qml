@@ -100,20 +100,20 @@ Maui.Dialog
         property alias value : _valueField.text
         
         title: i18n ("Edit")
-        message: i18n("Editing Exif tag")
+        message: i18nd("mauikitimagetools","Editing Exif tag")
         
         TextField
         {
             id: _keyField
             Layout.fillWidth: true
-            placeholderText: i18n("Tag key")
+            placeholderText: i18nd("mauikitimagetools","Tag key")
         }        
         
         TextField
         {
             id: _valueField
             Layout.fillWidth: true
-            placeholderText: i18n("Tag value")
+            placeholderText: i18nd("mauikitimagetools","Tag value")
         }
         
         onAccepted:
@@ -124,7 +124,7 @@ Maui.Dialog
                 _editTagDialog.close()
             }else
             {
-                _editTagDialog.alert(i18n("Could not edit the tag"), 2)
+                _editTagDialog.alert(i18nd("mauikitimagetools","Could not edit the tag"), 2)
             }
         }
         
@@ -148,7 +148,7 @@ Maui.Dialog
         property string value
         
         title: i18n ("Remove")
-        message: i18n("Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
+        message: i18nd("mauikitimagetools","Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
          
         onAccepted:
         {
@@ -157,7 +157,7 @@ Maui.Dialog
                 _removeTagDialog.close()
             }else
             {
-                _removeTagDialog.alert(i18n("Could not remove the tag"), 2)
+                _removeTagDialog.alert(i18nd("mauikitimagetools","Could not remove the tag"), 2)
             }
         }
         
@@ -178,8 +178,8 @@ Maui.Dialog
     {
         Layout.fillWidth: true
 
-        title: i18n("Details")
-        description: i18n("File information")
+        title: i18nd("mauikitimagetools","Details")
+        description: i18nd("mauikitimagetools","File information")
 
         Repeater
         {
