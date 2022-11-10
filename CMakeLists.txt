@@ -76,7 +76,7 @@ if(ANDROID)
     find_package(Qt5 ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
 endif()
 
-find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS CoreAddons)
+find_package(KF5 ${REQUIRED_KF5_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit REQUIRED)
 
 if(QUICK_COMPILER)
@@ -100,9 +100,9 @@ kde_enable_exceptions()
 
 add_subdirectory(src)
 
-
-    ecm_install_po_files_as_qm(poqm)
-
+    add_definitions(-DTRANSLATION_DOMAIN="mauikitimagetools")
+    ki18n_install(po)
+    
     file(GLOB_RECURSE ALL_CLANG_FORMAT_SOURCE_FILES *.cpp *.h)
 kde_clang_format(${ALL_CLANG_FORMAT_SOURCE_FILES})
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

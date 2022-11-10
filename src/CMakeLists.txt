@@ -44,8 +44,6 @@ add_library(
     ${sources} ${pluginData} ${imagetools_QML_QRC}
     )
 
-    ecm_create_qm_loader(MauiKitImageTools MauiKitImageToolsPlugin)
-
 add_library(MauiKit::ImageTools ALIAS MauiKitImageTools)
 
 if(QUICK_COMPILER)
@@ -84,6 +82,7 @@ target_link_libraries(
     LibExiv2::LibExiv2
     Qt5::Positioning
     KF5::CoreAddons
+    KF5::I18n
     MauiKit
     )
 
