@@ -1,149 +1,150 @@
 # Copyright (C) YEAR This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 #
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
+# Matjaž Jeran <matjaz.jeran@amis.net>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-10 00:45+0000\n"
-"PO-Revision-Date: 2022-11-10 19:17-0400\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"PO-Revision-Date: 2022-11-11 11:39+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100>=3 && n"
+"%100<=4 ? 2 : 3);\n"
+"X-Generator: Lokalize 22.08.1\n"
 
 #: src/controls/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
-msgstr "Kleur"
+msgstr "Barva"
 
 #: src/controls/ImageEditor.qml:46
 #, kde-format
 msgid "Transform"
-msgstr "Transformeren"
+msgstr "Preoblikuj"
 
 #: src/controls/ImageEditor.qml:51
 #, kde-format
 msgid "Layer"
-msgstr "Laag"
+msgstr "Plast"
 
 #: src/controls/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
-msgstr "Bewerken"
+msgstr "Uredi"
 
 #: src/controls/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "Urejam oznako Exif"
 
 #: src/controls/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Tag key"
-msgstr ""
+msgstr "Ključ oznake"
 
 #: src/controls/ImageInfoDialog.qml:116
 #, kde-format
 msgid "Tag value"
-msgstr ""
+msgstr "Vrednost oznake"
 
 #: src/controls/ImageInfoDialog.qml:127
 #, kde-format
 msgid "Could not edit the tag"
-msgstr ""
+msgstr "Ni bilo mogoče urejati oznake"
 
 #: src/controls/ImageInfoDialog.qml:150
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "Odstrani"
 
 #: src/controls/ImageInfoDialog.qml:151
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
-msgstr ""
+msgstr "Ali ste prepričani, da želite odstraniti oznako Exif %1?"
 
 #: src/controls/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Could not remove the tag"
-msgstr ""
+msgstr "Ni bilo mogoče odstraniti oznake"
 
 #: src/controls/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Details"
-msgstr "Details"
+msgstr "Podrobnosti"
 
 #: src/controls/ImageInfoDialog.qml:182
 #, kde-format
 msgid "File information"
-msgstr "Bestandsinformatie"
+msgstr "Informacije o datoteki"
 
 #: src/controls/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
-msgstr "Verzadiging"
+msgstr "Nasičenost"
 
 #: src/controls/private/ColourBar.qml:67
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
-msgstr "Contrast"
+msgstr "Kontrast"
 
 #: src/controls/private/ColourBar.qml:76
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
-msgstr "Belichting"
+msgstr "Osvetlitev"
 
 #: src/controls/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
-msgstr "Accentueringen"
+msgstr "Bleščave"
 
 #: src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
-msgstr "Schaduwen"
+msgstr "Sence"
 
 #: src/controls/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
-msgstr "Helderheid"
+msgstr "Svetlost"
 
 #: src/controls/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr "Omdraaien"
+msgstr "Zrcali"
 
 #: src/controls/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
-msgstr "Spiegelen"
+msgstr "Zrcalo"
 
 #: src/controls/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
-msgstr "90° draaien"
+msgstr "Zasukaj 90°"
 
 #: src/controls/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
-msgstr "Uitsnijden"
+msgstr "Obreži"
 
 #: src/controls/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
-msgstr "Draaien"
+msgstr "Zasukaj"

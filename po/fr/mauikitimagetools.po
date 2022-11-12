@@ -1,41 +1,36 @@
-# Copyright (C) YEAR This file is copyright:
-# This file is distributed under the same license as the mauikit-imagetools package.
-#
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:45+0000\n"
-"PO-Revision-Date: 2022-11-10 19:17-0400\n"
-"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
-"Language-Team: \n"
-"Language: nl\n"
+"POT-Creation-Date: 2022-11-11 00:44+0000\n"
+"PO-Revision-Date: 2022-11-11 18:34+0100\n"
+"Last-Translator: KDE Francophone <kde-francophone@kde.org>\n"
+"Language-Team: KDE Francophone <kde-francophone@kde.org>\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 22.08.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/controls/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
-msgstr "Kleur"
+msgstr ""
 
 #: src/controls/ImageEditor.qml:46
 #, kde-format
 msgid "Transform"
-msgstr "Transformeren"
+msgstr ""
 
 #: src/controls/ImageEditor.qml:51
 #, kde-format
 msgid "Layer"
-msgstr "Laag"
+msgstr ""
 
 #: src/controls/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
-msgstr "Bewerken"
+msgstr ""
 
 #: src/controls/ImageInfoDialog.qml:103
 #, kde-format
@@ -75,75 +70,75 @@ msgstr ""
 #: src/controls/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Details"
-msgstr "Details"
+msgstr ""
 
 #: src/controls/ImageInfoDialog.qml:182
 #, kde-format
 msgid "File information"
-msgstr "Bestandsinformatie"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
-msgstr "Verzadiging"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:67
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
-msgstr "Contrast"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:76
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
-msgstr "Belichting"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
-msgstr "Accentueringen"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
-msgstr "Schaduwen"
+msgstr ""
 
 #: src/controls/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
-msgstr "Helderheid"
+msgstr ""
 
 #: src/controls/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr "Omdraaien"
+msgstr ""
 
 #: src/controls/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
-msgstr "Spiegelen"
+msgstr ""
 
 #: src/controls/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
-msgstr "90° draaien"
+msgstr ""
 
 #: src/controls/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
-msgstr "Uitsnijden"
+msgstr ""
 
 #: src/controls/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
-msgstr "Draaien"
+msgstr ""
