@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-10 00:45+0000\n"
-"PO-Revision-Date: 2022-11-10 19:17-0400\n"
+"POT-Creation-Date: 2022-11-11 00:44+0000\n"
+"PO-Revision-Date: 2022-11-14 15:25+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 22.08.3\n"
 
 #: src/controls/ImageEditor.qml:41
@@ -40,37 +40,37 @@ msgstr "Bewerken"
 #: src/controls/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "Exif tag bewerken"
 
 #: src/controls/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Tag key"
-msgstr ""
+msgstr "Sleutel van tag"
 
 #: src/controls/ImageInfoDialog.qml:116
 #, kde-format
 msgid "Tag value"
-msgstr ""
+msgstr "Waarde van tag"
 
 #: src/controls/ImageInfoDialog.qml:127
 #, kde-format
 msgid "Could not edit the tag"
-msgstr ""
+msgstr "Kon de tag niet bewerken"
 
 #: src/controls/ImageInfoDialog.qml:150
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 #: src/controls/ImageInfoDialog.qml:151
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
-msgstr ""
+msgstr "Wilt u de Exif-tag %1 verwijderen?"
 
 #: src/controls/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Could not remove the tag"
-msgstr ""
+msgstr "Kon de tag niet verwijderen"
 
 #: src/controls/ImageInfoDialog.qml:181
 #, kde-format
