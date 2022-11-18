@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-11 00:44+0000\n"
-"PO-Revision-Date: 2022-11-14 15:25+0100\n"
+"PO-Revision-Date: 2022-11-17 13:50+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -122,7 +122,7 @@ msgstr "Helderheid"
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr "Omdraaien"
+msgstr "Spiegelen"
 
 #: src/controls/private/TransformationBar.qml:41
 #, kde-format
