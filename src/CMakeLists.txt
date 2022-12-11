@@ -2,6 +2,10 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
+
+add_subdirectory(code/modules/image2text)
+add_subdirectory(code/modules/opencv)
+
 set(
     sources
     code/imagetools_plugin.cpp
@@ -75,6 +79,7 @@ target_link_libraries(
     MauiKitImageTools
 
     PRIVATE
+    Image2Text
     Qt5::Core
     Qt5::Quick
     Qt5::Qml
