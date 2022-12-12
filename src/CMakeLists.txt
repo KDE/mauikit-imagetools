@@ -16,6 +16,7 @@ set(
     code/geolocation/cities.cpp
     code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
+    code/textscanner.cpp
     )
 
 set(
@@ -28,6 +29,7 @@ set(
     code/geolocation/cities.h
     code/geolocation/citiesdb.h
     code/geolocation/kdtree.hpp
+    code/textscanner.h
     )
 
 set(

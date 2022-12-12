@@ -90,25 +90,29 @@ QString OCS::getText()
         return "Error!";
     }
 
-        m_tesseract->SetPageSegMode(tesseract::PSM_AUTO);
+    m_tesseract->SetPageSegMode(tesseract::PSM_AUTO);
 
     QString outText;
 
-//    Pix* im = pixRead(url.toLocalFile().toStdString().c_str());
 
-    QImage img(url.toLocalFile());
 
     if(!m_area.isEmpty())
     {
-           img = img.copy(m_area);
-    }
-    img = img.convertToFormat(QImage::Format_Grayscale8);
+        QImage img(url.toLocalFile());
 
-//    qDebug() << img.width << img.height << "LLLLLLLLL";
-    m_tesseract->SetImage(img.bits(), img.width(), img.height(), 1, img.bytesPerLine());
+        img = img.copy(m_area);
+        //    img = img.convertToFormat(QImage::Format_Grayscale8);
+
+        m_tesseract->SetImage(img.bits(), img.width(), img.height(), 4, img.bytesPerLine());
+
+    }else
+    {
+        Pix* im = pixRead(url.toLocalFile().toStdString().c_str());
+        m_tesseract->SetImage(im);
+
+    }
 
     outText = QString::fromStdString(m_tesseract->GetUTF8Text());
-//    m_tesseract->End();
 
     return outText;
 }
@@ -141,31 +145,31 @@ static PIX* qImage2PIX(const QImage& qImage) {
     PIX * pixs;
 
     QImage myImage = qImage.rgbSwapped();
-  int width = myImage.width();
-  int height = myImage.height();
-  int depth = myImage.depth();
-  int wpl = myImage.bytesPerLine() / 4;
+    int width = myImage.width();
+    int height = myImage.height();
+    int depth = myImage.depth();
+    int wpl = myImage.bytesPerLine() / 4;
 
-  pixs = pixCreate(width, height, depth);
-  pixSetWpl(pixs, wpl);
-  pixSetColormap(pixs, NULL);
-  l_uint32 *datas = pixs->data;
+    pixs = pixCreate(width, height, depth);
+    pixSetWpl(pixs, wpl);
+    pixSetColormap(pixs, NULL);
+    l_uint32 *datas = pixs->data;
 
-  for (int y = 0; y < height; y++) {
-    l_uint32 *lines = datas + y * wpl;
-    QByteArray a((const char*)myImage.scanLine(y), myImage.bytesPerLine());
-    for (int j = 0; j < a.size(); j++) {
-      *((l_uint8 *)lines + j) = a[j];
+    for (int y = 0; y < height; y++) {
+        l_uint32 *lines = datas + y * wpl;
+        QByteArray a((const char*)myImage.scanLine(y), myImage.bytesPerLine());
+        for (int j = 0; j < a.size(); j++) {
+            *((l_uint8 *)lines + j) = a[j];
+        }
     }
-  }
 
-  const qreal toDPM = 1.0 / 0.0254;
-  int resolutionX = myImage.dotsPerMeterX() / toDPM;
-  int resolutionY = myImage.dotsPerMeterY() / toDPM;
+    const qreal toDPM = 1.0 / 0.0254;
+    int resolutionX = myImage.dotsPerMeterX() / toDPM;
+    int resolutionY = myImage.dotsPerMeterY() / toDPM;
 
-  if (resolutionX < 300) resolutionX = 300;
-  if (resolutionY < 300) resolutionY = 300;
-  pixSetResolution(pixs, resolutionX, resolutionY);
+    if (resolutionX < 300) resolutionX = 300;
+    if (resolutionY < 300) resolutionY = 300;
+    pixSetResolution(pixs, resolutionX, resolutionY);
 
-  return pixEndianByteSwapNew(pixs);
+    return pixEndianByteSwapNew(pixs);
 }
