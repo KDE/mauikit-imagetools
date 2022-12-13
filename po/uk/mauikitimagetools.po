@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:46+0000\n"
-"PO-Revision-Date: 2022-11-11 17:40+0200\n"
+"PO-Revision-Date: 2022-12-12 16:39+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -21,17 +21,17 @@ msgstr ""
 #: src/controls/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
-msgstr ""
+msgstr "Прочитати область"
 
 #: src/controls/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
-msgstr ""
+msgstr "Прочитати усе"
 
 #: src/controls/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "Налаштувати"
 
 #: src/controls/ImageEditor.qml:41
 #, kde-format
