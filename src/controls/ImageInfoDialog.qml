@@ -174,7 +174,7 @@ Maui.Dialog
         }
     }
     
-    Maui.SettingsSection
+    Maui.SectionGroup
     {
         Layout.fillWidth: true
 
@@ -191,7 +191,7 @@ Maui.Dialog
                 }
             }
 
-            delegate: Maui.SettingTemplate
+            delegate: Maui.SectionItem
             {
                 visible: model.value && String(model.value).length > 0
                 Layout.fillWidth: true
