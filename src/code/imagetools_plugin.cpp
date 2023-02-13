@@ -8,8 +8,9 @@
 #include "picinfomodel.h"
 #include "imagetools_plugin.h"
 
-
+#ifndef Q_OS_ANDROID
 #include <ocs.h>
+#endif
 
 void ImageToolsPlugin::registerTypes(const char *uri)
 {
@@ -24,9 +25,10 @@ void ImageToolsPlugin::registerTypes(const char *uri)
     qmlRegisterType(resolveFileUrl(QStringLiteral("ImageInfoDialog.qml")), uri, 1, 3, "ImageInfoDialog");     
     qmlRegisterType(resolveFileUrl(QStringLiteral("MetadataEditor.qml")), uri, 1, 3, "MetadataEditor");
 
+#ifndef Q_OS_ANDROID
     qmlRegisterType<OCS>(uri, 1, 3, "OCR");
     qmlRegisterType(resolveFileUrl(QStringLiteral("image2text/OCRPage.qml")), uri, 1, 3, "OCRPage");
-
+#endif
 
 }
 

@@ -2,9 +2,10 @@
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
-
+if(NOT ANDROID)
 add_subdirectory(code/modules/image2text)
 add_subdirectory(code/modules/opencv)
+endif()
 
 set(
     sources
@@ -70,6 +71,12 @@ if(ANDROID)
         PRIVATE
         Qt5::AndroidExtras
         )
+else()
+    target_link_libraries(
+        MauiKitImageTools
+        PRIVATE
+        Image2Text
+        )
 endif()
 
 target_include_directories(MauiKitImageTools
@@ -81,7 +88,6 @@ target_link_libraries(
     MauiKitImageTools
 
     PRIVATE
-    Image2Text
     Qt5::Core
     Qt5::Quick
     Qt5::Qml
