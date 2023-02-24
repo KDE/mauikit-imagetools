@@ -59,11 +59,6 @@ if(QUICK_COMPILER)
 endif()
 
 generate_export_header(MauiKitImageTools BASE_NAME ImageTools)
-set_target_properties(MauiKitImageTools PROPERTIES
-    VERSION ${ImageTools_VERSION_STRING}
-    SOVERSION ${ImageTools_SOVERSION}
-    EXPORT_NAME ImageTools
-    )
 
 if(ANDROID)
     target_link_libraries(
