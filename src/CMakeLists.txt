@@ -53,12 +53,12 @@ add_library(
 
 add_library(MauiKit::ImageTools ALIAS MauiKitImageTools)
 
-if(QUICK_COMPILER)
-    add_definitions(-DQUICK_COMPILER)
-    target_compile_definitions(MauiKitImageTools PUBLIC QUICK_COMPILER)
-endif()
-
 generate_export_header(MauiKitImageTools BASE_NAME ImageTools)
+set_target_properties(MauiKitImageTools PROPERTIES
+    VERSION ${ImageTools_VERSION_STRING}
+    SOVERSION ${ImageTools_SOVERSION}
+    EXPORT_NAME ImageTools
+    )
 
 if(ANDROID)
     target_link_libraries(
@@ -78,6 +78,11 @@ target_include_directories(MauiKitImageTools
     INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/MauiKit/ImageTools>")
 
 target_include_directories(MauiKitImageTools PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")
+
+if(QUICK_COMPILER)
+    add_definitions(-DQUICK_COMPILER)
+    target_compile_definitions(MauiKitImageTools PUBLIC QUICK_COMPILER)
+endif()
 
 target_link_libraries(
     MauiKitImageTools
