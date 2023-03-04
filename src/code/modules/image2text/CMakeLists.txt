@@ -11,8 +11,8 @@ set(REQUIRED_KF5_VERSION "5.94")
 find_package(ECM ${REQUIRED_KF5_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
-find_package(Tesseract 4)
-find_package(Leptonica)
+find_package(Tesseract 4 REQUIRED)
+find_package(Leptonica REQUIRED)
 
 if (LEPTONICA_FOUND AND TESSERACT_FOUND)
    set(OCR_AVAILABLE 1)
