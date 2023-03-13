@@ -1,23 +1,19 @@
-# German translations for mauikit-imagetools package.
-# Copyright (C) 2022 This file is copyright:
-# This file is distributed under the same license as the mauikit-imagetools package.
-# Frederik Schwarzer <schwarzer@kde.org>, 2023.
-#
-# Automatically generated, 2022.
+# translation of mauikitimagetools.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: mauikit-imagetools\n"
+"Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-12-12 00:46+0000\n"
-"PO-Revision-Date: 2023-03-12 16:45+0100\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
-"Language-Team: German <kde-i18n-de@kde.org>\n"
-"Language: de\n"
+"PO-Revision-Date: 2023-03-12 11:37+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 22.07.70\n"
+"X-Generator: Lokalize 22.12.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: src/controls/image2text/OCRPage.qml:35
 #, kde-format
@@ -32,27 +28,27 @@ msgstr ""
 #: src/controls/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
-msgstr "Einrichten"
+msgstr "Nastaviť"
 
 #: src/controls/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
-msgstr "Farbe"
+msgstr "Farba"
 
 #: src/controls/ImageEditor.qml:46
 #, kde-format
 msgid "Transform"
-msgstr ""
+msgstr "Transformovať"
 
 #: src/controls/ImageEditor.qml:51
 #, kde-format
 msgid "Layer"
-msgstr "Ebene"
+msgstr "Vrstva"
 
 #: src/controls/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Upraviť"
 
 #: src/controls/ImageInfoDialog.qml:103
 #, kde-format
@@ -77,7 +73,7 @@ msgstr ""
 #: src/controls/ImageInfoDialog.qml:150
 #, kde-format
 msgid "Remove"
-msgstr "Entfernen"
+msgstr "Odstrániť"
 
 #: src/controls/ImageInfoDialog.qml:151
 #, kde-format
@@ -92,18 +88,18 @@ msgstr ""
 #: src/controls/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Details"
-msgstr "Details"
+msgstr "Podrobnosti"
 
 #: src/controls/ImageInfoDialog.qml:182
 #, kde-format
 msgid "File information"
-msgstr "Datei-Informationen"
+msgstr "Informácia o súbore"
 
 #: src/controls/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
-msgstr "Sättigung"
+msgstr "Sýtosť"
 
 #: src/controls/private/ColourBar.qml:67
 #, kde-format
@@ -115,52 +111,52 @@ msgstr "Kontrast"
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
-msgstr "Belichtung"
+msgstr "Expozícia"
 
 #: src/controls/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
-msgstr "Glanzlichter"
+msgstr "Zvýraznenia"
 
 #: src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
-msgstr "Schatten"
+msgstr "Tiene"
 
 #: src/controls/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
-msgstr "Helligkeit"
+msgstr "Jas"
 
 #: src/controls/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr "Senkrecht spiegeln"
+msgstr "Prevrátiť"
 
 #: src/controls/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
-msgstr "Waagerecht spiegeln"
+msgstr "Zrkadliť"
 
 #: src/controls/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
-msgstr "Um 90° drehen"
+msgstr "Otočiť 90°"
 
 #: src/controls/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
-msgstr "Zuschneiden"
+msgstr "Orezať"
 
 #: src/controls/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
-msgstr "Drehen"
+msgstr "Otočiť"
