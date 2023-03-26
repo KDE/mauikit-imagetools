@@ -11,7 +11,12 @@
 #include "citiesdb.h"
 
 Cities *Cities::m_instance = nullptr;
-KDTree *Cities::m_citiesTree = nullptr;
+
+static KDTree& getCitiesTree()
+{
+    static KDTree tree((CitiesDB()).cities());
+    return tree;
+}
 
 Cities::Cities(QObject * parent) : QObject(parent)
 {
@@ -19,7 +24,7 @@ Cities::Cities(QObject * parent) : QObject(parent)
 
     connect(qApp, &QCoreApplication::aboutToQuit, [this]()
     {
-        qDebug() << "Lets remove Tagging singleton instance";
+        qDebug() << "Lets remove Cities singleton instance";
 
         qDeleteAll(m_dbs);
         m_dbs.clear();
@@ -27,21 +32,11 @@ Cities::Cities(QObject * parent) : QObject(parent)
         delete m_instance;
         m_instance = nullptr;
     });
-
-    parseCities();
-}
-
-Cities::~Cities()
-{
-    delete Cities::m_citiesTree;
 }
 
 City* Cities::findCity(double latitude, double longitude)
 {
-    qDebug() << "Latitude: " << latitude << "Longitud: " << longitude;
-    auto pointNear = Cities::m_citiesTree->nearest_point({latitude, longitude});
-    qDebug()  << pointNear[0] << pointNear[1];
-
+    auto pointNear = getCitiesTree().nearest_point({latitude, longitude});
    return db()->findCity(pointNear[0], pointNear[1]);
 }
 
@@ -50,29 +45,18 @@ City *Cities::city(const QString &id)
     return db()->city(id);
 }
 
-void Cities::parseCities()
-{    
-    if(!Cities::m_citiesTree || Cities::m_citiesTree->empty())
-    {
-        qDebug() << "KDE TREE EMPTY FILLING IT";
-
-        Cities::m_citiesTree = new KDTree(db()->cities());
-        emit citiesReady();
-    }
-}
-
 CitiesDB *Cities::db()
 {
-    if(m_dbs.contains(QThread::currentThreadId()))
+    if(m_dbs.contains(QThread::currentThread()))
     {
-        qDebug() << "Using existing CITIESDB instance" << QThread::currentThreadId();
+        qDebug() << "Using existing CITIESDB instance" << QThread::currentThread();
 
-        return m_dbs[QThread::currentThreadId()];
+        return m_dbs[QThread::currentThread()];
     }
 
-    qDebug() << "Creating new CITIESDB instance" << QThread::currentThreadId();
+    qDebug() << "Creating new CITIESDB instance" << QThread::currentThread();
 
     auto new_db = new CitiesDB;
-    m_dbs.insert(QThread::currentThreadId(), new_db);
+    m_dbs.insert(QThread::currentThread(), new_db);
     return new_db;
 }

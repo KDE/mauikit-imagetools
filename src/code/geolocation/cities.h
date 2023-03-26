@@ -15,19 +15,6 @@
 
 class City;
 class CitiesDB;
-class KDTree_Cities
-{
-
-public:
-    KDTree_Cities *instance()
-    {
-        static KDTree_Cities instance;
-        return &instance;
-    }
-
-private:
-    KDTree_Cities();
-};
 
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
@@ -54,15 +41,10 @@ private:
 
     Cities(QObject * parent = nullptr);
 
-    ~Cities();
     Cities(const Cities &) = delete;
     Cities &operator=(const Cities &) = delete;
     Cities(Cities &&) = delete;
     Cities &operator=(Cities &&) = delete;
-
-    static KDTree *m_citiesTree;
-
-    void parseCities();
 
     CitiesDB *db();
     QHash<Qt::HANDLE, CitiesDB*> m_dbs;

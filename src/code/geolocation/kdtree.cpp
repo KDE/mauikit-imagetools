@@ -19,6 +19,8 @@
 #include <memory>
 #include <vector>
 
+#include <QDebug>
+
 #include "kdtree.hpp"
 
 KDNode::KDNode() = default;
@@ -139,6 +141,9 @@ KDNodePtr KDTree::make_tree(const pointIndexArr::iterator &begin,  //
 }
 
 KDTree::KDTree(pointVec point_array) {
+    
+    qDebug() << "CREATING KDETREE INSTANCE";
+    
     leaf = std::make_shared< KDNode >();
     // iterators
     pointIndexArr arr;

@@ -197,6 +197,7 @@ Maui.Dialog
                 Layout.fillWidth: true
                 label1.text: model.name
                 label2.text: model.value
+                columns: 3
                 
                 ToolButton
                 {
@@ -235,7 +236,7 @@ Maui.Dialog
         plugin: Plugin
         {
             id: mapPlugin
-            name: "mapboxgl" // "mapboxgl", "esri", ...
+            name: "osm" // "mapboxgl", "esri", ...
             // specify plugin parameters if necessary
             // PluginParameter {
             //     name:
@@ -248,6 +249,18 @@ Maui.Dialog
         {
             latitude: _infoModel.lat
             longitude:_infoModel.lon
+        }
+        
+        MapCircle
+        {
+            center: map.center
+            radius: 50.0
+            color: Maui.Theme.highlightColor
+        }
+        
+        Component.onCompleted: 
+        {            
+            map.addMapItem(map.circle)
         }
     }
 }
