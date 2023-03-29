@@ -15,8 +15,31 @@ City::City(const QString &cityID, const QString &name, const QString &continent,
     
 }
 
+City::City(const City &other, QObject *parent) : QObject(parent)
+, m_cityID(other.id())
+, m_name(other.name())
+, m_continent(other.continent())
+, m_country(other.country())
+, m_latitude(other.latitude())
+, m_longitude(other.longitude())
+
+{
+    
+}
+
+
 City::City(QObject* parent) : QObject(parent)
 {
+}
+
+double City::latitude() const
+{
+    return m_latitude;
+}
+
+double City::longitude() const
+{
+    return m_longitude;
 }
 
 QString City::id() const

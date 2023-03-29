@@ -2,8 +2,7 @@
 // Created by gabridc on 5/6/21.
 //
 
-#ifndef PIX_CITY_H
-#define PIX_CITY_H
+#pragma once
 
 #include <QObject>
 #include <QString>
@@ -18,6 +17,7 @@ public:
     explicit City(const QString &cityID, const QString &name, const QString &continent, const QString &country, const double &latitude, const double &longitude, QObject *parent = nullptr);
     
     explicit City(QObject *parent = nullptr);
+    City(const City &other, QObject *parent = nullptr);
     
     bool match(double latitude, double longitude);
     
@@ -33,6 +33,8 @@ public:
     QString name() const;
     QString country() const;
     QString continent() const;
+    double latitude() const;
+    double longitude() const;
     
     bool isValid() const;
     
@@ -45,4 +47,3 @@ private:
     double m_longitude;
 };
 
-#endif //PIX_CITY_H

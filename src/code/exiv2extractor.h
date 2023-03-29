@@ -56,7 +56,7 @@ public:
     
     QString GPSString() const;
     QString cityId() const;
-    City *city() const;
+    City city() const;
     
 private:
     double fetchGpsDouble(const char *name) const;

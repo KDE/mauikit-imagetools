@@ -13,8 +13,8 @@ class CitiesDB : public QObject
 public:
     explicit CitiesDB(QObject * =nullptr);
 
-    City *findCity(double latitude, double longitude);
-    City *city(const QString&);
+    City findCity(double latitude, double longitude);
+    City city(const QString&);
     std::vector<point_t> cities();
     bool error() const;
 

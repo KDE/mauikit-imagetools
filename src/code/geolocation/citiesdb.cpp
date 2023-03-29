@@ -37,7 +37,7 @@ static QString resolveDBFile()
 }
 
 
-CitiesDB::CitiesDB(QObject *)
+CitiesDB::CitiesDB(QObject * parent) : QObject(parent)
 {
     QString DBFile = resolveDBFile();
 
@@ -66,11 +66,11 @@ CitiesDB::CitiesDB(QObject *)
     }
 }
 
-City* CitiesDB::findCity(double latitude, double longitude)
+City CitiesDB::findCity(double latitude, double longitude)
 {
     if(m_error)
     {
-        return nullptr;
+        return City();
     }
 
     QSqlQuery query(m_db);
@@ -85,19 +85,19 @@ City* CitiesDB::findCity(double latitude, double longitude)
 
     if(query.first())
     {
-        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble());
+        return City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble());
     }
 
     qWarning() << "City not found";
 
-    return nullptr;
+    return City();
 }
 
-City *CitiesDB::city(const QString &cityId)
+City CitiesDB::city(const QString &cityId)
 {
     if(m_error)
     {
-        return nullptr;
+        return City();
     }
 
     QSqlQuery query(m_db);
@@ -111,10 +111,10 @@ City *CitiesDB::city(const QString &cityId)
 
     if(query.first())
     {
-        return new City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble(), this);
+        return City(query.value("id").toString(), query.value("name").toString(), query.value("tz").toString(), query.value("country").toString(),query.value("lat").toDouble(),query.value("lon").toDouble());
     }
 
-    return nullptr;
+    return City();
 }
 
 std::vector< point_t > CitiesDB::cities()
