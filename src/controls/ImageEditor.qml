@@ -32,23 +32,26 @@ Maui.Page
         id: _editTools
         Layout.alignment: Qt.AlignHCenter
         autoExclusive: true
-        currentIndex : 1
+        property int currentIndex : 1
         expanded: control.width > Maui.Style.units.gridUnit * 30
         display: ToolButton.TextBesideIcon
 
         Action
         {
             text: i18nd("mauikitimagetools","Color")
+            checked: _editTools.currentIndex === 0
         }
 
         Action
         {
             text: i18nd("mauikitimagetools","Transform")
+            checked: _editTools.currentIndex === 1
         }
 
         Action
         {
             text: i18nd("mauikitimagetools","Layer")
+            checked: _editTools.currentIndex === 2
         }
     }
 
