@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-27 00:47+0000\n"
-"PO-Revision-Date: 2023-03-12 16:45+0100\n"
+"PO-Revision-Date: 2023-04-29 12:13+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -22,12 +22,12 @@ msgstr ""
 #: src/controls/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
-msgstr ""
+msgstr "Bereich lesen"
 
 #: src/controls/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
-msgstr ""
+msgstr "Alle lesen"
 
 #: src/controls/image2text/OCRPage.qml:59
 #, kde-format
