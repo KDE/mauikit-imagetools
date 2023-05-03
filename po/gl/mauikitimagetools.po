@@ -1,0 +1,164 @@
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the mauikit-imagetools package.
+# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mauikit-imagetools\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"PO-Revision-Date: 2023-05-02 20:44+0200\n"
+"Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.04.0\n"
+
+#: src/controls/image2text/OCRPage.qml:35
+#, kde-format
+msgid "Read Area"
+msgstr "Ler unha zona"
+
+#: src/controls/image2text/OCRPage.qml:47
+#, kde-format
+msgid "Read All"
+msgstr "Lelo todo"
+
+#: src/controls/image2text/OCRPage.qml:59
+#, kde-format
+msgid "Configure"
+msgstr "Configurar"
+
+#: src/controls/ImageEditor.qml:41
+#, kde-format
+msgid "Color"
+msgstr "Cor"
+
+#: src/controls/ImageEditor.qml:47
+#, kde-format
+msgid "Transform"
+msgstr "Transformar"
+
+#: src/controls/ImageEditor.qml:53
+#, kde-format
+msgid "Layer"
+msgstr "Capa"
+
+#: src/controls/ImageInfoDialog.qml:102
+#, kde-format
+msgid "Edit"
+msgstr "Editar"
+
+#: src/controls/ImageInfoDialog.qml:103
+#, kde-format
+msgid "Editing Exif tag"
+msgstr "Editando a etiqueta Exif"
+
+#: src/controls/ImageInfoDialog.qml:109
+#, kde-format
+msgid "Tag key"
+msgstr "Clave da etiqueta"
+
+#: src/controls/ImageInfoDialog.qml:116
+#, kde-format
+msgid "Tag value"
+msgstr "Valor da etiqueta"
+
+#: src/controls/ImageInfoDialog.qml:127
+#, kde-format
+msgid "Could not edit the tag"
+msgstr "Non se puido editar a etiqueta"
+
+#: src/controls/ImageInfoDialog.qml:150
+#, kde-format
+msgid "Remove"
+msgstr "Retirar"
+
+#: src/controls/ImageInfoDialog.qml:151
+#, kde-format
+msgid "Are you sure you want to remove the Exif tag %1?"
+msgstr "Seguro que quere retirar a etiqueta Exif %1?"
+
+#: src/controls/ImageInfoDialog.qml:160
+#, kde-format
+msgid "Could not remove the tag"
+msgstr "Non se puido retirar a etiqueta"
+
+#: src/controls/ImageInfoDialog.qml:181
+#, kde-format
+msgid "Details"
+msgstr "Detalles"
+
+#: src/controls/ImageInfoDialog.qml:182
+#, kde-format
+msgid "File information"
+msgstr "Información do ficheiro"
+
+#: src/controls/private/ColourBar.qml:58
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Saturation"
+msgstr "Saturación"
+
+#: src/controls/private/ColourBar.qml:67
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Contrast"
+msgstr "Contraste"
+
+#: src/controls/private/ColourBar.qml:76
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Exposure"
+msgstr "Exposición"
+
+#: src/controls/private/ColourBar.qml:85
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Highlights"
+msgstr "Realces"
+
+#: src/controls/private/ColourBar.qml:94
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Shadows"
+msgstr "Sombras"
+
+#: src/controls/private/ColourBar.qml:104
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "Brillo"
+
+#: src/controls/private/TransformationBar.qml:33
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Voltear"
+
+#: src/controls/private/TransformationBar.qml:41
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Reflectir"
+
+#: src/controls/private/TransformationBar.qml:53
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "Rotar 90°"
+
+#: src/controls/private/TransformationBar.qml:110
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Recortar"
+
+#: src/controls/private/TransformationBar.qml:118
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Rotate"
+msgstr "Rotar"
