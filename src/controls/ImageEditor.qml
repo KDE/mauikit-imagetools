@@ -40,18 +40,21 @@ Maui.Page
         {
             text: i18nd("mauikitimagetools","Color")
             checked: _editTools.currentIndex === 0
+            onTriggered: _editTools.currentIndex = 0
         }
 
         Action
         {
             text: i18nd("mauikitimagetools","Transform")
             checked: _editTools.currentIndex === 1
+            onTriggered: _editTools.currentIndex = 1
         }
 
         Action
         {
             text: i18nd("mauikitimagetools","Layer")
             checked: _editTools.currentIndex === 2
+            onTriggered: _editTools.currentIndex = 2
         }
     }
 
