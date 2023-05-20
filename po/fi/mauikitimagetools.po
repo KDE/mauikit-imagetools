@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-27 00:47+0000\n"
+"POT-Creation-Date: 2023-05-20 00:44+0000\n"
 "PO-Revision-Date: 2023-03-06 13:45+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -37,12 +37,12 @@ msgstr "Asetukset"
 msgid "Color"
 msgstr "Väri"
 
-#: src/controls/ImageEditor.qml:47
+#: src/controls/ImageEditor.qml:48
 #, kde-format
 msgid "Transform"
 msgstr "Muunnos"
 
-#: src/controls/ImageEditor.qml:53
+#: src/controls/ImageEditor.qml:55
 #, kde-format
 msgid "Layer"
 msgstr "Kerros"
