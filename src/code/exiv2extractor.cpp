@@ -233,7 +233,7 @@ QVariant Exiv2Extractor::getExifTagVariant(const char* exifTagName, bool rationa
                 case Exiv2::signedShort:
                 case Exiv2::signedLong:
                     if (it->count() > component)
-                        return QVariant((int)it->toLong(component));
+                        return QVariant((int)it->toFloat(component));
                 else
                     return QVariant(QVariant::Int);
                 case Exiv2::unsignedRational:
@@ -694,7 +694,7 @@ bool Exiv2Extractor::writeTag(const char *tagName, const QVariant &value)
                     
                     qDebug() << "Writting number metadata" << tagName;
                     
-                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::signedLongLong);
+                    Exiv2::Value::UniquePtr v = Exiv2::Value::create(Exiv2::signedLongLong);
                     v->read(value.toString().toStdString());
                     it->setValue(v.get());
                     break;
@@ -707,7 +707,7 @@ bool Exiv2Extractor::writeTag(const char *tagName, const QVariant &value)
                         return false;                
                                                             qDebug() << "Writting rational metadata" << tagName;
 
-                    Exiv2::RationalValue::AutoPtr rv(new Exiv2::RationalValue);
+                    Exiv2::RationalValue::UniquePtr rv(new Exiv2::RationalValue);
                     rv->read(value.toString().toStdString());
                     it->setValue(rv.get());
                     break;               
@@ -720,7 +720,7 @@ bool Exiv2Extractor::writeTag(const char *tagName, const QVariant &value)
                         return false;
                     
                     auto date = value.toString();
-                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::asciiString);
+                    Exiv2::Value::UniquePtr v = Exiv2::Value::create(Exiv2::asciiString);
                     v->read(date.toStdString());
                     it->setValue(v.get());
                     break;
@@ -735,7 +735,7 @@ bool Exiv2Extractor::writeTag(const char *tagName, const QVariant &value)
                     qDebug() << "Writting ascii metadata" << tagName;
                     
                     auto string = value.toString();
-                    Exiv2::Value::AutoPtr v = Exiv2::Value::create(Exiv2::asciiString);
+                    Exiv2::Value::UniquePtr v = Exiv2::Value::create(Exiv2::asciiString);
                     v->read(string.toStdString());
                     it->setValue(v.get());
                     break;
