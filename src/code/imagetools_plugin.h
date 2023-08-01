@@ -14,6 +14,7 @@ class ImageToolsPlugin : public QQmlExtensionPlugin
 public:
     void registerTypes(const char *uri) override;
 private:
+    QUrl componentUrl(const QString &fileName) const;
 
     QString resolveFileUrl(const QString &filePath) const
     {

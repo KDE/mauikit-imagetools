@@ -123,7 +123,7 @@ void OCS::setFilePath(QString filePath)
         return;
 
     m_filePath = filePath;
-    emit filePathChanged(m_filePath);
+    Q_EMIT filePathChanged(m_filePath);
 }
 
 void OCS::setArea(QRect area)
@@ -132,6 +132,6 @@ void OCS::setArea(QRect area)
         return;
 
     m_area = area;
-    emit areaChanged(m_area);
+    Q_EMIT areaChanged(m_area);
 }
 

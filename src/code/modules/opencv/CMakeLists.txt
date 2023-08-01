@@ -1,6 +1,6 @@
 project(OpenCVLib VERSION 1.0.0 LANGUAGES CXX)
 
-find_package( OpenCV REQUIRED )
+find_package(OpenCV REQUIRED)
 
 add_library (OpenCVLib STATIC ${srcs})
 include_directories( ${OpenCV_INCLUDE_DIRS} )

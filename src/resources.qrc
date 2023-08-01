@@ -1,13 +1,13 @@
 <RCC>
     <qresource prefix="/mauikit/imagetools">
-        <file alias="ImageViewer.qml">controls/ImageViewer.qml</file>
-        <file alias="ImageEditor.qml">controls/ImageEditor.qml</file>
-        <file alias="private/Ruler.qml">controls/private/Ruler.qml</file>
-        <file alias="private/ColourBar.qml">controls/private/ColourBar.qml</file>
-        <file alias="private/TransformationBar.qml">controls/private/TransformationBar.qml</file>
-        <file alias="ImageInfoDialog.qml">controls/ImageInfoDialog.qml</file>
-        <file alias="MetadataEditor.qml">controls/MetadataEditor.qml</file>
-        <file alias="image2text/OCRPage.qml">controls/image2text/OCRPage.qml</file>
+        <file alias="ImageViewer.qml">controls.5/ImageViewer.qml</file>
+        <file alias="ImageEditor.qml">controls.5/ImageEditor.qml</file>
+        <file alias="private/Ruler.qml">controls.5/private/Ruler.qml</file>
+        <file alias="private/ColourBar.qml">controls.5/private/ColourBar.qml</file>
+        <file alias="private/TransformationBar.qml">controls.5/private/TransformationBar.qml</file>
+        <file alias="ImageInfoDialog.qml">controls.5/ImageInfoDialog.qml</file>
+        <file alias="MetadataEditor.qml">controls.5/MetadataEditor.qml</file>
+        <file alias="image2text/OCRPage.qml">controls.5/image2text/OCRPage.qml</file>
     </qresource>
     <qresource prefix="/assets">
         <file>data/arrow-up.svg</file>

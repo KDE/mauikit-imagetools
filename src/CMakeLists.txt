@@ -1,14 +1,17 @@
-# SPDX-FileCopyrightText: 2020 Carl Schwan <carl@carlschwan.eu>
+# SPDX-FileCopyrightText: 2020 Camilo Higuita <milo.h@aol.com>
 #
 # SPDX-License-Identifier: BSD-2-Clause
 
+remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY)
+
 if(NOT ANDROID)
-add_subdirectory(code/modules/image2text)
-add_subdirectory(code/modules/opencv)
+    add_subdirectory(code/modules/image2text)
+    add_subdirectory(code/modules/opencv)
 endif()
 
-set(
-    sources
+ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} URI "org.mauikit.imagetools" VERSION 3.0 CLASSNAME ImageToolsPlugin)
+
+set(sources
     code/imagetools_plugin.cpp
     code/picinfomodel.cpp
     code/imagemetadata.cpp
@@ -17,11 +20,9 @@ set(
     code/geolocation/cities.cpp
     code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
-    code/textscanner.cpp
-    )
+    code/textscanner.cpp)
 
-set(
-    headers
+set(headers
     code/picinfomodel.h
     code/imagemetadata.h
     code/imagetools_plugin.h
@@ -30,105 +31,96 @@ set(
     code/geolocation/cities.h
     code/geolocation/citiesdb.h
     code/geolocation/kdtree.hpp
-    code/textscanner.h
-    )
+    code/textscanner.h)
 
-set(
-    pluginData
-    controls/qmldir
-    data/cities.db
-    )
+set(pluginData
+    data/cities.db)
 
+ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} SOURCES
+    controls.${QT_MAJOR_VERSION}/ImageViewer.qml
+    controls.${QT_MAJOR_VERSION}/ImageInfoDialog.qml
+    controls.${QT_MAJOR_VERSION}/MetadataEditor.qml
+    controls.${QT_MAJOR_VERSION}/ImageEditor.qml)
+
+ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH private SOURCES
+    controls.${QT_MAJOR_VERSION}/private/ColourBar.qml
+    controls.${QT_MAJOR_VERSION}/private/Ruler.qml
+    controls.${QT_MAJOR_VERSION}/private/TransformationBar.qml)
+
+ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH image2text SOURCES
+    controls.${QT_MAJOR_VERSION}/image2text/OCRPage.qml)
+
+if (QT_MAJOR_VERSION STREQUAL "5")
 if(QUICK_COMPILER)
     qtquick_compiler_add_resources(imagetools_QML_QRC resources.qrc)
 else()
     qt5_add_resources(imagetools_QML_QRC resources.qrc)
 endif()
+endif()
 
-add_library(
-    MauiKitImageTools
-    SHARED
-    ${sources} ${pluginData} ${imagetools_QML_QRC}
-    )
+target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
+    PRIVATE
+    ${sources}
+    ${pluginData})
 
-add_library(MauiKit::ImageTools ALIAS MauiKitImageTools)
+add_library(MauiKit${MAUI_MAJOR_VERSION}::ImageTools ALIAS MauiKitImageTools${MAUI_MAJOR_VERSION})
 
-generate_export_header(MauiKitImageTools BASE_NAME ImageTools)
-set_target_properties(MauiKitImageTools PROPERTIES
-    VERSION ${ImageTools_VERSION_STRING}
-    SOVERSION ${ImageTools_SOVERSION}
-    EXPORT_NAME ImageTools
-    )
+if (QT_MAJOR_VERSION STREQUAL "5")
+    if(QUICK_COMPILER)
+        target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PRIVATE ${imagetools_QML_QRC})
+
+        add_definitions(-DQUICK_COMPILER)
+        target_compile_definitions(MauiKitImageTools${MAUI_MAJOR_VERSION} PUBLIC QUICK_COMPILER)
+    endif()
+endif()
+
+generate_export_header(MauiKitImageTools${MAUI_MAJOR_VERSION} BASE_NAME ImageTools)
+set_target_properties(MauiKitImageTools${MAUI_MAJOR_VERSION} PROPERTIES
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
+    EXPORT_NAME "ImageTools")
+
+target_include_directories(MauiKitImageTools${MAUI_MAJOR_VERSION}
+    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/MauiKit${MAUI_MAJOR_VERSION}/ImageTools>")
+
+target_include_directories(MauiKitImageTools${MAUI_MAJOR_VERSION} PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")
 
 if(ANDROID)
-    target_link_libraries(
-        MauiKitImageTools
+    target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
         PRIVATE
-        Qt5::AndroidExtras
-        )
+        Qt${QT_MAJOR_VERSION}::AndroidExtras)
 else()
-    target_link_libraries(
-        MauiKitImageTools
+    target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
         PRIVATE
-        Image2Text
-        )
+        Image2Text)
 endif()
 
-target_include_directories(MauiKitImageTools
-    INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR}/MauiKit/ImageTools>")
-
-target_include_directories(MauiKitImageTools PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")
-
-if(QUICK_COMPILER)
-    add_definitions(-DQUICK_COMPILER)
-    target_compile_definitions(MauiKitImageTools PUBLIC QUICK_COMPILER)
-endif()
-
-target_link_libraries(
-    MauiKitImageTools
-
+target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
     PRIVATE
-    Qt5::Core
-    Qt5::Quick
-    Qt5::Qml
-    Qt5::Sql
+    Qt${QT_MAJOR_VERSION}::Core
+    Qt${QT_MAJOR_VERSION}::Quick
+    Qt${QT_MAJOR_VERSION}::Qml
+    Qt${QT_MAJOR_VERSION}::Sql
     LibExiv2::LibExiv2
-    Qt5::Positioning
-    KF5::CoreAddons
-    KF5::I18n
-    MauiKit
-    )
+    Qt${QT_MAJOR_VERSION}::Positioning
+    KF${KF_MAJOR_VERSION}::CoreAddons
+    KF${KF_MAJOR_VERSION}::I18n
+    MauiKit${MAUI_MAJOR_VERSION})
 
-install(TARGETS MauiKitImageTools EXPORT MauiKitImageToolsTargets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+ecm_finalize_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} DESTINATION ${KDE_INSTALL_QMLDIR})
+ecm_generate_qmltypes(org.mauikit.imagetools 3.0 DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
+
+install(TARGETS MauiKitImageTools${MAUI_MAJOR_VERSION} EXPORT MauiKitImageTools${MAUI_MAJOR_VERSION}Targets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 install(FILES
     ${headers}
     ${CMAKE_CURRENT_BINARY_DIR}/imagetools_export.h
-    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/MauiKit/ImageTools
+    DESTINATION ${KDE_INSTALL_INCLUDEDIR}/MauiKit${MAUI_MAJOR_VERSION}/ImageTools
     COMPONENT Devel)
-
-if (BUILD_SHARED_LIBS)
-    add_custom_target(copy_to_bin ALL
-        COMMAND ${CMAKE_COMMAND} -E
-        make_directory ${CMAKE_BINARY_DIR}/bin/org/mauikit/imagetools/
-        COMMAND ${CMAKE_COMMAND} -E
-        copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/controls ${CMAKE_BINARY_DIR}/bin/org/mauikit/imagetools/
-        COMMAND ${CMAKE_COMMAND} -E
-        copy $<TARGET_FILE:MauiKitImageTools> ${CMAKE_BINARY_DIR}/bin/org/mauikit/imagetools/
-        )
-
-    if(QUICK_COMPILER AND NOT ANDROID )
-        install(FILES controls/qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
-    else()
-        install(DIRECTORY controls/ DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
-    endif()
-endif()
 
 if(ANDROID)
     install (FILES data/cities.db DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
 else()
     install (FILES data/cities.db DESTINATION ${KDE_INSTALL_DATADIR}/org/mauikit/imagetools)
 endif()
-
-install(TARGETS MauiKitImageTools DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
 
