@@ -16,7 +16,7 @@ import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
 
-Maui.Dialog
+Maui.PopupPage
 {
     id: control
 
@@ -25,7 +25,7 @@ Maui.Dialog
     maxHeight: 800
     maxWidth: 500
     hint: 1
-    defaultButtons: false
+
     title: _infoModel.fileName
     headBar.visible: true
     spacing: Maui.Style.space.huge
@@ -93,7 +93,7 @@ Maui.Dialog
         list.strict: false
     }
     
-    Maui.Dialog
+    Maui.InfoDialog
     {
         id: _editTagDialog
         property alias key : _keyField.text
@@ -141,7 +141,7 @@ Maui.Dialog
         }
     }
     
-     Maui.Dialog
+     Maui.InfoDialog
     {
         id: _removeTagDialog
         property string key
