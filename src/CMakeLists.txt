@@ -9,7 +9,7 @@ if(NOT ANDROID)
     add_subdirectory(code/modules/opencv)
 endif()
 
-ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} URI "org.mauikit.imagetools" VERSION 3.0 CLASSNAME ImageToolsPlugin)
+ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} URI "org.mauikit.imagetools" CLASSNAME ImageToolsPlugin)
 
 set(sources
     code/imagetools_plugin.cpp
