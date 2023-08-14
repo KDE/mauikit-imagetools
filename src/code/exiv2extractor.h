@@ -18,8 +18,7 @@
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#ifndef EXIV2EXTRACTOR_H
-#define EXIV2EXTRACTOR_H
+#pragma once
 
 #include <exiv2/exiv2.hpp>
 
@@ -73,5 +72,3 @@ private:
 
     Exiv2::ExifData & exifData() const;
 };
-
-#endif // EXIV2EXTRACTOR_H

@@ -3,13 +3,12 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#ifndef PICINFOMODEL_H
-#define PICINFOMODEL_H
+#pragma once
 
 #include <QAbstractListModel>
 #include <QObject>
 
-#include <MauiKit/Core/mauilist.h>
+#include <MauiKit3/Core/mauilist.h>
 
 #include <QFileInfo>
 
@@ -29,7 +28,7 @@ public:
     QUrl url() const;
     void componentComplete() override final;
     
-public slots:
+public Q_SLOTS:
     void setUrl(QUrl url);
 
     double latitude() const;
@@ -49,7 +48,7 @@ private:
 
     void parse();
 
-signals:
+Q_SIGNALS:
     void urlChanged(QUrl url);
     void fileNameChanged();
     void dataReady();
@@ -58,5 +57,3 @@ signals:
 public:
     const FMH::MODEL_LIST &items() const override;
 };
-
-#endif // PICINFOMODEL_H

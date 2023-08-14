@@ -1,5 +1,4 @@
-#ifndef TEXTSCANNER_H
-#define TEXTSCANNER_H
+#pragma once
 
 #include <QObject>
 #include "imagetools_export.h"
@@ -17,8 +16,5 @@ private:
     OCS *m_ocr;
 
     QString m_url;
-signals:
 
 };
-
-#endif // TEXTSCANNER_H

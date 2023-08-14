@@ -28,7 +28,7 @@ void PicInfoModel::componentComplete()
         
         QFileInfo file(m_url.toLocalFile());
         m_fileName = file.fileName();
-        emit fileNameChanged();
+        Q_EMIT fileNameChanged();
         
         m_extractor->setUrl(m_url);
         this->parse();
@@ -46,7 +46,7 @@ void PicInfoModel::setUrl(QUrl url)
     }
     
     m_url = url;
-    emit urlChanged(m_url);
+    Q_EMIT urlChanged(m_url);
 }
 
 bool PicInfoModel::removeTag(const QString& tag)
@@ -110,7 +110,7 @@ static FMH::MODEL_LIST basicInfo(const QUrl &url)
 
 void PicInfoModel::parse()
 {
-     emit preListChanged();
+     Q_EMIT preListChanged();
         m_data.clear();
         m_data << basicInfo(m_url);
         
@@ -179,8 +179,8 @@ void PicInfoModel::parse()
         
     }
     
-    emit postListChanged();
-    emit dataReady();
+    Q_EMIT postListChanged();
+    Q_EMIT dataReady();
 }
 
 const FMH::MODEL_LIST &PicInfoModel::items() const

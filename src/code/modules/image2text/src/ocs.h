@@ -4,7 +4,6 @@
 #include <QUrl>
 #include <QRect>
 
-
 namespace tesseract
 {
 class TessBaseAPI;
@@ -20,13 +19,13 @@ class OCS : public QObject
 
 public:
     explicit OCS(QObject *parent = nullptr);
-~OCS();
+    ~OCS();
 
     QString filePath() const;
 
     QRect area() const;
 
-public slots:
+public Q_SLOTS:
     QString getText();
 
     void setFilePath(QString filePath);
@@ -41,8 +40,7 @@ private:
 
     QRect m_area;
 
-signals:
-
+Q_SIGNALS:
     void filePathChanged(QString filePath);
     void areaChanged(QRect area);
 };
