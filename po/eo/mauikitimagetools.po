@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:44+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-07-31 06:28+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
@@ -18,147 +18,171 @@ msgstr ""
 "X-Generator: translate-po (https://github.com/zcribe/translate-po)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: src/controls/image2text/OCRPage.qml:35
+#: src/controls.5/image2text/OCRPage.qml:35
+#: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
 msgstr "Lega Areo"
 
-#: src/controls/image2text/OCRPage.qml:47
+#: src/controls.5/image2text/OCRPage.qml:47
+#: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
 msgstr "Legi Ĉion"
 
-#: src/controls/image2text/OCRPage.qml:59
+#: src/controls.5/image2text/OCRPage.qml:59
+#: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
 msgstr "Agordi"
 
-#: src/controls/ImageEditor.qml:41
+#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
 msgstr "Koloro"
 
-#: src/controls/ImageEditor.qml:48
+#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Transform"
 msgstr "Transformi"
 
-#: src/controls/ImageEditor.qml:55
+#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Layer"
 msgstr "Tavolo"
 
-#: src/controls/ImageInfoDialog.qml:102
+#: src/controls.5/ImageInfoDialog.qml:102
+#: src/controls.6/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
 msgstr "Redakti"
 
-#: src/controls/ImageInfoDialog.qml:103
+#: src/controls.5/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Redaktante Exif-etikedon"
 
-#: src/controls/ImageInfoDialog.qml:109
+#: src/controls.5/ImageInfoDialog.qml:109
+#: src/controls.6/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Tag key"
 msgstr "Etikedŝlosilo"
 
-#: src/controls/ImageInfoDialog.qml:116
+#: src/controls.5/ImageInfoDialog.qml:116
+#: src/controls.6/ImageInfoDialog.qml:116
 #, kde-format
 msgid "Tag value"
 msgstr "Etikedvaloro"
 
-#: src/controls/ImageInfoDialog.qml:127
+#: src/controls.5/ImageInfoDialog.qml:127
+#: src/controls.6/ImageInfoDialog.qml:127
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "Ne eblis redakti la etikedon"
 
-#: src/controls/ImageInfoDialog.qml:150
+#: src/controls.5/ImageInfoDialog.qml:150
+#: src/controls.6/ImageInfoDialog.qml:150
 #, kde-format
 msgid "Remove"
 msgstr "Forigi"
 
-#: src/controls/ImageInfoDialog.qml:151
+#: src/controls.5/ImageInfoDialog.qml:151
+#: src/controls.6/ImageInfoDialog.qml:151
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Ĉu vi certas, ke vi volas forigi la Exif-etikedon %1?"
 
-#: src/controls/ImageInfoDialog.qml:160
+#: src/controls.5/ImageInfoDialog.qml:160
+#: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "Ne eblis forigi la etikedon"
 
-#: src/controls/ImageInfoDialog.qml:181
+#: src/controls.5/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Details"
 msgstr "Detaloj"
 
-#: src/controls/ImageInfoDialog.qml:182
+#: src/controls.5/ImageInfoDialog.qml:182
+#: src/controls.6/ImageInfoDialog.qml:182
 #, kde-format
 msgid "File information"
 msgstr "Dosiera informo"
 
-#: src/controls/private/ColourBar.qml:58
+#: src/controls.5/private/ColourBar.qml:58
+#: src/controls.6/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr "Saturiĝo"
 
-#: src/controls/private/ColourBar.qml:67
+#: src/controls.5/private/ColourBar.qml:67
+#: src/controls.6/private/ColourBar.qml:67
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr "Kontrasto"
 
-#: src/controls/private/ColourBar.qml:76
+#: src/controls.5/private/ColourBar.qml:76
+#: src/controls.6/private/ColourBar.qml:76
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr "Elmeto"
 
-#: src/controls/private/ColourBar.qml:85
+#: src/controls.5/private/ColourBar.qml:85
+#: src/controls.6/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr "Elstaraĵoj"
 
-#: src/controls/private/ColourBar.qml:94
+#: src/controls.5/private/ColourBar.qml:94
+#: src/controls.6/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr "Ombroj"
 
-#: src/controls/private/ColourBar.qml:104
+#: src/controls.5/private/ColourBar.qml:104
+#: src/controls.6/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
 msgstr "Brilo"
 
-#: src/controls/private/TransformationBar.qml:33
+#: src/controls.5/private/TransformationBar.qml:33
+#: src/controls.6/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Flip"
 
-#: src/controls/private/TransformationBar.qml:41
+#: src/controls.5/private/TransformationBar.qml:41
+#: src/controls.6/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Spegulo"
 
-#: src/controls/private/TransformationBar.qml:53
+#: src/controls.5/private/TransformationBar.qml:53
+#: src/controls.6/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "Rotacii 90°"
 
-#: src/controls/private/TransformationBar.qml:110
+#: src/controls.5/private/TransformationBar.qml:110
+#: src/controls.6/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Rikolto"
 
-#: src/controls/private/TransformationBar.qml:118
+#: src/controls.5/private/TransformationBar.qml:118
+#: src/controls.6/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"

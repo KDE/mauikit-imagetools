@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-05-20 00:44+0000\n"
+"POT-Creation-Date: 2023-08-15 00:44+0000\n"
 "PO-Revision-Date: 2023-08-02 12:41\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -18,147 +18,171 @@ msgstr ""
 "pot\n"
 "X-Crowdin-File-ID: 41193\n"
 
-#: src/controls/image2text/OCRPage.qml:35
+#: src/controls.5/image2text/OCRPage.qml:35
+#: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
 msgstr ""
 
-#: src/controls/image2text/OCRPage.qml:47
+#: src/controls.5/image2text/OCRPage.qml:47
+#: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
 msgstr ""
 
-#: src/controls/image2text/OCRPage.qml:59
+#: src/controls.5/image2text/OCRPage.qml:59
+#: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
 msgstr ""
 
-#: src/controls/ImageEditor.qml:41
+#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
 msgstr ""
 
-#: src/controls/ImageEditor.qml:48
+#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Transform"
 msgstr ""
 
-#: src/controls/ImageEditor.qml:55
+#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Layer"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:102
+#: src/controls.5/ImageInfoDialog.qml:102
+#: src/controls.6/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:103
+#: src/controls.5/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Editing Exif tag"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:109
+#: src/controls.5/ImageInfoDialog.qml:109
+#: src/controls.6/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Tag key"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:116
+#: src/controls.5/ImageInfoDialog.qml:116
+#: src/controls.6/ImageInfoDialog.qml:116
 #, kde-format
 msgid "Tag value"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:127
+#: src/controls.5/ImageInfoDialog.qml:127
+#: src/controls.6/ImageInfoDialog.qml:127
 #, kde-format
 msgid "Could not edit the tag"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:150
+#: src/controls.5/ImageInfoDialog.qml:150
+#: src/controls.6/ImageInfoDialog.qml:150
 #, kde-format
 msgid "Remove"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:151
+#: src/controls.5/ImageInfoDialog.qml:151
+#: src/controls.6/ImageInfoDialog.qml:151
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:160
+#: src/controls.5/ImageInfoDialog.qml:160
+#: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Could not remove the tag"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:181
+#: src/controls.5/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Details"
 msgstr ""
 
-#: src/controls/ImageInfoDialog.qml:182
+#: src/controls.5/ImageInfoDialog.qml:182
+#: src/controls.6/ImageInfoDialog.qml:182
 #, kde-format
 msgid "File information"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:58
+#: src/controls.5/private/ColourBar.qml:58
+#: src/controls.6/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:67
+#: src/controls.5/private/ColourBar.qml:67
+#: src/controls.6/private/ColourBar.qml:67
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:76
+#: src/controls.5/private/ColourBar.qml:76
+#: src/controls.6/private/ColourBar.qml:76
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:85
+#: src/controls.5/private/ColourBar.qml:85
+#: src/controls.6/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:94
+#: src/controls.5/private/ColourBar.qml:94
+#: src/controls.6/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr ""
 
-#: src/controls/private/ColourBar.qml:104
+#: src/controls.5/private/ColourBar.qml:104
+#: src/controls.6/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
 msgstr ""
 
-#: src/controls/private/TransformationBar.qml:33
+#: src/controls.5/private/TransformationBar.qml:33
+#: src/controls.6/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr ""
 
-#: src/controls/private/TransformationBar.qml:41
+#: src/controls.5/private/TransformationBar.qml:41
+#: src/controls.6/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr ""
 
-#: src/controls/private/TransformationBar.qml:53
+#: src/controls.5/private/TransformationBar.qml:53
+#: src/controls.6/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr ""
 
-#: src/controls/private/TransformationBar.qml:110
+#: src/controls.5/private/TransformationBar.qml:110
+#: src/controls.6/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr ""
 
-#: src/controls/private/TransformationBar.qml:118
+#: src/controls.5/private/TransformationBar.qml:118
+#: src/controls.6/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
