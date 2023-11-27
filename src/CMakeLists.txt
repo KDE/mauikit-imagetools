@@ -20,6 +20,7 @@ set(sources
     code/geolocation/cities.cpp
     code/geolocation/citiesdb.cpp
     code/geolocation/kdtree.cpp
+    code/moduleinfo.cpp
     code/textscanner.cpp)
 
 set(headers
@@ -31,6 +32,7 @@ set(headers
     code/geolocation/cities.h
     code/geolocation/citiesdb.h
     code/geolocation/kdtree.hpp
+    code/moduleinfo.h
     code/textscanner.h)
 
 set(pluginData
