@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:29+0000\n"
+"POT-Creation-Date: 2023-11-28 00:40+0000\n"
 "PO-Revision-Date: 2023-11-25 02:30\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -17,6 +17,11 @@ msgstr ""
 "X-Crowdin-File: /kf5-trunk/messages/mauikit-imagetools/mauikitimagetools."
 "pot\n"
 "X-Crowdin-File-ID: 41193\n"
+
+#: src/code/moduleinfo.cpp:19
+#, kde-format
+msgid "Image tools components for editing, viewing and navigating."
+msgstr ""
 
 #: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
