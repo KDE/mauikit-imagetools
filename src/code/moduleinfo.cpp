@@ -1,5 +1,5 @@
 #include "moduleinfo.h"
-#include "imagetools_version.h"
+#include "../imagetools_version.h"
 #include <KI18n/KLocalizedString>
 #include <exiv2/version.hpp>
 
