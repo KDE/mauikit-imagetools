@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-28 00:40+0000\n"
-"PO-Revision-Date: 2023-11-25 02:30\n"
+"PO-Revision-Date: 2023-12-09 09:28\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -21,52 +21,52 @@ msgstr ""
 #: src/code/moduleinfo.cpp:19
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
-msgstr ""
+msgstr "用于编辑、浏览和导航的图像工具组件。"
 
 #: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
-msgstr ""
+msgstr "读取选定区域"
 
 #: src/controls.5/image2text/OCRPage.qml:47
 #: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
-msgstr ""
+msgstr "读取全部区域"
 
 #: src/controls.5/image2text/OCRPage.qml:59
 #: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "配置"
 
 #: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:41
 #, kde-format
 msgid "Color"
-msgstr ""
+msgstr "颜色"
 
 #: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Transform"
-msgstr ""
+msgstr "变形"
 
 #: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Layer"
-msgstr ""
+msgstr "图层"
 
 #: src/controls.5/ImageInfoDialog.qml:102
 #: src/controls.6/ImageInfoDialog.qml:102
 #, kde-format
 msgid "Edit"
-msgstr ""
+msgstr "编辑"
 
 #: src/controls.5/ImageInfoDialog.qml:103
 #: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "编辑 EXIF 标签"
 
 #: src/controls.5/ImageInfoDialog.qml:109
 #: src/controls.6/ImageInfoDialog.qml:109
