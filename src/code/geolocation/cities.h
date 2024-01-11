@@ -39,6 +39,5 @@ private:
     
     CitiesDB *db();
     QHash<Qt::HANDLE, CitiesDB*> m_dbs;
-Q_SIGNALS:
 };
 

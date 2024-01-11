@@ -31,11 +31,13 @@ void ImageToolsPlugin::registerTypes(const char *uri)
     qmlRegisterType<OCS>(uri, 1, 3, "OCR");
     qmlRegisterType(componentUrl(QStringLiteral("image2text/OCRPage.qml")), uri, 1, 3, "OCRPage");
 #endif
-
 }
 
 QUrl ImageToolsPlugin::componentUrl(const QString &fileName) const
 {
     return QUrl(resolveFileUrl(fileName));
 }
+
+#include "imagetools_plugin.moc"
+#include "moc_imagetools_plugin.cpp"
 

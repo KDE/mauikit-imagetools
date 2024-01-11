@@ -3,6 +3,7 @@
 #include <QObject>
 #include <QUrl>
 #include <QRect>
+#include "image2text_export.h"
 
 namespace tesseract
 {
@@ -11,7 +12,7 @@ class TessBaseAPI;
 
 class OCRLanguageModel;
 
-class OCS : public QObject
+class IMAGE2TEXT_EXPORT OCS : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString filePath READ filePath WRITE setFilePath NOTIFY filePathChanged)

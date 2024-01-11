@@ -1,5 +1,4 @@
-#ifndef CITIESDB_H
-#define CITIESDB_H
+#pragma once
 
 #include <QObject>
 #include <QSqlDatabase>
@@ -23,5 +22,3 @@ private:
     bool m_error = {true};
 
 };
-
-#endif // CITIESDB_H

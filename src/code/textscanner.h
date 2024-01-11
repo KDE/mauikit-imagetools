@@ -16,5 +16,4 @@ private:
     OCS *m_ocr;
 
     QString m_url;
-
 };

@@ -76,6 +76,7 @@ find_package(KF${KF_MAJOR_VERSION} ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I1
 find_package(MauiKit${MAUI_MAJOR_VERSION} REQUIRED)
 
 ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
+
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
     TYPE REQUIRED
@@ -90,6 +91,8 @@ if (QT_MAJOR_VERSION STREQUAL "5")
             DESCRIPTION "Compile QML at build time"
             TYPE OPTIONAL)
     endif()
+else()
+     find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
 endif()
 
 if(${ECM_SOURCE_UNDER_VERSION_CONTROL})

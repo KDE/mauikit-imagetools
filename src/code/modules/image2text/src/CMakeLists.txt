@@ -1,16 +1,22 @@
-set(srcs
-    ocs.cpp
-    OCRLanguageModel.cpp)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}
+#     ${CMAKE_CURRENT_BINARY_DIR})
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 add_library(Image2Text
     STATIC
-    ${srcs})
+  ${srcs})
+  
+target_sources(Image2Text
+PRIVATE
+ocs.cpp
+    OCRLanguageModel.cpp
+)
 
 add_definitions(-DIMAGE2TEXT_ENABLED)
 target_compile_definitions(Image2Text PUBLIC IMAGE2TEXT_ENABLED)
 
 target_link_libraries (Image2Text
-    PUBLIC
+    PRIVATE
     Qt${QT_MAJOR_VERSION}::Core
 #    Qt5::Qml
     Qt${QT_MAJOR_VERSION}::Concurrent
@@ -23,3 +29,12 @@ if (TESSERACT_FOUND AND LEPTONICA_FOUND)
         Leptonica::Leptonica)
 endif()
 
+generate_export_header(Image2Text BASE_NAME Image2Text)
+
+#     set_target_properties(Image2Text PROPERTIES
+#     VERSION ${PROJECT_VERSION}
+#     SOVERSION ${PROJECT_VERSION_MAJOR}
+#     EXPORT_NAME "Image2Text")
+# 
+# 
+# target_include_directories(Image2Text PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")

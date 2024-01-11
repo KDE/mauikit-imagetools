@@ -9,29 +9,23 @@ if(NOT ANDROID)
     add_subdirectory(code/modules/opencv)
 endif()
 
-ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} URI "org.mauikit.imagetools" CLASSNAME ImageToolsPlugin)
+##for qt6 split the library from the plugin
+# if (QT_MAJOR_VERSION STREQUAL "6")
+#     add_library(MauiKitImageTools${MAUI_MAJOR_VERSION})
+# endif()
 
-set(sources
-    code/imagetools_plugin.cpp
-    code/picinfomodel.cpp
-    code/imagemetadata.cpp
-    code/exiv2extractor.cpp
-    code/geolocation/city.cpp
-    code/geolocation/cities.cpp
-    code/geolocation/citiesdb.cpp
-    code/geolocation/kdtree.cpp
-    code/moduleinfo.cpp
-    code/textscanner.cpp)
+ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION}
+    VERSION 1.0
+    URI "org.mauikit.imagetools"
+    CLASS_NAME ImageToolsPlugin
+    NO_PLUGIN_OPTIONAL
+     NO_GENERATE_PLUGIN_SOURCE)
 
+## file headers to install
 set(headers
-    code/picinfomodel.h
-    code/imagemetadata.h
-    code/imagetools_plugin.h
     code/exiv2extractor.h
     code/geolocation/city.h
     code/geolocation/cities.h
-    code/geolocation/citiesdb.h
-    code/geolocation/kdtree.hpp
     code/moduleinfo.h
     code/textscanner.h)
 
@@ -49,9 +43,6 @@ ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH private SOURC
     controls.${QT_MAJOR_VERSION}/private/Ruler.qml
     controls.${QT_MAJOR_VERSION}/private/TransformationBar.qml)
 
-ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH image2text SOURCES
-    controls.${QT_MAJOR_VERSION}/image2text/OCRPage.qml)
-
 if (QT_MAJOR_VERSION STREQUAL "5")
 if(QUICK_COMPILER)
     qtquick_compiler_add_resources(imagetools_QML_QRC resources.qrc)
@@ -62,8 +53,45 @@ endif()
 
 target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     PRIVATE
-    ${sources}
+
+    code/picinfomodel.cpp
+    code/picinfomodel.h
+
+    code/imagemetadata.cpp
+    code/imagemetadata.h
+
+    code/exiv2extractor.cpp
+    code/exiv2extractor.h
+
+    code/geolocation/city.cpp
+    code/geolocation/city.h
+
+    code/geolocation/cities.cpp
+    code/geolocation/cities.h
+
+    code/geolocation/citiesdb.cpp
+    code/geolocation/citiesdb.h
+
+    code/geolocation/kdtree.cpp
+    code/geolocation/kdtree.hpp
+
+    code/moduleinfo.cpp
+
+    code/textscanner.cpp
+    # code/textscanner.h
     ${pluginData})
+
+# if (QT_MAJOR_VERSION STREQUAL "6")
+#     target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
+#         PRIVATE
+#         code/imagetools_plugin.cpp
+#         code/imagetools_plugin.h)
+# else()
+    target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
+        PRIVATE
+        code/imagetools_plugin.cpp
+        code/imagetools_plugin.h)
+# endif()
 
 add_library(MauiKit${MAUI_MAJOR_VERSION}::ImageTools ALIAS MauiKitImageTools${MAUI_MAJOR_VERSION})
 
@@ -92,9 +120,18 @@ if(ANDROID)
         PRIVATE
         Qt${QT_MAJOR_VERSION}::AndroidExtras)
 else()
+#     if (QT_MAJOR_VERSION STREQUAL "6")
+#     target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
+#         PRIVATE
+#         Image2Text)
+# endif()
+
     target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
         PRIVATE
         Image2Text)
+
+    ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH image2text SOURCES
+        controls.${QT_MAJOR_VERSION}/image2text/OCRPage.qml)
 endif()
 
 target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
@@ -109,8 +146,14 @@ target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
     KF${KF_MAJOR_VERSION}::I18n
     MauiKit${MAUI_MAJOR_VERSION})
 
+
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
+        PRIVATE
+        Qt6::Core5Compat)
+endif()
+
 ecm_finalize_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} DESTINATION ${KDE_INSTALL_QMLDIR})
-ecm_generate_qmltypes(org.mauikit.imagetools 3.0 DESTINATION ${KDE_INSTALL_QMLDIR}/org/mauikit/imagetools)
 
 install(TARGETS MauiKitImageTools${MAUI_MAJOR_VERSION} EXPORT MauiKitImageTools${MAUI_MAJOR_VERSION}Targets ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 

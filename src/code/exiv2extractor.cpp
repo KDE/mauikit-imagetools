@@ -25,6 +25,7 @@
 #include <QDateTime>
 #include <QDebug>
 #include <QFile>
+
 #include <QTextCodec>
 
 #include "geolocation/cities.h"

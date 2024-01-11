@@ -1,6 +1,6 @@
 #include "moduleinfo.h"
 #include "../imagetools_version.h"
-#include <KI18n/KLocalizedString>
+#include <KLocalizedString>
 #include <exiv2/version.hpp>
 
 QString MauiKitImageTools::versionString()
