@@ -32,10 +32,12 @@ void PicInfoModel::componentComplete()
         
         m_extractor->setUrl(m_url);
         this->parse();
-
-    }
-    );
+    });
+    
+    if (FMH::fileExists(m_url) && !m_url.isEmpty() && m_url.isValid()) {
+           m_extractor->setUrl(m_url);
     this->parse();
+        }    
 }
 
 void PicInfoModel::setUrl(QUrl url)
@@ -64,8 +66,7 @@ bool PicInfoModel::removeTag(const QString& tag)
 }
 
 bool PicInfoModel::editTag(const QString& tag, const QString& value)
-{
-   
+{   
             qDebug() << "trying to write tag1";
 
     if(m_extractor->writeTag(tag.toStdString().c_str(), QVariant::fromValue(value)))
@@ -110,6 +111,7 @@ static FMH::MODEL_LIST basicInfo(const QUrl &url)
 
 void PicInfoModel::parse()
 {
+    qDebug() << "Setting image medatata model info";
      Q_EMIT preListChanged();
         m_data.clear();
         m_data << basicInfo(m_url);
@@ -177,6 +179,9 @@ void PicInfoModel::parse()
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "ImageHistory"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.ImageHistory")}, {FMH::MODEL_KEY::KEY, "Exif.Image.ImageHistory"}};
         
         
+    }else
+    {
+        qDebug() << "error extracting image metadata";
     }
     
     Q_EMIT postListChanged();

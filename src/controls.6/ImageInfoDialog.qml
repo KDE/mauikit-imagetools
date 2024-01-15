@@ -4,28 +4,45 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
-import QtQuick 2.13
+import QtQuick
 
-import QtQuick.Layouts 1.12
-import QtQuick.Controls 2.12
+import QtQuick.Layouts
+import QtQuick.Controls 
 
-import QtLocation 5.6
-import QtPositioning 5.6
+import QtLocation
+import QtPositioning 
 
 import org.mauikit.controls 1.3 as Maui
 import org.mauikit.filebrowsing 1.3 as FB
 import org.mauikit.imagetools 1.3 as IT
 
-Maui.Dialog
+/**
+ * @inherit org::mauikit::controls::PopupPage
+ * @brief A popup view presenting with metadata information about a given image file.
+ * 
+ * @image html imageinfodialog.png "Image information dialog"
+ * 
+ * @code
+ * IT.ImageInfoDialog
+ * {
+ *  id: _dialog
+ *  url: "file:///home/camiloh/maui-demo-files/Pictures/4416d027-9fa4-4762-8eb6-31de331623a1.jpg"
+ * }
+ * @endcode
+ */
+Maui.PopupPage
 {
     id: control
 
+    /**
+     * @brief
+     */
     property alias url : _infoModel.url
 
     maxHeight: 800
     maxWidth: 500
     hint: 1
-    defaultButtons: false
+
     title: _infoModel.fileName
     headBar.visible: true
     spacing: Maui.Style.space.huge
@@ -93,7 +110,7 @@ Maui.Dialog
         list.strict: false
     }
     
-    Maui.Dialog
+    Maui.InfoDialog
     {
         id: _editTagDialog
         property alias key : _keyField.text
@@ -101,6 +118,8 @@ Maui.Dialog
         
         title: i18n ("Edit")
         message: i18nd("mauikitimagetools","Editing Exif tag")
+        
+                 standardButtons: Dialog.Save | Dialog.Cancel
         
         TextField
         {
@@ -141,7 +160,7 @@ Maui.Dialog
         }
     }
     
-     Maui.Dialog
+     Maui.InfoDialog
     {
         id: _removeTagDialog
         property string key
@@ -149,6 +168,8 @@ Maui.Dialog
         
         title: i18n ("Remove")
         message: i18nd("mauikitimagetools","Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
+         
+         standardButtons: Dialog.Yes | Dialog.Cancel
          
         onAccepted:
         {
@@ -191,13 +212,11 @@ Maui.Dialog
                 }
             }
 
-            delegate: Maui.SectionItem
+            delegate: Maui.FlexSectionItem
             {
                 visible: model.value && String(model.value).length > 0
-                Layout.fillWidth: true
                 label1.text: model.name
                 label2.text: model.value
-                columns: 3
                 
                 ToolButton
                 {
@@ -229,9 +248,9 @@ Maui.Dialog
         color: Maui.Theme.backgroundColor
         Layout.fillWidth: true
         Layout.preferredHeight: 400
-        gesture.acceptedGestures: MapGestureArea.NoGesture
-        gesture.flickDeceleration: 3000
-        gesture.enabled: true
+        // gesture.acceptedGestures: MapGestureArea.NoGesture
+        // gesture.flickDeceleration: 3000
+        // gesture.enabled: true
 
         plugin: Plugin
         {

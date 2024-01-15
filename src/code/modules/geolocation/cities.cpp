@@ -57,7 +57,7 @@ void Cities::parseCities()
         qDebug() << "KDE TREE EMPTY FILLING IT";
 
         Cities::m_citiesTree = new KDTree(db()->cities());
-        emit citiesReady();
+        Q_EMIT citiesReady();
     }
 }
 

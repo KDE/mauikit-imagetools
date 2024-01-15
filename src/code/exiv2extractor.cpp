@@ -42,32 +42,38 @@ Exiv2Extractor::Exiv2Extractor(QObject *parent) : QObject(parent)
 , m_error(true)
 
 {
-    
 }
 
 void Exiv2Extractor::setUrl(const QUrl &url)
 {
+    qDebug() << "Start parsing image file url for metadata";
     m_url = url;
     if (!QFileInfo::exists(m_url.toLocalFile()) || m_url.isEmpty() || !m_url.isValid()) {
-        m_error = true;
+        qDebug() << "Image file is not valid or does not exists.";
+       return;
     }    
     
     try {
         m_image =  Exiv2::ImageFactory::open(m_url.toLocalFile().toStdString());
     } catch (const std::exception &) {
+        qDebug() << "Failed to open image to extract metadata information.";
         return;
     }
+    
     if (!m_image.get()) {
+        qDebug() << "Image can not be accessed.";
         return;
     }
     
     if (!m_image->good()) {
+        qDebug() << "Image is not good.";
         return;
     }
     
     try {
         m_image->readMetadata();
     } catch (const std::exception &) {
+       qDebug() << "Can not read metadta from the image.";
         return;
     }
     

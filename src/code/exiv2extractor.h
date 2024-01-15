@@ -32,6 +32,10 @@ typedef QMap<QString, QString> MetaDataMap;
 typedef QPair<double, double> Coordinates;
 
 class City;
+
+/**
+ * @brief Image metadata extractor. 
+ */
 class IMAGETOOLS_EXPORT Exiv2Extractor : public QObject
 {
 public:

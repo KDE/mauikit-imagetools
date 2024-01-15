@@ -2,14 +2,15 @@
 // Created by gabridc on 5/6/21.
 //
 
-#ifndef PIX_CITY_H
-#define PIX_CITY_H
-
+#pragma once
 #include <QObject>
 #include <QString>
 
 #include "imagetools_export.h"
 
+/**
+ * @brief A class for representing the GPS coordinates and information of a city.
+ */
 class IMAGETOOLS_EXPORT City : public QObject
 {
     Q_OBJECT
@@ -44,5 +45,3 @@ private:
     double m_latitude;
     double m_longitude;
 };
-
-#endif //PIX_CITY_H

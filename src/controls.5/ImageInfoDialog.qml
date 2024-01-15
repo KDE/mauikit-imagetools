@@ -101,7 +101,8 @@ Maui.PopupPage
         
         title: i18n ("Edit")
         message: i18nd("mauikitimagetools","Editing Exif tag")
-        
+                         standardButtons: Dialog.Save | Dialog.Cancel
+
         TextField
         {
             id: _keyField
@@ -149,7 +150,8 @@ Maui.PopupPage
         
         title: i18n ("Remove")
         message: i18nd("mauikitimagetools","Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
-         
+                  standardButtons: Dialog.Yes | Dialog.Cancel
+
         onAccepted:
         {
             if(_infoModel.removeTag(_removeTagDialog.key))

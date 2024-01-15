@@ -116,7 +116,7 @@ text: control.value + "°"
             width: height
             color: Maui.Theme.textColor
             isMask: true
-            source: "qrc:/assets/data/arrow-up.svg"
+            source: "qrc:/assets/arrow-up.svg"
         }
 
     }

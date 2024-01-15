@@ -13,9 +13,17 @@
 #include <QFileInfo>
 
 class Exiv2Extractor;
+
+/**
+ * @brief
+ */
 class PicInfoModel : public MauiList
 {
     Q_OBJECT
+    
+    /**
+     * 
+     */
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
     Q_PROPERTY(QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
     Q_PROPERTY(double lat READ latitude NOTIFY dataReady FINAL)

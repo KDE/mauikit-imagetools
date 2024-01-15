@@ -9,7 +9,4 @@
         <file alias="MetadataEditor.qml">controls.5/MetadataEditor.qml</file>
         <file alias="image2text/OCRPage.qml">controls.5/image2text/OCRPage.qml</file>
     </qresource>
-    <qresource prefix="/assets">
-        <file>data/arrow-up.svg</file>
-    </qresource>
 </RCC>

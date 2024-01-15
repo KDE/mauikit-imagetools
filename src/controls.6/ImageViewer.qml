@@ -6,9 +6,13 @@
  * SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only OR LicenseRef-KDE-Accepted-LGPL
  */
 
-import QtQuick 2.15
 import org.mauikit.controls 1.3 as Maui
 
+/**
+ * @inherit org::mauikit::controls::ImageViewer
+ * @brief An image viewer.
+ * @see org::mauikit::controls::ImageViewer For reference
+ */
 Maui.ImageViewer
 {
 }

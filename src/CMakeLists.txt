@@ -30,12 +30,12 @@ set(headers
     code/textscanner.h)
 
 set(pluginData
+    data/assets.qrc
     data/cities.db)
 
 ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} SOURCES
     controls.${QT_MAJOR_VERSION}/ImageViewer.qml
     controls.${QT_MAJOR_VERSION}/ImageInfoDialog.qml
-    controls.${QT_MAJOR_VERSION}/MetadataEditor.qml
     controls.${QT_MAJOR_VERSION}/ImageEditor.qml)
 
 ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH private SOURCES
@@ -54,6 +54,9 @@ endif()
 target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     PRIVATE
 
+    code/imagetools_plugin.cpp
+    code/imagetools_plugin.h
+        
     code/picinfomodel.cpp
     code/picinfomodel.h
 
@@ -78,21 +81,9 @@ target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     code/moduleinfo.cpp
 
     code/textscanner.cpp
-    # code/textscanner.h
+    code/textscanner.h
     ${pluginData})
-
-# if (QT_MAJOR_VERSION STREQUAL "6")
-#     target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
-#         PRIVATE
-#         code/imagetools_plugin.cpp
-#         code/imagetools_plugin.h)
-# else()
-    target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
-        PRIVATE
-        code/imagetools_plugin.cpp
-        code/imagetools_plugin.h)
-# endif()
-
+    
 add_library(MauiKit${MAUI_MAJOR_VERSION}::ImageTools ALIAS MauiKitImageTools${MAUI_MAJOR_VERSION})
 
 if (QT_MAJOR_VERSION STREQUAL "5")
@@ -120,12 +111,6 @@ if(ANDROID)
         PRIVATE
         Qt${QT_MAJOR_VERSION}::AndroidExtras)
 else()
-#     if (QT_MAJOR_VERSION STREQUAL "6")
-#     target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
-#         PRIVATE
-#         Image2Text)
-# endif()
-
     target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
         PRIVATE
         Image2Text)

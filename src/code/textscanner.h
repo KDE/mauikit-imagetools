@@ -4,6 +4,10 @@
 #include "imagetools_export.h"
 
 class OCS;
+
+/**
+ * @brief Text scanner in images.
+ */
 class IMAGETOOLS_EXPORT TextScanner : public QObject
 {
     Q_OBJECT

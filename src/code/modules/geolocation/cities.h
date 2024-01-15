@@ -1,9 +1,7 @@
 //
 // Created by gabridc on 5/6/21.
 //
-
-#ifndef IMAGETOOLS_CITIES_H
-#define IMAGETOOLS_CITIES_H
+#pragma once
 #include <QDebug>
 
 #include <QObject>
@@ -29,6 +27,9 @@ private:
     KDTree_Cities();
 };
 
+/**
+ * @brief A wrapper to give access to al the cities information in the data base
+ */
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
     Q_OBJECT
@@ -67,8 +68,6 @@ private:
     CitiesDB *db();
     QHash<Qt::HANDLE, CitiesDB*> m_dbs;
     
-signals:
+Q_SIGNALS:
     void citiesReady();
 };
-
-#endif //IMAGETOOLS_CITIES_H

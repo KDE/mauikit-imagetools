@@ -1,22 +1,29 @@
-import QtQuick 2.14
-import QtQuick.Controls 2.14
-import QtQuick.Layouts 1.3
+import QtQuick 
+import QtQuick.Controls
+import QtQuick.Layouts
 
 import org.mauikit.controls 1.2 as Maui
 
 import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
-import QtGraphicalEffects 1.12
+import Qt5Compat.GraphicalEffects
 
 import "private" as Private
 
+
+/**
+ * @inherit org::mauikit::controls::Page
+ * @brief A control with different tools for editingan image
+ * 
+ */
 Maui.Page
 {
     id: control
-    property url url
+   
+   property url url
 
-    property bool ready : String(control.url).length
+    readonly property bool ready : String(control.url).length
     
-    property alias editor : imageDoc
+    readonly property alias editor : imageDoc
 
     headBar.visible: control.ready
 
