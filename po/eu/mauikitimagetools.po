@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 00:40+0000\n"
+"POT-Creation-Date: 2024-01-16 01:37+0000\n"
 "PO-Revision-Date: 2023-12-04 07:12+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -43,77 +43,77 @@ msgstr "Irakurri dena"
 msgid "Configure"
 msgstr "Konfiguratu"
 
-#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:41
+#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Color"
 msgstr "Kolorea"
 
-#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:48
+#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Transform"
 msgstr "Eraldatu"
 
-#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:55
+#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:62
 #, kde-format
 msgid "Layer"
 msgstr "Geruza"
 
 #: src/controls.5/ImageInfoDialog.qml:102
-#: src/controls.6/ImageInfoDialog.qml:102
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Edit"
 msgstr "Editatu"
 
 #: src/controls.5/ImageInfoDialog.qml:103
-#: src/controls.6/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:120
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "«Exif» etiketa editatzea"
 
-#: src/controls.5/ImageInfoDialog.qml:109
-#: src/controls.6/ImageInfoDialog.qml:109
+#: src/controls.5/ImageInfoDialog.qml:110
+#: src/controls.6/ImageInfoDialog.qml:128
 #, kde-format
 msgid "Tag key"
 msgstr "Gako etiketa"
 
-#: src/controls.5/ImageInfoDialog.qml:116
-#: src/controls.6/ImageInfoDialog.qml:116
+#: src/controls.5/ImageInfoDialog.qml:117
+#: src/controls.6/ImageInfoDialog.qml:135
 #, kde-format
 msgid "Tag value"
 msgstr "Balio etiketa"
 
-#: src/controls.5/ImageInfoDialog.qml:127
-#: src/controls.6/ImageInfoDialog.qml:127
+#: src/controls.5/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:146
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "Ezin izan du etiketa editatu"
 
-#: src/controls.5/ImageInfoDialog.qml:150
-#: src/controls.6/ImageInfoDialog.qml:150
+#: src/controls.5/ImageInfoDialog.qml:151
+#: src/controls.6/ImageInfoDialog.qml:169
 #, kde-format
 msgid "Remove"
 msgstr "Kendu"
 
-#: src/controls.5/ImageInfoDialog.qml:151
-#: src/controls.6/ImageInfoDialog.qml:151
+#: src/controls.5/ImageInfoDialog.qml:152
+#: src/controls.6/ImageInfoDialog.qml:170
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Ziur zaude %1 «Exif» etiketa kendu nahi duzula?"
 
-#: src/controls.5/ImageInfoDialog.qml:160
-#: src/controls.6/ImageInfoDialog.qml:160
+#: src/controls.5/ImageInfoDialog.qml:162
+#: src/controls.6/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "Ezin izan du etiketa kendu"
 
-#: src/controls.5/ImageInfoDialog.qml:181
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.5/ImageInfoDialog.qml:183
+#: src/controls.6/ImageInfoDialog.qml:202
 #, kde-format
 msgid "Details"
 msgstr "Xehetasunak"
 
-#: src/controls.5/ImageInfoDialog.qml:182
-#: src/controls.6/ImageInfoDialog.qml:182
+#: src/controls.5/ImageInfoDialog.qml:184
+#: src/controls.6/ImageInfoDialog.qml:203
 #, kde-format
 msgid "File information"
 msgstr "Fitxategiaren informazioa"
