@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-28 00:40+0000\n"
+"POT-Creation-Date: 2024-01-16 01:37+0000\n"
 "PO-Revision-Date: 2023-07-31 21:14+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -42,77 +42,77 @@ msgstr "Lest alt"
 msgid "Configure"
 msgstr "Set opp"
 
-#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:41
+#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Color"
 msgstr "Farge"
 
-#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:48
+#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Transform"
 msgstr "Transformer"
 
-#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:55
+#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:62
 #, kde-format
 msgid "Layer"
 msgstr "Lag"
 
 #: src/controls.5/ImageInfoDialog.qml:102
-#: src/controls.6/ImageInfoDialog.qml:102
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Edit"
 msgstr "Rediger"
 
 #: src/controls.5/ImageInfoDialog.qml:103
-#: src/controls.6/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:120
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Redigerer Exif-metadata"
 
-#: src/controls.5/ImageInfoDialog.qml:109
-#: src/controls.6/ImageInfoDialog.qml:109
+#: src/controls.5/ImageInfoDialog.qml:110
+#: src/controls.6/ImageInfoDialog.qml:128
 #, kde-format
 msgid "Tag key"
 msgstr "Nøkkel"
 
-#: src/controls.5/ImageInfoDialog.qml:116
-#: src/controls.6/ImageInfoDialog.qml:116
+#: src/controls.5/ImageInfoDialog.qml:117
+#: src/controls.6/ImageInfoDialog.qml:135
 #, kde-format
 msgid "Tag value"
 msgstr "Verdi"
 
-#: src/controls.5/ImageInfoDialog.qml:127
-#: src/controls.6/ImageInfoDialog.qml:127
+#: src/controls.5/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:146
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "Klarte ikkje redigera merkelappen"
 
-#: src/controls.5/ImageInfoDialog.qml:150
-#: src/controls.6/ImageInfoDialog.qml:150
+#: src/controls.5/ImageInfoDialog.qml:151
+#: src/controls.6/ImageInfoDialog.qml:169
 #, kde-format
 msgid "Remove"
 msgstr "Fjern"
 
-#: src/controls.5/ImageInfoDialog.qml:151
-#: src/controls.6/ImageInfoDialog.qml:151
+#: src/controls.5/ImageInfoDialog.qml:152
+#: src/controls.6/ImageInfoDialog.qml:170
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Er du sikker på at du vil fjerne Exif-merkelappen %1?"
 
-#: src/controls.5/ImageInfoDialog.qml:160
-#: src/controls.6/ImageInfoDialog.qml:160
+#: src/controls.5/ImageInfoDialog.qml:162
+#: src/controls.6/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "Klarte ikkje fjerna merkelappen"
 
-#: src/controls.5/ImageInfoDialog.qml:181
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.5/ImageInfoDialog.qml:183
+#: src/controls.6/ImageInfoDialog.qml:202
 #, kde-format
 msgid "Details"
 msgstr "Detaljar"
 
-#: src/controls.5/ImageInfoDialog.qml:182
-#: src/controls.6/ImageInfoDialog.qml:182
+#: src/controls.5/ImageInfoDialog.qml:184
+#: src/controls.6/ImageInfoDialog.qml:203
 #, kde-format
 msgid "File information"
 msgstr "Filinformasjon"
