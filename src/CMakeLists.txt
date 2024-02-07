@@ -19,7 +19,7 @@ ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION}
     URI "org.mauikit.imagetools"
     CLASS_NAME ImageToolsPlugin
     NO_PLUGIN_OPTIONAL
-     NO_GENERATE_PLUGIN_SOURCE)
+    NO_GENERATE_PLUGIN_SOURCE)
 
 ## file headers to install
 set(headers
