@@ -1,26 +1,26 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 #
-# Kisaragi Hiu <mail@kisaragi-hiu.com>, 2023.
+# SPDX-FileCopyrightText: 2023, 2024 Kisaragi Hiu <mail@kisaragi-hiu.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-16 01:37+0000\n"
-"PO-Revision-Date: 2023-02-09 02:20+0900\n"
+"PO-Revision-Date: 2024-02-07 23:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
-"Language-Team: Traditional Chinese <zh-l10n@linux.org.tw>\n"
+"Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 23.03.70\n"
+"X-Generator: Lokalize 24.01.95\n"
 
 #: src/code/moduleinfo.cpp:19
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
-msgstr ""
+msgstr "編輯、檢視和瀏覽影像用的影像工具部件。"
 
 #: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
