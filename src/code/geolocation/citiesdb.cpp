@@ -36,7 +36,6 @@ static QString resolveDBFile()
 #endif
 }
 
-
 CitiesDB::CitiesDB(QObject * parent) : QObject(parent)
 {
     QString DBFile = resolveDBFile();

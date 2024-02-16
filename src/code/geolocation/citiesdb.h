@@ -20,5 +20,4 @@ public:
 private:
     QSqlDatabase m_db;
     bool m_error = {true};
-
 };

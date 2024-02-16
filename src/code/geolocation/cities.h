@@ -17,26 +17,18 @@ class CitiesDB;
 class IMAGETOOLS_EXPORT Cities : public QObject
 {
     Q_OBJECT
-    
-public:
+    Q_DISABLE_COPY_MOVE(Cities)
 
-    static Cities *getInstance()
-    {
-        static Cities instance;
-        return &instance;
-    }
-~Cities();
+public:
+    Cities(QObject * parent = nullptr);
+
+    static Cities *getInstance();
+
+    ~Cities();
     City findCity(double latitude, double longitude);
     City city(const QString&);
     
 private:
-    Cities(QObject * parent = nullptr);
-
-    Cities(const Cities &) = delete;
-    Cities &operator=(const Cities &) = delete;
-    Cities(Cities &&) = delete;
-    Cities &operator=(Cities &&) = delete;
-    
     CitiesDB *db();
     QHash<Qt::HANDLE, CitiesDB*> m_dbs;
 };

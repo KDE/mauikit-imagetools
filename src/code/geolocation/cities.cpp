@@ -16,10 +16,16 @@ static KDTree& getCitiesTree()
     return tree;
 }
 
+Q_GLOBAL_STATIC(Cities, citiesInstance)
+
 Cities::Cities(QObject * parent) : QObject(parent)
 {
     qDebug() << "Setting up Cities instance";
-  
+}
+
+Cities *Cities::getInstance()
+{
+    return citiesInstance();
 }
 
 Cities::~Cities()
@@ -30,14 +36,14 @@ Cities::~Cities()
 
 City Cities::findCity(double latitude, double longitude)
 {
-     // CitiesDB db;
+    // CitiesDB db;
     auto pointNear = getCitiesTree().nearest_point({latitude, longitude});
-   return db()->findCity(pointNear[0], pointNear[1]);
+    return db()->findCity(pointNear[0], pointNear[1]);
 }
 
 City Cities::city(const QString &id)
 {
-     // CitiesDB db;
+    // CitiesDB db;
     return db()->city(id);
 }
 
