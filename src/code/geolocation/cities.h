@@ -8,8 +8,6 @@
 #include <QObject>
 #include <QThread>
 
-#include "kdtree.hpp"
-
 #include "imagetools_export.h"
 
 class City;
