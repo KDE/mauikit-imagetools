@@ -9,6 +9,7 @@
 
 #include "city.h"
 #include "citiesdb.h"
+#include "kdtree.hpp"
 
 static KDTree& getCitiesTree()
 {
