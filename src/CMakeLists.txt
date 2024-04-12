@@ -80,6 +80,7 @@ target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     code/textscanner.h
     data/cities.db)
     
+    
     if (QT_MAJOR_VERSION STREQUAL "6")
     target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
     PRIVATE
@@ -94,8 +95,21 @@ target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     code/imagemetadata.h
     
     data/assets.qrc)
-endif()
+    else()
+     target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
+    PRIVATE
 
+    code/imagetools_plugin.cpp
+    code/imagetools_plugin.h
+        
+    code/picinfomodel.cpp
+    code/picinfomodel.h
+
+    code/imagemetadata.cpp
+    code/imagemetadata.h
+    
+    data/assets.qrc)
+endif()
     
 add_library(MauiKit${MAUI_MAJOR_VERSION}::ImageTools ALIAS MauiKitImageTools${MAUI_MAJOR_VERSION})
 
@@ -128,9 +142,11 @@ else()
         PRIVATE
         Image2Text)
         
+        if (QT_MAJOR_VERSION STREQUAL "6")
          target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
         PRIVATE
         Image2Text)
+        endif()
 
     ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH image2text SOURCES
         controls.${QT_MAJOR_VERSION}/image2text/OCRPage.qml)
@@ -148,10 +164,12 @@ target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
     KF${KF_MAJOR_VERSION}::I18n
     MauiKit${MAUI_MAJOR_VERSION})
     
+    if (QT_MAJOR_VERSION STREQUAL "6")
      target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
         PRIVATE
         MauiKit${MAUI_MAJOR_VERSION}
         MauiKitImageTools${MAUI_MAJOR_VERSION})
+        endif()
 
 
 if (QT_MAJOR_VERSION STREQUAL "6")
