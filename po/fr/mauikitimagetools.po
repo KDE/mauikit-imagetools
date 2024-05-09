@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-16 01:37+0000\n"
-"PO-Revision-Date: 2024-04-26 11:37+0200\n"
+"PO-Revision-Date: 2024-05-06 16:32+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -18,7 +18,7 @@ msgstr ""
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr ""
-"Composants d’outils d’images pour l’édition, l'affichage et la navigation."
+"Composants d'outils d'images pour l'édition, l'affichage et la navigation."
 
 #: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
