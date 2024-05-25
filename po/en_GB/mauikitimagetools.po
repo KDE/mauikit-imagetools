@@ -1,26 +1,26 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 #
-# Steve Allewell <steve.allewell@gmail.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-16 01:37+0000\n"
-"PO-Revision-Date: 2022-12-31 16:11+0000\n"
+"PO-Revision-Date: 2024-05-24 17:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 21.12.3\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #: src/code/moduleinfo.cpp:19
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
-msgstr ""
+msgstr "Image tools components for editing, viewing and navigating."
 
 #: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
