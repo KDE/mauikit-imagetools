@@ -21,11 +21,7 @@ private:
 #if defined(Q_OS_ANDROID)
         return QStringLiteral("qrc:/android_rcc_bundle/qml/org/mauikit/imagetools/") + filePath;
 #else
-#ifdef QUICK_COMPILER
-        return QStringLiteral("qrc:/mauikit/imagetools/") + filePath;
-#else
         return baseUrl().toString() + QLatin1Char('/') + filePath;
-#endif
 #endif
     }
 };
