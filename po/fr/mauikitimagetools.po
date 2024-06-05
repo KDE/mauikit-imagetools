@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-16 01:37+0000\n"
+"POT-Creation-Date: 2024-06-05 02:05+0000\n"
 "PO-Revision-Date: 2024-05-06 16:32+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
@@ -20,170 +20,146 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr ""
 "Composants d'outils d'images pour l'édition, l'affichage et la navigation."
 
-#: src/controls.5/image2text/OCRPage.qml:35
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
 msgstr "Lire la zone"
 
-#: src/controls.5/image2text/OCRPage.qml:47
 #: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
 msgstr "Tout lire"
 
-#: src/controls.5/image2text/OCRPage.qml:59
 #: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
 msgstr "Configurer"
 
-#: src/controls.5/ImageEditor.qml:41 src/controls.6/ImageEditor.qml:48
+#: src/controls.6/ImageEditor.qml:48
 #, kde-format
 msgid "Color"
 msgstr "Couleur"
 
-#: src/controls.5/ImageEditor.qml:48 src/controls.6/ImageEditor.qml:55
+#: src/controls.6/ImageEditor.qml:55
 #, kde-format
 msgid "Transform"
 msgstr "Transformer"
 
-#: src/controls.5/ImageEditor.qml:55 src/controls.6/ImageEditor.qml:62
+#: src/controls.6/ImageEditor.qml:62
 #, kde-format
 msgid "Layer"
 msgstr "Calque"
 
-#: src/controls.5/ImageInfoDialog.qml:102
 #: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Edit"
 msgstr "Modifier"
 
-#: src/controls.5/ImageInfoDialog.qml:103
 #: src/controls.6/ImageInfoDialog.qml:120
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Modification en cours de l'étiquette « EXIF »"
 
-#: src/controls.5/ImageInfoDialog.qml:110
 #: src/controls.6/ImageInfoDialog.qml:128
 #, kde-format
 msgid "Tag key"
 msgstr "Touche d'étiquetage"
 
-#: src/controls.5/ImageInfoDialog.qml:117
 #: src/controls.6/ImageInfoDialog.qml:135
 #, kde-format
 msgid "Tag value"
 msgstr "Valeur de l'étiquette"
 
-#: src/controls.5/ImageInfoDialog.qml:128
 #: src/controls.6/ImageInfoDialog.qml:146
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "Impossible de modifier l'étiquette"
 
-#: src/controls.5/ImageInfoDialog.qml:151
 #: src/controls.6/ImageInfoDialog.qml:169
 #, kde-format
 msgid "Remove"
 msgstr "Supprimer"
 
-#: src/controls.5/ImageInfoDialog.qml:152
 #: src/controls.6/ImageInfoDialog.qml:170
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Voulez-vous vraiment supprimer l'étiquette « EXIF » %1 ?"
 
-#: src/controls.5/ImageInfoDialog.qml:162
 #: src/controls.6/ImageInfoDialog.qml:181
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "Impossible de supprimer l'étiquette"
 
-#: src/controls.5/ImageInfoDialog.qml:183
 #: src/controls.6/ImageInfoDialog.qml:202
 #, kde-format
 msgid "Details"
 msgstr "Détails"
 
-#: src/controls.5/ImageInfoDialog.qml:184
 #: src/controls.6/ImageInfoDialog.qml:203
 #, kde-format
 msgid "File information"
 msgstr "Informations sur le fichier"
 
-#: src/controls.5/private/ColourBar.qml:58
 #: src/controls.6/private/ColourBar.qml:58
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr "Saturation"
 
-#: src/controls.5/private/ColourBar.qml:67
 #: src/controls.6/private/ColourBar.qml:67
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr "Contraste "
 
-#: src/controls.5/private/ColourBar.qml:76
 #: src/controls.6/private/ColourBar.qml:76
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr "Exposition"
 
-#: src/controls.5/private/ColourBar.qml:85
 #: src/controls.6/private/ColourBar.qml:85
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr "Mises en valeur"
 
-#: src/controls.5/private/ColourBar.qml:94
 #: src/controls.6/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr "Ombres"
 
-#: src/controls.5/private/ColourBar.qml:104
 #: src/controls.6/private/ColourBar.qml:104
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
 msgstr "Luminosité"
 
-#: src/controls.5/private/TransformationBar.qml:33
 #: src/controls.6/private/TransformationBar.qml:33
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Retourner"
 
-#: src/controls.5/private/TransformationBar.qml:41
 #: src/controls.6/private/TransformationBar.qml:41
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Dupliquer par reflet"
 
-#: src/controls.5/private/TransformationBar.qml:53
 #: src/controls.6/private/TransformationBar.qml:53
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "Faire tourner de 90 °"
 
-#: src/controls.5/private/TransformationBar.qml:110
 #: src/controls.6/private/TransformationBar.qml:110
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Rogner"
 
-#: src/controls.5/private/TransformationBar.qml:118
 #: src/controls.6/private/TransformationBar.qml:118
 #, kde-format
 msgctxt "@action:button Rotate an image"
