@@ -26,7 +26,7 @@
 #include <QDebug>
 #include <QFile>
 
-#include <QTextCodec>
+// #include <QTextCodec>
 
 #include "geolocation/cities.h"
 #include "geolocation/city.h"
@@ -478,8 +478,9 @@ static QString convertCommentValue(const Exiv2::Exifdatum& exifDatum)
         }
         else if (charset == "\"Jis\"")
         {
-            QTextCodec* const codec = QTextCodec::codecForName("JIS7");
-            return codec->toUnicode(comment.c_str());
+            // QTextCodec* const codec = QTextCodec::codecForName("JIS7");
+            // return codec->toUnicode(comment.c_str());
+            return detectEncodingAndDecode(comment);
         }
         else if (charset == "\"Ascii\"")
         {

@@ -5,12 +5,12 @@
 cmake_minimum_required(VERSION 3.16)
 
 set(QT_MAJOR_VERSION 6)
-
 set(REQUIRED_QT_VERSION 6.4)
-set(REQUIRED_KF_VERSION 5.240.0)
-set(KF_MAJOR_VERSION 6)
-set(MAUI_MAJOR_VERSION 4)
 
+set(KF_MAJOR_VERSION 6)
+set(REQUIRED_KF_VERSION 5.240.0)
+
+set(MAUI_MAJOR_VERSION 4)
 set(MAUIKIT_VERSION 4.0.0)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -42,17 +42,20 @@ include(ECMFindQmlModule)
 include(ECMSourceVersionControl)
 
 find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Quick Qml Sql Positioning)
-find_package(LibExiv2 0.21 REQUIRED)
-#find_package(ImageMagick)
-
-if(ANDROID)
-    find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} COMPONENTS AndroidExtras)
+find_package(exiv2 CONFIG REQUIRED)
+# exiv2 0.28.1 moved exiv2lib into the Exiv2 namespace:
+if(TARGET Exiv2::exiv2lib)
+    set(EXIV2_LIBRARIES Exiv2::exiv2lib)
+else()
+    set(EXIV2_LIBRARIES exiv2lib)
 endif()
+
+#find_package(ImageMagick)
 
 find_package(KF${KF_MAJOR_VERSION} ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
 find_package(MauiKit${MAUI_MAJOR_VERSION} REQUIRED)
 
-ecm_find_qmlmodule(org.kde.kquickimageeditor 1.0)
+ecm_find_qmlmodule(org.kde.kquickimageeditor)
 
 find_package(KQuickImageEditor COMPONENTS)
 set_package_properties(KQuickImageEditor PROPERTIES
@@ -60,8 +63,6 @@ set_package_properties(KQuickImageEditor PROPERTIES
     DESCRIPTION "Simple image editor for QtQuick applications"
     URL "https://invent.kde.org/libraries/kquickimageeditor/"
     PURPOSE "Add image editing capability to image attachments")
-
-find_package(Qt6 REQUIRED COMPONENTS Core5Compat)
 
 if(${ECM_SOURCE_UNDER_VERSION_CONTROL})
     execute_process(

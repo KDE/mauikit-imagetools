@@ -19,7 +19,7 @@ private:
     QString resolveFileUrl(const QString &filePath) const
     {
 #if defined(Q_OS_ANDROID)
-        return QStringLiteral("qrc:/android_rcc_bundle/qml/org/mauikit/imagetools/") + filePath;
+        return QStringLiteral(":/qt/qml/org/mauikit/imagetools/") + filePath;
 #else
         return baseUrl().toString() + QLatin1Char('/') + filePath;
 #endif

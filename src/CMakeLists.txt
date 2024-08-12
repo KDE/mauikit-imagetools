@@ -16,7 +16,9 @@ ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION}
     URI "org.mauikit.imagetools"
     CLASS_NAME ImageToolsPlugin
     NO_PLUGIN_OPTIONAL
-    NO_GENERATE_PLUGIN_SOURCE)
+    NO_GENERATE_PLUGIN_SOURCE
+    DEPENDENCIES
+    "org.mauikit.controls")
 
 ## file headers to install
 set(headers
@@ -99,9 +101,7 @@ target_include_directories(MauiKitImageTools${MAUI_MAJOR_VERSION}
 target_include_directories(MauiKitImageTools${MAUI_MAJOR_VERSION} PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR};>")
 
 if(ANDROID)
-    target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
-        PRIVATE
-        Qt${QT_MAJOR_VERSION}::AndroidExtras)
+
 else()
     target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
         PRIVATE
@@ -121,7 +121,7 @@ target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
     Qt${QT_MAJOR_VERSION}::Quick
     Qt${QT_MAJOR_VERSION}::Qml
     Qt${QT_MAJOR_VERSION}::Sql
-    LibExiv2::LibExiv2
+    ${EXIV2_LIBRARIES}
     Qt${QT_MAJOR_VERSION}::Positioning
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::I18n
@@ -129,13 +129,8 @@ target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
 
 target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
     PRIVATE
-    Qt6::Core5Compat
     MauiKit${MAUI_MAJOR_VERSION}
     MauiKitImageTools${MAUI_MAJOR_VERSION})
-
-target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
-    PRIVATE
-    Qt6::Core5Compat)
 
 ecm_finalize_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION} DESTINATION ${KDE_INSTALL_QMLDIR})
 
