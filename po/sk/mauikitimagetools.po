@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
+"POT-Creation-Date: 2024-08-13 01:46+0000\n"
 "PO-Revision-Date: 2023-03-12 11:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -35,17 +35,17 @@ msgstr ""
 msgid "Configure"
 msgstr "Nastaviť"
 
-#: src/controls.6/ImageEditor.qml:48
+#: src/controls.6/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Farba"
 
-#: src/controls.6/ImageEditor.qml:55
+#: src/controls.6/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transformovať"
 
-#: src/controls.6/ImageEditor.qml:62
+#: src/controls.6/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Vrstva"
@@ -100,67 +100,67 @@ msgstr "Podrobnosti"
 msgid "File information"
 msgstr "Informácia o súbore"
 
-#: src/controls.6/private/ColourBar.qml:58
+#: src/controls.6/private/ColourBar.qml:57
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr "Sýtosť"
 
-#: src/controls.6/private/ColourBar.qml:67
+#: src/controls.6/private/ColourBar.qml:66
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr "Kontrast"
 
-#: src/controls.6/private/ColourBar.qml:76
+#: src/controls.6/private/ColourBar.qml:75
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr "Expozícia"
 
-#: src/controls.6/private/ColourBar.qml:85
+#: src/controls.6/private/ColourBar.qml:84
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr "Zvýraznenia"
 
-#: src/controls.6/private/ColourBar.qml:94
+#: src/controls.6/private/ColourBar.qml:93
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr "Tiene"
 
-#: src/controls.6/private/ColourBar.qml:104
+#: src/controls.6/private/ColourBar.qml:103
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
 msgstr "Jas"
 
-#: src/controls.6/private/TransformationBar.qml:33
+#: src/controls.6/private/TransformationBar.qml:32
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Prevrátiť"
 
-#: src/controls.6/private/TransformationBar.qml:41
+#: src/controls.6/private/TransformationBar.qml:40
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Zrkadliť"
 
-#: src/controls.6/private/TransformationBar.qml:53
+#: src/controls.6/private/TransformationBar.qml:52
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "Otočiť 90°"
 
-#: src/controls.6/private/TransformationBar.qml:110
+#: src/controls.6/private/TransformationBar.qml:109
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Orezať"
 
-#: src/controls.6/private/TransformationBar.qml:118
+#: src/controls.6/private/TransformationBar.qml:117
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-06-05 02:05+0000\n"
+"POT-Creation-Date: 2024-08-13 01:46+0000\n"
 "PO-Revision-Date: 2023-07-29 22:19-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -37,17 +37,17 @@ msgstr ""
 msgid "Configure"
 msgstr ""
 
-#: src/controls.6/ImageEditor.qml:48
+#: src/controls.6/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Cor"
 
-#: src/controls.6/ImageEditor.qml:55
+#: src/controls.6/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr ""
 
-#: src/controls.6/ImageEditor.qml:62
+#: src/controls.6/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr ""
@@ -102,67 +102,67 @@ msgstr ""
 msgid "File information"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:58
+#: src/controls.6/private/ColourBar.qml:57
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:67
+#: src/controls.6/private/ColourBar.qml:66
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:76
+#: src/controls.6/private/ColourBar.qml:75
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:85
+#: src/controls.6/private/ColourBar.qml:84
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:94
+#: src/controls.6/private/ColourBar.qml:93
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr ""
 
-#: src/controls.6/private/ColourBar.qml:104
+#: src/controls.6/private/ColourBar.qml:103
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Brightness"
 msgstr ""
 
-#: src/controls.6/private/TransformationBar.qml:33
+#: src/controls.6/private/TransformationBar.qml:32
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr ""
 
-#: src/controls.6/private/TransformationBar.qml:41
+#: src/controls.6/private/TransformationBar.qml:40
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr ""
 
-#: src/controls.6/private/TransformationBar.qml:53
+#: src/controls.6/private/TransformationBar.qml:52
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr ""
 
-#: src/controls.6/private/TransformationBar.qml:110
+#: src/controls.6/private/TransformationBar.qml:109
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Cortar"
 
-#: src/controls.6/private/TransformationBar.qml:118
+#: src/controls.6/private/TransformationBar.qml:117
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
