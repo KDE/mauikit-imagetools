@@ -18,7 +18,8 @@ ecm_add_qml_module(MauiKitImageTools${MAUI_MAJOR_VERSION}
     NO_PLUGIN_OPTIONAL
     NO_GENERATE_PLUGIN_SOURCE
     DEPENDENCIES
-    "org.mauikit.controls")
+    "org.mauikit.controls"
+    "org.kde.kquickimageeditor")
 
 ## file headers to install
 set(headers
@@ -30,15 +31,20 @@ set(headers
 
 ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} SOURCES
     controls.${QT_MAJOR_VERSION}/ImageViewer.qml
-    controls.${QT_MAJOR_VERSION}/ImageInfoDialog.qml
-    controls.${QT_MAJOR_VERSION}/ImageEditor.qml)
+    controls.${QT_MAJOR_VERSION}/ImageInfoDialog.qml)
+
+if(ANDROID) ##Split the ImageEditor imp since it is not working on Android for this 4.0.0 release
+    ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH android SOURCES
+        controls.${QT_MAJOR_VERSION}/android/ImageEditor.qml)
+elseif(LINUX)
+    ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH linux SOURCES
+        controls.${QT_MAJOR_VERSION}/linux/ImageEditor.qml)
+endif()
 
 ecm_target_qml_sources(MauiKitImageTools${MAUI_MAJOR_VERSION} PATH private SOURCES
     controls.${QT_MAJOR_VERSION}/private/ColourBar.qml
     controls.${QT_MAJOR_VERSION}/private/Ruler.qml
     controls.${QT_MAJOR_VERSION}/private/TransformationBar.qml)
-
-# qt_add_resources(imagetools_QML_QRC resources.qrc)
 
 target_sources(MauiKitImageTools${MAUI_MAJOR_VERSION}
     PRIVATE

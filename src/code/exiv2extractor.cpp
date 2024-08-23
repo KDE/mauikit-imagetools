@@ -478,9 +478,8 @@ static QString convertCommentValue(const Exiv2::Exifdatum& exifDatum)
         }
         else if (charset == "\"Jis\"")
         {
-            // QTextCodec* const codec = QTextCodec::codecForName("JIS7");
-            // return codec->toUnicode(comment.c_str());
-            return detectEncodingAndDecode(comment);
+            QStringDecoder codec("JIS7");
+            return codec.decode(comment.c_str());
         }
         else if (charset == "\"Ascii\"")
         {

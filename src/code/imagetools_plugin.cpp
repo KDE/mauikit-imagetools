@@ -21,7 +21,12 @@ void ImageToolsPlugin::registerTypes(const char *uri)
     Q_ASSERT(QLatin1String(uri) == QLatin1String("org.mauikit.imagetools"));
     
     qmlRegisterType(componentUrl(QStringLiteral("ImageViewer.qml")), uri, 1, 0, "ImageViewer");
-    qmlRegisterType(componentUrl(QStringLiteral("ImageEditor.qml")), uri, 1, 0, "ImageEditor");
+
+#ifdef Q_OS_ANDROID
+    qmlRegisterType(componentUrl(QStringLiteral("android/ImageEditor.qml")), uri, 1, 0, "ImageEditor");
+#else
+    qmlRegisterType(componentUrl(QStringLiteral("linux/ImageEditor.qml")), uri, 1, 0, "ImageEditor");
+#endif
     
     qmlRegisterType<PicInfoModel>(uri, 1, 3, "PicInfoModel");
     qmlRegisterType(componentUrl(QStringLiteral("ImageInfoDialog.qml")), uri, 1, 3, "ImageInfoDialog");

@@ -4,7 +4,7 @@ import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
 
-import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
+import org.kde.kquickimageeditor as KQuickImageEditor
 
 import "private" as Private
 
