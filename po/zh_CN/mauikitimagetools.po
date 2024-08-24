@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 01:46+0000\n"
+"POT-Creation-Date: 2024-08-24 01:47+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -37,21 +37,6 @@ msgstr "读取全部区域"
 #, kde-format
 msgid "Configure"
 msgstr "配置"
-
-#: src/controls.6/ImageEditor.qml:47
-#, kde-format
-msgid "Color"
-msgstr "颜色"
-
-#: src/controls.6/ImageEditor.qml:54
-#, kde-format
-msgid "Transform"
-msgstr "变形"
-
-#: src/controls.6/ImageEditor.qml:61
-#, kde-format
-msgid "Layer"
-msgstr "图层"
 
 #: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
@@ -102,6 +87,21 @@ msgstr ""
 #, kde-format
 msgid "File information"
 msgstr ""
+
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "颜色"
+
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "变形"
+
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "图层"
 
 #: src/controls.6/private/ColourBar.qml:57
 #, kde-format

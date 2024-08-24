@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 01:46+0000\n"
+"POT-Creation-Date: 2024-08-24 01:47+0000\n"
 "PO-Revision-Date: 2023-04-29 12:13+0200\n"
 "Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -38,21 +38,6 @@ msgstr "Alle lesen"
 #, kde-format
 msgid "Configure"
 msgstr "Einrichten"
-
-#: src/controls.6/ImageEditor.qml:47
-#, kde-format
-msgid "Color"
-msgstr "Farbe"
-
-#: src/controls.6/ImageEditor.qml:54
-#, kde-format
-msgid "Transform"
-msgstr ""
-
-#: src/controls.6/ImageEditor.qml:61
-#, kde-format
-msgid "Layer"
-msgstr "Ebene"
 
 #: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
@@ -103,6 +88,21 @@ msgstr "Details"
 #, kde-format
 msgid "File information"
 msgstr "Datei-Informationen"
+
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Farbe"
+
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr ""
+
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Ebene"
 
 #: src/controls.6/private/ColourBar.qml:57
 #, kde-format
