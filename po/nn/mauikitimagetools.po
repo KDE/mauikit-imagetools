@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-13 01:46+0000\n"
+"POT-Creation-Date: 2024-08-24 01:47+0000\n"
 "PO-Revision-Date: 2024-07-28 00:38+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -37,21 +37,6 @@ msgstr "Lest alt"
 #, kde-format
 msgid "Configure"
 msgstr "Set opp"
-
-#: src/controls.6/ImageEditor.qml:47
-#, kde-format
-msgid "Color"
-msgstr "Farge"
-
-#: src/controls.6/ImageEditor.qml:54
-#, kde-format
-msgid "Transform"
-msgstr "Transformer"
-
-#: src/controls.6/ImageEditor.qml:61
-#, kde-format
-msgid "Layer"
-msgstr "Lag"
 
 #: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
@@ -102,6 +87,21 @@ msgstr "Detaljar"
 #, kde-format
 msgid "File information"
 msgstr "Filinformasjon"
+
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Farge"
+
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "Transformer"
+
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Lag"
 
 #: src/controls.6/private/ColourBar.qml:57
 #, kde-format
