@@ -6,7 +6,7 @@
 # Automatically generated, 2022.
 msgid ""
 msgstr ""
-"Project-Id-Version: mauikit-imagetools\n"
+"Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-08-24 01:47+0000\n"
 "PO-Revision-Date: 2023-04-29 12:13+0200\n"
