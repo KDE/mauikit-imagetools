@@ -6,7 +6,7 @@ import org.mauikit.controls as Maui
 
 import org.kde.kquickimageeditor as KQuickImageEditor
 
-import "private" as Private
+import "../private" as Private
 
 
 /**

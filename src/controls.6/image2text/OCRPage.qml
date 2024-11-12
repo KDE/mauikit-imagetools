@@ -17,31 +17,31 @@ import org.kde.kquickimageeditor 1.0 as KQuickImageEditor
 Maui.Page
 {
     id: control
-
+    
     property alias url : _ocr.filePath
-
+    
     IT.OCR
     {
         id: _ocr
     }
-
+    
     headBar.rightContent: Maui.ToolButtonMenu
     {
         icon.name: "format-text-bold"
-
-
+        
+        
         MenuItem
         {
             text: i18n("Read Area")
             icon.name: "transform-crop"
             onTriggered:
             {
-
+                
                 control.push(_ocrComponent)
-
+                
             }
         }
-
+        
         MenuItem
         {
             text: i18n("Read All")
@@ -51,81 +51,87 @@ Maui.Page
                 console.log(_ocr.getText())
             }
         }
-
+        
         MenuSeparator{}
-
+        
         MenuItem
         {
             text: i18n("Configure")
         }
     }
-
+    
     Maui.SplitView
     {
         anchors.fill: parent
-
-        KQuickImageEditor.ImageItem
+        
+        Maui.SplitViewItem
         {
-            id: editImage
-            readonly property real ratioX: editImage.paintedWidth / editImage.nativeWidth;
-            readonly property real ratioY: editImage.paintedHeight / editImage.nativeHeight;
-
-            fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
-            image: imageDoc.image
-
+            autoClose: false
             SplitView.fillHeight: true
             SplitView.fillWidth: true
-
-
-            KQuickImageEditor.ImageDocument
+            
+            KQuickImageEditor.ImageItem
             {
-                id: imageDoc
-                path: control.url
-            }
-
-            KQuickImageEditor.SelectionTool
-            {
-                id: selectionTool
-                visible: true
-                width: editImage.paintedWidth
-                height: editImage.paintedHeight
-                x: editImage.horizontalPadding
-                y: editImage.verticalPadding
-
-                KQuickImageEditor.CropBackground
+                id: editImage
+                anchors.fill: parent
+                
+                readonly property real ratioX: editImage.paintedWidth / editImage.nativeWidth;
+                readonly property real ratioY: editImage.paintedHeight / editImage.nativeHeight;
+                
+                fillMode: KQuickImageEditor.ImageItem.PreserveAspectFit
+                image: imageDoc.image
+                
+                KQuickImageEditor.ImageDocument
                 {
-                    anchors.fill: parent
-                    z: -1
-                    insideX: selectionTool.selectionX
-                    insideY: selectionTool.selectionY
-                    insideWidth: selectionTool.selectionWidth
-                    insideHeight: selectionTool.selectionHeight
+                    id: imageDoc
+                    path: control.url
                 }
-                Connections {
-                    target: selectionTool.selectionArea
-                    function onDoubleClicked() {
-                        _ocr.area = Qt.rect(selectionTool.selectionX / editImage.ratioX,
-                                            selectionTool.selectionY / editImage.ratioY,
-                                            selectionTool.selectionWidth / editImage.ratioX,
-                                            selectionTool.selectionHeight / editImage.ratioY)
-
-
-                        _listModel.append({'text': _ocr.getText()})
+                
+                KQuickImageEditor.SelectionTool
+                {
+                    id: selectionTool
+                    visible: true
+                    width: editImage.paintedWidth
+                    height: editImage.paintedHeight
+                    x: editImage.horizontalPadding
+                    y: editImage.verticalPadding
+                    
+                    KQuickImageEditor.CropBackground
+                    {
+                        anchors.fill: parent
+                        z: -1
+                        insideX: selectionTool.selectionX
+                        insideY: selectionTool.selectionY
+                        insideWidth: selectionTool.selectionWidth
+                        insideHeight: selectionTool.selectionHeight
+                    }
+                    Connections {
+                        target: selectionTool.selectionArea
+                        function onDoubleClicked() {
+                            _ocr.area = Qt.rect(selectionTool.selectionX / editImage.ratioX,
+                                                selectionTool.selectionY / editImage.ratioY,
+                                                selectionTool.selectionWidth / editImage.ratioX,
+                                                selectionTool.selectionHeight / editImage.ratioY)
+                            
+                            
+                            _listModel.append({'text': _ocr.getText()})
+                        }
                     }
                 }
-            }
-
-            onImageChanged:
-            {
-                selectionTool.selectionX = 0
-                selectionTool.selectionY = 0
-                selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
-                selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+                
+                onImageChanged:
+                {
+                    selectionTool.selectionX = 0
+                    selectionTool.selectionY = 0
+                    selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
+                    selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+                }
             }
         }
-
-        Maui.Page
+        
+        Maui.SplitViewItem
         {
+            autoClose: false
             visible: _textArea.text
             SplitView.fillWidth: true
             SplitView.fillHeight: true
@@ -133,39 +139,43 @@ Maui.Page
             SplitView.maximumHeight: 400
             SplitView.preferredWidth: 400
             SplitView.preferredHeight: 400
-
-            Maui.Theme.colorSet: Maui.Theme.Window
-
-            ListModel { id: _listModel}
-
-            Maui.ListBrowser
+            
+            Maui.Page
             {
-                id: _textArea
                 anchors.fill: parent
-
-                model: _listModel
-
-                delegate: ItemDelegate
+                Maui.Theme.colorSet: Maui.Theme.Window
+                
+                ListModel { id: _listModel}
+                
+                Maui.ListBrowser
                 {
-                    id: _delegate
-                    text: model.text
-                    width: ListView.view.width
-                    onClicked: Maui.Handy.copyTextToClipboard(model.text)
-
-                    background: Rectangle
+                    id: _textArea
+                    anchors.fill: parent
+                    
+                    model: _listModel
+                    
+                    delegate: ItemDelegate
                     {
-                        radius: Maui.Style.radiusV
-                        color: Maui.Theme.alternateBackgroundColor
-                    }
-
-                    contentItem: TextArea
-                    {
-                        text: _delegate.text
+                        id: _delegate
+                        text: model.text
+                        width: ListView.view.width
+                        onClicked: Maui.Handy.copyTextToClipboard(model.text)
+                        
+                        background: Rectangle
+                        {
+                            radius: Maui.Style.radiusV
+                            color: Maui.Theme.alternateBackgroundColor
+                        }
+                        
+                        contentItem: TextArea
+                        {
+                            text: _delegate.text
+                        }
                     }
                 }
             }
         }
-
+        
     }
-
+    
 }
