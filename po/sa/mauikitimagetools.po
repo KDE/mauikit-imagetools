@@ -1,0 +1,168 @@
+# Sanskrit translations for mauikit-imagetools package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the mauikit-imagetools package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mauikit-imagetools\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"PO-Revision-Date: 2024-12-29 16:06+0530\n"
+"Last-Translator: Kali <EMAIL@ADDRESS>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/code/moduleinfo.cpp:19
+#, kde-format
+msgid "Image tools components for editing, viewing and navigating."
+msgstr "सम्पादनार्थं, द्रष्टुं, मार्गदर्शनार्थं च चित्रसाधनघटकाः ।"
+
+#: src/controls.6/image2text/OCRPage.qml:35
+#, kde-format
+msgid "Read Area"
+msgstr "पठन्तु क्षेत्रम्"
+
+#: src/controls.6/image2text/OCRPage.qml:47
+#, kde-format
+msgid "Read All"
+msgstr "सर्वं पठन्तु"
+
+#: src/controls.6/image2text/OCRPage.qml:59
+#, kde-format
+msgid "Configure"
+msgstr "विन्यस्तं कुर्वन्तु"
+
+#: src/controls.6/ImageInfoDialog.qml:119
+#, kde-format
+msgid "Edit"
+msgstr "सम्पादन"
+
+#: src/controls.6/ImageInfoDialog.qml:120
+#, kde-format
+msgid "Editing Exif tag"
+msgstr "Exif टैग सम्पादनम्"
+
+#: src/controls.6/ImageInfoDialog.qml:128
+#, kde-format
+msgid "Tag key"
+msgstr "टैग कील"
+
+#: src/controls.6/ImageInfoDialog.qml:135
+#, kde-format
+msgid "Tag value"
+msgstr "टैग मूल्य"
+
+#: src/controls.6/ImageInfoDialog.qml:146
+#, kde-format
+msgid "Could not edit the tag"
+msgstr "टैग् सम्पादयितुं न शक्तवान्"
+
+#: src/controls.6/ImageInfoDialog.qml:169
+#, kde-format
+msgid "Remove"
+msgstr "अपाकरोति"
+
+#: src/controls.6/ImageInfoDialog.qml:170
+#, kde-format
+msgid "Are you sure you want to remove the Exif tag %1?"
+msgstr "किं भवान् निश्चयेन Exif टैग् %1 अपसारयितुम् इच्छति?"
+
+#: src/controls.6/ImageInfoDialog.qml:181
+#, kde-format
+msgid "Could not remove the tag"
+msgstr "टैग् अपसारयितुं न शक्तवान्"
+
+#: src/controls.6/ImageInfoDialog.qml:202
+#, kde-format
+msgid "Details"
+msgstr "वर्णन"
+
+#: src/controls.6/ImageInfoDialog.qml:203
+#, kde-format
+msgid "File information"
+msgstr "सञ्चिकासूचना"
+
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "वर्ण"
+
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "परिवर्तनं कुरुत"
+
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "स्तर"
+
+#: src/controls.6/private/ColourBar.qml:57
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Saturation"
+msgstr "संतृप्ति"
+
+#: src/controls.6/private/ColourBar.qml:66
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Contrast"
+msgstr "विप्रकर्ष"
+
+#: src/controls.6/private/ColourBar.qml:75
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Exposure"
+msgstr "विवृति"
+
+#: src/controls.6/private/ColourBar.qml:84
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Highlights"
+msgstr "मुख्यविषयाणि"
+
+#: src/controls.6/private/ColourBar.qml:93
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Shadows"
+msgstr "छायाः"
+
+#: src/controls.6/private/ColourBar.qml:103
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "कान्तिः"
+
+#: src/controls.6/private/TransformationBar.qml:32
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "पर्यस्"
+
+#: src/controls.6/private/TransformationBar.qml:40
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "दर्पण"
+
+#: src/controls.6/private/TransformationBar.qml:52
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "९०° घुमाव"
+
+#: src/controls.6/private/TransformationBar.qml:109
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "अन्नग्रह"
+
+#: src/controls.6/private/TransformationBar.qml:117
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Rotate"
+msgstr "परिभ्रमतु"
