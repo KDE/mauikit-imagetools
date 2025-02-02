@@ -1,0 +1,170 @@
+# Copyright (C) 2025 This file is copyright:
+# This file is distributed under the same license as the mauikit-imagetools package.
+#
+# SPDX-FileCopyrightText: 2025 Toms Trasuns <toms.trasuns@posteo.net>
+msgid ""
+msgstr ""
+"Project-Id-Version: mauikit-imagetools\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"PO-Revision-Date: 2025-01-31 17:08+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 24.12.1\n"
+
+#: src/code/moduleinfo.cpp:19
+#, kde-format
+msgid "Image tools components for editing, viewing and navigating."
+msgstr "Rīki attēlu rediģēšanai, skatīšanai un pārlūkošanai."
+
+#: src/controls.6/image2text/OCRPage.qml:35
+#, kde-format
+msgid "Read Area"
+msgstr "Lasīt apgabalu"
+
+#: src/controls.6/image2text/OCRPage.qml:47
+#, kde-format
+msgid "Read All"
+msgstr "Lasīt visu"
+
+#: src/controls.6/image2text/OCRPage.qml:59
+#, kde-format
+msgid "Configure"
+msgstr "Konfigurēt"
+
+#: src/controls.6/ImageInfoDialog.qml:119
+#, kde-format
+msgid "Edit"
+msgstr "Rediģēt"
+
+#: src/controls.6/ImageInfoDialog.qml:120
+#, kde-format
+msgid "Editing Exif tag"
+msgstr "Rediģē „Exif“ birku"
+
+#: src/controls.6/ImageInfoDialog.qml:128
+#, kde-format
+msgid "Tag key"
+msgstr "Birkas atslēga"
+
+#: src/controls.6/ImageInfoDialog.qml:135
+#, kde-format
+msgid "Tag value"
+msgstr "Birkas vērtība"
+
+#: src/controls.6/ImageInfoDialog.qml:146
+#, kde-format
+msgid "Could not edit the tag"
+msgstr "Birkas rediģēšana neizdevās"
+
+#: src/controls.6/ImageInfoDialog.qml:169
+#, kde-format
+msgid "Remove"
+msgstr "Noņemt"
+
+#: src/controls.6/ImageInfoDialog.qml:170
+#, kde-format
+msgid "Are you sure you want to remove the Exif tag %1?"
+msgstr "Vai tiešām vēlaties noņemt „Exif“ birku „%1“?"
+
+#: src/controls.6/ImageInfoDialog.qml:181
+#, kde-format
+msgid "Could not remove the tag"
+msgstr "Birkas noņemšanas neizdevās"
+
+#: src/controls.6/ImageInfoDialog.qml:202
+#, kde-format
+msgid "Details"
+msgstr "Informācija"
+
+#: src/controls.6/ImageInfoDialog.qml:203
+#, kde-format
+msgid "File information"
+msgstr "Datnes informācija"
+
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Krāsa"
+
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "Transformēt"
+
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Slānis"
+
+#: src/controls.6/private/ColourBar.qml:57
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Saturation"
+msgstr "Piesātinājums"
+
+#: src/controls.6/private/ColourBar.qml:66
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Contrast"
+msgstr "Kontrasts"
+
+#: src/controls.6/private/ColourBar.qml:75
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Exposure"
+msgstr "Ekspozīcija"
+
+#: src/controls.6/private/ColourBar.qml:84
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Highlights"
+msgstr "Gaišās vietas"
+
+#: src/controls.6/private/ColourBar.qml:93
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Shadows"
+msgstr "Ēnas"
+
+#: src/controls.6/private/ColourBar.qml:103
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "Gaišums"
+
+#: src/controls.6/private/TransformationBar.qml:32
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Apmest"
+
+#: src/controls.6/private/TransformationBar.qml:40
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Spoguļot"
+
+#: src/controls.6/private/TransformationBar.qml:52
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "Pagriezt par 90°"
+
+#: src/controls.6/private/TransformationBar.qml:109
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Kadrēt"
+
+#: src/controls.6/private/TransformationBar.qml:117
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Rotate"
+msgstr "Pagriezt"
