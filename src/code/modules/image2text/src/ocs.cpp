@@ -1,6 +1,8 @@
 #include "ocs.h"
 #include <QImage>
 #include <QDebug>
+#include <QtConcurrent>
+#include <QFutureWatcher>
 
 #include <tesseract/baseapi.h>
 #include <leptonica/allheaders.h>
@@ -36,16 +38,10 @@
 //    }
 
 OCS::OCS(QObject *parent) : QObject(parent)
-  ,m_tesseract(new tesseract::TessBaseAPI())
-  ,m_languages(new OCRLanguageModel(this))
+    ,m_tesseract(new tesseract::TessBaseAPI())
+    ,m_languages(new OCRLanguageModel(this))
+    ,m_boxesTypes(BoxType::Word | BoxType::Line | BoxType::Paragraph)
 {
-    if (m_tesseract->Init(nullptr, "eng"))
-    {
-        qDebug()<<"Failed tesseract OCR init";
-        return;
-    }
-    m_tesseract->SetPageSegMode(tesseract::PSM_AUTO);
-
     std::vector<std::string> availableLanguages;
 #if TESSERACT_MAJOR_VERSION < 5
     GenericVector<STRING> languageVector;
@@ -75,6 +71,108 @@ QRect OCS::area() const
     return m_area;
 }
 
+bool OCS::autoRead() const
+{
+    return m_autoRead;
+}
+
+void OCS::setAutoRead(bool value)
+{
+    if(m_autoRead == value)
+        return;
+    
+    m_autoRead = value;
+    Q_EMIT autoReadChanged();
+}
+
+void OCS::setBoxesType(OCS::BoxesType types)
+{
+    if(m_boxesTypes == types)
+        return;
+
+
+    m_boxesTypes = types;
+    qDebug() << "Setting the boxes types" << m_boxesTypes << types;
+
+    Q_EMIT boxesTypeChanged();
+}
+
+void OCS::getTextAsync()
+{
+    if(!QUrl::fromUserInput(m_filePath).isLocalFile())
+    {
+        qDebug() << "URL is not local :: OCR";
+        return;
+    }
+    typedef QMap<BoxType, TextBoxes> Res;
+    auto func = [](QUrl url, BoxesType levels) -> Res
+    {      
+        Pix *image = pixRead(url.toLocalFile().toStdString().c_str());
+        tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
+        api->Init(NULL, "eng");
+        api->SetImage(image);
+        api->Recognize(0);
+
+        TextBoxes wordBoxes, lineBoxes, paragraphBoxes;
+
+        auto levelFunc = [](tesseract::TessBaseAPI *api, tesseract::PageIteratorLevel level) -> TextBoxes
+        {
+            TextBoxes res;
+            tesseract::ResultIterator* ri = api->GetIterator();
+            if (ri != 0)
+            {
+                qDebug() << "Getting text for level" << level;
+                do
+                {
+                    const char* word = ri->GetUTF8Text(level);
+                    float conf = ri->Confidence(level);
+                    int x1, y1, x2, y2;
+                    ri->BoundingBox(level, &x1, &y1, &x2, &y2);
+
+                    printf("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n",
+                           word, conf, x1, y1, x2, y2);
+
+                    if(conf > 50)
+                        res << QVariantMap{{"text", QString::fromStdString(word)}, {"rect", QRect{x1, y1, x2-x1, y2-y1}}};
+                    delete[] word;
+                } while (ri->Next(level));
+            }
+
+            return res;
+        };
+
+        if(levels.testFlag(Word))
+            wordBoxes = levelFunc(api, tesseract::RIL_WORD);
+
+        if(levels.testFlag(Line))
+            lineBoxes = levelFunc(api,  tesseract::RIL_TEXTLINE);
+
+        if(levels.testFlag(Paragraph))
+            paragraphBoxes = levelFunc(api,  tesseract::RIL_PARA);
+
+
+        delete api;
+        return Res{{Word, wordBoxes}, {Line, lineBoxes}, {Paragraph, paragraphBoxes}};
+    };
+    
+    auto watcher = new QFutureWatcher<Res>;
+    connect(watcher, &QFutureWatcher<Res>::finished, [this, watcher]()
+            {
+              // Q_EMIT textReady(watcher.future().result());
+                m_wordBoxes = watcher->result()[Word];
+                m_lineBoxes = watcher->result()[Line];
+                m_paragraphBoxes = watcher->result()[Paragraph];
+                Q_EMIT wordBoxesChanged();
+                Q_EMIT lineBoxesChanged();
+                Q_EMIT paragraphBoxesChanged();
+                watcher->deleteLater();
+            });
+    
+    qDebug() << "GEtting text for boxes " << m_boxesTypes << m_boxesTypes.testFlag(Word);
+    QFuture<Res> future = QtConcurrent::run(func, QUrl::fromUserInput(m_filePath), m_boxesTypes);
+    watcher->setFuture(future);
+}
+
 QString OCS::getText()
 {
     QUrl url(QUrl::fromUserInput(m_filePath));
@@ -94,12 +192,9 @@ QString OCS::getText()
 
     QString outText;
 
-
-
     if(!m_area.isEmpty())
     {
         QImage img(url.toLocalFile());
-
         img = img.copy(m_area);
         //    img = img.convertToFormat(QImage::Format_Grayscale8);
 
@@ -109,7 +204,6 @@ QString OCS::getText()
     {
         Pix* im = pixRead(url.toLocalFile().toStdString().c_str());
         m_tesseract->SetImage(im);
-
     }
 
     outText = QString::fromStdString(m_tesseract->GetUTF8Text());
@@ -135,3 +229,40 @@ void OCS::setArea(QRect area)
     Q_EMIT areaChanged(m_area);
 }
 
+
+TextBoxes OCS::wordBoxes() const
+{
+    return m_wordBoxes;
+}
+
+TextBoxes OCS::paragraphBoxes() const
+{
+    return m_paragraphBoxes;
+}
+
+TextBoxes OCS::lineBoxes() const
+{
+    return m_lineBoxes;
+}
+
+OCS::BoxesType OCS::boxesType()
+{
+    return m_boxesTypes;
+}
+
+void OCS::classBegin()
+{
+}
+
+void OCS::componentComplete()
+{
+    qDebug() << "OCS CALSS COMPLETED IN QML";
+    connect(this, &OCS::filePathChanged, [this](QString)
+            {
+                if(m_autoRead)
+                {
+                    getTextAsync();
+                }
+            });
+    getTextAsync();
+}
