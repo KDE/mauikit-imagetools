@@ -31,6 +31,11 @@ class IMAGE2TEXT_EXPORT OCS : public QObject, public QQmlParserStatus
     Q_PROPERTY(TextBoxes lineBoxes READ lineBoxes NOTIFY lineBoxesChanged)
 
     Q_PROPERTY(BoxesType boxesType READ boxesType WRITE setBoxesType NOTIFY boxesTypeChanged)
+
+    /**
+     * The confidence thresshold to accept the retrieved text. Only result confidence levels above the threshold will be accepted
+     */
+    Q_PROPERTY(float confidenceThreshold READ confidenceThreshold WRITE setConfidenceThreshold NOTIFY confidenceThresholdChanged)
     
 public:
 
@@ -55,6 +60,7 @@ public:
     TextBoxes paragraphBoxes() const;
     TextBoxes lineBoxes() const;
     OCS::BoxesType boxesType();
+    float confidenceThreshold();
 
     /**
      * @brief See the Qt documentation on the QQmlParserStatus.
@@ -74,6 +80,7 @@ public Q_SLOTS:
     void setArea(QRect area);
     void setAutoRead(bool value);
     void setBoxesType(OCS::BoxesType types);
+    void setConfidenceThreshold(float value);
 
 private:
     tesseract::TessBaseAPI *m_tesseract;
@@ -88,6 +95,7 @@ private:
     TextBoxes m_lineBoxes;
 
     BoxesType m_boxesTypes;
+    float m_confidenceThreshold;
 
 Q_SIGNALS:
     void filePathChanged(QString filePath);
@@ -98,5 +106,6 @@ Q_SIGNALS:
     void lineBoxesChanged();
     void paragraphBoxesChanged();
     void boxesTypeChanged();
+    void confidenceThresholdChanged();
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(OCS::BoxesType)

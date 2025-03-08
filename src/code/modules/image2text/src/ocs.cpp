@@ -41,6 +41,7 @@ OCS::OCS(QObject *parent) : QObject(parent)
     ,m_tesseract(new tesseract::TessBaseAPI())
     ,m_languages(new OCRLanguageModel(this))
     ,m_boxesTypes(BoxType::Word | BoxType::Line | BoxType::Paragraph)
+    ,m_confidenceThreshold(50)
 {
     std::vector<std::string> availableLanguages;
 #if TESSERACT_MAJOR_VERSION < 5
@@ -97,6 +98,15 @@ void OCS::setBoxesType(OCS::BoxesType types)
     Q_EMIT boxesTypeChanged();
 }
 
+void OCS::setConfidenceThreshold(float value)
+{
+    if(m_confidenceThreshold == value)
+        return;
+
+    m_confidenceThreshold = value;
+    Q_EMIT confidenceThresholdChanged();
+}
+
 void OCS::getTextAsync()
 {
     if(!QUrl::fromUserInput(m_filePath).isLocalFile())
@@ -105,7 +115,7 @@ void OCS::getTextAsync()
         return;
     }
     typedef QMap<BoxType, TextBoxes> Res;
-    auto func = [](QUrl url, BoxesType levels) -> Res
+    auto func = [ocs = this](QUrl url, BoxesType levels) -> Res
     {      
         Pix *image = pixRead(url.toLocalFile().toStdString().c_str());
         tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
@@ -115,7 +125,7 @@ void OCS::getTextAsync()
 
         TextBoxes wordBoxes, lineBoxes, paragraphBoxes;
 
-        auto levelFunc = [](tesseract::TessBaseAPI *api, tesseract::PageIteratorLevel level) -> TextBoxes
+        auto levelFunc = [ocs](tesseract::TessBaseAPI *api, tesseract::PageIteratorLevel level) -> TextBoxes
         {
             TextBoxes res;
             tesseract::ResultIterator* ri = api->GetIterator();
@@ -132,7 +142,7 @@ void OCS::getTextAsync()
                     printf("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n",
                            word, conf, x1, y1, x2, y2);
 
-                    if(conf > 50)
+                    if(conf > ocs->m_confidenceThreshold)
                         res << QVariantMap{{"text", QString::fromStdString(word)}, {"rect", QRect{x1, y1, x2-x1, y2-y1}}};
                     delete[] word;
                 } while (ri->Next(level));
@@ -248,6 +258,11 @@ TextBoxes OCS::lineBoxes() const
 OCS::BoxesType OCS::boxesType()
 {
     return m_boxesTypes;
+}
+
+float OCS::confidenceThreshold()
+{
+    return m_confidenceThreshold;
 }
 
 void OCS::classBegin()
