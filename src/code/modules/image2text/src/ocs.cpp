@@ -107,6 +107,47 @@ void OCS::setConfidenceThreshold(float value)
     Q_EMIT confidenceThresholdChanged();
 }
 
+int OCS::wordBoxAt(const QPoint point)
+{
+    int i = 0;
+    for(const auto &box : m_wordBoxes)
+    {
+        QRect rect = box["rect"].toRect();
+
+        qDebug() << "Rect: " << rect << "Point: " << point << rect.contains(point, true);
+
+        if(rect.contains(point))
+            return i;
+
+        i++;
+    }
+
+    return i;
+}
+
+QVector<int> OCS::wordBoxesAt(const QRect &rect)
+{
+    QVector<int> res;
+    int i = 0;
+    for(const auto &box : m_wordBoxes)
+    {
+        QRect rect_o = box["rect"].toRect();
+
+        if(rect.intersects(rect_o))
+            res << i;
+
+        i++;
+    }
+
+    return res;
+}
+
+QString OCS::versionString()
+{
+    return QString::fromStdString(tesseract::TessBaseAPI::Version());
+}
+
+
 void OCS::getTextAsync()
 {
     if(!QUrl::fromUserInput(m_filePath).isLocalFile())

@@ -7,6 +7,7 @@
 #include "image2text_export.h"
 #include <QQmlParserStatus>
 
+
 namespace tesseract
 {
 class TessBaseAPI;
@@ -81,6 +82,11 @@ public Q_SLOTS:
     void setAutoRead(bool value);
     void setBoxesType(OCS::BoxesType types);
     void setConfidenceThreshold(float value);
+
+    int wordBoxAt(const QPoint point);
+    QVector<int> wordBoxesAt(const QRect &rect);
+
+    static QString versionString();
 
 private:
     tesseract::TessBaseAPI *m_tesseract;

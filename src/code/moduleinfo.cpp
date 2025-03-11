@@ -2,6 +2,7 @@
 #include "../imagetools_version.h"
 #include <KLocalizedString>
 #include <exiv2/version.hpp>
+#include "ocs.h"
 
 QString MauiKitImageTools::versionString()
 {
@@ -29,4 +30,13 @@ KAboutComponent MauiKitImageTools::exiv2Data()
                            QString::fromStdString(Exiv2::versionString()),
                            QStringLiteral("https://exiv2.org"),
                            KAboutLicense::LicenseKey::File);
+}
+
+KAboutComponent MauiKitImageTools::tesseractData()
+{
+    return KAboutComponent(QStringLiteral("Tesseract"),
+                           QStringLiteral("Open source OCR engine."),
+                           OCS::versionString(),
+                           QStringLiteral("https://github.com/tesseract-ocr/tesseract"),
+                           KAboutLicense::LicenseKey::BSD_2_Clause);
 }

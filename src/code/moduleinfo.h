@@ -29,4 +29,9 @@ namespace MauiKitImageTools
     */
    IMAGETOOLS_EXPORT KAboutComponent exiv2Data();
 
+   /**
+    * @brief
+    */
+   IMAGETOOLS_EXPORT KAboutComponent tesseractData();
+
 };
