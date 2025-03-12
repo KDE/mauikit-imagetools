@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2023-07-29 22:19-0300\n"
 "Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 23.04.3\n"
 
-#: src/code/moduleinfo.cpp:19
+#: src/code/moduleinfo.cpp:20
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr ""

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2024-07-28 00:38+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-#: src/code/moduleinfo.cpp:19
+#: src/code/moduleinfo.cpp:20
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Biletverktøy-komponentar for redigering, vising og navigering."

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2023-12-01 07:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.3.2\n"
 
-#: src/code/moduleinfo.cpp:19
+#: src/code/moduleinfo.cpp:20
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "გამოსახულების ხელსაწყოები ჩასწორების, ნახვის და ნავიგაციისთვის."

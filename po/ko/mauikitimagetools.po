@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-08-24 01:47+0000\n"
+"POT-Creation-Date: 2025-03-12 00:41+0000\n"
 "PO-Revision-Date: 2024-02-10 00:20+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 23.08.1\n"
 
-#: src/code/moduleinfo.cpp:19
+#: src/code/moduleinfo.cpp:20
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "그림 편집, 표시, 탐색을 위한 구성 요소입니다."
