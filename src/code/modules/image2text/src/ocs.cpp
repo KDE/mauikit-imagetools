@@ -12,6 +12,10 @@
 #include <tesseract/genericvector.h>
 #endif
 
+// #include "preprocessimage.hpp"
+#include <preprocessimage.hpp>
+#include <convertimage.hpp>
+
 //static cv::Mat qimageToMatRef(QImage &img, int format)
 //    {
 //        return cv::Mat(img.height(),
@@ -42,6 +46,7 @@ OCS::OCS(QObject *parent) : QObject(parent)
     ,m_languages(new OCRLanguageModel(this))
     ,m_boxesTypes(BoxType::Word | BoxType::Line | BoxType::Paragraph)
     ,m_confidenceThreshold(50)
+    // ,m_whiteList("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz")
 {
     std::vector<std::string> availableLanguages;
 #if TESSERACT_MAJOR_VERSION < 5
@@ -142,11 +147,67 @@ QVector<int> OCS::wordBoxesAt(const QRect &rect)
     return res;
 }
 
+void OCS::setWhiteList(const QString &value)
+{
+    if(value == m_whiteList)
+        return;
+
+    m_whiteList = value;
+    Q_EMIT whiteListChanged();
+}
+
+void OCS::setBlackList(const QString &value)
+{
+    if(value == m_blackList)
+        return;
+
+    m_blackList = value;
+    Q_EMIT blackListChanged();
+}
+
+void OCS::setPreprocessImage(bool value)
+{
+    if(m_preprocessImage == value)
+        return;
+
+    m_preprocessImage = value;
+
+    Q_EMIT preprocessImageChanged();
+}
+
+void OCS::setPageSegMode(PageSegMode value)
+{
+    if(m_segMode == value)
+        return;
+
+    m_segMode = value;
+    Q_EMIT pageSegModeChanged();
+}
+
 QString OCS::versionString()
 {
     return QString::fromStdString(tesseract::TessBaseAPI::Version());
 }
 
+void OCS::do_preprocessImage(const QImage &image)
+{
+
+
+}
+
+static tesseract::PageSegMode mapPageSegValue(OCS::PageSegMode value)
+{
+    switch(value)
+    {
+    default:
+    case OCS::PageSegMode::Auto: return tesseract::PageSegMode::PSM_AUTO;
+    case OCS::PageSegMode::Auto_OSD: return tesseract::PageSegMode::PSM_AUTO_OSD;
+    case OCS::PageSegMode::SingleColumn: return tesseract::PageSegMode::PSM_SINGLE_COLUMN;
+    case OCS::PageSegMode::SingleLine: return tesseract::PageSegMode::PSM_SINGLE_LINE;
+    case OCS::PageSegMode::SingleBlock: return tesseract::PageSegMode::PSM_SINGLE_BLOCK;
+    case OCS::PageSegMode::SingleWord: return tesseract::PageSegMode::PSM_SINGLE_WORD;
+    }
+}
 
 void OCS::getTextAsync()
 {
@@ -158,10 +219,43 @@ void OCS::getTextAsync()
     typedef QMap<BoxType, TextBoxes> Res;
     auto func = [ocs = this](QUrl url, BoxesType levels) -> Res
     {      
-        Pix *image = pixRead(url.toLocalFile().toStdString().c_str());
         tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
         api->Init(NULL, "eng");
-        api->SetImage(image);
+
+
+        api->SetVariable("tessedit_char_whitelist",
+                         ocs->m_whiteList.toStdString().c_str());
+        api->SetVariable("tessedit_char_blacklist",
+                         ocs->m_blackList.toStdString().c_str());
+
+        api->SetPageSegMode(mapPageSegValue(ocs->m_segMode));
+
+        if(ocs->m_preprocessImage)
+        {
+            auto var = new QImage(url.toLocalFile());
+            auto m_imgMat = ConvertImage::qimageToMatRef(*var, CV_8UC4);
+
+                   // PreprocessImage::toGray(m_imgMat,1);
+            PreprocessImage::adaptThreshold(m_imgMat, false, 3, 1);
+
+            auto m_ocrImg = ConvertImage::matToQimageRef(m_imgMat, QImage::Format_RGBA8888); //remember to delete
+
+            m_ocrImg.save("/home/camilo/"+QFileInfo(url.toLocalFile()).fileName());
+
+            api->SetImage(m_ocrImg.bits(), m_ocrImg.width(), m_ocrImg.height(), 4, m_ocrImg.bytesPerLine());
+        }else
+        {
+            // Pix *image = pixRead(url.toLocalFile().toStdString().c_str());
+            // api->SetImage(image);
+
+            ocs->m_ocrImg = new QImage(url.toLocalFile());
+            api->SetImage(ocs->m_ocrImg->bits(), ocs->m_ocrImg->width(), ocs->m_ocrImg->height(), 4,
+                          ocs->m_ocrImg->bytesPerLine());
+        }
+
+
+        api->SetSourceResolution(200);
+
         api->Recognize(0);
 
         TextBoxes wordBoxes, lineBoxes, paragraphBoxes;
@@ -201,6 +295,7 @@ void OCS::getTextAsync()
         if(levels.testFlag(Paragraph))
             paragraphBoxes = levelFunc(api,  tesseract::RIL_PARA);
 
+        api->End();
 
         delete api;
         return Res{{Word, wordBoxes}, {Line, lineBoxes}, {Paragraph, paragraphBoxes}};
@@ -304,6 +399,26 @@ OCS::BoxesType OCS::boxesType()
 float OCS::confidenceThreshold()
 {
     return m_confidenceThreshold;
+}
+
+QString OCS::whiteList() const
+{
+    return m_whiteList;
+}
+
+QString OCS::blackList() const
+{
+    return m_blackList;
+}
+
+OCS::PageSegMode OCS::pageSegMode() const
+{
+    return m_segMode;
+}
+
+bool OCS::preprocessImage() const
+{
+    return m_preprocessImage;
 }
 
 void OCS::classBegin()

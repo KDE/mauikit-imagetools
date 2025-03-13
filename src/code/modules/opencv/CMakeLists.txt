@@ -1,8 +1,16 @@
+cmake_minimum_required(VERSION 3.16)
+
 project(OpenCVLib VERSION 1.0.0 LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 17)
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${ECM_MODULE_PATH})
 
 find_package(OpenCV REQUIRED)
 
-add_library (OpenCVLib STATIC ${srcs})
-include_directories( ${OpenCV_INCLUDE_DIRS} )
-#add_executable( DisplayImage DisplayImage.cpp )
-target_link_libraries( OpenCVLib ${OpenCV_LIBS} )
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core)
+
+add_subdirectory(code)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

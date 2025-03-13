@@ -17,7 +17,7 @@ else()
    message(STATUS "Skanpage will be built without OCR as libraries are missing.")
 endif()
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Quick Concurrent)
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Gui Quick Concurrent)
 
 find_package(KF${KF_MAJOR_VERSION} ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS CoreAddons I18n)
 

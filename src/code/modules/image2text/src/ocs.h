@@ -7,13 +7,18 @@
 #include "image2text_export.h"
 #include <QQmlParserStatus>
 
-
 namespace tesseract
 {
 class TessBaseAPI;
 }
 
+namespace cv
+{
+class Mat;
+}
+
 class OCRLanguageModel;
+class QImage;
 
 typedef QVector<QVariantMap> TextBoxes;
 class IMAGE2TEXT_EXPORT OCS : public QObject, public QQmlParserStatus
@@ -37,6 +42,11 @@ class IMAGE2TEXT_EXPORT OCS : public QObject, public QQmlParserStatus
      * The confidence thresshold to accept the retrieved text. Only result confidence levels above the threshold will be accepted
      */
     Q_PROPERTY(float confidenceThreshold READ confidenceThreshold WRITE setConfidenceThreshold NOTIFY confidenceThresholdChanged)
+    Q_PROPERTY(QString whiteList READ whiteList WRITE setWhiteList NOTIFY whiteListChanged)
+    Q_PROPERTY(QString blackList READ blackList WRITE setBlackList NOTIFY blackListChanged FINAL)
+
+    Q_PROPERTY(bool preprocessImage READ preprocessImage WRITE setPreprocessImage NOTIFY preprocessImageChanged FINAL)
+    Q_PROPERTY(PageSegMode pageSegMode READ pageSegMode WRITE setPageSegMode NOTIFY pageSegModeChanged)
     
 public:
 
@@ -51,6 +61,16 @@ public:
     Q_FLAG(BoxesType)
     Q_ENUM(BoxType)
 
+    enum PageSegMode
+    {
+        Auto,
+        Auto_OSD,
+        SingleColumn,
+        SingleLine,
+        SingleBlock,
+        SingleWord
+    }; Q_ENUM(PageSegMode)
+
     explicit OCS(QObject *parent = nullptr);
     ~OCS();
 
@@ -62,6 +82,13 @@ public:
     TextBoxes lineBoxes() const;
     OCS::BoxesType boxesType();
     float confidenceThreshold();
+
+    QString whiteList() const;
+    QString blackList() const;
+
+    PageSegMode pageSegMode() const;
+
+    bool preprocessImage() const;
 
     /**
      * @brief See the Qt documentation on the QQmlParserStatus.
@@ -86,6 +113,12 @@ public Q_SLOTS:
     int wordBoxAt(const QPoint point);
     QVector<int> wordBoxesAt(const QRect &rect);
 
+    void setWhiteList(const QString &value);
+    void setBlackList(const QString &value);
+
+    void setPreprocessImage(bool value);
+    void setPageSegMode(OCS::PageSegMode value);
+
     static QString versionString();
 
 private:
@@ -103,6 +136,19 @@ private:
     BoxesType m_boxesTypes;
     float m_confidenceThreshold;
 
+    QString m_whiteList;
+    QString m_blackList;
+
+    bool m_preprocessImage = true;
+
+    QMap<QString, PageSegMode> m_segModesModel;
+    PageSegMode m_segMode = PageSegMode::Auto_OSD;
+
+    void do_preprocessImage(const QImage &image);
+
+    cv::Mat *m_imgMat = nullptr;///remeber to delete
+    QImage *m_ocrImg = nullptr;///remeber to delete
+
 Q_SIGNALS:
     void filePathChanged(QString filePath);
     void areaChanged(QRect area);
@@ -113,5 +159,9 @@ Q_SIGNALS:
     void paragraphBoxesChanged();
     void boxesTypeChanged();
     void confidenceThresholdChanged();
+    void whiteListChanged();
+    void blackListChanged();
+    void preprocessImageChanged();
+    void pageSegModeChanged();
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(OCS::BoxesType)

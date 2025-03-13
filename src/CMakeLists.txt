@@ -5,8 +5,8 @@
 remove_definitions(-DQT_NO_CAST_FROM_ASCII -DQT_STRICT_ITERATORS -DQT_NO_CAST_FROM_BYTEARRAY)
 
 if(NOT ANDROID)
-    add_subdirectory(code/modules/image2text)
     add_subdirectory(code/modules/opencv)
+    add_subdirectory(code/modules/image2text)
 endif()
 
 add_library(MauiKitImageTools${MAUI_MAJOR_VERSION} SHARED)
