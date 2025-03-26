@@ -28,6 +28,7 @@ class PicInfoModel : public MauiList
     Q_PROPERTY(QString fileName MEMBER m_fileName NOTIFY fileNameChanged FINAL)
     Q_PROPERTY(double lat READ latitude NOTIFY dataReady FINAL)
     Q_PROPERTY(double lon READ longitude NOTIFY dataReady FINAL)
+    Q_PROPERTY(double alt READ altitude NOTIFY dataReady FINAL)
 
 public:
     enum ROLES { KEY, VALUE };
@@ -41,9 +42,14 @@ public Q_SLOTS:
 
     double latitude() const;
     double longitude() const;
-    
+    double altitude() const;
+
     bool removeTag(const QString &tag);
     bool editTag(const QString &tag, const QString &value);
+
+    bool setGpsData(const QString &latitude, const QString &longitude, const QString &altitude ="0.0");
+    bool setComment(const QString &comment);
+    bool removeGpsData();
 
 private:
     Exiv2Extractor *m_extractor;
@@ -53,8 +59,10 @@ private:
 
     double m_longitude;
     double m_latitude;
+    double m_altitude;
 
     void parse();
+
 
 Q_SIGNALS:
     void urlChanged(QUrl url);

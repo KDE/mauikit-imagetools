@@ -41,18 +41,19 @@ include(ECMQmlModule)
 include(ECMFindQmlModule)
 include(ECMSourceVersionControl)
 
-find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Quick Qml Sql Positioning)
-find_package(exiv2 CONFIG REQUIRED)
-# exiv2 0.28.1 moved exiv2lib into the Exiv2 namespace:
-if(TARGET Exiv2::exiv2lib)
-    set(EXIV2_LIBRARIES Exiv2::exiv2lib)
-else()
-    set(EXIV2_LIBRARIES exiv2lib)
-endif()
+find_package(Qt${QT_MAJOR_VERSION} ${REQUIRED_QT_VERSION} REQUIRED COMPONENTS Core Quick Qml Sql Gui Positioning)
+# find_package(exiv2 CONFIG REQUIRED)
+# # exiv2 0.28.1 moved exiv2lib into the Exiv2 namespace:
+# if(TARGET Exiv2::exiv2lib)
+#     set(EXIV2_LIBRARIES Exiv2::exiv2lib)
+# else()
+#     set(EXIV2_LIBRARIES exiv2lib)
+# endif()
 
 #find_package(ImageMagick)
 
 find_package(KF${KF_MAJOR_VERSION} ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I18n CoreAddons)
+find_package(KExiv2Qt6 REQUIRED)
 find_package(MauiKit${MAUI_MAJOR_VERSION} REQUIRED)
 
 ecm_find_qmlmodule(org.kde.kquickimageeditor)

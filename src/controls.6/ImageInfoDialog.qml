@@ -12,16 +12,16 @@ import QtQuick.Controls
 import QtLocation
 import QtPositioning 
 
-import org.mauikit.controls 1.3 as Maui
-import org.mauikit.filebrowsing 1.3 as FB
-import org.mauikit.imagetools 1.3 as IT
+import org.mauikit.controls as Maui
+import org.mauikit.filebrowsing as FB
+import org.mauikit.imagetools as IT
 
 /**
  * @inherit org::mauikit::controls::PopupPage
  * @brief A popup view presenting with metadata information about a given image file.
- * 
+ *
  * @image html imageinfodialog.png "Image information dialog"
- * 
+ *
  * @code
  * IT.ImageInfoDialog
  * {
@@ -59,7 +59,7 @@ Maui.PopupPage
         {
             icon.name: "file-open"
             text: "Open"
-        }        
+        }
     ]
 
     Rectangle
@@ -74,8 +74,8 @@ Maui.PopupPage
             anchors.fill: parent
             source: control.url
             fillMode: Image.PreserveAspectCrop
-//            sourceSize.width: width
-//            sourceSize.height: height
+            //            sourceSize.width: width
+            //            sourceSize.height: height
 
             Rectangle
             {
@@ -119,14 +119,14 @@ Maui.PopupPage
         title: i18n ("Edit")
         message: i18nd("mauikitimagetools","Editing Exif tag")
         
-                 standardButtons: Dialog.Save | Dialog.Cancel
+        standardButtons: Dialog.Save | Dialog.Cancel
         
         TextField
         {
             id: _keyField
             Layout.fillWidth: true
             placeholderText: i18nd("mauikitimagetools","Tag key")
-        }        
+        }
         
         TextField
         {
@@ -138,7 +138,7 @@ Maui.PopupPage
         onAccepted:
         {
             console.log(_editTagDialog.key, _editTagDialog.value)
-             if(_infoModel.editTag(_editTagDialog.key, _editTagDialog.value))
+            if(_infoModel.editTag(_editTagDialog.key, _editTagDialog.value))
             {
                 _editTagDialog.close()
             }else
@@ -160,7 +160,7 @@ Maui.PopupPage
         }
     }
     
-     Maui.InfoDialog
+    Maui.InfoDialog
     {
         id: _removeTagDialog
         property string key
@@ -168,9 +168,9 @@ Maui.PopupPage
         
         title: i18n ("Remove")
         message: i18nd("mauikitimagetools","Are you sure you want to remove the Exif tag %1?", _removeTagDialog.value)
-         
-         standardButtons: Dialog.Yes | Dialog.Cancel
-         
+
+        standardButtons: Dialog.Yes | Dialog.Cancel
+
         onAccepted:
         {
             if(_infoModel.removeTag(_removeTagDialog.key))
@@ -192,6 +192,75 @@ Maui.PopupPage
             _removeTagDialog.key = key
             _removeTagDialog.value = value
             _removeTagDialog.open()
+        }
+    }
+
+    Maui.InfoDialog
+    {
+        id: _gpsTagDialog
+
+        title: i18n ("GPS")
+
+        standardButtons: Dialog.Save | Dialog.Cancel
+
+        Maui.TextField
+        {
+            id: _lat
+            text: _infoModel.lat
+            Maui.Controls.title: placeholderText
+            placeholderText: i18n("Latitude")
+            validator: DoubleValidator
+            {
+                notation: DoubleValidator.StandardNotation
+            }
+            Layout.fillWidth: true
+        }
+
+        Maui.TextField
+        {
+            id: _lon
+            placeholderText: i18n("Longitude")
+            Maui.Controls.title: placeholderText
+
+            text: _infoModel.lon
+            validator: DoubleValidator
+            {
+                notation: DoubleValidator.StandardNotation
+            }
+            Layout.fillWidth: true
+        }
+
+        // Maui.TextField
+        // {
+        //     id: _alt
+        //     placeholderText: i18n("Altitude")
+        //     Maui.Controls.title: placeholderText
+
+        //     text: _infoModel.alt
+        //     validator: DoubleValidator
+        //     {
+        //         notation: DoubleValidator.StandardNotation
+        //     }
+
+        //     // onAcceptableInputChanged: color = acceptableInput ? "black" : "red";
+
+        //     Layout.fillWidth: true
+        // }
+
+        onAccepted:
+        {
+            if(_infoModel.setGpsData(_lat.text, _lon.text))
+            {
+                _editTagDialog.close()
+            }else
+            {
+                _editTagDialog.alert(i18nd("mauikitimagetools","Could not save the GPS data"), 2)
+            }
+        }
+
+        onRejected:
+        {
+            _gpsTagDialog.close()
         }
     }
     
@@ -225,7 +294,7 @@ Maui.PopupPage
                     onClicked: _editTagDialog.set(model.key, model.value)
                 }
                 
-                  ToolButton
+                ToolButton
                 {
                     visible: model.key
                     icon.name: "edit-delete"
@@ -235,51 +304,79 @@ Maui.PopupPage
         }
     }
 
-    Maui.Separator
+    Button
     {
+        text: i18n("Add Comment")
         Layout.fillWidth: true
-        visible: map.visible
     }
 
-    Map
+    Maui.SectionGroup
     {
-        id: map
-        visible: _infoModel.lat !== 0 &&  _infoModel.lon !== 0
-        color: Maui.Theme.backgroundColor
         Layout.fillWidth: true
-        Layout.preferredHeight: 400
-        // gesture.acceptedGestures: MapGestureArea.NoGesture
-        // gesture.flickDeceleration: 3000
-        // gesture.enabled: true
 
-        plugin: Plugin
+        title: i18nd("mauikitimagetools","GPS")
+        description: i18nd("mauikitimagetools","Geolocation tags")
+
+        RowLayout
         {
-            id: mapPlugin
-            name: "osm" // "mapboxgl", "esri", ...
-            // specify plugin parameters if necessary
-            // PluginParameter {
-            //     name:
-            //     value:
-            // }
+            spacing: Maui.Style.defaultSpacing
+            Layout.fillWidth: true
+            Button
+            {
+                Layout.fillWidth: true
+                text: i18n("Set GPS info")
+                onClicked: _gpsTagDialog.open()
+            }
+
+            Button
+            {
+                Layout.fillWidth: true
+                visible: map.visible
+                text: i18n("Remove GPS info")
+                Maui.Controls.status: Maui.Controls.Negative
+                onClicked: _infoModel.removeGpsData()
+            }
         }
-//        center: QtPositioning.coordinate(_infoModel.lat, _infoModel.lon) // Oslo
-        zoomLevel: 16
-        center
+        Map
         {
-            latitude: _infoModel.lat
-            longitude:_infoModel.lon
-        }
-        
-        MapCircle
-        {
-            center: map.center
-            radius: 50.0
-            color: Maui.Theme.highlightColor
-        }
-        
-        Component.onCompleted: 
-        {            
-            map.addMapItem(map.circle)
+            id: map
+            visible: _infoModel.lat !== 0 &&  _infoModel.lon !== 0
+            color: Maui.Theme.backgroundColor
+            Layout.fillWidth: true
+            Layout.preferredHeight: 400
+            // gesture.acceptedGestures: MapGestureArea.NoGesture
+            // gesture.flickDeceleration: 3000
+            // gesture.enabled: true
+
+            plugin: Plugin
+            {
+                id: mapPlugin
+                name: "osm" // "mapboxgl", "esri", ...
+                // specify plugin parameters if necessary
+                // PluginParameter {
+                //     name:
+                //     value:
+                // }
+            }
+            //        center: QtPositioning.coordinate(_infoModel.lat, _infoModel.lon) // Oslo
+            zoomLevel: 16
+            center
+            {
+                latitude: _infoModel.lat
+                longitude:_infoModel.lon
+            }
+
+            MapCircle
+            {
+                center: map.center
+                radius: 50.0
+                color: Maui.Theme.highlightColor
+            }
+
+            Component.onCompleted:
+            {
+                map.addMapItem(map.circle)
+            }
         }
     }
 }

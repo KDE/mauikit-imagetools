@@ -1,7 +1,7 @@
 #include "moduleinfo.h"
 #include "../imagetools_version.h"
 #include <KLocalizedString>
-#include <exiv2/version.hpp>
+#include <KExiv2Qt6/KExiv2/KExiv2>
 #include "ocs.h"
 
 QString MauiKitImageTools::versionString()
@@ -27,7 +27,17 @@ KAboutComponent MauiKitImageTools::exiv2Data()
 {
     return KAboutComponent(QStringLiteral("Exiv2"),
                            QStringLiteral("Exiv2 is a C++ library and a command-line utility to read, write, delete and modify Exif, IPTC, XMP and ICC image metadata."),
-                           QString::fromStdString(Exiv2::versionString()),
+                           KExiv2Iface::KExiv2::Exiv2Version(),
+                           QStringLiteral("https://exiv2.org"),
+                           KAboutLicense::LicenseKey::File);
+}
+
+
+KAboutComponent MauiKitImageTools::libKexiv2Data()
+{
+    return KAboutComponent(QStringLiteral("LibKExiv2"),
+                           QStringLiteral("KDE library wrapper around Exiv2."),
+                           KExiv2Iface::KExiv2::version(),
                            QStringLiteral("https://exiv2.org"),
                            KAboutLicense::LicenseKey::File);
 }

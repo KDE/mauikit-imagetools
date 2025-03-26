@@ -3,7 +3,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "imagemetadata.h"
-#include "exiv2extractor.h"
 
 static QStringList standardExifKeys { "Exif.Photo.DateTimeOriginal"};
 

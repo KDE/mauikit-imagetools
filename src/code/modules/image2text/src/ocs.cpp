@@ -222,7 +222,6 @@ void OCS::getTextAsync()
         tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
         api->Init(NULL, "eng");
 
-
         api->SetVariable("tessedit_char_whitelist",
                          ocs->m_whiteList.toStdString().c_str());
         api->SetVariable("tessedit_char_blacklist",
@@ -277,7 +276,7 @@ void OCS::getTextAsync()
                     printf("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n",
                            word, conf, x1, y1, x2, y2);
 
-                    if(conf > ocs->m_confidenceThreshold)
+                    if(conf > ocs->m_confidenceThreshold && !isspace(*word))
                         res << QVariantMap{{"text", QString::fromStdString(word)}, {"rect", QRect{x1, y1, x2-x1, y2-y1}}};
                     delete[] word;
                 } while (ri->Next(level));
