@@ -23,6 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #include <QString>
 #include <QVariant>
 #include <QUrl>
+#include <QSize>
 
 #include "imagetools_export.h"
 
@@ -61,22 +62,26 @@ public:
     QByteArray getExifTagData (const char *exifTagName) const;
     QVariant getExifTagVariant (const char *exifTagName, bool rationalAsListOfInts=true, bool escapeCR=true, int component=0) const;
     MetaDataMap getExifTagsDataList( const QStringList & exifKeysFilter = QStringList(), bool invertSelection = false ) const;
-    QString getExifComment() const;
     
     bool writeTag(const char *tagName, const QVariant &value);
     bool removeTag(const char *tagName);
     
     bool setComment(const QString &comment);
     QString getComments() const;
+    QString getExifComment() const;
+    bool removeComment() const;
 
     QString GPSString() const;
     QString cityId() const;
     City city() const;
 
+    QSize getPixelSize();
     bool applyChanges();
 
     bool setGpsData(const double latitude, const double longitude, const double altitude = 0.0);
     bool removeGpsData();
+
+    bool clearData();
 
 private:
 

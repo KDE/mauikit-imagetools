@@ -10,6 +10,7 @@
 #include <QDebug>
 #include <QLocale>
 #include <QUrl>
+#include <QImage>
 
 PicInfoModel::PicInfoModel(QObject *parent)  : MauiList(parent)
     , m_extractor(new Exiv2Extractor(this))
@@ -28,7 +29,6 @@ void PicInfoModel::componentComplete()
                 QFileInfo file(m_url.toLocalFile());
                 m_fileName = file.fileName();
                 Q_EMIT fileNameChanged();
-
                 m_extractor->setUrl(m_url);
                 this->parse();
             });
@@ -56,9 +56,12 @@ bool PicInfoModel::removeTag(const QString& tag)
         return false;
     
     if(m_extractor->removeTag(tag.toStdString().c_str()))
-    {        
-        this->parse();
-        return true;
+    {
+        if(m_extractor->applyChanges())
+        {
+            this->parse();
+            return true;
+        }
     }
     
     return false;
@@ -73,8 +76,11 @@ bool PicInfoModel::editTag(const QString& tag, const QString& value)
         qDebug() << "trying to write tag3";
         if(m_extractor->applyChanges())
         {
-            this->parse();
-            return true;
+            if(m_extractor->applyChanges())
+            {
+                this->parse();
+                return true;
+            }
         }else
         {
             qWarning() << "failed to apply tag changes";
@@ -111,7 +117,35 @@ bool PicInfoModel::setGpsData( const QString &latitude, const QString &longitude
 
 bool PicInfoModel::setComment(const QString &comment)
 {
-    return m_extractor->setComment(comment);
+    if(m_extractor->setComment(comment))
+    {
+        if(m_extractor->applyChanges())
+        {
+            this->parse();
+            return true;
+        }
+    }
+
+    return false;
+}
+
+QString PicInfoModel::exifComment() const
+{
+    return m_exifComment;
+}
+
+bool PicInfoModel::removeComment()
+{
+    if(m_extractor->removeComment())
+    {
+        if(m_extractor->applyChanges())
+        {
+            this->parse();
+            return true;
+        }
+    }
+
+    return false;
 }
 
 double PicInfoModel::latitude() const
@@ -127,6 +161,16 @@ double PicInfoModel::longitude() const
 double PicInfoModel::altitude() const
 {
     return m_altitude;
+}
+
+QString PicInfoModel::cityName() const
+{
+    return m_cityName;
+}
+
+QSize PicInfoModel::pixelSize() const
+{
+    return m_size;
 }
 
 QUrl PicInfoModel::url() const
@@ -162,6 +206,10 @@ void PicInfoModel::parse()
         m_latitude = gps.latitude;
         m_longitude = gps.longitude;
         m_altitude = gps.altitude;
+        m_exifComment = m_extractor->getExifComment();
+        m_cityName= m_extractor->GPSString ();
+        m_size = m_extractor->getPixelSize();
+        qDebug() << "Pixel size of image" << m_size;
 
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Max Aperture"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Photo.MaxApertureValue")}, {FMH::MODEL_KEY::ICON, "documentinfo"}, {FMH::MODEL_KEY::KEY, "Exif.Photo.MaxApertureValue"}};
         
@@ -190,25 +238,13 @@ void PicInfoModel::parse()
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Color Space"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Photo.ColorSpace")}, {FMH::MODEL_KEY::ICON, "documentinfo"}, {FMH::MODEL_KEY::KEY, "Exif.Photo.ColorSpace"}};
         
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "White Balance"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Photo.WhiteBalance")}, {FMH::MODEL_KEY::ICON, "documentinfo"}, {FMH::MODEL_KEY::KEY, "Exif.Photo.WhiteBalance"}};
-        
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Notes"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifComment()}, {FMH::MODEL_KEY::ICON, "note"}, {FMH::MODEL_KEY::KEY, "Exif.Photo.UserComment"}};
-        
+
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Author"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.Artist")}, {FMH::MODEL_KEY::ICON, "user"}, {FMH::MODEL_KEY::KEY, "Exif.Image.Artist"}};
-        
-        // if(m_latitude != 0)
-        //     m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "GPS Latitude"}, {FMH::MODEL_KEY::VALUE, QString::number(m_latitude)}, {FMH::MODEL_KEY::ICON, "user"}, {FMH::MODEL_KEY::KEY, "Exif.GPSInfo.GPSLatitude"}};
-        
-        // if(m_longitude != 0)
-        //     m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "GPS Longitude"}, {FMH::MODEL_KEY::VALUE,  QString::number(m_longitude)}, {FMH::MODEL_KEY::ICON, "user"}, {FMH::MODEL_KEY::KEY, "Exif.GPSInfo.GPSLongitude"}};
-        
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "City"}, {FMH::MODEL_KEY::VALUE,  m_extractor->GPSString ()}, {FMH::MODEL_KEY::ICON, "user"}};
-        
+
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Processing Software"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.ProcessingSoftware")}, {FMH::MODEL_KEY::KEY, "Exif.Image.ProcessingSoftware"}};
         
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "DocumentName"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.DocumentName")}, {FMH::MODEL_KEY::KEY, "Exif.Image.DocumentName"}};
-        
-        m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "ImageDescription"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.ImageDescription")}, {FMH::MODEL_KEY::KEY, "Exif.Image.ImageDescription"}};
-        
+
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "Software"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.Software")}, {FMH::MODEL_KEY::KEY, "Exif.Image.Software"}};
         
         m_data << FMH::MODEL{{FMH::MODEL_KEY::NAME, "HostComputer"}, {FMH::MODEL_KEY::VALUE,  m_extractor->getExifTagString("Exif.Image.HostComputer")}, {FMH::MODEL_KEY::KEY, "Exif.Image.HostComputer"}};
@@ -249,4 +285,5 @@ const FMH::MODEL_LIST &PicInfoModel::items() const
 {
     return m_data;
 }
+
 

@@ -111,8 +111,6 @@ else()
 endif()
 
 target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
-    PUBLIC
-
     PRIVATE
     Qt${QT_MAJOR_VERSION}::Gui
     KExiv2Qt6
@@ -129,6 +127,7 @@ target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}
 
 target_link_libraries(MauiKitImageTools${MAUI_MAJOR_VERSION}plugin
     PRIVATE
+    Qt${QT_MAJOR_VERSION}::Gui
     MauiKit${MAUI_MAJOR_VERSION}
     MauiKitImageTools${MAUI_MAJOR_VERSION})
 
