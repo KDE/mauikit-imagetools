@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-12 00:41+0000\n"
+"POT-Creation-Date: 2025-03-27 00:41+0000\n"
 "PO-Revision-Date: 2023-12-01 07:11+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -79,14 +79,56 @@ msgid "Could not remove the tag"
 msgstr "ჭდის წაშლის შეცდომა"
 
 #: src/controls.6/ImageInfoDialog.qml:202
+#: src/controls.6/ImageInfoDialog.qml:317
+#, kde-format
+msgid "GPS"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:211
+#, kde-format
+msgid "Latitude"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:222
+#, kde-format
+msgid "Longitude"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:257
+#, fuzzy, kde-format
+#| msgid "Could not remove the tag"
+msgid "Could not save the GPS data"
+msgstr "ჭდის წაშლის შეცდომა"
+
+#: src/controls.6/ImageInfoDialog.qml:271
 #, kde-format
 msgid "Details"
 msgstr "დეტალები"
 
-#: src/controls.6/ImageInfoDialog.qml:203
+#: src/controls.6/ImageInfoDialog.qml:272
 #, kde-format
 msgid "File information"
 msgstr "ფაილის ინფორმაცია"
+
+#: src/controls.6/ImageInfoDialog.qml:309
+#, kde-format
+msgid "Add Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:318
+#, kde-format
+msgid "Geolocation tags"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:327
+#, kde-format
+msgid "Set GPS info"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:335
+#, kde-format
+msgid "Remove GPS info"
+msgstr ""
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
