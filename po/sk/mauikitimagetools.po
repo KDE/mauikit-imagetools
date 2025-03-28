@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-27 00:41+0000\n"
+"POT-Creation-Date: 2025-03-28 00:41+0000\n"
 "PO-Revision-Date: 2023-03-12 11:37+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -35,93 +35,114 @@ msgstr ""
 msgid "Configure"
 msgstr "Nastaviť"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Edit"
 msgstr "Upraviť"
 
-#: src/controls.6/ImageInfoDialog.qml:120
+#: src/controls.6/ImageInfoDialog.qml:104
 #, kde-format
 msgid "Editing Exif tag"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:112
 #, kde-format
 msgid "Tag key"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:135
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Tag value"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:146
+#: src/controls.6/ImageInfoDialog.qml:130
 #, kde-format
 msgid "Could not edit the tag"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:169
+#: src/controls.6/ImageInfoDialog.qml:153
 #, kde-format
 msgid "Remove"
 msgstr "Odstrániť"
 
-#: src/controls.6/ImageInfoDialog.qml:170
+#: src/controls.6/ImageInfoDialog.qml:154
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:165
 #, kde-format
 msgid "Could not remove the tag"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:202
-#: src/controls.6/ImageInfoDialog.qml:317
+#: src/controls.6/ImageInfoDialog.qml:186
+#, kde-format
+msgid "Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:257
+#: src/controls.6/ImageInfoDialog.qml:266
 #, kde-format
 msgid "Could not save the GPS data"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:271
+#: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: src/controls.6/ImageInfoDialog.qml:272
+#: src/controls.6/ImageInfoDialog.qml:281
 #, kde-format
 msgid "File information"
 msgstr "Informácia o súbore"
 
-#: src/controls.6/ImageInfoDialog.qml:309
+#: src/controls.6/ImageInfoDialog.qml:329
+#, kde-format
+msgid "Comment & Description"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:318
+#: src/controls.6/ImageInfoDialog.qml:354
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Comment"
+msgstr "Odstrániť"
+
+#: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:327
+#: src/controls.6/ImageInfoDialog.qml:373
+#, kde-format
+msgid "City"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:335
+#: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""

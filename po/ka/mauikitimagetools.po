@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-27 00:41+0000\n"
-"PO-Revision-Date: 2023-12-01 07:11+0100\n"
+"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"PO-Revision-Date: 2025-03-27 04:06+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.5\n"
 
 #: src/code/moduleinfo.cpp:20
 #, kde-format
@@ -38,97 +38,118 @@ msgstr "ყველაფრის წაკითხვა"
 msgid "Configure"
 msgstr "მორგება"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Edit"
 msgstr "ჩასწორება"
 
-#: src/controls.6/ImageInfoDialog.qml:120
+#: src/controls.6/ImageInfoDialog.qml:104
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Exif-ის ჭდის რედაქტირება"
 
-#: src/controls.6/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:112
 #, kde-format
 msgid "Tag key"
 msgstr "ჭდის გასაღები"
 
-#: src/controls.6/ImageInfoDialog.qml:135
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Tag value"
 msgstr "ჭდის მნიშვნელობა"
 
-#: src/controls.6/ImageInfoDialog.qml:146
+#: src/controls.6/ImageInfoDialog.qml:130
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "ჭდის ჩასწორების შეცდომ"
 
-#: src/controls.6/ImageInfoDialog.qml:169
+#: src/controls.6/ImageInfoDialog.qml:153
 #, kde-format
 msgid "Remove"
 msgstr "წაშლა"
 
-#: src/controls.6/ImageInfoDialog.qml:170
+#: src/controls.6/ImageInfoDialog.qml:154
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ წაშალოთ Exif ჭდე %1?"
 
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:165
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "ჭდის წაშლის შეცდომა"
 
-#: src/controls.6/ImageInfoDialog.qml:202
-#: src/controls.6/ImageInfoDialog.qml:317
-#, kde-format
-msgid "GPS"
-msgstr ""
+#: src/controls.6/ImageInfoDialog.qml:186
+#, fuzzy, kde-format
+#| msgid "Add Comment"
+msgid "Comment"
+msgstr "კომენტარის დამატება"
 
 #: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:367
+#, kde-format
+msgid "GPS"
+msgstr "GPS"
+
+#: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "განედი"
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "გრძედი"
 
-#: src/controls.6/ImageInfoDialog.qml:257
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#: src/controls.6/ImageInfoDialog.qml:266
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "ჭდის წაშლის შეცდომა"
+msgstr "GPS მონაცემების წაშლის შეცდომა"
 
-#: src/controls.6/ImageInfoDialog.qml:271
+#: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
 msgid "Details"
 msgstr "დეტალები"
 
-#: src/controls.6/ImageInfoDialog.qml:272
+#: src/controls.6/ImageInfoDialog.qml:281
 #, kde-format
 msgid "File information"
 msgstr "ფაილის ინფორმაცია"
 
-#: src/controls.6/ImageInfoDialog.qml:309
+#: src/controls.6/ImageInfoDialog.qml:329
+#, kde-format
+msgid "Comment & Description"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "კომენტარის დამატება"
 
-#: src/controls.6/ImageInfoDialog.qml:318
+#: src/controls.6/ImageInfoDialog.qml:354
+#, fuzzy, kde-format
+#| msgid "Add Comment"
+msgid "Remove Comment"
+msgstr "კომენტარის დამატება"
+
+#: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
+msgstr "გეოლოკაციის ჭდეები"
+
+#: src/controls.6/ImageInfoDialog.qml:373
+#, kde-format
+msgid "City"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:327
+#: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "GPS ინფორმაციის დაყენება"
 
-#: src/controls.6/ImageInfoDialog.qml:335
+#: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "GPS ინფორმაციის წაშლა"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format

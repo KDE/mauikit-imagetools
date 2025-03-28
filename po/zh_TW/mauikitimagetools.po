@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-27 00:41+0000\n"
+"POT-Creation-Date: 2025-03-28 00:41+0000\n"
 "PO-Revision-Date: 2024-02-07 23:43+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -37,94 +37,115 @@ msgstr "讀取全部"
 msgid "Configure"
 msgstr "設定"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Edit"
 msgstr "編輯"
 
-#: src/controls.6/ImageInfoDialog.qml:120
+#: src/controls.6/ImageInfoDialog.qml:104
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "正在編輯 Exif 標籤"
 
-#: src/controls.6/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:112
 #, kde-format
 msgid "Tag key"
 msgstr "標籤鍵"
 
-#: src/controls.6/ImageInfoDialog.qml:135
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Tag value"
 msgstr "標籤值"
 
-#: src/controls.6/ImageInfoDialog.qml:146
+#: src/controls.6/ImageInfoDialog.qml:130
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "無法編輯該標籤"
 
-#: src/controls.6/ImageInfoDialog.qml:169
+#: src/controls.6/ImageInfoDialog.qml:153
 #, kde-format
 msgid "Remove"
 msgstr "移除"
 
-#: src/controls.6/ImageInfoDialog.qml:170
+#: src/controls.6/ImageInfoDialog.qml:154
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "您確定要移除 Exif 標籤 %1 嗎？"
 
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:165
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "無法移除該標籤"
 
-#: src/controls.6/ImageInfoDialog.qml:202
-#: src/controls.6/ImageInfoDialog.qml:317
+#: src/controls.6/ImageInfoDialog.qml:186
+#, kde-format
+msgid "Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:257
+#: src/controls.6/ImageInfoDialog.qml:266
 #, fuzzy, kde-format
 #| msgid "Could not remove the tag"
 msgid "Could not save the GPS data"
 msgstr "無法移除該標籤"
 
-#: src/controls.6/ImageInfoDialog.qml:271
+#: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
 msgid "Details"
 msgstr "詳細資料"
 
-#: src/controls.6/ImageInfoDialog.qml:272
+#: src/controls.6/ImageInfoDialog.qml:281
 #, kde-format
 msgid "File information"
 msgstr "檔案資訊"
 
-#: src/controls.6/ImageInfoDialog.qml:309
+#: src/controls.6/ImageInfoDialog.qml:329
+#, kde-format
+msgid "Comment & Description"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:318
+#: src/controls.6/ImageInfoDialog.qml:354
+#, fuzzy, kde-format
+#| msgid "Remove"
+msgid "Remove Comment"
+msgstr "移除"
+
+#: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:327
+#: src/controls.6/ImageInfoDialog.qml:373
+#, kde-format
+msgid "City"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:335
+#: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""

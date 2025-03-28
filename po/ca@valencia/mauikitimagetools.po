@@ -1,15 +1,15 @@
 # Translation of mauikitimagetools.po to Catalan (Valencian)
-# Copyright (C) 2022-2023 This_file_is_part_of_KDE
+# Copyright (C) 2022-2025 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023.
+# Josep M. Ferrer <txemaq@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-27 00:41+0000\n"
-"PO-Revision-Date: 2023-11-28 13:09+0100\n"
+"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"PO-Revision-Date: 2025-03-27 09:46+0100\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -39,97 +39,118 @@ msgstr "Llig-ho tot"
 msgid "Configure"
 msgstr "Configura"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:103
 #, kde-format
 msgid "Edit"
 msgstr "Edita"
 
-#: src/controls.6/ImageInfoDialog.qml:120
+#: src/controls.6/ImageInfoDialog.qml:104
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Editeu les etiquetes Exif"
 
-#: src/controls.6/ImageInfoDialog.qml:128
+#: src/controls.6/ImageInfoDialog.qml:112
 #, kde-format
 msgid "Tag key"
 msgstr "Clau de l'etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:135
+#: src/controls.6/ImageInfoDialog.qml:119
 #, kde-format
 msgid "Tag value"
 msgstr "Valor de l'etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:146
+#: src/controls.6/ImageInfoDialog.qml:130
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "No s'ha pogut editar l'etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:169
+#: src/controls.6/ImageInfoDialog.qml:153
 #, kde-format
 msgid "Remove"
 msgstr "Elimina"
 
-#: src/controls.6/ImageInfoDialog.qml:170
+#: src/controls.6/ImageInfoDialog.qml:154
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Segur que voleu eliminar l'etiqueta Exif %1?"
 
-#: src/controls.6/ImageInfoDialog.qml:181
+#: src/controls.6/ImageInfoDialog.qml:165
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "No s'ha pogut eliminar l'etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:202
-#: src/controls.6/ImageInfoDialog.qml:317
-#, kde-format
-msgid "GPS"
-msgstr ""
+#: src/controls.6/ImageInfoDialog.qml:186
+#, fuzzy, kde-format
+#| msgid "Add Comment"
+msgid "Comment"
+msgstr "Afig un comentari"
 
 #: src/controls.6/ImageInfoDialog.qml:211
+#: src/controls.6/ImageInfoDialog.qml:367
+#, kde-format
+msgid "GPS"
+msgstr "GPS"
+
+#: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Latitud"
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Longitud"
 
-#: src/controls.6/ImageInfoDialog.qml:257
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#: src/controls.6/ImageInfoDialog.qml:266
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "No s'ha pogut eliminar l'etiqueta"
+msgstr "No s'han pogut guardar les dades del GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:271
+#: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
 msgid "Details"
 msgstr "Detalls"
 
-#: src/controls.6/ImageInfoDialog.qml:272
+#: src/controls.6/ImageInfoDialog.qml:281
 #, kde-format
 msgid "File information"
 msgstr "Informació del fitxer"
 
-#: src/controls.6/ImageInfoDialog.qml:309
+#: src/controls.6/ImageInfoDialog.qml:329
+#, kde-format
+msgid "Comment & Description"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Afig un comentari"
 
-#: src/controls.6/ImageInfoDialog.qml:318
+#: src/controls.6/ImageInfoDialog.qml:354
+#, fuzzy, kde-format
+#| msgid "Add Comment"
+msgid "Remove Comment"
+msgstr "Afig un comentari"
+
+#: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
+msgstr "Etiquetes de geolocalització"
+
+#: src/controls.6/ImageInfoDialog.qml:373
+#, kde-format
+msgid "City"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:327
+#: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Establix la informació del GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:335
+#: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Elimina la informació del GPS"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
