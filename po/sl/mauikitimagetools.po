@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-27 07:06+0100\n"
+"PO-Revision-Date: 2025-03-28 07:12+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -79,10 +79,9 @@ msgid "Could not remove the tag"
 msgstr "Ni bilo mogoče odstraniti oznake"
 
 #: src/controls.6/ImageInfoDialog.qml:186
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Comment"
-msgstr "Dodaj komentar"
+msgstr "Komentar"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
@@ -118,7 +117,7 @@ msgstr "Informacije o datoteki"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Komentar in opis"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
@@ -126,10 +125,9 @@ msgid "Add Comment"
 msgstr "Dodaj komentar"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Dodaj komentar"
+msgstr "Odstrani komentar"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
@@ -139,7 +137,7 @@ msgstr "Geolokacijske oznake"
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Kraj"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format

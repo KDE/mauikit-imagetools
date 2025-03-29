@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-27 09:17+0200\n"
+"PO-Revision-Date: 2025-03-28 12:53+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -79,10 +79,9 @@ msgid "Could not remove the tag"
 msgstr "Не вдалося вилучити мітку"
 
 #: src/controls.6/ImageInfoDialog.qml:186
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Comment"
-msgstr "Додати коментар"
+msgstr "Коментар"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
@@ -118,7 +117,7 @@ msgstr "Інформація про файл"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Коментар і опис"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
@@ -126,10 +125,9 @@ msgid "Add Comment"
 msgstr "Додати коментар"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Додати коментар"
+msgstr "Вилучити коментар"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
@@ -139,7 +137,7 @@ msgstr "Мітки геопозиціювання"
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Місто"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format

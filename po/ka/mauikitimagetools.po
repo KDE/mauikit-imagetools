@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-27 04:06+0100\n"
+"PO-Revision-Date: 2025-03-28 02:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -79,10 +79,9 @@ msgid "Could not remove the tag"
 msgstr "ჭდის წაშლის შეცდომა"
 
 #: src/controls.6/ImageInfoDialog.qml:186
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Comment"
-msgstr "კომენტარის დამატება"
+msgstr "კომენტარი"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
@@ -118,7 +117,7 @@ msgstr "ფაილის ინფორმაცია"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "კომენტარი & აღწერა"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
@@ -126,10 +125,9 @@ msgid "Add Comment"
 msgstr "კომენტარის დამატება"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Remove Comment"
-msgstr "კომენტარის დამატება"
+msgstr "კომენტარის წაშლა"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
@@ -139,7 +137,7 @@ msgstr "გეოლოკაციის ჭდეები"
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "ქალაქი"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format

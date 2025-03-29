@@ -1,13 +1,13 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 #
-# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2024-12-27 08:41+0200\n"
+"PO-Revision-Date: 2025-03-28 22:32+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.0\n"
+"X-Generator: Lokalize 24.12.2\n"
 
 #: src/code/moduleinfo.cpp:20
 #, kde-format
@@ -81,29 +81,28 @@ msgstr "לא ניתן להסיר את התגית"
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "הערה"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "קו רוחב"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "קו אורך"
 
 #: src/controls.6/ImageInfoDialog.qml:266
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "לא ניתן להסיר את התגית"
+msgstr "לא ניתן לשמור את נתוני ה־GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
@@ -118,38 +117,37 @@ msgstr "פרטי קובץ"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "הערה ותיאור"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "הוספת הערה"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "הסרה"
+msgstr "הסרת הערה"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "תגיות גאוגרפיות"
 
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "עיר"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "הגדרת פרטי GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "הסרת פרטי GPS"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
