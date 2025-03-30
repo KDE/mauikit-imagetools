@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-03-27 13:49+0100\n"
+"PO-Revision-Date: 2025-03-28 17:43+0100\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -80,10 +80,9 @@ msgid "Could not remove the tag"
 msgstr "Kon de tag niet verwijderen"
 
 #: src/controls.6/ImageInfoDialog.qml:186
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Comment"
-msgstr "Toelichting toevoegen"
+msgstr "Toelichting"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
@@ -119,7 +118,7 @@ msgstr "Bestandsinformatie"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Toelichting & beschrijving"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
@@ -127,10 +126,9 @@ msgid "Add Comment"
 msgstr "Toelichting toevoegen"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Add Comment"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Toelichting toevoegen"
+msgstr "Commentaar verwijderen"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
@@ -140,7 +138,7 @@ msgstr "Geolocatie-tags"
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
