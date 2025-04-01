@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2025-01-31 17:08+0200\n"
+"PO-Revision-Date: 2025-03-29 16:15+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
-"X-Generator: Lokalize 24.12.1\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/code/moduleinfo.cpp:20
 #, kde-format
@@ -81,29 +81,28 @@ msgstr "Birkas noņemšanas neizdevās"
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Komentārs"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Platums"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Garums"
 
 #: src/controls.6/ImageInfoDialog.qml:266
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "Birkas noņemšanas neizdevās"
+msgstr "Neizdevās saglabāt GPS datus"
 
 #: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
@@ -118,38 +117,37 @@ msgstr "Datnes informācija"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Komentārs un apraksts"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Pievienot komentāru"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Noņemt"
+msgstr "Noņemt komentāru"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Ģeolokācijas birkas"
 
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Pilsēta"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Iestatīt GPS informāciju"
 
 #: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Noņemt GPS informāciju"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
