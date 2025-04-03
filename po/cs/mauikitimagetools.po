@@ -80,23 +80,23 @@ msgstr ""
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Komentář"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Zem. šířka"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Zem. délka"
 
 #: src/controls.6/ImageInfoDialog.qml:266
 #, kde-format
@@ -121,13 +121,12 @@ msgstr ""
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Přidat komentář"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Odstranit"
+msgstr "Odstranit komentář"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
@@ -137,7 +136,7 @@ msgstr ""
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Město"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
