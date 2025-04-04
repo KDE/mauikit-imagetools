@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
-# SPDX-FileCopyrightText: 2022, 2023 Paolo Zamponi <feus73@gmail.com>
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Paolo Zamponi <feus73@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2023-12-29 18:31+0100\n"
+"PO-Revision-Date: 2025-03-30 14:13+0200\n"
 "Last-Translator: Paolo Zamponi <feus73@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/code/moduleinfo.cpp:20
 #, kde-format
@@ -47,7 +47,7 @@ msgstr "Modifica"
 #: src/controls.6/ImageInfoDialog.qml:104
 #, kde-format
 msgid "Editing Exif tag"
-msgstr "Modifica etichetta Exif"
+msgstr "Modifica dell'etichetta Exif"
 
 #: src/controls.6/ImageInfoDialog.qml:112
 #, kde-format
@@ -82,29 +82,28 @@ msgstr "Impossibile rimuovere l'etichetta"
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Latitudine"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Longitudine"
 
 #: src/controls.6/ImageInfoDialog.qml:266
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "Impossibile rimuovere l'etichetta"
+msgstr "Impossibile salvare i dati GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
@@ -119,38 +118,37 @@ msgstr "Informazioni sul file"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Commento e descrizione"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Aggiungi commento"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Rimuovi"
+msgstr "Rimuovi commento"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Etichette di geolocalizzazione"
 
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Città"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Imposta le informazioni GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Rimuovi le informazioni GPS"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
