@@ -3,6 +3,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 set(srcs
     preprocessimage.cpp
     mycroplayer.cpp
+    cvmatandqimage.cpp
     convertimage.hpp)
 
 add_library (OpenCVLib STATIC)

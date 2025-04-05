@@ -320,6 +320,35 @@ cv::Mat PreprocessImage::manualThreshold(cv::Mat &image,
         return image;
 }
 
+
+//value from -255 to 255
+cv::Mat PreprocessImage::adjustSaturation(cv::Mat &in, int value)
+{
+    if (!in.empty())
+    {
+        cv::Mat out;
+
+        cv::cvtColor(in, out, cv::COLOR_BGR2HSV);
+
+        std::vector<cv::Mat> channels;
+        cv::split(out, channels); // splits HSV mat into an 3 mats with 1 channel each for H, S and V
+
+        short idx = 1; // index of saturation in HSV format
+        short rtype = -1; // use same type as input matrix
+        short alpha = 1; // sat_value *= alpha
+
+        channels[idx].convertTo(channels[idx], rtype, alpha, value); // sat_value += s_shift (clips sat_val to stay between 0 to 255)
+
+        cv::merge(channels, out); // merges channels HSV back together into output matrix
+        cv::cvtColor(out, out, cv::COLOR_HSV2BGR); // converts HSV back to BGR
+        // cv::cvtColor(out, out, cv::COLOR_BGR2BGRA); // converts HSV back to BGR
+
+        return out;
+    } else
+        return in;
+
+}
+
 void PreprocessImage::hedEdgeDetectDNN(cv::Mat &image,
                                        std::string &prototxt,
                                        std::string &caffemodel,
@@ -348,7 +377,7 @@ void PreprocessImage::hedEdgeDetectDNN(cv::Mat &image,
     cv::Mat tmpMatUchar;
     tmpMat.convertTo(tmpMatUchar, CV_8U);
 
-    // old code cv::Mat tmpMat = out.reshape(1, reso.height) ;
+           // old code cv::Mat tmpMat = out.reshape(1, reso.height) ;
     cv::resize(tmpMatUchar, image, img.size());
 }
 

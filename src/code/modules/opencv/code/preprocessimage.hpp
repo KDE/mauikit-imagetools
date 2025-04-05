@@ -53,6 +53,7 @@ public:
     static cv::Mat adjustBrightness(cv::Mat &in, int value);
     static cv::Mat adjustContrast(cv::Mat &in, double value);
     static cv::Mat manualThreshold(cv::Mat &image, int threshValue = 128, uint8_t blurValue = 3);
+    static cv::Mat adjustSaturation(cv::Mat &in, int value);
     static void hedEdgeDetectDNN(cv::Mat &image,
                                  std::string &prototxt,
                                  std::string &caffemodel,

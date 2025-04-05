@@ -31,6 +31,7 @@
 #include <QImage>
 #include <QObject>
 #include "opencvlib_export.h"
+#include <QDebug>
 
 inline unsigned char float2uchar_bounded(const float &in)
 {
@@ -59,11 +60,15 @@ public:
     }
     static QImage matToQimageRef(cv::Mat &mat, QImage::Format format)
     {
+        // return QImage((uchar*) mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format).rgbSwapped();
         return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format);
     }
     static QImage matToQimage(cv::Mat mat, QImage::Format format)
     {
-        return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format);
+
+        return QImage((uchar*) mat.data, mat.cols, mat.rows,static_cast<int>(mat.step), format);
+
+        // return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format);
     }
 
     static cv::Mat readImage(const QString &fileUrl)
@@ -74,5 +79,47 @@ public:
         // res.cvtColor(res, res, cv::COLOR_BGR2GRAY);
             // cv::threshold(res, res2,127,255, cv::THRESH_BINARY|cv::THRESH_OTSU);
         return res;
+    }
+
+    static cv::Mat QImageToMat(QImage & image)
+    {
+        cv::Mat out;
+        switch(image.format()) {
+        case QImage::Format_Invalid:
+        {
+            cv::Mat empty;
+            empty.copyTo(out);
+            break;
+        }
+        case QImage::Format_RGB32:
+        {
+            qDebug() << "Image format is  rgb32" << image.format();
+            cv::Mat view(image.height(),
+                         image.width(),
+                         CV_8UC4,
+                         image.bits(),
+                         static_cast<size_t>(image.bytesPerLine()));
+            view.copyTo(out);
+            break;
+        }
+        case QImage::Format_RGB888:
+        {
+            qDebug() << "Image format is  rgb32" << image.format();
+
+            cv::Mat view(image.height(),image.width(),CV_8UC3,(void *)image.constBits(),image.bytesPerLine());
+            cv::cvtColor(view, out, cv::COLOR_RGB2BGR);
+            break;
+        }
+        default:
+        {
+            qDebug() << "Image format is  rgb32" << image.format();
+
+            QImage conv = image.convertToFormat(QImage::Format_ARGB32);
+            cv::Mat view(conv.height(),conv.width(),CV_8UC4,(void *)conv.constBits(),conv.bytesPerLine());
+            view.copyTo(out);
+            break;
+        }
+        }
+        return out;
     }
 };

@@ -7,7 +7,6 @@
 
 #include "picinfomodel.h"
 #include "imagetools_plugin.h"
-
 #ifndef Q_OS_ANDROID
 #include <ocs.h>
 #endif
