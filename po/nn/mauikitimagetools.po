@@ -101,7 +101,6 @@ msgstr ""
 
 #: src/controls.6/ImageInfoDialog.qml:266
 #, fuzzy, kde-format
-#| msgid "Could not remove the tag"
 msgid "Could not save the GPS data"
 msgstr "Klarte ikkje fjerna merkelappen"
 
@@ -127,7 +126,6 @@ msgstr ""
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, fuzzy, kde-format
-#| msgid "Remove"
 msgid "Remove Comment"
 msgstr "Fjern"
 
