@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 #
-# SPDX-FileCopyrightText: 2023 Stefan Asserhäll <stefan.asserhall@gmail.com>
+# SPDX-FileCopyrightText: 2023, 2025 Stefan Asserhäll <stefan.asserhall@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-03-28 00:41+0000\n"
-"PO-Revision-Date: 2023-12-28 14:22+0100\n"
+"PO-Revision-Date: 2025-04-05 09:05+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 
 #: src/code/moduleinfo.cpp:20
 #, kde-format
@@ -80,29 +80,28 @@ msgstr "Kunde inte ta bort taggen"
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Latitud"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Longitud"
 
 #: src/controls.6/ImageInfoDialog.qml:266
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "Kunde inte ta bort taggen"
+msgstr "Kunde inte spara GPS-data"
 
 #: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
@@ -117,38 +116,37 @@ msgstr "Filinformation"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Kommentar och beskrivning"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Lägg till kommentar"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Ta bort"
+msgstr "Ta bort kommentar"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Geografisk lokalisering"
 
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Stad"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Lägg till GPS-information"
 
 #: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Ta bort GPS-information"
 
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
