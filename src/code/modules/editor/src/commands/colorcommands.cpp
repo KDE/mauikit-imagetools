@@ -14,6 +14,11 @@ Brightness::Brightness(QImage image, int value, const std::function<void ()> &f)
     qDebug() << "create brightness <<" << m_value;
 }
 
+void Brightness::setArea(const QRectF &area)
+{
+    m_area = area;
+}
+
 QImage Brightness::undo(QImage image)
 {
     Q_UNUSED(image)
@@ -31,21 +36,21 @@ QImage Brightness::redo(QImage image)
 {
     // m_image = image;
 
-    if(m_value > 100)
-        m_value = 100;
+    if(m_value > 255)
+        m_value = 255;
 
-    if(m_value < -100)
-        m_value = -100;
+    else if(m_value < -255)
+        m_value = -255;
 
     auto m_imgMat = QtOcv::image2Mat(image);
-    auto newMat = PreprocessImage::adjustBrightness(m_imgMat, m_value);
+    auto newMat = PreprocessImage::adjustBrightness(m_imgMat, m_value, cv::Rect(m_area.x(), m_area.y(), m_area.width(), m_area.height()));
     // qDebug() << "IS PROCESSED IMAGE VALIUD" << img.isNull() <<  img.format();
 
     auto img = QtOcv::mat2Image(newMat); //remember to delete
 
     qDebug() << "testing saturation" << image.format() << img.format()<< img.isDetached()<<newMat.rows << newMat.cols << newMat.step << newMat.empty();
 
-           return img;
+    return img;
 }
 
 Contrast::Contrast(QImage image, double value, const std::function<void ()> &f)
@@ -57,11 +62,10 @@ Contrast::Contrast(QImage image, double value, const std::function<void ()> &f)
 
 QImage Contrast::redo(QImage image)
 {
-    if(m_value > 3.0)
-        m_value = 3.0;
-
-    if(m_value < 1.0)
-        m_value = 1.0;
+    if(m_value > 255)
+        m_value = 255;
+    else if(m_value < -255)
+        m_value = -255;
 
     auto m_imgMat = QtOcv::image2Mat(image);
     auto newMat = PreprocessImage::adjustContrast(m_imgMat, m_value);

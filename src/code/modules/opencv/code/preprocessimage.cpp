@@ -28,6 +28,9 @@
 #include <opencv2/photo.hpp>
 #include "opencv2/opencv.hpp"
 
+// Global Constants
+const int bgr_max = 255; // max value of a bgr pixel
+const int bgr_half = 128; // middle value of a bgr pixel
 std::vector<cv::Point> PreprocessImage::poi = {};
 
 PreprocessImage::PreprocessImage()
@@ -285,24 +288,150 @@ double PreprocessImage::computeSkew(cv::Mat src)
     return angle * 180 / CV_PI;
 }
 
-cv::Mat PreprocessImage::adjustBrightness(cv::Mat &in, int value)
+cv::Mat PreprocessImage::adjustBrightness(cv::Mat &in, int value, cv::Rect rect)
+{
+    if (!in.empty())
+    {
+        cv::Mat out;
+        const bool is_inside = (rect & cv::Rect(0, 0, in.cols, in.rows)) == rect;
+
+        if(is_inside && rect.area() > 0)
+        {
+            cv::Mat out2(in);
+            cv::Mat roi(in(rect));
+
+            roi.convertTo(out, -1, 1, value);
+            out.copyTo(out2(rect));
+            return out2;
+        }else
+        {
+            in.convertTo(out, -1, 1, value);
+            return out;
+        }
+
+    } else
+        return in;
+}
+
+cv::Mat PreprocessImage::adjustContrast(cv::Mat &in, int beta)
 {
     if (!in.empty()) {
         cv::Mat out;
-        in.convertTo(out, -1, 1, value);
+        // in.convertTo(out, -1, beta, 0); //easier way
+
+        // in.convertTo(out, CV_32S); // converts the matrix to type CV_32S to allow aritmetic
+        int kappa = 259; // contrast parameter, the higher it is, the lower the effect of contrast
+        // double contrast_factor = (kappa * (beta + bgr_max)) / (bgr_max * (kappa - beta)); // calculates contrast factor
+        // qDebug() << "Constrast factor"  <<contrast_factor;
+
+        // // contrast is calculated using the equation:
+        // // new_pixel = contrast_factor * (old_pixel - 128) + 128
+        // cv::Scalar scale(bgr_half, bgr_half, bgr_half); // contains cv scalar depth 3 with values of 128
+
+        // out -= scale; // old_pixel - 128
+        // out *= contrast_factor; // contrast * p
+        // out += scale; // p + 128
+        double factor = 1.0;
+        if(beta < 0)
+        {
+            factor = 1-double(abs(beta)/255.0);
+            qDebug() << "COnstarsr factor" << factor << abs(beta);
+
+        }else if(beta > 0)
+        {
+            factor = 6.0*(beta/100)+10;
+        }
+        qDebug() << "COnstarsr factor" << factor << abs(beta) << abs(beta)/255;
+        in.convertTo(out, -1, factor, 1);
+
+        // out.convertTo(out, CV_8U); // converts matrix back to original format
+
         return out;
     } else
         return in;
 }
 
-cv::Mat PreprocessImage::adjustContrast(cv::Mat &in, double value)
+cv::Mat PreprocessImage::hue(cv::Mat matrix, int h_shift)
 {
-    if (!in.empty()) {
-        cv::Mat out;
-        in.convertTo(out, -1, value, 0);
-        return out;
-    } else
-        return in;
+    cv::Mat processed_mat; // initializes output matrix
+    cv::cvtColor(matrix, processed_mat, cv::COLOR_BGR2HSV); // converts input matrix to HSV type
+
+    short idx = 0; // index of hue in HSV format
+    // iterates through each pixel in mat to ahjust hue values
+    for (int y = 0; y < processed_mat.rows; y++) // iterate columns
+    {
+        for (int x = 0; x < processed_mat.cols; x++) // iterate rows
+        {
+            short h = processed_mat.at<cv::Vec3b>(y,x)[idx]; // get current hue value at pixel (y, x)
+            processed_mat.at<cv::Vec3b>(y,x)[idx] = (h + h_shift) % 180; // adjust hue
+        }
+    }
+
+    cv::cvtColor(processed_mat, processed_mat, cv::COLOR_HSV2BGR); // converts HSV back to BGR
+    return processed_mat;
+}
+// Gamma
+/**
+ * Returns an input BGR Mat with gamma adjustments
+ *
+ * @param matrix The input Mat
+ * @param gamma Gamma factor, -100 for low gamma (bright), +100 for high gamma (dark)
+ * @return Mat with the gamma adjustments
+ */
+cv::Mat PreprocessImage::gamma(cv::Mat matrix, double gamma)
+{
+    // Handles input to be within desired range
+    gamma *= 0.05;
+    if (gamma < 0)
+        gamma = -1 / (gamma - 1);
+    else
+        gamma += 1;
+
+    cv::Mat processed_mat = matrix.clone(); // initializes output matrix
+
+    short max_n = bgr_max + 1; // number of possible pixel values
+    cv::Mat lookUpTable(1, max_n, CV_8U); // lookup table mat
+    uchar* p = lookUpTable.ptr(); // pointers for each entry in lookuptable
+    for( int i = 0; i < max_n; ++i) // goes through each num in possible range to create lookup value of gamma
+    {
+        p[i] = cv::saturate_cast<uchar>(std::pow(i / (double)bgr_max, gamma) * (double)bgr_max); // gamma calculation
+    }
+
+    cv::LUT(processed_mat, lookUpTable, processed_mat); // uses lookup table to change
+
+    return processed_mat;
+}
+
+// Sharpness
+/**
+ * Returns a sharpened input BGR Mat
+ *
+ * @param matrix The input Mat
+ * @param beta Sharpness factor. Ranges from 0 to 100 (increasing in sharpness)
+ * @return Mat with the sharpness adjustments
+ */
+cv::Mat PreprocessImage::sharpness(cv::Mat matrix, double beta)
+{
+    // Truncates the input to be within range
+    if (beta < 0)
+        beta = 0;
+    else if (beta > 100)
+        beta = -10;
+    else
+        beta /= -10;
+
+    cv::Mat processed_mat = matrix.clone(); // initializes output matrix
+
+    double sigma = 3; // standard deviation for the gaussian blur
+    int size = 3; // kernel size
+
+    double alpha = 1 + -1 * beta; // weight of the original matrix (beta is weight of gaussian blur)
+    double gamma = 0; // constant added to the resulting matrix
+
+    cv::GaussianBlur(processed_mat, processed_mat, cv::Size(size, size), sigma, sigma); // creates a matrix adjusted with gaussian blur
+    cv::addWeighted(matrix, alpha, processed_mat, beta, gamma, processed_mat); // adds the orignal and blurred matrix with the weights alpha and beta respectively
+
+    return processed_mat;
 }
 
 cv::Mat PreprocessImage::manualThreshold(cv::Mat &image,

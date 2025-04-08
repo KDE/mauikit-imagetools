@@ -4,8 +4,6 @@ import QtQuick.Layouts
 
 import org.mauikit.controls as Maui
 
-import org.kde.kquickimageeditor as KQuickImageEditor
-
 ColumnLayout
 {
     id: control

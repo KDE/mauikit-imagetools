@@ -20,6 +20,8 @@ public:
     Brightness(QImage image, int value, const std::function<void ()> &f = nullptr);
     ~Brightness() override = default;
 
+    void setArea(const QRectF &area);
+
     QImage redo(QImage image) override;
     QImage undo(QImage image) override;
 
@@ -27,7 +29,7 @@ private:
     QImage m_image;
     int m_value;
     std::function<void ()> m_cb;
-
+    QRectF m_area;
 };
 
 class Contrast : public Command

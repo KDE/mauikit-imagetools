@@ -44,9 +44,13 @@ class ImageDocument : public QObject
 
     Q_PROPERTY(QUrl path READ path WRITE setPath NOTIFY pathChanged)
     Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
-    Q_PROPERTY(bool edited READ edited WRITE setEdited NOTIFY editedChanged)
-
+    Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
+    Q_PROPERTY(bool changesApplied READ changesApplied NOTIFY changesAppliedChanged)
     Q_PROPERTY(int brightness READ brightness NOTIFY brightnessChanged FINAL)
+    Q_PROPERTY(int contrast READ contrast NOTIFY contrastChanged FINAL)
+    Q_PROPERTY(int saturation READ saturation NOTIFY saturationChanged FINAL)
+
+    Q_PROPERTY(QRectF area READ area WRITE setArea NOTIFY areaChanged RESET resetArea)
 
 public:
     ImageDocument(QObject *parent = nullptr);
@@ -130,13 +134,21 @@ public:
      */
     Q_INVOKABLE bool saveAs(const QUrl &location);
 
-    Q_INVOKABLE void adjustBrightness(int value);// between -100 and 100
-    Q_INVOKABLE void adjustContrast(double value); //between 1.0 and 3.0
-    Q_INVOKABLE void adjustSaturation(double value); //between -255 and 255
+    Q_INVOKABLE void adjustBrightness(int value);// between -255 and 255
+    Q_INVOKABLE void adjustContrast(int value); // between -255 and 255
+    Q_INVOKABLE void adjustSaturation(int value); //between -255 and 255
 
     Q_INVOKABLE void applyChanges();
 
     int brightness() const;
+    int contrast() const;
+    int saturation() const;
+
+    QRectF area() const;
+    void setArea(const QRectF &newArea);
+    void resetArea();
+
+    bool changesApplied() const;
 
 Q_SIGNALS:
     void pathChanged(const QUrl &url);
@@ -144,6 +156,10 @@ Q_SIGNALS:
     void editedChanged();
     void brightnessChanged();
     void contrastChanged();
+    void saturationChanged();
+    void areaChanged();
+
+    void changesAppliedChanged();
 
 private:
     QUrl m_path;
@@ -152,5 +168,10 @@ private:
     QImage m_originalImage;
     bool m_edited;
     int m_brightness = 0;
-    double m_contrast = 0;
+    int m_contrast = 0;
+    int m_saturation = 0;
+    QRectF m_area;
+
+    void resetValues();
+    bool m_changesApplied;
 };

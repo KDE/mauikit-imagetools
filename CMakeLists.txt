@@ -56,15 +56,6 @@ find_package(KF${KF_MAJOR_VERSION} ${REQUIRED_KF_VERSION} REQUIRED COMPONENTS I1
 find_package(KExiv2Qt6 REQUIRED)
 find_package(MauiKit${MAUI_MAJOR_VERSION} REQUIRED)
 
-ecm_find_qmlmodule(org.kde.kquickimageeditor)
-
-find_package(KQuickImageEditor COMPONENTS)
-set_package_properties(KQuickImageEditor PROPERTIES
-    TYPE REQUIRED
-    DESCRIPTION "Simple image editor for QtQuick applications"
-    URL "https://invent.kde.org/libraries/kquickimageeditor/"
-    PURPOSE "Add image editing capability to image attachments")
-
 if(${ECM_SOURCE_UNDER_VERSION_CONTROL})
     execute_process(
         COMMAND git rev-parse --abbrev-ref HEAD

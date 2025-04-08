@@ -7,6 +7,14 @@ ecm_add_qml_module(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION}
     DEPENDENCIES
     "org.mauikit.controls")
 
+ecm_target_qml_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION} SOURCES
+    controls/ImageEditor.qml)
+
+
+ecm_target_qml_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION} PATH private SOURCES
+    controls/private/ColourBar.qml
+    controls/private/Ruler.qml
+    controls/private/TransformationBar.qml)
 
 target_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION}
     PRIVATE

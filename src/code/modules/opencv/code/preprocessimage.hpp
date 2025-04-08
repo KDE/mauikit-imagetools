@@ -50,10 +50,20 @@ public:
                                bool isMorphOp = false,
                                uint8_t morphKernel = 3,
                                uint8_t blurValue = 3);
-    static cv::Mat adjustBrightness(cv::Mat &in, int value);
-    static cv::Mat adjustContrast(cv::Mat &in, double value);
+    static cv::Mat adjustBrightness(cv::Mat &in, int value, cv::Rect rect);
+    static cv::Mat adjustContrast(cv::Mat &in, int beta);
     static cv::Mat manualThreshold(cv::Mat &image, int threshValue = 128, uint8_t blurValue = 3);
     static cv::Mat adjustSaturation(cv::Mat &in, int value);
+
+    static cv::Mat dilate(cv::Mat &in);
+    static cv::Mat canny(cv::Mat &in);
+    static cv::Mat warp(cv::Mat &in);
+    static cv::Mat medianBlur(cv::Mat &in);
+    static cv::Mat gaussianBlur(cv::Mat &in);
+    static cv::Mat hue(cv::Mat matrix, int h_shift);
+
+    static cv::Mat sharpness(cv::Mat matrix, double beta);
+    static cv::Mat gamma(cv::Mat matrix, double gamma);
     static void hedEdgeDetectDNN(cv::Mat &image,
                                  std::string &prototxt,
                                  std::string &caffemodel,
