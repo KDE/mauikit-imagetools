@@ -353,6 +353,7 @@ cv::Mat PreprocessImage::adjustContrast(cv::Mat &in, int beta)
 
 cv::Mat PreprocessImage::hue(cv::Mat matrix, int h_shift)
 {
+    qDebug() << "Adjust HUE" << h_shift;
     cv::Mat processed_mat; // initializes output matrix
     cv::cvtColor(matrix, processed_mat, cv::COLOR_BGR2HSV); // converts input matrix to HSV type
 

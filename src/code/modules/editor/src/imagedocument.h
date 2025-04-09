@@ -49,6 +49,7 @@ class ImageDocument : public QObject
     Q_PROPERTY(int brightness READ brightness NOTIFY brightnessChanged FINAL)
     Q_PROPERTY(int contrast READ contrast NOTIFY contrastChanged FINAL)
     Q_PROPERTY(int saturation READ saturation NOTIFY saturationChanged FINAL)
+    Q_PROPERTY(int hue READ hue NOTIFY hueChanged FINAL)
 
     Q_PROPERTY(QRectF area READ area WRITE setArea NOTIFY areaChanged RESET resetArea)
 
@@ -137,12 +138,14 @@ public:
     Q_INVOKABLE void adjustBrightness(int value);// between -255 and 255
     Q_INVOKABLE void adjustContrast(int value); // between -255 and 255
     Q_INVOKABLE void adjustSaturation(int value); //between -255 and 255
+    Q_INVOKABLE void adjustHue(int value); //between 0 and 180
 
     Q_INVOKABLE void applyChanges();
 
     int brightness() const;
     int contrast() const;
     int saturation() const;
+    int hue() const;
 
     QRectF area() const;
     void setArea(const QRectF &newArea);
@@ -158,7 +161,7 @@ Q_SIGNALS:
     void contrastChanged();
     void saturationChanged();
     void areaChanged();
-
+    void hueChanged();
     void changesAppliedChanged();
 
 private:
@@ -170,6 +173,7 @@ private:
     int m_brightness = 0;
     int m_contrast = 0;
     int m_saturation = 0;
+    int m_hue = 0;
     QRectF m_area;
 
     void resetValues();

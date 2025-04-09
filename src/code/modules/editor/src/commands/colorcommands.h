@@ -69,5 +69,57 @@ private:
     std::function<void ()> m_cb;
 };
 
+class Hue : public Command
+{
+public:
+    /**
+     * Contructor
+     */
+    Hue(QImage image, int value, const std::function<void ()> &f = nullptr);
+    ~Hue() override = default;
 
+    QImage redo(QImage image) override;
+    QImage undo(QImage image) override;
+
+private:
+    QImage m_image;
+    int m_value;
+    std::function<void ()> m_cb;
+};
+
+class Gamma : public Command
+{
+public:
+    /**
+     * Contructor
+     */
+    Gamma(QImage image, int value, const std::function<void ()> &f = nullptr);
+    ~Gamma() override = default;
+
+    QImage redo(QImage image) override;
+    QImage undo(QImage image) override;
+
+private:
+    QImage m_image;
+    int m_value;
+    std::function<void ()> m_cb;
+};
+
+class Sharpness : public Command
+{
+public:
+    /**
+     * Contructor
+     */
+    Sharpness(QImage image, int value, const std::function<void ()> &f = nullptr);
+    ~Sharpness() override = default;
+
+    QImage redo(QImage image) override;
+    QImage undo(QImage image) override;
+
+private:
+    QImage m_image;
+    int m_value;
+    std::function<void ()> m_cb;
+};
 }

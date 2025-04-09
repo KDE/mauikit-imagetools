@@ -11,107 +11,93 @@ Slider
 {
     id: control
 
-    live: true
+    live: false
 
     leftPadding: 0
     rightPadding:  0
 
     implicitHeight: Maui.Style.toolBarHeight
-    implicitWidth: width
+    // implicitWidth: width
 
-    // background: Gauge
-    // {
-    //     x: control.leftPadding
-    //     y: control.topPadding
-    //     implicitWidth: control.horizontal ? 500 : control.width
-    //     implicitHeight: control.horizontal ? control.height : 500
-    //     width: control.horizontal ? control.availableWidth  : implicitWidth
-    //     height: control.horizontal ? implicitHeight : control.availableHeight
-    // 
-    //     minimumValue: control.from
-    //     value: control.value
-    //     maximumValue: control.to
-    //     orientation: control.orientation
-    //     tickmarkAlignment: Qt.AlignTop
-    //     tickmarkStepSize: isWide ?  45 : 90
-    //     minorTickmarkCount: isWide ? 6 : 4
-    // 
-    //     Behavior on value {
-    //         NumberAnimation {
-    //             duration: 1000
-    //         }
-    //     }
-    // 
-    //     style: GaugeStyle {
-    //         valueBar: Item{}
-    // 
-    //         minorTickmark: Item {
-    //             implicitWidth: 5
-    //             implicitHeight: 2
-    // 
-    //             Rectangle {
-    //                 color: Maui.Theme.textColor
-    //                 anchors.fill: parent
-    //             }
-    //         }
-    // 
-    //         tickmark: Item {
-    //             implicitWidth: 10
-    //             implicitHeight: 2
-    // 
-    //             Rectangle {
-    //                 color: Maui.Theme.textColor
-    //                 anchors.fill: parent
-    //             }
-    //         }
-    // 
-    //         tickmarkLabel: Item {
-    //             implicitWidth: 16
-    //             implicitHeight: 16
-    // 
-    //             Label {
-    //                 visible: control.value !== styleData.value
-    //                 color: Maui.Theme.textColor
-    //                 text: styleData.value + "°"
-    //                 horizontalAlignment: Text.AlignHCenter
-    //                 verticalAlignment: Text.AlignVCenter
-    //                 anchors.fill: parent
-    //                 font.pointSize: Maui.Style.fontSizes.tiny
-    //             }
-    //         }
-    //     }
-    // }
+    background: Item
+    {
+        id: _bg
+        // Rectangle
+        // {
+        // anchors.fill: parent
+        // color: "pink"
+        // }
 
-    handle: Column
+
+        Loader
+        {
+            // anchors.fill: parent
+            asynchronous: true
+            sourceComponent: Row
+            {
+                spacing: 5
+                x: (control.horizontal ? control.visualPosition * (control.availableWidth - implicitWidth) : 0)
+                y: _bg.height/2 - implicitHeight/2
+
+                Repeater
+                {
+                    // model: Math.abs(control.to) - Math.abs(control.from)
+                    model: Math.abs(control.width/5)
+                    Rectangle
+                    {
+                        color: Maui.Theme.textColor
+                        height: 16
+                        width: 1
+                        opacity:  index%10 === 0 ? 1: 0.5
+                        // Text
+                        // {
+                        //     property int correctIndex : control.from - index
+
+                        //     text: correctIndex
+                        //         visible: index%10 === 0
+                        //     color: "yellow"
+                        // }
+                    }
+
+                }
+            }
+        }
+    }
+
+    handle: ColumnLayout
     {
         id: handle
         x: (control.horizontal ? control.visualPosition * (control.availableWidth - width) : 0)
         y:  0
         spacing: 0
         width: 32
+        height: control.height
         //        implicitHeight: Maui.Style.iconSizes.medium
 
-        Rectangle
+        Label
         {
-             width: parent.width
-             height: 16
-             color: Maui.Theme.backgroundColor
-             radius: Maui.Style.radiusV
-                Label
-                {
-                   anchors.fill: parent
-                    font.bold: true
-                    font.weight: Font.Bold
-                    font.pointSize: Maui.Style.fontSizes.small
-text: control.value + "°"
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
+            // font.bold: true
+            // font.weight: Font.Bold
+            // anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+            // visible: control.pressed
+            font.pointSize: Maui.Style.fontSizes.tiny
+
+            // text: control.value
+            text: control.pressed ?  control.valueAt(control.visualPosition ) : control.value
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            // background: Rectangle
+            // {
+            //     color: Maui.Theme.backgroundColor
+            //     // radius: width/2
+            // }
         }
 
         Maui.Icon
         {
-            anchors.horizontalCenter: parent.horizontalCenter
+            Layout.alignment: Qt.AlignBottom| Qt.AlignHCenter
             height: 32
             width: height
             color: Maui.Theme.textColor

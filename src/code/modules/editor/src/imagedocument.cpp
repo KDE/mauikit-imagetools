@@ -196,6 +196,30 @@ void ImageDocument::adjustSaturation(int value)
     Q_EMIT saturationChanged();
 }
 
+void ImageDocument::adjustHue(int value)
+{
+    qDebug() << "adjust HUE DOCUMENT" << value;
+    if(m_image.isGrayscale())
+        return;
+
+    if(value == m_hue)
+        return;
+
+    auto oldValue = m_hue;
+    m_hue = value;
+    const auto command = new ColorCommands::Hue(m_image, m_hue, [this, oldValue]()
+                                                       {
+                                                           this->m_hue = oldValue;
+                                                           Q_EMIT hueChanged();
+                                                       });
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+    Q_EMIT saturationChanged();
+}
+
 void ImageDocument::applyChanges()
 {
     resetValues();
@@ -218,6 +242,11 @@ int ImageDocument::contrast() const
 int ImageDocument::saturation() const
 {
     return m_saturation;
+}
+
+int ImageDocument::hue() const
+{
+    return m_hue;
 }
 
 QUrl ImageDocument::path() const
@@ -256,6 +285,8 @@ void ImageDocument::resetValues()
     m_contrast = 0;
     m_brightness = 0;
     m_saturation = 0;
+    m_hue = 0;
+    Q_EMIT hueChanged();
     Q_EMIT saturationChanged();
     Q_EMIT brightnessChanged();
     Q_EMIT contrastChanged();
