@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-09 00:41+0000\n"
 "PO-Revision-Date: 2023-12-03 09:55+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <proxecto@trasno.gal>\n"
@@ -21,6 +21,95 @@ msgstr ""
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Compoñentes de ferramentas de imaxe para editar, ver e navegar."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:49
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:216
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Cor"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:225
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "Transformar"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:234
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Capa"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:79
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Saturation"
+msgstr "Saturación"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:110
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Contrast"
+msgstr "Contraste"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:137
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Exposure"
+msgstr "Exposición"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Highlights"
+msgstr "Realces"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:165
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Shadows"
+msgstr "Sombras"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:179
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "Brillo"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Voltear"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:38
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Reflectir"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:50
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "Rotar 90°"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:107
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Recortar"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:115
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Rotate"
+msgstr "Rotar"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
@@ -149,84 +238,3 @@ msgstr ""
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""
-
-#: src/controls.6/linux/ImageEditor.qml:47
-#, kde-format
-msgid "Color"
-msgstr "Cor"
-
-#: src/controls.6/linux/ImageEditor.qml:54
-#, kde-format
-msgid "Transform"
-msgstr "Transformar"
-
-#: src/controls.6/linux/ImageEditor.qml:61
-#, kde-format
-msgid "Layer"
-msgstr "Capa"
-
-#: src/controls.6/private/ColourBar.qml:57
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Saturation"
-msgstr "Saturación"
-
-#: src/controls.6/private/ColourBar.qml:66
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Contrast"
-msgstr "Contraste"
-
-#: src/controls.6/private/ColourBar.qml:75
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Exposure"
-msgstr "Exposición"
-
-#: src/controls.6/private/ColourBar.qml:84
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Highlights"
-msgstr "Realces"
-
-#: src/controls.6/private/ColourBar.qml:93
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Shadows"
-msgstr "Sombras"
-
-#: src/controls.6/private/ColourBar.qml:103
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Brightness"
-msgstr "Brillo"
-
-#: src/controls.6/private/TransformationBar.qml:32
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Voltear"
-
-#: src/controls.6/private/TransformationBar.qml:40
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Reflectir"
-
-#: src/controls.6/private/TransformationBar.qml:52
-#, kde-format
-msgctxt "@action:button Rotate an image 90°"
-msgid "Rotate 90°"
-msgstr "Rotar 90°"
-
-#: src/controls.6/private/TransformationBar.qml:109
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Recortar"
-
-#: src/controls.6/private/TransformationBar.qml:117
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
-msgstr "Rotar"

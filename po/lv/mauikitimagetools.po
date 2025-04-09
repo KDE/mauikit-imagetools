@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-03-28 00:41+0000\n"
+"POT-Creation-Date: 2025-04-09 00:41+0000\n"
 "PO-Revision-Date: 2025-03-29 16:15+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -22,6 +22,95 @@ msgstr ""
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Rīki attēlu rediģēšanai, skatīšanai un pārlūkošanai."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:49
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:216
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Krāsa"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:225
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "Transformēt"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:234
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Slānis"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:79
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Saturation"
+msgstr "Piesātinājums"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:110
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Contrast"
+msgstr "Kontrasts"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:137
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Exposure"
+msgstr "Ekspozīcija"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Highlights"
+msgstr "Gaišās vietas"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:165
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Shadows"
+msgstr "Ēnas"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:179
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "Gaišums"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Apmest"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:38
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Spoguļot"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:50
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "Pagriezt par 90°"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:107
+#, kde-format
+msgctxt "@action:button Crop an image"
+msgid "Crop"
+msgstr "Kadrēt"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:115
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Rotate"
+msgstr "Pagriezt"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
@@ -148,84 +237,3 @@ msgstr "Iestatīt GPS informāciju"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Noņemt GPS informāciju"
-
-#: src/controls.6/linux/ImageEditor.qml:47
-#, kde-format
-msgid "Color"
-msgstr "Krāsa"
-
-#: src/controls.6/linux/ImageEditor.qml:54
-#, kde-format
-msgid "Transform"
-msgstr "Transformēt"
-
-#: src/controls.6/linux/ImageEditor.qml:61
-#, kde-format
-msgid "Layer"
-msgstr "Slānis"
-
-#: src/controls.6/private/ColourBar.qml:57
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Saturation"
-msgstr "Piesātinājums"
-
-#: src/controls.6/private/ColourBar.qml:66
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Contrast"
-msgstr "Kontrasts"
-
-#: src/controls.6/private/ColourBar.qml:75
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Exposure"
-msgstr "Ekspozīcija"
-
-#: src/controls.6/private/ColourBar.qml:84
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Highlights"
-msgstr "Gaišās vietas"
-
-#: src/controls.6/private/ColourBar.qml:93
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Shadows"
-msgstr "Ēnas"
-
-#: src/controls.6/private/ColourBar.qml:103
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Brightness"
-msgstr "Gaišums"
-
-#: src/controls.6/private/TransformationBar.qml:32
-#, kde-format
-msgctxt "@action:button Mirror an image vertically"
-msgid "Flip"
-msgstr "Apmest"
-
-#: src/controls.6/private/TransformationBar.qml:40
-#, kde-format
-msgctxt "@action:button Mirror an image horizontally"
-msgid "Mirror"
-msgstr "Spoguļot"
-
-#: src/controls.6/private/TransformationBar.qml:52
-#, kde-format
-msgctxt "@action:button Rotate an image 90°"
-msgid "Rotate 90°"
-msgstr "Pagriezt par 90°"
-
-#: src/controls.6/private/TransformationBar.qml:109
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Kadrēt"
-
-#: src/controls.6/private/TransformationBar.qml:117
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
-msgstr "Pagriezt"
