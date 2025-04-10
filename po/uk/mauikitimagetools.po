@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-09 00:41+0000\n"
-"PO-Revision-Date: 2025-03-28 12:53+0200\n"
+"POT-Creation-Date: 2025-04-10 00:40+0000\n"
+"PO-Revision-Date: 2025-04-09 18:41+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -26,61 +26,67 @@ msgstr "Компоненти для редагування, перегляду �
 #: src/code/modules/editor/src/controls/ImageEditor.qml:49
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Скасувати"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:216
+#: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Колір"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:225
+#: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Перетворити"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:234
+#: src/code/modules/editor/src/controls/ImageEditor.qml:160
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Шар"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:79
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:78
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Brightness"
+msgstr "Яскравість"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:108
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Saturation"
 msgstr "Насиченість"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:110
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:138
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Contrast"
 msgstr "Контрастність"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:137
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:165
+#, kde-format
+msgctxt "@action:button Rotate an image"
+msgid "Hue"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:192
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Exposure"
 msgstr "Витримка"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:206
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Highlights"
 msgstr "Підсвічування"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:165
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:220
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Shadows"
 msgstr "Тіні"
-
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:179
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Brightness"
-msgstr "Яскравість"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format
