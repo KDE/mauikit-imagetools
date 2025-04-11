@@ -10,9 +10,6 @@ ColumnLayout
 
     spacing: 0
 
-    property alias brightnessButton: _brightnessButton
-    property alias contrastButton : _contrastButton
-    property alias saturationButton : _saturationButton
     property Operation currentOperation : _brightnessButton
 
     component Operation : ToolButton
@@ -75,7 +72,7 @@ ColumnLayout
                 checked: currentOperation == this
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Brightness");
+                text: i18nc("@action:button Change image brightness", "Brightness");
 
                 Binding on value
                 {
@@ -100,12 +97,11 @@ ColumnLayout
 
             Operation
             {
-                id: _saturationButton
                 checkable: true
                 checked: currentOperation == this
                 autoExclusive: true
                 icon.name:  "transform-crop"
-                text:  i18nc("@action:button Crop an image", "Saturation");
+                text:  i18nc("@action:button Change image saturation", "Saturation");
                 onClicked:
                 {
                     currentOperation = this
@@ -131,11 +127,10 @@ ColumnLayout
 
             Operation
             {
-                id: _contrastButton
                 autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Contrast");
+                text: i18nc("@action:button Change image contrast", "Contrast");
                 onClicked:
                 {
                     currentOperation = this
@@ -158,11 +153,10 @@ ColumnLayout
 
             Operation
             {
-                id: _hueButton
                 autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Hue");
+                text: i18nc("@action:button Change image hue", "Hue");
                 onClicked:
                 {
                     currentOperation = this
@@ -185,54 +179,81 @@ ColumnLayout
 
             Operation
             {
-                id: _exposureButton
                 autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Exposure");
+                text: i18nc("@action:button Change image sharpness", "Sharpness");
                 onClicked:
                 {
                     currentOperation = this
                     editor.applyChanges()
+                }
+
+                Binding on value
+                {
+                    value: editor.sharpness
+                    restoreMode: Binding.RestoreBindingOrValue
+                }
+
+                from: 0
+                to: 100
+                onValueChanged:
+                {
+                    editor.adjustSharpness(value)
                 }
             }
 
             Operation
             {
-                id: _highlightsButton
                 autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Highlights");
+                text: i18nc("@action:button Change image gamma", "Gamma");
                 onClicked:
                 {
                     currentOperation = this
                     editor.applyChanges()
+                }
+
+                Binding on value
+                {
+                    value: editor.gamma
+                    restoreMode: Binding.RestoreBindingOrValue
+                }
+
+                from: -100
+                to: 100
+                onValueChanged:
+                {
+                    editor.adjustGamma(value)
                 }
             }
 
             Operation
             {
-                id: _shadowsButton
                 autoExclusive: true
                 icon.name: "transform-rotate"
                 checkable: true
-                text: i18nc("@action:button Rotate an image", "Shadows");
+                text: i18nc("@action:button Change image threshold", "Threshold");
                 onClicked:
                 {
                     currentOperation = this
                     editor.applyChanges()
                 }
+
+                Binding on value
+                {
+                    value: editor.threshold
+                    restoreMode: Binding.RestoreBindingOrValue
+                }
+
+                from: 0
+                to: 255
+                onValueChanged:
+                {
+                    editor.adjustThreshold(value)
+                }
             }
-        }
-
-
-
-        rightContent:  ToolButton
-        {
-            //                    text: i18nd("mauikitimagetools","Cancel")
-            icon.name: "dialog-cancel"
-            onClicked: imageDoc.cancel()
         }
     }
 }

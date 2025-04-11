@@ -3,6 +3,7 @@
 #include <KLocalizedString>
 #include <KExiv2Qt6/KExiv2/KExiv2>
 #include "ocs.h"
+#include <opencv4/opencv2/core/version.hpp>
 
 QString MauiKitImageTools::versionString()
 {
@@ -49,4 +50,13 @@ KAboutComponent MauiKitImageTools::tesseractData()
                            OCS::versionString(),
                            QStringLiteral("https://github.com/tesseract-ocr/tesseract"),
                            KAboutLicense::LicenseKey::BSD_2_Clause);
+}
+
+KAboutComponent MauiKitImageTools::opencvData()
+{
+    return KAboutComponent(QStringLiteral("OpenCV"),
+                           QStringLiteral("Open source OCR engine."),
+                           CV_VERSION,
+                           QStringLiteral("https://opencv.org"),
+                           KAboutLicense::LicenseKey::Apache_V2);
 }

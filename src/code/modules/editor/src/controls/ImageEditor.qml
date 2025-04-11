@@ -24,14 +24,21 @@ Maui.Page
     
     readonly property alias editor : imageDoc
 
+    signal saved()
+    signal savedAs(string url)
+    signal canceled()
+
     headBar.visible: control.ready
     headBar.background: null
     headBar.leftContent: Button
     {
-        icon.name: "edit-undo"
         text: "Save"
         enabled: imageDoc.edited
-        onClicked: imageDoc.undo()
+        onClicked:
+        {
+            imageDoc.save()
+            control.saved()
+        }
     }
 
     headBar.rightContent: [
@@ -40,13 +47,22 @@ Maui.Page
         {
             icon.name: "document-save-as"
             enabled: imageDoc.edited
-            // onClicked: imageDoc.undo()
+            onClicked:
+            {
+                 imageDoc.saveAs()
+                control.savedAs()
+            }
         },
 
         Button
         {
             Maui.Controls.status : Maui.Controls.Negative
             text: i18n("Cancel")
+            onClicked:
+            {
+                imageDoc.cancel()
+                control.canceled()
+            }
         }
     ]
 
@@ -132,8 +148,6 @@ Maui.Page
             }
         }
     }
-
-
 
     Action
     {

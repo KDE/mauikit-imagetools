@@ -441,10 +441,10 @@ cv::Mat PreprocessImage::manualThreshold(cv::Mat &image,
 {
     if (!image.empty()) {
         cv::Mat img = image.clone();
-        cvtColor(img, img, cv::COLOR_BGRA2GRAY, 1);
+        cvtColor(img, img, cv::COLOR_BGR2GRAY, 1);
         cv::threshold(img, img, threshValue, 255, cv::THRESH_BINARY);
         GaussianBlur(img, img, cv::Size(blurValue, blurValue), 0);
-        cvtColor(img, img, cv::COLOR_GRAY2BGRA);
+        cvtColor(img, img, cv::COLOR_GRAY2BGR);
         return img;
     } else
         return image;

@@ -29,6 +29,7 @@ namespace MauiKitImageTools
     */
    IMAGETOOLS_EXPORT KAboutComponent exiv2Data();
    IMAGETOOLS_EXPORT KAboutComponent libKexiv2Data();
+   IMAGETOOLS_EXPORT KAboutComponent opencvData();
 
    /**
     * @brief

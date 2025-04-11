@@ -136,15 +136,15 @@ Hue::Hue(QImage image, int value, const std::function<void ()> &f)
     , m_value(value)
 {
     qDebug() << "Creating HUE COMMAND" << m_value << value;
-     m_cb = f;
+    m_cb = f;
 }
 
 QImage Hue::redo(QImage image)
 {
-    // if(m_value > 180)
-    //     m_value = 180;
-    // else if(m_value < 0)
-    //     m_value = 0;
+    if(m_value > 180)
+        m_value = 180;
+    else if(m_value < 0)
+        m_value = 0;
     qDebug() << "Creating command for hue" << m_value;
 
     auto m_imgMat = QtOcv::image2Mat(image);
@@ -158,6 +158,102 @@ QImage Hue::redo(QImage image)
 }
 
 QImage Hue::undo(QImage image)
+{
+    Q_UNUSED(image)
+
+    if(m_cb != nullptr)
+    {
+        m_cb();
+    }
+
+    return m_image;
+}
+
+Gamma::Gamma(QImage image, int value, const std::function<void ()> &f)
+    : m_image(image)
+    , m_value(value)
+{
+    m_cb = f;
+}
+
+QImage Gamma::redo(QImage image)
+{
+    qDebug() << "Creating command for gamma" << m_value;
+
+    auto m_imgMat = QtOcv::image2Mat(image);
+    auto newMat = PreprocessImage::gamma(m_imgMat, m_value);
+    auto img = QtOcv::mat2Image(newMat); //remember to delete
+    // qDebug() << "IS PROCESSED IMAGE VALIUD" << img.isNull() <<  img.format();
+
+    qDebug() << m_imgMat.rows << m_imgMat.cols << m_imgMat.step << m_imgMat.empty();
+    return img;
+}
+
+QImage Gamma::undo(QImage image)
+{
+    Q_UNUSED(image)
+
+    if(m_cb != nullptr)
+    {
+        m_cb();
+    }
+
+    return m_image;
+}
+
+Sharpness::Sharpness(QImage image, int value, const std::function<void ()> &f)
+    : m_image(image)
+    , m_value(value)
+{
+    m_cb = f;
+}
+
+QImage Sharpness::redo(QImage image)
+{
+    qDebug() << "Creating command for sharpness" << m_value;
+
+    auto m_imgMat = QtOcv::image2Mat(image);
+    auto newMat = PreprocessImage::sharpness(m_imgMat, m_value);
+    auto img = QtOcv::mat2Image(newMat); //remember to delete
+    // qDebug() << "IS PROCESSED IMAGE VALIUD" << img.isNull() <<  img.format();
+
+    qDebug() << m_imgMat.rows << m_imgMat.cols << m_imgMat.step << m_imgMat.empty();
+    return img;
+}
+
+QImage Sharpness::undo(QImage image)
+{
+    Q_UNUSED(image)
+
+    if(m_cb != nullptr)
+    {
+        m_cb();
+    }
+
+    return m_image;
+}
+
+Threshold::Threshold(QImage image, int value, const std::function<void ()> &f)
+    : m_image(image)
+    , m_value(value)
+{
+    m_cb = f;
+}
+
+QImage Threshold::redo(QImage image)
+{
+    qDebug() << "Creating command for threshold" << m_value;
+
+    auto m_imgMat = QtOcv::image2Mat(image);
+    auto newMat = PreprocessImage::manualThreshold(m_imgMat, m_value);
+    auto img = QtOcv::mat2Image(newMat); //remember to delete
+    // qDebug() << "IS PROCESSED IMAGE VALIUD" << img.isNull() <<  img.format();
+
+    qDebug() << m_imgMat.rows << m_imgMat.cols << m_imgMat.step << m_imgMat.empty();
+    return img;
+}
+
+QImage Threshold::undo(QImage image)
 {
     Q_UNUSED(image)
 

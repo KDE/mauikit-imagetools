@@ -122,4 +122,23 @@ private:
     int m_value;
     std::function<void ()> m_cb;
 };
+
+
+class Threshold : public Command
+{
+public:
+    /**
+     * Contructor
+     */
+    Threshold(QImage image, int value, const std::function<void ()> &f = nullptr);
+    ~Threshold() override = default;
+
+    QImage redo(QImage image) override;
+    QImage undo(QImage image) override;
+
+private:
+    QImage m_image;
+    int m_value;
+    std::function<void ()> m_cb;
+};
 }

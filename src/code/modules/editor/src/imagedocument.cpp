@@ -125,6 +125,7 @@ void ImageDocument::setEdited(bool value)
 
 bool ImageDocument::save()
 {
+    applyChanges();
     return m_originalImage.save(m_path.isLocalFile() ? m_path.toLocalFile() : m_path.toString());
 }
 
@@ -208,16 +209,88 @@ void ImageDocument::adjustHue(int value)
     auto oldValue = m_hue;
     m_hue = value;
     const auto command = new ColorCommands::Hue(m_image, m_hue, [this, oldValue]()
-                                                       {
-                                                           this->m_hue = oldValue;
-                                                           Q_EMIT hueChanged();
-                                                       });
+                                                {
+                                                    this->m_hue = oldValue;
+                                                    Q_EMIT hueChanged();
+                                                });
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
     setEdited(true);
     Q_EMIT imageChanged();
-    Q_EMIT saturationChanged();
+    Q_EMIT hueChanged();
+}
+
+void ImageDocument::adjustGamma(int value)
+{
+    qDebug() << "adjust GAMMA DOCUMENT" << value;
+    // if(m_image.isGrayscale())
+    //     return;
+
+    if(value == m_gamma)
+        return;
+
+    auto oldValue = m_gamma;
+    m_gamma = value;
+    const auto command = new ColorCommands::Gamma(m_image, m_gamma, [this, oldValue]()
+                                                  {
+                                                      this->m_gamma = oldValue;
+                                                      Q_EMIT gammaChanged();
+                                                  });
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+    Q_EMIT gammaChanged();
+}
+
+void ImageDocument::adjustSharpness(int value)
+{
+    qDebug() << "adjust SHARPNESS DOCUMENT" << value;
+    // if(m_image.isGrayscale())
+    //     return;
+
+    if(value == m_sharpness)
+        return;
+
+    auto oldValue = m_sharpness;
+    m_sharpness = value;
+    const auto command = new ColorCommands::Sharpness(m_image, m_sharpness, [this, oldValue]()
+                                                {
+                                                    this->m_sharpness = oldValue;
+                                                    Q_EMIT sharpnessChanged();
+                                                });
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+    Q_EMIT sharpnessChanged();
+}
+
+void ImageDocument::adjustThreshold(int value)
+{
+    qDebug() << "adjust threshold DOCUMENT" << value;
+    // if(m_image.isGrayscale())
+    //     return;
+
+    if(value == m_threshold)
+        return;
+
+    auto oldValue = m_threshold;
+    m_threshold = value;
+    const auto command = new ColorCommands::Threshold(m_image, m_threshold, [this, oldValue]()
+                                                {
+                                                    this->m_threshold = oldValue;
+                                                    Q_EMIT thresholdChanged();
+                                                });
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+    Q_EMIT thresholdChanged();
 }
 
 void ImageDocument::applyChanges()
@@ -249,6 +322,21 @@ int ImageDocument::hue() const
     return m_hue;
 }
 
+int ImageDocument::gamma() const
+{
+    return m_gamma;
+}
+
+int ImageDocument::sharpness() const
+{
+    return m_sharpness;
+}
+
+int ImageDocument::threshold() const
+{
+    return m_threshold;
+}
+
 QUrl ImageDocument::path() const
 {
     return m_path;
@@ -259,8 +347,6 @@ void ImageDocument::setPath(const QUrl &path)
     m_path = path;
     Q_EMIT pathChanged(path);
 }
-
-// #include "moc_imagedocument.cpp"
 
 QRectF ImageDocument::area() const
 {
@@ -286,10 +372,16 @@ void ImageDocument::resetValues()
     m_brightness = 0;
     m_saturation = 0;
     m_hue = 0;
+    m_gamma = 0;
+    m_sharpness = 0;
+    m_threshold = 0;
     Q_EMIT hueChanged();
     Q_EMIT saturationChanged();
     Q_EMIT brightnessChanged();
     Q_EMIT contrastChanged();
+    Q_EMIT gammaChanged();
+    Q_EMIT thresholdChanged();
+    Q_EMIT sharpnessChanged();
 }
 
 bool ImageDocument::changesApplied() const
