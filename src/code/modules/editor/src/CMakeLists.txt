@@ -14,7 +14,14 @@ ecm_target_qml_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION} SOURCES
 ecm_target_qml_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION} PATH private SOURCES
     controls/private/ColourBar.qml
     controls/private/Ruler.qml
-    controls/private/TransformationBar.qml)
+    controls/private/TransformationBar.qml
+
+    controls/BasicResizeHandle.qml
+    controls/SelectionTool.qml
+    controls/SelectionHandle.qml
+    controls/SelectionBackground.qml
+    controls/CropBackground.qml
+    controls/RectangleCutout.qml)
 
 target_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION}
     PRIVATE

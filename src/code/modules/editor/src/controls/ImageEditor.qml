@@ -28,16 +28,18 @@ Maui.Page
     signal savedAs(string url)
     signal canceled()
 
+
     headBar.visible: control.ready
     headBar.background: null
     headBar.leftContent: Button
     {
-        text: "Save"
-        enabled: imageDoc.edited
+        icon.name: "go-previous"
+        Maui.Controls.status : Maui.Controls.Negative
+        text: i18n("Cancel")
         onClicked:
         {
-            imageDoc.save()
-            control.saved()
+            imageDoc.cancel()
+            control.canceled()
         }
     }
 
@@ -49,19 +51,19 @@ Maui.Page
             enabled: imageDoc.edited
             onClicked:
             {
-                 imageDoc.saveAs()
+                imageDoc.saveAs()
                 control.savedAs()
             }
         },
 
         Button
         {
-            Maui.Controls.status : Maui.Controls.Negative
-            text: i18n("Cancel")
+            text: "Save"
+            enabled: imageDoc.edited
             onClicked:
             {
-                imageDoc.cancel()
-                control.canceled()
+                imageDoc.save()
+                control.saved()
             }
         }
     ]
@@ -75,10 +77,8 @@ Maui.Page
         fillMode: Image.PreserveAspectFit
         image: imageDoc.image
         anchors.fill: parent
-        // anchors.margins: Maui.Style.space.medium
-        // anchors.bottomMargin: _editTools.height + Maui.Style.space.big*2
 
-        // rotation: _transBar.rotationSlider.value
+        rotation: _transBar.rotationSlider.value
 
         ITE.ImageDocument
         {
@@ -112,40 +112,66 @@ Maui.Page
         //     }
         // }
 
-        onImageChanged:
+        ITE.SelectionTool
         {
-            // selectionTool.selectionX = 0
-            // selectionTool.selectionY = 0
-            // selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
-            // selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+            id: selectionTool
+            width: editImage.paintedWidth
+            height: editImage.paintedHeight
+            x: editImage.horizontalPadding
+            y: editImage.verticalPadding
+            ITE.CropBackground
+            {
+                anchors.fill: parent
+                z: -1
+                insideX: selectionTool.selectionX
+                insideY: selectionTool.selectionY
+                insideWidth: selectionTool.selectionWidth
+                insideHeight: selectionTool.selectionHeight
+            }
+            Connections {
+                target: selectionTool.selectionArea
+                function onDoubleClicked() {
+                    control.crop()
+                }
+            }
         }
 
-
-        Canvas
+        onImageChanged:
         {
-            visible: _transBar.rotationButton.checked
-            opacity: 0.15
-            anchors.fill : parent
-            property int wgrid: control.width / 20
-            onPaint: {
-                var ctx = getContext("2d")
-                ctx.lineWidth = 0.5
-                ctx.strokeStyle = Maui.Theme.textColor
-                ctx.beginPath()
-                var nrows = height/wgrid;
-                for(var i=0; i < nrows+1; i++){
-                    ctx.moveTo(0, wgrid*i);
-                    ctx.lineTo(width, wgrid*i);
-                }
+            selectionTool.selectionX = 0
+            selectionTool.selectionY = 0
+            selectionTool.selectionWidth = Qt.binding(() => selectionTool.width)
+            selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
+        }
+    }
 
-                var ncols = width/wgrid
-                for(var j=0; j < ncols+1; j++){
-                    ctx.moveTo(wgrid*j, 0);
-                    ctx.lineTo(wgrid*j, height);
-                }
-                ctx.closePath()
-                ctx.stroke()
+
+
+
+    Canvas
+    {
+        visible: _transBar.rotationButton.checked
+        opacity: 0.15
+        anchors.fill : parent
+        property int wgrid: control.width / 20
+        onPaint: {
+            var ctx = getContext("2d")
+            ctx.lineWidth = 0.5
+            ctx.strokeStyle = Maui.Theme.textColor
+            ctx.beginPath()
+            var nrows = height/wgrid;
+            for(var i=0; i < nrows+1; i++){
+                ctx.moveTo(0, wgrid*i);
+                ctx.lineTo(width, wgrid*i);
             }
+
+            var ncols = width/wgrid
+            for(var j=0; j < ncols+1; j++){
+                ctx.moveTo(wgrid*j, 0);
+                ctx.lineTo(wgrid*j, height);
+            }
+            ctx.closePath()
+            ctx.stroke()
         }
     }
 
@@ -311,8 +337,16 @@ Maui.Page
         }
     ]
 
+    function selectionToolRect()
+    {
+        return Qt.rect(selectionTool.selectionX / editImage.ratioX,
+                       selectionTool.selectionY / editImage.ratioY,
+                       selectionTool.selectionWidth / editImage.ratioX,
+                       selectionTool.selectionHeight / editImage.ratioY);
+    }
 
-    function crop() {
+    function crop()
+    {
         console.log("CROP")
         imageDoc.crop(selectionTool.selectionX / editImage.ratioX,
                       selectionTool.selectionY / editImage.ratioY,

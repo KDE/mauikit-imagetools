@@ -13,10 +13,11 @@ RotateCommand::RotateCommand(const QTransform &tranform)
 
 QImage RotateCommand::undo(QImage image)
 {
-    return image.transformed(m_tranform.rotate(180));
+    return m_image;
 }
 
 QImage RotateCommand::redo(QImage image)
 {
+    m_image = image;
     return image.transformed(m_tranform);
 }

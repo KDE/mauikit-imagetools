@@ -146,7 +146,7 @@ void ImageDocument::adjustBrightness(int value)
                                                            this->m_brightness = oldBrightness;
                                                            Q_EMIT brightnessChanged();
                                                        });
-    // command->setArea({0,0, 200, 200});
+    command->setArea(m_area);
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
     Q_EMIT brightnessChanged();

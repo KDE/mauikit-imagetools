@@ -29,4 +29,5 @@ public:
 
 private:
     QTransform m_tranform;
+    QImage m_image;
 };

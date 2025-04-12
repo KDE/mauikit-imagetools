@@ -78,6 +78,7 @@ ColumnLayout
         middleContent: Ruler
         {
             id: _freeRotationSlider
+            live: true
             Layout.fillWidth: true
             from : -180
             to: 180
@@ -126,17 +127,17 @@ ColumnLayout
             {
                 if(_freeRotationButton.checked)
                 {
-                    var value = _freeRotationSlider.value
+                    const value = _freeRotationSlider.value
                     _freeRotationSlider.value = 0
 
                     console.log("Rotate >> " , value)
                     imageDoc.rotate(value);
                 }
 
-                if(_cropButton.checked)
-                {
-                    crop()
-                }
+                // if(_cropButton.checked)
+                // {
+                //     crop()
+                // }
             }
         }
 
