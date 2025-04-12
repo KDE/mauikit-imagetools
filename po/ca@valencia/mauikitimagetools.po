@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-10 00:40+0000\n"
+"POT-Creation-Date: 2025-04-12 00:40+0000\n"
 "PO-Revision-Date: 2025-04-10 10:34+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -19,75 +19,83 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 22.12.3\n"
 
-#: src/code/moduleinfo.cpp:20
+#: src/code/moduleinfo.cpp:21
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Components d'eines d'imatge per a editar, veure i navegar."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:49
+#: src/code/modules/editor/src/controls/ImageEditor.qml:60
 #, kde-format
 msgid "Cancel"
 msgstr "Cancel·la"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:142
+#: src/code/modules/editor/src/controls/ImageEditor.qml:156
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:151
+#: src/code/modules/editor/src/controls/ImageEditor.qml:165
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transforma"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:160
+#: src/code/modules/editor/src/controls/ImageEditor.qml:174
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Capa"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:78
-#, kde-format
-msgctxt "@action:button Rotate an image"
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:75
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image"
+#| msgid "Brightness"
+msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Brillantor"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:108
-#, kde-format
-msgctxt "@action:button Crop an image"
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:104
+#, fuzzy, kde-format
+#| msgctxt "@action:button Crop an image"
+#| msgid "Saturation"
+msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Saturació"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:138
-#, kde-format
-msgctxt "@action:button Rotate an image"
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:133
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image"
+#| msgid "Contrast"
+msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Contrast"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:165
-#, kde-format
-msgctxt "@action:button Rotate an image"
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:159
+#, fuzzy, kde-format
+#| msgctxt "@action:button Rotate an image"
+#| msgid "Hue"
+msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr "To"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:192
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:185
 #, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Exposure"
-msgstr "Exposició"
+msgctxt "@action:button Change image sharpness"
+msgid "Sharpness"
+msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:206
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:211
 #, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Highlights"
-msgstr "Llums intenses"
+msgctxt "@action:button Change image gamma"
+msgid "Gamma"
+msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:220
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:237
 #, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Shadows"
-msgstr "Ombres"
+msgctxt "@action:button Change image threshold"
+msgid "Threshold"
+msgstr ""
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format
@@ -244,3 +252,15 @@ msgstr "Establix la informació del GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Elimina la informació del GPS"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Exposure"
+#~ msgstr "Exposició"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Highlights"
+#~ msgstr "Llums intenses"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Shadows"
+#~ msgstr "Ombres"
