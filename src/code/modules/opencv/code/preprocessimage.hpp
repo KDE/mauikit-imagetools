@@ -45,12 +45,13 @@ public:
     static std::vector<cv::Point2f> getPoints(cv::Mat &src);
     static void preProcess(cv::Mat &src, cv::Mat &dst);
     static void toGray(cv::Mat &image, uint8_t blurValue = 3);
+    static cv::Mat grayscale(cv::Mat matrix);
 
     static void adaptThreshold(cv::Mat &image,
                                bool isMorphOp = false,
                                uint8_t morphKernel = 3,
                                uint8_t blurValue = 3);
-    static cv::Mat adjustBrightness(cv::Mat &in, int value, cv::Rect rect);
+    static cv::Mat adjustBrightness(cv::Mat &in, int value, cv::Rect rect = cv::Rect());
     static cv::Mat adjustContrast(cv::Mat &in, int beta);
     static cv::Mat manualThreshold(cv::Mat &image, int threshValue = 128, uint8_t blurValue = 3);
     static cv::Mat adjustSaturation(cv::Mat &in, int value);
@@ -58,8 +59,6 @@ public:
     static cv::Mat dilate(cv::Mat &in);
     static cv::Mat canny(cv::Mat &in);
     static cv::Mat warp(cv::Mat &in);
-    static cv::Mat medianBlur(cv::Mat &in);
-    static cv::Mat gaussianBlur(cv::Mat &in);
     static cv::Mat hue(cv::Mat matrix, int h_shift);
 
     static cv::Mat sharpness(cv::Mat matrix, double beta);

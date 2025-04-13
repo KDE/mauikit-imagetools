@@ -53,7 +53,7 @@ class ImageDocument : public QObject
     Q_PROPERTY(int gamma READ gamma NOTIFY gammaChanged FINAL)
     Q_PROPERTY(int sharpness READ sharpness NOTIFY sharpnessChanged FINAL)
     Q_PROPERTY(int threshold READ threshold NOTIFY thresholdChanged FINAL)
-
+    Q_PROPERTY(int gaussianBlur READ gaussianBlur NOTIFY gaussianBlurChanged FINAL)
     Q_PROPERTY(QRectF area READ area WRITE setArea NOTIFY areaChanged RESET resetArea)
 
 public:
@@ -145,6 +145,10 @@ public:
     Q_INVOKABLE void adjustGamma(int value); //between -100 and 100
     Q_INVOKABLE void adjustSharpness(int value); //between 0 and 100
     Q_INVOKABLE void adjustThreshold(int value); //between 0 and 180
+    Q_INVOKABLE void adjustGaussianBlur(int value);
+    Q_INVOKABLE void toGray();
+    Q_INVOKABLE void toSketch();
+    Q_INVOKABLE void addVignette();
 
     Q_INVOKABLE void applyChanges();
 
@@ -155,6 +159,7 @@ public:
     int gamma() const;
     int sharpness() const;
     int threshold() const;
+    int gaussianBlur() const;
 
     QRectF area() const;
     void setArea(const QRectF &newArea);
@@ -175,6 +180,7 @@ Q_SIGNALS:
     void gammaChanged();
     void thresholdChanged();
     void changesAppliedChanged();
+    void gaussianBlurChanged();
 
 private:
     QUrl m_path;
@@ -189,6 +195,7 @@ private:
     int m_gamma = 0;
     int m_sharpness = 0;
     int m_threshold = 0;
+    int m_gaussianBlur = 0;
     QRectF m_area;
 
     void resetValues();

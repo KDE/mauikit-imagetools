@@ -65,6 +65,24 @@ ColumnLayout
             Layout.alignment: Qt.AlignHCenter
             spacing: Maui.Style.defaultSpacing
 
+            Button
+            {
+                text: "b&w"
+                onClicked: editor.toGray();
+            }
+
+            Button
+            {
+                text: "sketch"
+                onClicked: editor.toSketch();
+            }
+
+            Button
+            {
+                text: "vignette"
+                onClicked: editor.addVignette();
+            }
+
             Operation
             {
                 id: _brightnessButton
@@ -142,12 +160,40 @@ ColumnLayout
                     restoreMode: Binding.RestoreBindingOrValue
                 }
 
-                from: -255
-                to: 255
+                from: -100
+                to: 100
+                stepSize: 1
                 onValueChanged:
                 {
                     console.log("Adjust contrast", value)
                     editor.adjustContrast(value)
+                }
+            }
+
+            Operation
+            {
+                autoExclusive: true
+                icon.name: "transform-rotate"
+                checkable: true
+                text: i18nc("@action:button Change image blur", "Blur");
+                onClicked:
+                {
+                    currentOperation = this
+                    editor.applyChanges()
+                }
+                Binding on value
+                {
+                    value: editor.gaussianBlur
+                    restoreMode: Binding.RestoreBindingOrValue
+                }
+
+                from: 0
+                to: 100
+                stepSize: 1
+                onValueChanged:
+                {
+                    console.log("Adjust blur", value)
+                    editor.adjustGaussianBlur(value)
                 }
             }
 

@@ -7,6 +7,11 @@ ecm_add_qml_module(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION}
     DEPENDENCIES
     "org.mauikit.controls")
 
+target_sources(MauiKitImageToolsEditor4
+  PRIVATE
+    commands/transformcommand.h commands/transformcommand.cpp
+)
+
 ecm_target_qml_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION} SOURCES
     controls/ImageEditor.qml)
 
@@ -32,7 +37,7 @@ target_sources(MauiKitImageToolsEditor${MAUI_MAJOR_VERSION}
     imagedocument.h
 
     commands/command.cpp
-    commands/colorcommands.cpp
+    commands/transformcommand.cpp
     commands/cropcommand.cpp
     commands/mirrorcommand.cpp
     commands/resizecommand.cpp

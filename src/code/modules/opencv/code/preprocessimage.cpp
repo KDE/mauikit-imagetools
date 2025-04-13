@@ -79,10 +79,16 @@ void PreprocessImage::adaptThreshold(cv::Mat &image,
 void PreprocessImage::toGray(cv::Mat &image, uint8_t blurValue)
 {
     if (!image.empty()) {
-        cvtColor(image, image, cv::COLOR_BGRA2GRAY);
+        cvtColor(image, image, cv::COLOR_BGR2GRAY);
         GaussianBlur(image, image, cv::Size(blurValue, blurValue), 0);
-        cvtColor(image, image, cv::COLOR_GRAY2BGRA);
+        cvtColor(image, image, cv::COLOR_GRAY2BGR);
     }
+}
+
+cv::Mat PreprocessImage::grayscale(cv::Mat matrix)
+{
+    cvtColor(matrix, matrix, cv::COLOR_BGR2GRAY);
+    return matrix;
 }
 
 bool PreprocessImage::compareContourAreas(std::vector<cv::Point> &contour1,
@@ -334,18 +340,15 @@ cv::Mat PreprocessImage::adjustContrast(cv::Mat &in, int beta)
         double factor = 1.0;
         if(beta < 0)
         {
-            factor = 1-double(abs(beta)/255.0);
+            factor = 1-double(abs(beta)/100.0);
             qDebug() << "COnstarsr factor" << factor << abs(beta);
 
         }else if(beta > 0)
         {
-            factor = 6.0*(beta/100)+10;
+            factor = 4.0*(beta/100.0)+1;
         }
-        qDebug() << "COnstarsr factor" << factor << abs(beta) << abs(beta)/255;
+
         in.convertTo(out, -1, factor, 1);
-
-        // out.convertTo(out, CV_8U); // converts matrix back to original format
-
         return out;
     } else
         return in;

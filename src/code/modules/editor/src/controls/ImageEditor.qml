@@ -86,32 +86,6 @@ Maui.Page
             path: control.url
         }
 
-        // KQuickImageEditor.SelectionTool
-        // {
-        //     id: selectionTool
-        //     visible: _transBar.cropButton.checked
-        //     width: editImage.paintedWidth
-        //     height: editImage.paintedHeight
-        //     x: editImage.horizontalPadding
-        //     y: editImage.verticalPadding
-
-        //     KQuickImageEditor.CropBackground
-        //     {
-        //         anchors.fill: parent
-        //         z: -1
-        //         insideX: selectionTool.selectionX
-        //         insideY: selectionTool.selectionY
-        //         insideWidth: selectionTool.selectionWidth
-        //         insideHeight: selectionTool.selectionHeight
-        //     }
-        //     Connections {
-        //         target: selectionTool.selectionArea
-        //         function onDoubleClicked() {
-        //             control.crop()
-        //         }
-        //     }
-        // }
-
         ITE.SelectionTool
         {
             id: selectionTool
@@ -144,9 +118,6 @@ Maui.Page
             selectionTool.selectionHeight = Qt.binding(() => selectionTool.height)
         }
     }
-
-
-
 
     Canvas
     {

@@ -10,7 +10,8 @@
 #include "commands/mirrorcommand.h"
 #include "commands/resizecommand.h"
 #include "commands/rotatecommand.h"
-#include "commands/colorcommands.h"
+#include "commands/transformcommand.h"
+
 #include <QDebug>
 
 ImageDocument::ImageDocument(QObject *parent)
@@ -110,9 +111,6 @@ void ImageDocument::rotate(int angle)
 
 void ImageDocument::setEdited(bool value)
 {
-
-
-
     m_changesApplied = !value;
     Q_EMIT changesAppliedChanged();
 
@@ -139,14 +137,22 @@ void ImageDocument::adjustBrightness(int value)
     if(value == m_brightness)
         return;
 
-    auto oldBrightness = m_brightness;
+    auto oldValue = m_brightness;
     m_brightness = value;
-    const auto command = new ColorCommands::Brightness(m_image, m_brightness, [this, oldBrightness]()
-                                                       {
-                                                           this->m_brightness = oldBrightness;
-                                                           Q_EMIT brightnessChanged();
-                                                       });
-    command->setArea(m_area);
+
+    auto transformation = [val = m_brightness](QImage &ref) -> QImage
+    {
+        return Trans::adjustBrightness(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_brightness = oldValue;
+        Q_EMIT brightnessChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
+
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
     Q_EMIT brightnessChanged();
@@ -159,13 +165,21 @@ void ImageDocument::adjustContrast(int value)
     if(value == m_contrast)
         return;
 
-    auto oldContrast = m_contrast;
+    auto oldValue = m_contrast;
     m_contrast = value;
-    const auto command = new ColorCommands::Contrast(m_image, m_contrast, [this, oldContrast]()
-                                                     {
-                                                         this->m_contrast = oldContrast;
-                                                         Q_EMIT contrastChanged();
-                                                     });
+
+    auto transformation = [val = m_contrast](QImage &ref) -> QImage
+    {
+        return Trans::adjustContrast(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_contrast = oldValue;
+        Q_EMIT contrastChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
@@ -182,13 +196,21 @@ void ImageDocument::adjustSaturation(int value)
     if(value == m_saturation)
         return;
 
-    auto oldSaturation = m_saturation;
+    auto oldValue = m_saturation;
     m_saturation = value;
-    const auto command = new ColorCommands::Saturation(m_image, m_saturation, [this, oldSaturation]()
-                                                       {
-                                                           this->m_saturation = oldSaturation;
-                                                           Q_EMIT saturationChanged();
-                                                       });
+
+    auto transformation = [val = m_saturation](QImage &ref) -> QImage
+    {
+        return Trans::adjustSaturation(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_saturation = oldValue;
+        Q_EMIT saturationChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
@@ -200,19 +222,27 @@ void ImageDocument::adjustSaturation(int value)
 void ImageDocument::adjustHue(int value)
 {
     qDebug() << "adjust HUE DOCUMENT" << value;
-    if(m_image.isGrayscale())
+    if(value == m_hue)
         return;
 
-    if(value == m_hue)
+    if(m_image.isGrayscale())
         return;
 
     auto oldValue = m_hue;
     m_hue = value;
-    const auto command = new ColorCommands::Hue(m_image, m_hue, [this, oldValue]()
-                                                {
-                                                    this->m_hue = oldValue;
-                                                    Q_EMIT hueChanged();
-                                                });
+
+    auto transformation = [val = m_hue](QImage &ref) -> QImage
+    {
+        return Trans::adjustHue(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_hue = oldValue;
+        Q_EMIT hueChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
@@ -232,11 +262,19 @@ void ImageDocument::adjustGamma(int value)
 
     auto oldValue = m_gamma;
     m_gamma = value;
-    const auto command = new ColorCommands::Gamma(m_image, m_gamma, [this, oldValue]()
-                                                  {
-                                                      this->m_gamma = oldValue;
-                                                      Q_EMIT gammaChanged();
-                                                  });
+
+    auto transformation = [val = m_gamma](QImage &ref) -> QImage
+    {
+        return Trans::adjustGamma(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_gamma = oldValue;
+        Q_EMIT gammaChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
@@ -256,11 +294,19 @@ void ImageDocument::adjustSharpness(int value)
 
     auto oldValue = m_sharpness;
     m_sharpness = value;
-    const auto command = new ColorCommands::Sharpness(m_image, m_sharpness, [this, oldValue]()
-                                                {
-                                                    this->m_sharpness = oldValue;
-                                                    Q_EMIT sharpnessChanged();
-                                                });
+
+    auto transformation = [val = m_sharpness](QImage &ref) -> QImage
+    {
+        return Trans::adjustSharpness(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_sharpness = oldValue;
+        Q_EMIT sharpnessChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
@@ -280,17 +326,82 @@ void ImageDocument::adjustThreshold(int value)
 
     auto oldValue = m_threshold;
     m_threshold = value;
-    const auto command = new ColorCommands::Threshold(m_image, m_threshold, [this, oldValue]()
-                                                {
-                                                    this->m_threshold = oldValue;
-                                                    Q_EMIT thresholdChanged();
-                                                });
+
+    auto transformation = [val = m_threshold](QImage &ref) -> QImage
+    {
+        return Trans::adjustThreshold(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_threshold = oldValue;
+        Q_EMIT thresholdChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
 
     m_image = command->redo(m_originalImage);
     m_undos.append(command);
     setEdited(true);
     Q_EMIT imageChanged();
     Q_EMIT thresholdChanged();
+}
+
+void ImageDocument::adjustGaussianBlur(int value)
+{
+    if(value == m_gaussianBlur)
+        return;
+
+    auto oldValue = m_gaussianBlur;
+    m_gaussianBlur = value;
+    auto transformation = [val = m_gaussianBlur](QImage &ref) -> QImage
+    {
+        qDebug() << "SXetting gaussian blur" << val;
+        return Trans::adjustGaussianBlur(ref, val);
+    };
+
+    auto undoCallback = [this, oldValue]()
+    {
+        this->m_gaussianBlur = oldValue;
+        Q_EMIT gaussianBlurChanged();
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, undoCallback);
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+    Q_EMIT gaussianBlurChanged();
+}
+
+void ImageDocument::toGray()
+{
+    const auto command = new TransformCommand(m_image, &Trans::toGray, nullptr);
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+}
+
+void ImageDocument::toSketch()
+{
+    const auto command = new TransformCommand(m_image, &Trans::sketch, nullptr);
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+}
+
+void ImageDocument::addVignette()
+{
+    const auto command = new TransformCommand(m_image, &Trans::vignette, nullptr);
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
 }
 
 void ImageDocument::applyChanges()
@@ -335,6 +446,11 @@ int ImageDocument::sharpness() const
 int ImageDocument::threshold() const
 {
     return m_threshold;
+}
+
+int ImageDocument::gaussianBlur() const
+{
+    return m_gaussianBlur;
 }
 
 QUrl ImageDocument::path() const
