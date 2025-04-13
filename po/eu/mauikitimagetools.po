@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-12 00:40+0000\n"
+"POT-Creation-Date: 2025-04-13 00:40+0000\n"
 "PO-Revision-Date: 2023-12-04 07:12+0100\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -25,24 +25,24 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Irudi tresna osagaiak, editatzeko, ikusteko eta nabigatzeko."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:60
+#: src/code/modules/editor/src/controls/ImageEditor.qml:38
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:156
+#: src/code/modules/editor/src/controls/ImageEditor.qml:182
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Kolorea"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:165
+#: src/code/modules/editor/src/controls/ImageEditor.qml:191
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Eraldatu"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:174
+#: src/code/modules/editor/src/controls/ImageEditor.qml:200
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
@@ -114,13 +114,13 @@ msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "Biratu 90º"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:107
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:108
 #, kde-format
 msgctxt "@action:button Crop an image"
 msgid "Crop"
 msgstr "Moztu"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:115
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:116
 #, kde-format
 msgctxt "@action:button Rotate an image"
 msgid "Rotate"
