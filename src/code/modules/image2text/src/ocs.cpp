@@ -16,37 +16,14 @@
 #include <preprocessimage.hpp>
 #include <convertimage.hpp>
 
-//static cv::Mat qimageToMatRef(QImage &img, int format)
-//    {
-//        return cv::Mat(img.height(),
-//                       img.width(),
-//                       format,
-//                       img.bits(),
-//                       static_cast<size_t>(img.bytesPerLine()));
-//    }
-//    static cv::Mat qimageToMat(QImage img, int format)
-//    {
-//        return cv::Mat(img.height(),
-//                       img.width(),
-//                       format,
-//                       img.bits(),
-//                       static_cast<size_t>(img.bytesPerLine()));
-//    }
-//    static QImage matToQimageRef(cv::Mat &mat, QImage::Format format)
-//    {
-//        return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format);
-//    }
-//    static QImage matToQimage(cv::Mat mat, QImage::Format format)
-//    {
-//        return QImage(mat.data, mat.cols, mat.rows, static_cast<int>(mat.step), format);
-//    }
+static QMap<QString, QMap<OCS::BoxType, TextBoxes>> OCRCache;
 
 OCS::OCS(QObject *parent) : QObject(parent)
     ,m_tesseract(new tesseract::TessBaseAPI())
     ,m_languages(new OCRLanguageModel(this))
     ,m_boxesTypes(BoxType::Word | BoxType::Line | BoxType::Paragraph)
     ,m_confidenceThreshold(50)
-    // ,m_whiteList("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz")
+// ,m_whiteList("ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz")
 {
     std::vector<std::string> availableLanguages;
 #if TESSERACT_MAJOR_VERSION < 5
@@ -242,8 +219,6 @@ void OCS::getTextAsync()
 
             auto m_ocrImg = ConvertImage::matToQimageRef(m_imgMat, QImage::Format_RGBA8888); //remember to delete
 
-            m_ocrImg.save("/home/camilo/"+QFileInfo(url.toLocalFile()).fileName());
-
             api->SetImage(m_ocrImg.bits(), m_ocrImg.width(), m_ocrImg.height(), 4, m_ocrImg.bytesPerLine());
         }else
         {
@@ -253,8 +228,7 @@ void OCS::getTextAsync()
             ocs->m_ocrImg = new QImage(url.toLocalFile());
             api->SetImage(ocs->m_ocrImg->bits(), ocs->m_ocrImg->width(), ocs->m_ocrImg->height(), 4,
                           ocs->m_ocrImg->bytesPerLine());
-        }
-
+        }        
 
         api->SetSourceResolution(200);
 
@@ -301,26 +275,46 @@ void OCS::getTextAsync()
 
         delete api;
         return Res{{Word, wordBoxes}, {Line, lineBoxes}, {Paragraph, paragraphBoxes}};
-    };
-    
-    auto watcher = new QFutureWatcher<Res>;
-    connect(watcher, &QFutureWatcher<Res>::finished, [this, watcher]()
-            {
-              // Q_EMIT textReady(watcher.future().result());
-                m_wordBoxes = watcher->result()[Word];
-                m_lineBoxes = watcher->result()[Line];
-                m_paragraphBoxes = watcher->result()[Paragraph];
-                Q_EMIT wordBoxesChanged();
-                Q_EMIT lineBoxesChanged();
-                Q_EMIT paragraphBoxesChanged();
-                m_ready = true;
-                Q_EMIT readyChanged();
-                watcher->deleteLater();
-            });
+    };    
     
     qDebug() << "GEtting text for boxes " << m_boxesTypes << m_boxesTypes.testFlag(Word);
-    QFuture<Res> future = QtConcurrent::run(func, QUrl::fromUserInput(m_filePath), m_boxesTypes);
-    watcher->setFuture(future);
+
+    if(OCRCache.contains(m_filePath))
+    {
+        qDebug() << "OCR retrieved from cached";
+        auto res =  OCRCache[m_filePath];
+        m_wordBoxes = res[Word];
+        m_lineBoxes = res[Line];
+        m_paragraphBoxes = res[Paragraph];
+        Q_EMIT wordBoxesChanged();
+        Q_EMIT lineBoxesChanged();
+        Q_EMIT paragraphBoxesChanged();
+        m_ready = true;
+        Q_EMIT readyChanged();
+    }else
+    {
+        auto watcher = new QFutureWatcher<Res>;
+        connect(watcher, &QFutureWatcher<Res>::finished, [this, watcher]()
+                {
+                  // Q_EMIT textReady(watcher.future().result());
+                    auto res = watcher->result();
+                    m_wordBoxes = res[Word];
+                    m_lineBoxes = res[Line];
+                    m_paragraphBoxes = res[Paragraph];
+                    Q_EMIT wordBoxesChanged();
+                    Q_EMIT lineBoxesChanged();
+                    Q_EMIT paragraphBoxesChanged();
+                    m_ready = true;
+                    Q_EMIT readyChanged();
+
+                    OCRCache.insert(m_filePath, res);
+
+                    watcher->deleteLater();
+                });
+
+        QFuture<Res> future = QtConcurrent::run(func, QUrl::fromUserInput(m_filePath), m_boxesTypes);
+        watcher->setFuture(future);
+    }
 }
 
 QString OCS::getText()

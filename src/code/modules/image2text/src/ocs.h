@@ -17,10 +17,11 @@ namespace cv
 class Mat;
 }
 
+typedef QVector<QVariantMap> TextBoxes;
+
 class OCRLanguageModel;
 class QImage;
 
-typedef QVector<QVariantMap> TextBoxes;
 class IMAGE2TEXT_EXPORT OCS : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
