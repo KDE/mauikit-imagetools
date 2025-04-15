@@ -65,23 +65,7 @@ ColumnLayout
             Layout.alignment: Qt.AlignHCenter
             spacing: Maui.Style.defaultSpacing
 
-            Button
-            {
-                text: "b&w"
-                onClicked: editor.toGray();
-            }
 
-            Button
-            {
-                text: "sketch"
-                onClicked: editor.toSketch();
-            }
-
-            Button
-            {
-                text: "vignette"
-                onClicked: editor.addVignette();
-            }
 
             Operation
             {

@@ -11,18 +11,18 @@ ColumnLayout
     spacing: 0
 
     property alias rotationSlider: _freeRotationSlider
-    property alias rotationButton : _freeRotationButton
-    property alias cropButton : _cropButton
+    // property alias rotationButton : _freeRotationButton
+    // property alias cropButton : _cropButton
 
     Maui.ToolBar
     {
         position: ToolBar.Footer
         Layout.fillWidth: true
-        visible: _freeRotationButton.checked
         background: Rectangle
         {
             color: Maui.Theme.backgroundColor
         }
+
         leftContent: [
             ToolButton
             {
@@ -65,7 +65,7 @@ ColumnLayout
     {
         id: _freeRotation
 
-        visible: _freeRotationButton.checked
+        // visible: _freeRotationButton.checked
         position: ToolBar.Footer
         background: Rectangle
         {
@@ -85,54 +85,22 @@ ColumnLayout
             value: 0
             snapMode: Slider.SnapAlways
             stepSize: 1
-        }
-    }
-
-    Maui.ToolBar
-    {
-        position: ToolBar.Footer
-        Layout.fillWidth: true
-        background: Rectangle
-        {
-            color: Maui.Theme.backgroundColor
-        }
-        middleContent: Maui.ToolActions
-        {
-            autoExclusive: true
-            Layout.alignment: Qt.AlignHCenter
-            Action
-            {
-                id: _cropButton
-                checkable: true
-                icon.name:  "transform-crop"
-                text:  i18nc("@action:button Crop an image", "Crop");
-            }
-
-            Action
-            {
-                id: _freeRotationButton
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Rotate an image", "Rotate");
-            }
+            clip: true
         }
 
         leftContent: ToolButton
         {
             //                    text: i18nd("mauikitimagetools","Accept")
-            visible: _freeRotationButton.checked || _cropButton.checked
 
             icon.name: "checkmark"
             onClicked:
             {
-                if(_freeRotationButton.checked)
-                {
-                    const value = _freeRotationSlider.value
-                    _freeRotationSlider.value = 0
+                const value = _freeRotationSlider.value
+                _freeRotationSlider.value = 0
 
-                    console.log("Rotate >> " , value)
-                    imageDoc.rotate(value);
-                }
+                console.log("Rotate >> " , value)
+                imageDoc.rotate(value);
+
 
                 // if(_cropButton.checked)
                 // {
@@ -144,7 +112,6 @@ ColumnLayout
         rightContent:  ToolButton
         {
             //                    text: i18nd("mauikitimagetools","Cancel")
-            visible: _freeRotationButton.checked || _cropButton.checked
             icon.name: "dialog-cancel"
             onClicked:
             {
@@ -162,5 +129,80 @@ ColumnLayout
             }
         }
     }
+
+    // Maui.ToolBar
+    // {
+    //     position: ToolBar.Footer
+    //     Layout.fillWidth: true
+    //     background: Rectangle
+    //     {
+    //         color: Maui.Theme.backgroundColor
+    //     }
+    //     middleContent: Maui.ToolActions
+    //     {
+    //         autoExclusive: true
+    //         Layout.alignment: Qt.AlignHCenter
+    //         Action
+    //         {
+    //             id: _cropButton
+    //             checkable: true
+    //             icon.name:  "transform-crop"
+    //             text:  i18nc("@action:button Crop an image", "Crop");
+    //         }
+
+    //         Action
+    //         {
+    //             id: _freeRotationButton
+    //             icon.name: "transform-rotate"
+    //             checkable: true
+    //             text: i18nc("@action:button Rotate an image", "Rotate");
+    //         }
+    //     }
+
+    //     leftContent: ToolButton
+    //     {
+    //         //                    text: i18nd("mauikitimagetools","Accept")
+    //         visible: _freeRotationButton.checked || _cropButton.checked
+
+    //         icon.name: "checkmark"
+    //         onClicked:
+    //         {
+    //             if(_freeRotationButton.checked)
+    //             {
+    //                 const value = _freeRotationSlider.value
+    //                 _freeRotationSlider.value = 0
+
+    //                 console.log("Rotate >> " , value)
+    //                 imageDoc.rotate(value);
+    //             }
+
+    //             // if(_cropButton.checked)
+    //             // {
+    //             //     crop()
+    //             // }
+    //         }
+    //     }
+
+    //     rightContent:  ToolButton
+    //     {
+    //         //                    text: i18nd("mauikitimagetools","Cancel")
+    //         visible: _freeRotationButton.checked || _cropButton.checked
+    //         icon.name: "dialog-cancel"
+    //         onClicked:
+    //         {
+    //             if(_freeRotationButton.checked)
+    //             {
+    //                 _freeRotationSlider.value = 0
+    //                 _freeRotationButton.checked = false
+
+    //             }
+
+    //             if(_cropButton.checked)
+    //             {
+    //                 _cropButton.checked = false
+    //             }
+    //         }
+    //     }
+    // }
 }
 

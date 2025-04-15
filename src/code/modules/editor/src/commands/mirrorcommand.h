@@ -26,4 +26,5 @@ public:
 private:
     bool m_horizontal;
     bool m_vertical;
+    QImage m_image;
 };

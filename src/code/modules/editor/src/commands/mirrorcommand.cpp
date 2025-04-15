@@ -14,10 +14,11 @@ MirrorCommand::MirrorCommand(bool horizontal, bool vertical)
 
 QImage MirrorCommand::undo(QImage image)
 {
-    return image.mirrored(m_horizontal, m_vertical);
+    return m_image;
 }
 
 QImage MirrorCommand::redo(QImage image)
 {
+    m_image= image;
     return image.mirrored(m_horizontal, m_vertical);
 }

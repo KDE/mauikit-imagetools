@@ -28,18 +28,34 @@ Maui.Page
     signal savedAs(string url)
     signal canceled()
 
+    Maui.InfoDialog
+    {
+        id: _cancelDialog
+        message: i18n("Are you sure you wanna cancel all the edits?")
+        standardButtons: Dialog.Yes | Dialog.Cancel
+
+        onAccepted:
+        {
+            imageDoc.cancel()
+            control.canceled()
+        }
+
+        onRejected: close()
+    }
 
     headBar.visible: control.ready
     headBar.background: null
     headBar.leftContent: Button
     {
         icon.name: "go-previous"
-        Maui.Controls.status : Maui.Controls.Negative
+        Maui.Controls.status : imageDoc.edited ? Maui.Controls.Negative : Maui.Controls.Normal
         text: i18n("Cancel")
         onClicked:
         {
-            imageDoc.cancel()
-            control.canceled()
+            if(imageDoc.edited)
+                _cancelDialog.open()
+            else
+                control.canceled()
         }
     }
 
@@ -60,6 +76,8 @@ Maui.Page
         {
             text: "Save"
             enabled: imageDoc.edited
+            Maui.Controls.status : imageDoc.edited ? Maui.Controls.Positive : Maui.Controls.Normal
+
             onClicked:
             {
                 imageDoc.save()
@@ -121,7 +139,7 @@ Maui.Page
 
     Canvas
     {
-        visible: _transBar.rotationButton.checked
+        visible: _transfromAction.checked
         opacity: 0.15
         anchors.fill : parent
         property int wgrid: control.width / 20
@@ -169,6 +187,15 @@ Maui.Page
         id: _layerAction
         icon.name: "layer-new"
         text: i18nd("mauikitimagetools","Layer")
+        checked: _actionsBarLoader.currentIndex === 3
+        onTriggered: _actionsBarLoader.currentIndex = 3
+    }
+
+    Action
+    {
+        id: _filterAction
+        icon.name: "image-auto-adjust"
+        text: i18nd("mauikitimagetools","Filters")
         checked: _actionsBarLoader.currentIndex === 2
         onTriggered: _actionsBarLoader.currentIndex = 2
     }
@@ -176,7 +203,7 @@ Maui.Page
     Loader
     {
         id: _actionsBarLoader
-        property int currentIndex : -1
+        property int currentIndex : 1
         // active: settings.showActionsBar
         visible: status == Loader.Ready
         asynchronous: true
@@ -240,8 +267,7 @@ Maui.Page
 
                 Repeater
                 {
-
-                    model: [_colorsAction, _transfromAction, _layerAction]
+                    model: [_colorsAction, _transfromAction, _layerAction, _filterAction]
 
                     ToolButton
                     {
@@ -250,6 +276,7 @@ Maui.Page
                         flat: false
                     }
                 }
+
                 Item{}
 
                 ToolButton
@@ -288,8 +315,6 @@ Maui.Page
         }
     }
 
-
-
     footBar.visible: false
     footerColumn: [
 
@@ -305,7 +330,51 @@ Maui.Page
             id: _colourBar
             visible: _actionsBarLoader.currentIndex === 0 && control.ready
             width: parent.width
+        },
+
+        RowLayout
+        {
+            id: _filtersBar
+            visible: _actionsBarLoader.currentIndex === 2 && control.ready
+            width: parent.width
+
+            Row
+            {
+                Layout.alignment: Qt.AlignHCenter
+
+                Button
+                {
+                    text: "b&w"
+                    checkable: true
+                    checked: false
+                    onClicked:
+                    {
+                        if(checked)
+                        {
+                            editor.toGray()
+                            editor.apply()
+                        }else
+                        {
+                            editor.undo()
+                        }
+                    }
+                }
+
+                Button
+                {
+                    text: "sketch"
+                    onClicked: editor.toSketch();
+                }
+
+                Button
+                {
+                    text: "vignette"
+                    onClicked: editor.addVignette();
+                }
+            }
+
         }
+
     ]
 
     function selectionToolRect()

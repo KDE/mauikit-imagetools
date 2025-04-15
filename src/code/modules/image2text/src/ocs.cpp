@@ -211,11 +211,14 @@ static tesseract::PageSegMode mapPageSegValue(OCS::PageSegMode value)
 
 void OCS::getTextAsync()
 {
+    m_ready = false;
+    Q_EMIT readyChanged();
     if(!QUrl::fromUserInput(m_filePath).isLocalFile())
     {
         qDebug() << "URL is not local :: OCR";
         return;
     }
+
     typedef QMap<BoxType, TextBoxes> Res;
     auto func = [ocs = this](QUrl url, BoxesType levels) -> Res
     {      
@@ -310,6 +313,8 @@ void OCS::getTextAsync()
                 Q_EMIT wordBoxesChanged();
                 Q_EMIT lineBoxesChanged();
                 Q_EMIT paragraphBoxesChanged();
+                m_ready = true;
+                Q_EMIT readyChanged();
                 watcher->deleteLater();
             });
     
@@ -435,4 +440,9 @@ void OCS::componentComplete()
                 }
             });
     getTextAsync();
+}
+
+bool OCS::ready() const
+{
+    return m_ready;
 }

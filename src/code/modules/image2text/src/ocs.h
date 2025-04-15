@@ -47,6 +47,8 @@ class IMAGE2TEXT_EXPORT OCS : public QObject, public QQmlParserStatus
 
     Q_PROPERTY(bool preprocessImage READ preprocessImage WRITE setPreprocessImage NOTIFY preprocessImageChanged FINAL)
     Q_PROPERTY(PageSegMode pageSegMode READ pageSegMode WRITE setPageSegMode NOTIFY pageSegModeChanged)
+
+    Q_PROPERTY(bool ready READ ready NOTIFY readyChanged)
     
 public:
 
@@ -100,6 +102,8 @@ public:
      */
     void componentComplete() override;
 
+    bool ready() const;
+
 public Q_SLOTS:
     QString getText();
     void getTextAsync();
@@ -128,6 +132,7 @@ private:
     QString m_filePath;
     QRect m_area;
     bool m_autoRead = false;
+    bool m_ready = false;
 
     TextBoxes m_wordBoxes;
     TextBoxes m_paragraphBoxes;
@@ -163,5 +168,6 @@ Q_SIGNALS:
     void blackListChanged();
     void preprocessImageChanged();
     void pageSegModeChanged();
+    void readyChanged();
 };
 Q_DECLARE_OPERATORS_FOR_FLAGS(OCS::BoxesType)
