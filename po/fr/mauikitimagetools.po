@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-14 00:40+0000\n"
-"PO-Revision-Date: 2025-03-29 10:54+0100\n"
+"PO-Revision-Date: 2025-04-13 14:03+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: src/code/modules/editor/src/controls/ImageEditor.qml:38
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:153
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -44,25 +44,19 @@ msgid "Layer"
 msgstr "Calque"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Brightness"
+#, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Luminosité"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:122
-#, fuzzy, kde-format
-#| msgctxt "@action:button Crop an image"
-#| msgid "Saturation"
+#, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Saturation"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Contrast"
+#, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Contraste "
@@ -77,25 +71,25 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "Teinte"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:231
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "Netteté"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:257
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:283
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "Seuil"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format

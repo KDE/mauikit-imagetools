@@ -25,7 +25,7 @@ msgstr "Düzenleme, görüntüleme ve dolaşma için görsel araçları bileşen
 #: src/code/modules/editor/src/controls/ImageEditor.qml:38
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "İptal"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:153
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -46,25 +46,19 @@ msgid "Layer"
 msgstr "Katman"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:93
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Brightness"
+#, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Parlaklık"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:122
-#, fuzzy, kde-format
-#| msgctxt "@action:button Crop an image"
-#| msgid "Saturation"
+#, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Doygunluk"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:151
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Contrast"
+#, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Karşıtlık"
@@ -73,31 +67,31 @@ msgstr "Karşıtlık"
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "Bulanıklık"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:205
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "Ton"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:231
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "Keskinlik"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:257
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "Gama"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:283
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "Eşik"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format
@@ -254,15 +248,3 @@ msgstr "GPS bilgisi ayarla"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "GPS bilgisini kaldır"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Exposure"
-#~ msgstr "Açıklık"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Highlights"
-#~ msgstr "Vurgulamalar"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Shadows"
-#~ msgstr "Gölgeler"
