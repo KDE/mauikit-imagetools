@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-04-14 08:09+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -23,72 +23,83 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "רכיבי כלי תמונות לעריכה, צפייה וניווט."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:38
+#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to remove the Exif tag %1?"
+msgid "Are you sure you wanna cancel all the edits?"
+msgstr "להסיר את תגית ה־Exif %1?"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
 msgstr "ביטול"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:153
+#: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "צבע"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:162
+#: src/code/modules/editor/src/controls/ImageEditor.qml:180
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "התמרה"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:189
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "שכבה"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:93
+#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "בהירות"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:122
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "רוויה"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "ניגודיות"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:178
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr "טשטוש"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:205
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr "גוון"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:231
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr "חדות"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:257
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr "גאמה"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:283
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
@@ -111,18 +122,6 @@ msgstr "שיקוף"
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "סיבוב ב־90°"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:108
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "חיתוך"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:116
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
-msgstr "סיבוב"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
@@ -249,6 +248,14 @@ msgstr "הגדרת פרטי GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "הסרת פרטי GPS"
+
+#~ msgctxt "@action:button Crop an image"
+#~ msgid "Crop"
+#~ msgstr "חיתוך"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Rotate"
+#~ msgstr "סיבוב"
 
 #~ msgctxt "@action:button Rotate an image"
 #~ msgid "Exposure"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-03-28 14:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -22,72 +22,83 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Düzenleme, görüntüleme ve dolaşma için görsel araçları bileşenleri."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:38
+#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to remove the Exif tag %1?"
+msgid "Are you sure you wanna cancel all the edits?"
+msgstr "%1 EXIF etiketini kaldırmak istediğinizden emin misiniz?"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:153
+#: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Renk"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:162
+#: src/code/modules/editor/src/controls/ImageEditor.qml:180
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Dönüştür"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:189
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Katman"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:93
+#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Parlaklık"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:122
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Doygunluk"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Karşıtlık"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:178
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr "Bulanıklık"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:205
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr "Ton"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:231
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr "Keskinlik"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:257
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr "Gama"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:283
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
@@ -110,18 +121,6 @@ msgstr "Yansıt"
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "90° Döndür"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:108
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Kırp"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:116
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
-msgstr "Döndür"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
@@ -248,3 +247,11 @@ msgstr "GPS bilgisi ayarla"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "GPS bilgisini kaldır"
+
+#~ msgctxt "@action:button Crop an image"
+#~ msgid "Crop"
+#~ msgstr "Kırp"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Rotate"
+#~ msgstr "Döndür"

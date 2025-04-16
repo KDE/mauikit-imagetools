@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2025-03-29 16:15+0200\n"
 "Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -23,30 +23,41 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Rīki attēlu rediģēšanai, skatīšanai un pārlūkošanai."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:38
+#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#, fuzzy, kde-format
+#| msgid "Are you sure you want to remove the Exif tag %1?"
+msgid "Are you sure you wanna cancel all the edits?"
+msgstr "Vai tiešām vēlaties noņemt „Exif“ birku „%1“?"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:153
+#: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Krāsa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:162
+#: src/code/modules/editor/src/controls/ImageEditor.qml:180
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transformēt"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:189
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Slānis"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:93
+#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image"
 #| msgid "Brightness"
@@ -54,7 +65,7 @@ msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Gaišums"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:122
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
 #, fuzzy, kde-format
 #| msgctxt "@action:button Crop an image"
 #| msgid "Saturation"
@@ -62,7 +73,7 @@ msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Piesātinājums"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image"
 #| msgid "Contrast"
@@ -70,31 +81,31 @@ msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Kontrasts"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:178
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:205
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:231
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:257
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:283
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
@@ -117,18 +128,6 @@ msgstr "Spoguļot"
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
 msgstr "Pagriezt par 90°"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:108
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr "Kadrēt"
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:116
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
-msgstr "Pagriezt"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
@@ -255,6 +254,14 @@ msgstr "Iestatīt GPS informāciju"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Noņemt GPS informāciju"
+
+#~ msgctxt "@action:button Crop an image"
+#~ msgid "Crop"
+#~ msgstr "Kadrēt"
+
+#~ msgctxt "@action:button Rotate an image"
+#~ msgid "Rotate"
+#~ msgstr "Pagriezt"
 
 #~ msgctxt "@action:button Rotate an image"
 #~ msgid "Exposure"

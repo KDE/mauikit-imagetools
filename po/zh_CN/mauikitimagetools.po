@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-14 00:40+0000\n"
+"POT-Creation-Date: 2025-04-16 00:41+0000\n"
 "PO-Revision-Date: 2024-04-22 16:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -23,72 +23,82 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "用于编辑、浏览和导航的图像工具组件。"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:38
+#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#, kde-format
+msgid "Are you sure you wanna cancel all the edits?"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:153
+#: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "颜色"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:162
+#: src/code/modules/editor/src/controls/ImageEditor.qml:180
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "变形"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:189
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "图层"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:93
+#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:122
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:151
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:178
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:205
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:231
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:257
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:283
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
@@ -110,18 +120,6 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:108
-#, kde-format
-msgctxt "@action:button Crop an image"
-msgid "Crop"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:116
-#, kde-format
-msgctxt "@action:button Rotate an image"
-msgid "Rotate"
 msgstr ""
 
 #: src/controls.6/image2text/OCRPage.qml:35
