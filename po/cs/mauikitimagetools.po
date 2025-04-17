@@ -30,7 +30,7 @@ msgstr ""
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -53,7 +53,7 @@ msgstr "Vrstva"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Filtry"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, fuzzy, kde-format

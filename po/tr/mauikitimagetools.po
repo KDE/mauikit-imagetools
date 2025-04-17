@@ -23,10 +23,9 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr "Düzenleme, görüntüleme ve dolaşma için görsel araçları bileşenleri."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "%1 EXIF etiketini kaldırmak istediğinizden emin misiniz?"
+msgstr "Tüm düzenlemeleri iptal etmek istediğinizden emin misiniz?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
@@ -54,7 +53,7 @@ msgstr "Katman"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Süzgeçler"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
@@ -247,11 +246,3 @@ msgstr "GPS bilgisi ayarla"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "GPS bilgisini kaldır"
-
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Kırp"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Rotate"
-#~ msgstr "Döndür"

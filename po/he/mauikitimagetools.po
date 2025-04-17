@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 08:09+0300\n"
+"PO-Revision-Date: 2025-04-16 08:51+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -24,10 +24,9 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr "רכיבי כלי תמונות לעריכה, צפייה וניווט."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "להסיר את תגית ה־Exif %1?"
+msgstr "לבטל את כל העריכות?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
@@ -55,7 +54,7 @@ msgstr "שכבה"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "מסננים"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format

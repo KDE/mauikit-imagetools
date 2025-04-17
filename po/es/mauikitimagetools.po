@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-04-15 01:37+0100\n"
+"PO-Revision-Date: 2025-04-16 11:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -27,10 +27,9 @@ msgstr ""
 "navegación."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "¿Seguro que quiere eliminar la etiqueta Exif %1?"
+msgstr "¿Seguro que quiere cancelar todas las modificaciones?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
@@ -58,7 +57,7 @@ msgstr "Capa"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Filtros"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
@@ -251,11 +250,3 @@ msgstr "Definir información de GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Eliminar información de GPS"
-
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Recortar"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Rotate"
-#~ msgstr "Rotar"

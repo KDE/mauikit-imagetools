@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-04-14 03:41+0200\n"
+"PO-Revision-Date: 2025-04-16 03:43+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -24,10 +24,9 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr "გამოსახულების ხელსაწყოები ჩასწორების, ნახვის და ნავიგაციისთვის."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ წაშალოთ Exif ჭდე %1?"
+msgstr "დარწმუნებული ბრძანდებით, რომ გნებავთ, გააუქმოთ ყველა ჩასწორება?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
@@ -55,7 +54,7 @@ msgstr "ფენა"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "ფილტრები"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
 #, kde-format
