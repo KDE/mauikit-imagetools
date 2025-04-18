@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:41+0000\n"
-"PO-Revision-Date: 2025-04-05 09:05+0200\n"
+"PO-Revision-Date: 2025-04-17 12:43+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -23,15 +23,14 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr "Bildverktygskomponenter för redigering, visning och navigering."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "Är du säker på att du vill ta bort Exif-taggen %1?"
+msgstr "Är du säker på att du vill avbryta alla redigeringar?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -54,28 +53,22 @@ msgstr "Lager"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Filter"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Brightness"
+#, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Ljusstyrka"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:106
-#, fuzzy, kde-format
-#| msgctxt "@action:button Crop an image"
-#| msgid "Saturation"
+#, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Färgmättnad"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:135
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Contrast"
+#, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Kontrast"
@@ -84,31 +77,31 @@ msgstr "Kontrast"
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "Oskärpa"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "Färgton"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "Skärpa"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "Tröskel"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format
