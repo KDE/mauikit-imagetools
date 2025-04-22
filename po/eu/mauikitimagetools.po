@@ -1,16 +1,16 @@
 # Translation for mauikitimagetools.po to Euskara/Basque (eu).
-# Copyright (C) 2022-2023 This file is copyright:
+# Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2025 KDE euskaratzeko proiektuaren arduraduna <xalba@ni.eus>
 #
 # Translators:
-# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023.
+# Iñigo Salvador Azurmendi <xalba@ni.eus>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-04-16 00:41+0000\n"
-"PO-Revision-Date: 2023-12-04 07:12+0100\n"
+"PO-Revision-Date: 2025-04-21 18:00+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 23.08.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -26,15 +26,14 @@ msgid "Image tools components for editing, viewing and navigating."
 msgstr "Irudi tresna osagaiak, editatzeko, ikusteko eta nabigatzeko."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:34
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
+#, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
-msgstr "Ziur zaude %1 «Exif» etiketa kendu nahi duzula?"
+msgstr "Ziur zaude edizio guztiak bertan behera utzi nahi dituzula?"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:52
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Utzi"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:171
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -57,28 +56,22 @@ msgstr "Geruza"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:198
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "Iragazkiak"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:77
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Brightness"
+#, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Distira"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:106
-#, fuzzy, kde-format
-#| msgctxt "@action:button Crop an image"
-#| msgid "Saturation"
+#, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Asetasuna"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:135
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Contrast"
+#, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Kontrastea"
@@ -87,31 +80,31 @@ msgstr "Kontrastea"
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "Lausoa"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:189
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "Ñabardura"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:215
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "Zorroztasuna"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:241
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "Gamma"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:267
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "Atalasea"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
 #, kde-format
@@ -189,29 +182,28 @@ msgstr "Ezin izan du etiketa kendu"
 #: src/controls.6/ImageInfoDialog.qml:186
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Iruzkina"
 
 #: src/controls.6/ImageInfoDialog.qml:211
 #: src/controls.6/ImageInfoDialog.qml:367
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:220
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Latitudea"
 
 #: src/controls.6/ImageInfoDialog.qml:231
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Longitudea"
 
 #: src/controls.6/ImageInfoDialog.qml:266
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "Ezin izan du etiketa kendu"
+msgstr "Ezin izan ditu GPSaren datuak gorde"
 
 #: src/controls.6/ImageInfoDialog.qml:280
 #, kde-format
@@ -226,38 +218,37 @@ msgstr "Fitxategiaren informazioa"
 #: src/controls.6/ImageInfoDialog.qml:329
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Iruzkina eta deskribapena"
 
 #: src/controls.6/ImageInfoDialog.qml:347
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Gehitu iruzkina"
 
 #: src/controls.6/ImageInfoDialog.qml:354
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Kendu"
+msgstr "Kendu iruzkina"
 
 #: src/controls.6/ImageInfoDialog.qml:368
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Geokokapen-etiketak"
 
 #: src/controls.6/ImageInfoDialog.qml:373
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Hiria"
 
 #: src/controls.6/ImageInfoDialog.qml:385
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Ezarri GPS informazioa"
 
 #: src/controls.6/ImageInfoDialog.qml:398
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Kendu GPS informazioa"
 
 #~ msgctxt "@action:button Crop an image"
 #~ msgid "Crop"
