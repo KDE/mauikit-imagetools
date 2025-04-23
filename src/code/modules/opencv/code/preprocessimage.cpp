@@ -88,6 +88,8 @@ void PreprocessImage::toGray(cv::Mat &image, uint8_t blurValue)
 cv::Mat PreprocessImage::grayscale(cv::Mat matrix)
 {
     cvtColor(matrix, matrix, cv::COLOR_BGR2GRAY);
+    cvtColor(matrix, matrix, cv::COLOR_GRAY2BGR);
+
     return matrix;
 }
 

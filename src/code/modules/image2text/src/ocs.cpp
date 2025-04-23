@@ -15,6 +15,7 @@
 // #include "preprocessimage.hpp"
 #include <preprocessimage.hpp>
 #include <convertimage.hpp>
+#include <cvmatandqimage.h>
 
 static QMap<QString, QMap<OCS::BoxType, TextBoxes>> OCRCache;
 
@@ -208,24 +209,21 @@ void OCS::getTextAsync()
                          ocs->m_blackList.toStdString().c_str());
 
         api->SetPageSegMode(mapPageSegValue(ocs->m_segMode));
+        ocs->m_ocrImg = new QImage(url.toLocalFile());
 
         if(ocs->m_preprocessImage)
         {
-            auto var = new QImage(url.toLocalFile());
-            auto m_imgMat = ConvertImage::qimageToMatRef(*var, CV_8UC4);
+            auto m_imgMat = ConvertImage::qimageToMatRef(*ocs->m_ocrImg, CV_8UC4);
 
                    // PreprocessImage::toGray(m_imgMat,1);
-            PreprocessImage::adaptThreshold(m_imgMat, false, 3, 1);
+            // PreprocessImage::adaptThreshold(m_imgMat, false, 3, 1);
 
             auto m_ocrImg = ConvertImage::matToQimageRef(m_imgMat, QImage::Format_RGBA8888); //remember to delete
 
             api->SetImage(m_ocrImg.bits(), m_ocrImg.width(), m_ocrImg.height(), 4, m_ocrImg.bytesPerLine());
+
         }else
         {
-            // Pix *image = pixRead(url.toLocalFile().toStdString().c_str());
-            // api->SetImage(image);
-
-            ocs->m_ocrImg = new QImage(url.toLocalFile());
             api->SetImage(ocs->m_ocrImg->bits(), ocs->m_ocrImg->width(), ocs->m_ocrImg->height(), 4,
                           ocs->m_ocrImg->bytesPerLine());
         }        
@@ -250,11 +248,23 @@ void OCS::getTextAsync()
                     int x1, y1, x2, y2;
                     ri->BoundingBox(level, &x1, &y1, &x2, &y2);
 
-                    printf("word: '%s';  \tconf: %.2f; BoundingBox: %d,%d,%d,%d;\n",
-                           word, conf, x1, y1, x2, y2);
-
                     if(conf > ocs->m_confidenceThreshold && !isspace(*word))
-                        res << QVariantMap{{"text", QString::fromStdString(word)}, {"rect", QRect{x1, y1, x2-x1, y2-y1}}};
+                    {
+                        bool bold, italic, underlined, monospace, serif, smallcaps = false;
+                        int pointsize, fontid;
+                        auto prop = ri->WordFontAttributes(&bold, &italic, &underlined, &monospace, &serif, &smallcaps, &pointsize, &fontid);
+                         res << QVariantMap{{"text", QString::fromStdString(word)},
+                                           {"rect", QRect{x1, y1, x2-x1, y2-y1}},
+                                           {"bold", bold}, {"italic", italic},
+                                           {"underlined", underlined},
+                                           {"monospace", monospace},
+                                           {"serif", serif},
+                                           {"pointsize", pointsize}};
+
+
+                    }
+                    // qDebug()<< res;
+
                     delete[] word;
                 } while (ri->Next(level));
             }

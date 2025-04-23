@@ -11,12 +11,14 @@
 #include "commands/resizecommand.h"
 #include "commands/rotatecommand.h"
 #include "commands/transformcommand.h"
-
+#include <QImageReader>
 #include <QDebug>
 
 ImageDocument::ImageDocument(QObject *parent)
     : QObject(parent)
 {
+    QImageReader::setAllocationLimit(2000);
+
     m_changesApplied = true;
 
     connect(this, &ImageDocument::pathChanged, this, [this](const QUrl &url) {
