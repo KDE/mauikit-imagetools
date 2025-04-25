@@ -254,11 +254,3 @@ msgstr ""
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""
-
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Skjer av"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Rotate"
-#~ msgstr "Drei"
