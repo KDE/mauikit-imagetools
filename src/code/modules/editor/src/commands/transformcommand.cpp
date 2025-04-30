@@ -3,6 +3,7 @@
 #include <preprocessimage.hpp>
 #include <convertimage.hpp>
 #include <cvmatandqimage.h>
+#include "opencv2/highgui.hpp"
 
 TransformCommand::TransformCommand(QImage image, Transformation trans, const std::function<void ()> &undo)
     : m_image(image)
@@ -45,23 +46,59 @@ QImage Trans::toGray(QImage &ref)
 QImage Trans::sketch(QImage &ref)
 {
     auto m_imgMat = QtOcv::image2Mat(ref);
-    cv::Mat out;
-    cv::Mat out2;
 
     if(m_imgMat.channels() == 1)
     {
         cv::cvtColor(m_imgMat, m_imgMat, cv::COLOR_GRAY2BGR);
     }
+    cv::Mat image = cv::imread("/home/camilo/Downloads/uis/fm/filemagic_1x.png");
+    if (image.empty()) {
+        std::cout << "Could not open or find the image!" << std::endl;
+        return ref;
+    }
+    cv::Mat graySketch, colorSketch, out;
 
+           // Parameters for pencil sketch filter
+    int sigma_s = 60;          // Spatial kernel standard deviation
+    float sigma_r = 0.07f;      // Range kernel standard deviation
+    float shade_factor = 0.02f; // How much darker the lines will be
+
+           // Apply the pencil sketch filter
+    cv::pencilSketch(m_imgMat, graySketch, colorSketch, sigma_s, sigma_r, shade_factor);
+
+           // Display the results
+    imshow("Original Image", m_imgMat);
+    imshow("Pencil Sketch - Grayscale", graySketch);
+    imshow("Pencil Sketch - Color", colorSketch);
+
+    // cv::Mat grayImage;
+    // cvtColor(m_imgMat, grayImage, cv::COLOR_BGR2GRAY);
+
+
+
+
+    // cv::Mat invertedGrayImage;
+    // cv::bitwise_not(grayImage, invertedGrayImage);
+
+    // cv::Mat blurredImage;
+    // cv::GaussianBlur(invertedGrayImage, blurredImage, cv::Size(21, 21), 0);
+
+
+    // cv::Mat pencilSketchImage;
+    // cv::divide(grayImage, 255 - blurredImage, pencilSketchImage, 256.0);
+
+    // imshow("Original Image", m_imgMat);
+    // imshow("Pencil Sketch Image", pencilSketchImage);
            // cv::Mat im(m_imgMat);
-           // cv::GaussianBlur(m_imgMat, out, cv::Size(5,5), 0, 0);
+           // // cv::GaussianBlur(m_imgMat, out, cv::Size(5,5), 0, 0);
            // cv::pencilSketch(m_imgMat, out2, im, 10);
+           // cv::imshow("sketch", out2);
            // cv::edgePreservingFilter(m_imgMat, out, cv::RECURS_FILTER);
            // cv::detailEnhance(m_imgMat, out);
-    cv::stylization(m_imgMat, out);
+    // cv::stylization(m_imgMat, out);
                                     //(Mat src, Mat dst, int flags=1, float sigma_s=60, float sigma_r=0.4f)
-    auto img = QtOcv::mat2Image(out);
-    return img;
+    // auto img = QtOcv::mat2Image(out);
+    return ref;
 }
 
 QImage Trans::adjustGaussianBlur(QImage &ref, int value)
@@ -240,6 +277,26 @@ QImage Trans::vignette(QImage &ref)
 
     cv::Mat output;
     cv::cvtColor(labImg, output, cv::COLOR_Lab2BGR);
+    auto img = QtOcv::mat2Image(output);
+    return img;
+}
+
+QImage Trans::addBorder(QImage &ref, int thickness, const QColor &color)
+{
+    auto mat = QtOcv::image2Mat(ref);
+    cv::Mat output;
+    // int top = (int) (0.05*mat.rows);; int bottom = top;
+    // int left = (int) (0.05*mat.cols);; int right = left;
+
+    int top = (int)thickness;; int bottom = top;
+    int left = (int)thickness;; int right = left;
+    cv::Scalar value(color.red(), color.green(), color.blue()); //in RGB order
+
+    copyMakeBorder(mat, output, top, bottom, left, right, cv::BORDER_CONSTANT,  value);
+    cv::cvtColor(output, output, cv::COLOR_BGR2RGB);
+
+    cv::imshow("border", output);
+
     auto img = QtOcv::mat2Image(output);
     return img;
 }

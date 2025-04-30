@@ -341,7 +341,7 @@ Maui.Page
             Row
             {
                 Layout.alignment: Qt.AlignHCenter
-
+                spacing: Maui.Style.defaultSpacing
                 Button
                 {
                     text: "b&w"
@@ -370,6 +370,13 @@ Maui.Page
                 {
                     text: "vignette"
                     onClicked: editor.addVignette();
+                }
+
+                Button
+                {
+                    text: "Border"
+                    property color color : "pink"
+                    onClicked: editor.addBorder(100, color);
                 }
             }
 

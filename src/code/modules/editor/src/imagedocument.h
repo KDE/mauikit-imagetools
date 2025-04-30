@@ -149,6 +149,7 @@ public:
     Q_INVOKABLE void toGray();
     Q_INVOKABLE void toSketch();
     Q_INVOKABLE void addVignette();
+    Q_INVOKABLE void addBorder(int thickness, const QColor &color);
 
     Q_INVOKABLE void applyChanges();
 

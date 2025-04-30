@@ -404,6 +404,28 @@ void ImageDocument::addVignette()
     Q_EMIT imageChanged();
 }
 
+auto borderTrans(int thickness, const QColor &color, QImage &ref)
+{
+    return Trans::addBorder(ref, thickness, color);
+}
+
+void ImageDocument::addBorder(int thickness, const QColor &color)
+{
+    qDebug() << "SXetting add border blur" << thickness << color << color.red() << color.green()<<color.blue();
+    auto transformation = [&](QImage &ref) -> QImage
+    {
+        qDebug() << "SXetting add border blur2" << thickness << color;
+        return Trans::addBorder(ref, thickness, color);
+    };
+
+    const auto command = new TransformCommand(m_image, transformation, nullptr);
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+}
+
 void ImageDocument::applyChanges()
 {
     resetValues();
