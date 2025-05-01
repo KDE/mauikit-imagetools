@@ -284,19 +284,53 @@ QImage Trans::vignette(QImage &ref)
 QImage Trans::addBorder(QImage &ref, int thickness, const QColor &color)
 {
     auto mat = QtOcv::image2Mat(ref);
-    cv::Mat output;
+    cv::Mat output, out2;
     // int top = (int) (0.05*mat.rows);; int bottom = top;
     // int left = (int) (0.05*mat.cols);; int right = left;
 
     int top = (int)thickness;; int bottom = top;
     int left = (int)thickness;; int right = left;
     cv::Scalar value(color.red(), color.green(), color.blue()); //in RGB order
-
+    // cv::Scalar value(color.blue(), color.green(), color.red()); //in BGR order
+    cv::cvtColor(mat, mat, cv::COLOR_RGB2BGR);
     copyMakeBorder(mat, output, top, bottom, left, right, cv::BORDER_CONSTANT,  value);
     cv::cvtColor(output, output, cv::COLOR_BGR2RGB);
 
-    cv::imshow("border", output);
-
     auto img = QtOcv::mat2Image(output);
+    return img;
+}
+
+QImage Trans::toBlackAndWhite(QImage &ref)
+{
+    auto mat = QtOcv::image2Mat(ref);
+
+  // Convert the image to grayscale
+    cv::Mat grayImage, res;
+    cv::cvtColor(mat, grayImage, cv::COLOR_BGR2GRAY);
+    // auto thing = cv::InputOutputArrayOfArrays([grayImage, grayImage, grayImage]);
+    // std::vector<cv::Mat>channels;
+    // channels.push_back(grayImage);
+    // channels.push_back(grayImage);
+    // channels.push_back(grayImage);
+    //  cv::merge(channels, res);
+    //        // Apply a threshold to get a black and white image
+    // cv::Mat bwImage;
+    // threshold(grayImage, bwImage, 128, 255, cv::THRESH_BINARY);
+
+
+           // Adjust brightness and contrast
+    double alpha = 1.2; // Contrast control (1.0-3.0)
+    int beta = -10;    // Brightness control (0-100)
+    cv::Mat adjustedImage;
+    grayImage.convertTo(adjustedImage, -1, alpha, beta);
+
+           // Apply threshold to get black and white image
+    // cv::Mat bwImage;
+    // threshold(adjustedImage, bwImage, 115, 125, cv::THRESH_TOZERO);
+    // cv::imshow("adjusted", bwImage);
+     cv::cvtColor(adjustedImage, adjustedImage, cv::COLOR_GRAY2RGB);
+
+
+    auto img = QtOcv::mat2Image(adjustedImage);
     return img;
 }

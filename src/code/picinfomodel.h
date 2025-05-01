@@ -74,7 +74,6 @@ private:
     QSize m_size;
     void parse();
 
-
 Q_SIGNALS:
     void urlChanged(QUrl url);
     void fileNameChanged();

@@ -35,4 +35,6 @@ QImage adjustSharpness(QImage &ref, int value);
 QImage adjustThreshold(QImage &ref, int value);
 QImage vignette(QImage &ref);
 QImage addBorder(QImage &ref, int thickness, const QColor &color);
+QImage toBlackAndWhite(QImage &ref);
+
 };

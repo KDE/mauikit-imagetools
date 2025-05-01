@@ -46,6 +46,8 @@ Maui.PopupPage
     title: _infoModel.fileName
     headBar.visible: true
     spacing: Maui.Style.space.huge
+
+    signal gpsEdited(var url)
     
     Rectangle
     {
@@ -260,6 +262,7 @@ Maui.PopupPage
         {
             if(_infoModel.setGpsData(_lat.text, _lon.text))
             {
+                control.gpsEdited(control.url)
                 _editTagDialog.close()
             }else
             {

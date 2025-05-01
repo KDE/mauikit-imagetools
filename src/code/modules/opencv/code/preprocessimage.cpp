@@ -326,7 +326,7 @@ cv::Mat PreprocessImage::adjustContrast(cv::Mat &in, int beta)
         // in.convertTo(out, -1, beta, 0); //easier way
 
         // in.convertTo(out, CV_32S); // converts the matrix to type CV_32S to allow aritmetic
-        int kappa = 259; // contrast parameter, the higher it is, the lower the effect of contrast
+        // int kappa = 259; // contrast parameter, the higher it is, the lower the effect of contrast
         // double contrast_factor = (kappa * (beta + bgr_max)) / (bgr_max * (kappa - beta)); // calculates contrast factor
         // qDebug() << "Constrast factor"  <<contrast_factor;
 

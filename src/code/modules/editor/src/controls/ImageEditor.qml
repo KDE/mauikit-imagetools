@@ -344,7 +344,7 @@ Maui.Page
                 spacing: Maui.Style.defaultSpacing
                 Button
                 {
-                    text: "b&w"
+                    text: "gray"
                     checkable: true
                     checked: false
                     onClicked:
@@ -358,6 +358,12 @@ Maui.Page
                             editor.undo()
                         }
                     }
+                }
+
+                Button
+                {
+                    text: "bw"
+                    onClicked: editor.toBW();
                 }
 
                 Button

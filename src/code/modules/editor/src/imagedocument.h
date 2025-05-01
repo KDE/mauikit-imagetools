@@ -147,6 +147,7 @@ public:
     Q_INVOKABLE void adjustThreshold(int value); //between 0 and 180
     Q_INVOKABLE void adjustGaussianBlur(int value);
     Q_INVOKABLE void toGray();
+    Q_INVOKABLE void toBW();
     Q_INVOKABLE void toSketch();
     Q_INVOKABLE void addVignette();
     Q_INVOKABLE void addBorder(int thickness, const QColor &color);

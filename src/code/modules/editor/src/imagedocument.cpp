@@ -384,6 +384,16 @@ void ImageDocument::toGray()
     Q_EMIT imageChanged();
 }
 
+void ImageDocument::toBW()
+{
+    const auto command = new TransformCommand(m_image, &Trans::toBlackAndWhite, nullptr);
+
+    m_image = command->redo(m_originalImage);
+    m_undos.append(command);
+    setEdited(true);
+    Q_EMIT imageChanged();
+}
+
 void ImageDocument::toSketch()
 {
     const auto command = new TransformCommand(m_image, &Trans::sketch, nullptr);
