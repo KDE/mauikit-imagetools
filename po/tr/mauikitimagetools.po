@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
 "PO-Revision-Date: 2025-03-28 14:45+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -136,113 +136,113 @@ msgstr "Tümünü Oku"
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: src/controls.6/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:105
 #, kde-format
 msgid "Edit"
 msgstr "Düzenle"
 
-#: src/controls.6/ImageInfoDialog.qml:104
+#: src/controls.6/ImageInfoDialog.qml:106
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "EXIF etiketi düzenleniyor"
 
-#: src/controls.6/ImageInfoDialog.qml:112
+#: src/controls.6/ImageInfoDialog.qml:114
 #, kde-format
 msgid "Tag key"
 msgstr "Etiket anahtarı"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:121
 #, kde-format
 msgid "Tag value"
 msgstr "Etiket değeri"
 
-#: src/controls.6/ImageInfoDialog.qml:130
+#: src/controls.6/ImageInfoDialog.qml:132
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "Etiket düzenlenemedi"
 
-#: src/controls.6/ImageInfoDialog.qml:153
+#: src/controls.6/ImageInfoDialog.qml:155
 #, kde-format
 msgid "Remove"
 msgstr "Kaldır"
 
-#: src/controls.6/ImageInfoDialog.qml:154
+#: src/controls.6/ImageInfoDialog.qml:156
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "%1 EXIF etiketini kaldırmak istediğinizden emin misiniz?"
 
-#: src/controls.6/ImageInfoDialog.qml:165
+#: src/controls.6/ImageInfoDialog.qml:167
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "Etiket kaldırılamadı"
 
-#: src/controls.6/ImageInfoDialog.qml:186
+#: src/controls.6/ImageInfoDialog.qml:188
 #, kde-format
 msgid "Comment"
 msgstr "Yorum"
 
-#: src/controls.6/ImageInfoDialog.qml:211
-#: src/controls.6/ImageInfoDialog.qml:367
+#: src/controls.6/ImageInfoDialog.qml:213
+#: src/controls.6/ImageInfoDialog.qml:370
 #, kde-format
 msgid "GPS"
 msgstr "GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:220
+#: src/controls.6/ImageInfoDialog.qml:222
 #, kde-format
 msgid "Latitude"
 msgstr "Enlem"
 
-#: src/controls.6/ImageInfoDialog.qml:231
+#: src/controls.6/ImageInfoDialog.qml:233
 #, kde-format
 msgid "Longitude"
 msgstr "Boylam"
 
-#: src/controls.6/ImageInfoDialog.qml:266
+#: src/controls.6/ImageInfoDialog.qml:269
 #, kde-format
 msgid "Could not save the GPS data"
 msgstr "GPS verisi kaydedilemedi"
 
-#: src/controls.6/ImageInfoDialog.qml:280
+#: src/controls.6/ImageInfoDialog.qml:283
 #, kde-format
 msgid "Details"
 msgstr "Ayrıntılar"
 
-#: src/controls.6/ImageInfoDialog.qml:281
+#: src/controls.6/ImageInfoDialog.qml:284
 #, kde-format
 msgid "File information"
 msgstr "Dosya bilgisi"
 
-#: src/controls.6/ImageInfoDialog.qml:329
+#: src/controls.6/ImageInfoDialog.qml:332
 #, kde-format
 msgid "Comment & Description"
 msgstr "Yorum ve Açıklama"
 
-#: src/controls.6/ImageInfoDialog.qml:347
+#: src/controls.6/ImageInfoDialog.qml:350
 #, kde-format
 msgid "Add Comment"
 msgstr "Yorum Ekle"
 
-#: src/controls.6/ImageInfoDialog.qml:354
+#: src/controls.6/ImageInfoDialog.qml:357
 #, kde-format
 msgid "Remove Comment"
 msgstr "Yorumu Kaldır"
 
-#: src/controls.6/ImageInfoDialog.qml:368
+#: src/controls.6/ImageInfoDialog.qml:371
 #, kde-format
 msgid "Geolocation tags"
 msgstr "Coğrafi konum künyeleri"
 
-#: src/controls.6/ImageInfoDialog.qml:373
+#: src/controls.6/ImageInfoDialog.qml:376
 #, kde-format
 msgid "City"
 msgstr "Şehir"
 
-#: src/controls.6/ImageInfoDialog.qml:385
+#: src/controls.6/ImageInfoDialog.qml:388
 #, kde-format
 msgid "Set GPS info"
 msgstr "GPS bilgisi ayarla"
 
-#: src/controls.6/ImageInfoDialog.qml:398
+#: src/controls.6/ImageInfoDialog.qml:401
 #, kde-format
 msgid "Remove GPS info"
 msgstr "GPS bilgisini kaldır"

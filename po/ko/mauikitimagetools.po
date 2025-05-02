@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-04-16 00:41+0000\n"
+"POT-Creation-Date: 2025-05-02 00:41+0000\n"
 "PO-Revision-Date: 2025-04-22 01:28+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -136,113 +136,113 @@ msgstr "모두 읽기"
 msgid "Configure"
 msgstr "설정"
 
-#: src/controls.6/ImageInfoDialog.qml:103
+#: src/controls.6/ImageInfoDialog.qml:105
 #, kde-format
 msgid "Edit"
 msgstr "편집"
 
-#: src/controls.6/ImageInfoDialog.qml:104
+#: src/controls.6/ImageInfoDialog.qml:106
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Exif 태그 편집"
 
-#: src/controls.6/ImageInfoDialog.qml:112
+#: src/controls.6/ImageInfoDialog.qml:114
 #, kde-format
 msgid "Tag key"
 msgstr "태그 키"
 
-#: src/controls.6/ImageInfoDialog.qml:119
+#: src/controls.6/ImageInfoDialog.qml:121
 #, kde-format
 msgid "Tag value"
 msgstr "태그 값"
 
-#: src/controls.6/ImageInfoDialog.qml:130
+#: src/controls.6/ImageInfoDialog.qml:132
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "태그를 편집할 수 없음"
 
-#: src/controls.6/ImageInfoDialog.qml:153
+#: src/controls.6/ImageInfoDialog.qml:155
 #, kde-format
 msgid "Remove"
 msgstr "삭제"
 
-#: src/controls.6/ImageInfoDialog.qml:154
+#: src/controls.6/ImageInfoDialog.qml:156
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "Exif 태그 %1을(를) 삭제하시겠습니까?"
 
-#: src/controls.6/ImageInfoDialog.qml:165
+#: src/controls.6/ImageInfoDialog.qml:167
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "태그를 삭제할 수 없음"
 
-#: src/controls.6/ImageInfoDialog.qml:186
+#: src/controls.6/ImageInfoDialog.qml:188
 #, kde-format
 msgid "Comment"
 msgstr "주석"
 
-#: src/controls.6/ImageInfoDialog.qml:211
-#: src/controls.6/ImageInfoDialog.qml:367
+#: src/controls.6/ImageInfoDialog.qml:213
+#: src/controls.6/ImageInfoDialog.qml:370
 #, kde-format
 msgid "GPS"
 msgstr "GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:220
+#: src/controls.6/ImageInfoDialog.qml:222
 #, kde-format
 msgid "Latitude"
 msgstr "위도"
 
-#: src/controls.6/ImageInfoDialog.qml:231
+#: src/controls.6/ImageInfoDialog.qml:233
 #, kde-format
 msgid "Longitude"
 msgstr "경도"
 
-#: src/controls.6/ImageInfoDialog.qml:266
+#: src/controls.6/ImageInfoDialog.qml:269
 #, kde-format
 msgid "Could not save the GPS data"
 msgstr "GPS 데이터를 저장할 수 없음"
 
-#: src/controls.6/ImageInfoDialog.qml:280
+#: src/controls.6/ImageInfoDialog.qml:283
 #, kde-format
 msgid "Details"
 msgstr "자세히"
 
-#: src/controls.6/ImageInfoDialog.qml:281
+#: src/controls.6/ImageInfoDialog.qml:284
 #, kde-format
 msgid "File information"
 msgstr "파일 정보"
 
-#: src/controls.6/ImageInfoDialog.qml:329
+#: src/controls.6/ImageInfoDialog.qml:332
 #, kde-format
 msgid "Comment & Description"
 msgstr "설명과 주석"
 
-#: src/controls.6/ImageInfoDialog.qml:347
+#: src/controls.6/ImageInfoDialog.qml:350
 #, kde-format
 msgid "Add Comment"
 msgstr "주석 추가"
 
-#: src/controls.6/ImageInfoDialog.qml:354
+#: src/controls.6/ImageInfoDialog.qml:357
 #, kde-format
 msgid "Remove Comment"
 msgstr "주석 삭제"
 
-#: src/controls.6/ImageInfoDialog.qml:368
+#: src/controls.6/ImageInfoDialog.qml:371
 #, kde-format
 msgid "Geolocation tags"
 msgstr "지리적 위치 태그"
 
-#: src/controls.6/ImageInfoDialog.qml:373
+#: src/controls.6/ImageInfoDialog.qml:376
 #, kde-format
 msgid "City"
 msgstr "도시"
 
-#: src/controls.6/ImageInfoDialog.qml:385
+#: src/controls.6/ImageInfoDialog.qml:388
 #, kde-format
 msgid "Set GPS info"
 msgstr "GPS 정보 설정"
 
-#: src/controls.6/ImageInfoDialog.qml:398
+#: src/controls.6/ImageInfoDialog.qml:401
 #, kde-format
 msgid "Remove GPS info"
 msgstr "GPS 정보 삭제"
