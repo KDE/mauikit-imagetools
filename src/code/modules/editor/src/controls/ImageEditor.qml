@@ -14,7 +14,7 @@ import "private" as Private
  * @brief A control with different tools for editingan image
  *
  */
-Maui.Page
+Maui.PageLayout
 {
     id: control
 
@@ -23,6 +23,9 @@ Maui.Page
     readonly property bool ready : String(control.url).length
     
     readonly property alias editor : imageDoc
+
+    property Item middleContentBar : null
+
 
     signal saved()
     signal savedAs(string url)
@@ -43,11 +46,16 @@ Maui.Page
         onRejected: close()
     }
 
-    headBar.visible: control.ready
-    headBar.background: null
-    headBar.leftContent: Button
+    // headBar.visible: control.ready
+    // headBar.background: null
+
+    // altHeader: split
+    splitIn: ToolBar.Footer
+    splitSection: Maui.PageLayout.Section.Middle
+    split: true
+
+    rightContent: Button
     {
-        icon.name: "go-previous"
         Maui.Controls.status : imageDoc.edited ? Maui.Controls.Negative : Maui.Controls.Normal
         text: i18n("Cancel")
         onClicked:
@@ -59,7 +67,22 @@ Maui.Page
         }
     }
 
-    headBar.rightContent: [
+    middleContent: control.middleContentBar
+
+    leftContent: [
+        Button
+        {
+            icon.name: "go-previous"
+            text: "Save"
+            enabled: imageDoc.edited
+            Maui.Controls.status : imageDoc.edited ? Maui.Controls.Positive : Maui.Controls.Normal
+
+            onClicked:
+            {
+                imageDoc.save()
+                control.saved()
+            }
+        },
 
         ToolButton
         {
@@ -69,19 +92,6 @@ Maui.Page
             {
                 imageDoc.saveAs()
                 control.savedAs()
-            }
-        },
-
-        Button
-        {
-            text: "Save"
-            enabled: imageDoc.edited
-            Maui.Controls.status : imageDoc.edited ? Maui.Controls.Positive : Maui.Controls.Normal
-
-            onClicked:
-            {
-                imageDoc.save()
-                control.saved()
             }
         }
     ]
@@ -170,7 +180,11 @@ Maui.Page
         icon.name: "color-mode-black-white"
         text: i18nd("mauikitimagetools","Color")
         checked: _actionsBarLoader.currentIndex === 0
-        onTriggered: _actionsBarLoader.currentIndex = 0
+        onTriggered:
+        {
+            _actionsBarLoader.currentIndex = 0
+            control.middleContentBar = _colourBar.bar
+        }
     }
 
     Action
@@ -179,7 +193,11 @@ Maui.Page
         icon.name: "dialog-transform"
         text: i18nd("mauikitimagetools","Transform")
         checked: _actionsBarLoader.currentIndex === 1
-        onTriggered: _actionsBarLoader.currentIndex = 1
+        onTriggered:
+        {
+            _actionsBarLoader.currentIndex = 1
+            control.middleContentBar = _transBar.bar
+        }
     }
 
     Action
@@ -197,7 +215,11 @@ Maui.Page
         icon.name: "image-auto-adjust"
         text: i18nd("mauikitimagetools","Filters")
         checked: _actionsBarLoader.currentIndex === 2
-        onTriggered: _actionsBarLoader.currentIndex = 2
+        onTriggered:
+        {
+            _actionsBarLoader.currentIndex = 2
+            control.middleContentBar = effectBar
+        }
     }
 
     Loader
@@ -315,7 +337,7 @@ Maui.Page
         }
     }
 
-    footBar.visible: false
+    // footBar.visible: false
     footerColumn: [
 
         Private.TransformationBar
@@ -330,65 +352,58 @@ Maui.Page
             id: _colourBar
             visible: _actionsBarLoader.currentIndex === 0 && control.ready
             width: parent.width
-        },
+        }
+    ]
 
-        RowLayout
+
+    property Item effectBar :  Row
+    {
+        Layout.alignment: Qt.AlignHCenter
+        spacing: Maui.Style.defaultSpacing
+        Button
         {
-            id: _filtersBar
-            visible: _actionsBarLoader.currentIndex === 2 && control.ready
-            width: parent.width
-
-            Row
+            text: "gray"
+            checkable: true
+            checked: false
+            onClicked:
             {
-                Layout.alignment: Qt.AlignHCenter
-                spacing: Maui.Style.defaultSpacing
-                Button
+                if(checked)
                 {
-                    text: "gray"
-                    checkable: true
-                    checked: false
-                    onClicked:
-                    {
-                        if(checked)
-                        {
-                            editor.toGray()
-                            editor.apply()
-                        }else
-                        {
-                            editor.undo()
-                        }
-                    }
-                }
-
-                Button
+                    editor.toGray()
+                    editor.apply()
+                }else
                 {
-                    text: "bw"
-                    onClicked: editor.toBW();
-                }
-
-                Button
-                {
-                    text: "sketch"
-                    onClicked: editor.toSketch();
-                }
-
-                Button
-                {
-                    text: "vignette"
-                    onClicked: editor.addVignette();
-                }
-
-                Button
-                {
-                    text: "Border"
-                    property color color : "pink"
-                    onClicked: editor.addBorder(100, color);
+                    editor.undo()
                 }
             }
-
         }
 
-    ]
+        Button
+        {
+            text: "bw"
+            onClicked: editor.toBW();
+        }
+
+        Button
+        {
+            text: "sketch"
+            onClicked: editor.toSketch();
+        }
+
+        Button
+        {
+            text: "vignette"
+            onClicked: editor.addVignette();
+        }
+
+        Button
+        {
+            text: "Border"
+            property color color : "pink"
+            onClicked: editor.addBorder(100, color);
+        }
+    }
+
 
     function selectionToolRect()
     {

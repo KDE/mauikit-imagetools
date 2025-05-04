@@ -50,241 +50,229 @@ ColumnLayout
         }
     }
 
-    Maui.ToolBar
+    property Item bar: Row
     {
-        position: ToolBar.Footer
-        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignHCenter
+        spacing: Maui.Style.defaultSpacing
 
-        background: Rectangle
+        Operation
         {
-            color: Maui.Theme.backgroundColor
+            id: _brightnessButton
+            autoExclusive: true
+            checked: currentOperation == this
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image brightness", "Brightness");
+
+            Binding on value
+            {
+                value: editor.brightness
+                restoreMode: Binding.RestoreBindingOrValue
+            }
+
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
+
+            from: -255
+            to: 255
+            onValueChanged:
+            {
+                console.log("Adjust staturation", value)
+                editor.adjustBrightness(value)
+            }
         }
 
-        middleContent: Row
+        Operation
         {
-            Layout.alignment: Qt.AlignHCenter
-            spacing: Maui.Style.defaultSpacing
-
-
-
-            Operation
+            checkable: true
+            checked: currentOperation == this
+            autoExclusive: true
+            icon.name:  "transform-crop"
+            text:  i18nc("@action:button Change image saturation", "Saturation");
+            onClicked:
             {
-                id: _brightnessButton
-                autoExclusive: true
-                checked: currentOperation == this
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image brightness", "Brightness");
-
-                Binding on value
-                {
-                    value: editor.brightness
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
-
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-
-                from: -255
-                to: 255
-                onValueChanged:
-                {
-                    console.log("Adjust staturation", value)
-                    editor.adjustBrightness(value)
-                }
+                currentOperation = this
+                editor.applyChanges()
             }
 
-            Operation
+            // value: editor.saturation
+
+            Binding on value
             {
-                checkable: true
-                checked: currentOperation == this
-                autoExclusive: true
-                icon.name:  "transform-crop"
-                text:  i18nc("@action:button Change image saturation", "Saturation");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-
-                // value: editor.saturation
-
-                Binding on value
-                {
-                    value: editor.saturation
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
-
-                from: -255
-                to: 255
-                onValueChanged:
-                {
-                    console.log("Adjust staturation", value)
-                    editor.adjustSaturation(value)
-                }
+                value: editor.saturation
+                restoreMode: Binding.RestoreBindingOrValue
             }
 
-            Operation
+            from: -255
+            to: 255
+            onValueChanged:
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image contrast", "Contrast");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-                Binding on value
-                {
-                    value: editor.contrast
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
+                console.log("Adjust staturation", value)
+                editor.adjustSaturation(value)
+            }
+        }
 
-                from: -100
-                to: 100
-                stepSize: 1
-                onValueChanged:
-                {
-                    console.log("Adjust contrast", value)
-                    editor.adjustContrast(value)
-                }
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image contrast", "Contrast");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
+            Binding on value
+            {
+                value: editor.contrast
+                restoreMode: Binding.RestoreBindingOrValue
             }
 
-            Operation
+            from: -100
+            to: 100
+            stepSize: 1
+            onValueChanged:
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image blur", "Blur");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-                Binding on value
-                {
-                    value: editor.gaussianBlur
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
+                console.log("Adjust contrast", value)
+                editor.adjustContrast(value)
+            }
+        }
 
-                from: 0
-                to: 100
-                stepSize: 1
-                onValueChanged:
-                {
-                    console.log("Adjust blur", value)
-                    editor.adjustGaussianBlur(value)
-                }
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image blur", "Blur");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
+            Binding on value
+            {
+                value: editor.gaussianBlur
+                restoreMode: Binding.RestoreBindingOrValue
             }
 
-            Operation
+            from: 0
+            to: 100
+            stepSize: 1
+            onValueChanged:
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image hue", "Hue");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-                Binding on value
-                {
-                    value: editor.hue
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
+                console.log("Adjust blur", value)
+                editor.adjustGaussianBlur(value)
+            }
+        }
 
-                from: 0
-                to: 180
-                onValueChanged:
-                {
-                    console.log("Adjust hue", value)
-                    editor.adjustHue(value)
-                }
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image hue", "Hue");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
+            Binding on value
+            {
+                value: editor.hue
+                restoreMode: Binding.RestoreBindingOrValue
             }
 
-            Operation
+            from: 0
+            to: 180
+            onValueChanged:
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image sharpness", "Sharpness");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
+                console.log("Adjust hue", value)
+                editor.adjustHue(value)
+            }
+        }
 
-                Binding on value
-                {
-                    value: editor.sharpness
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
-
-                from: 0
-                to: 100
-                onValueChanged:
-                {
-                    editor.adjustSharpness(value)
-                }
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image sharpness", "Sharpness");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
             }
 
-            Operation
+            Binding on value
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image gamma", "Gamma");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
-
-                Binding on value
-                {
-                    value: editor.gamma
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
-
-                from: -100
-                to: 100
-                onValueChanged:
-                {
-                    editor.adjustGamma(value)
-                }
+                value: editor.sharpness
+                restoreMode: Binding.RestoreBindingOrValue
             }
 
-            Operation
+            from: 0
+            to: 100
+            onValueChanged:
             {
-                autoExclusive: true
-                icon.name: "transform-rotate"
-                checkable: true
-                text: i18nc("@action:button Change image threshold", "Threshold");
-                onClicked:
-                {
-                    currentOperation = this
-                    editor.applyChanges()
-                }
+                editor.adjustSharpness(value)
+            }
+        }
 
-                Binding on value
-                {
-                    value: editor.threshold
-                    restoreMode: Binding.RestoreBindingOrValue
-                }
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image gamma", "Gamma");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
 
-                from: 0
-                to: 255
-                onValueChanged:
-                {
-                    editor.adjustThreshold(value)
-                }
+            Binding on value
+            {
+                value: editor.gamma
+                restoreMode: Binding.RestoreBindingOrValue
+            }
+
+            from: -100
+            to: 100
+            onValueChanged:
+            {
+                editor.adjustGamma(value)
+            }
+        }
+
+        Operation
+        {
+            autoExclusive: true
+            icon.name: "transform-rotate"
+            checkable: true
+            text: i18nc("@action:button Change image threshold", "Threshold");
+            onClicked:
+            {
+                currentOperation = this
+                editor.applyChanges()
+            }
+
+            Binding on value
+            {
+                value: editor.threshold
+                restoreMode: Binding.RestoreBindingOrValue
+            }
+
+            from: 0
+            to: 255
+            onValueChanged:
+            {
+                editor.adjustThreshold(value)
             }
         }
     }
+
 }
 

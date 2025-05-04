@@ -14,36 +14,29 @@ ColumnLayout
     // property alias rotationButton : _freeRotationButton
     // property alias cropButton : _cropButton
 
-    Maui.ToolBar
+
+    property Item bar : Row
     {
-        position: ToolBar.Footer
-        Layout.fillWidth: true
-        background: Rectangle
+        Layout.alignment: Qt.AlignHCenter
+        spacing: Maui.Style.defaultSpacing
+
+        ToolButton
         {
-            color: Maui.Theme.backgroundColor
+            icon.name: "object-flip-vertical"
+            text: i18nc("@action:button Mirror an image vertically", "Flip");
+            autoExclusive: true
+            onClicked: imageDoc.mirror(false, true);
         }
 
-        leftContent: [
-            ToolButton
-            {
-                icon.name: "object-flip-vertical"
-                text: i18nc("@action:button Mirror an image vertically", "Flip");
-                autoExclusive: true
-                onClicked: imageDoc.mirror(false, true);
-            },
-
-            ToolButton
-            {
-                icon.name: "object-flip-horizontal"
-                text: i18nc("@action:button Mirror an image horizontally", "Mirror");
-                checkable: true
-                autoExclusive: true
-                onClicked: imageDoc.mirror(true, false);
-            }
-
-        ]
-
-        rightContent: ToolButton
+        ToolButton
+        {
+            icon.name: "object-flip-horizontal"
+            text: i18nc("@action:button Mirror an image horizontally", "Mirror");
+            checkable: true
+            autoExclusive: true
+            onClicked: imageDoc.mirror(true, false);
+        }
+        ToolButton
         {
             icon.name: "object-rotate-left"
             //                    display: ToolButton.IconOnly
@@ -54,11 +47,6 @@ ColumnLayout
                 _freeRotationSlider.value = value < -180 ? 90 : value
             }
         }
-
-        //                middleContent: Label
-        //                {
-        //                    text: i18nd("mauikitimagetools","Rotate")
-        //                }
     }
 
     Maui.ToolBar
@@ -115,12 +103,8 @@ ColumnLayout
             icon.name: "dialog-cancel"
             onClicked:
             {
-                if(_freeRotationButton.checked)
-                {
-                    _freeRotationSlider.value = 0
-                    _freeRotationButton.checked = false
 
-                }
+                    _freeRotationSlider.value = 0
 
                 if(_cropButton.checked)
                 {

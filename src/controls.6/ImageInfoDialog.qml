@@ -43,9 +43,13 @@ Maui.PopupPage
     maxWidth: 500
     hint: 1
 
-    title: _infoModel.fileName
+    page.title: _infoModel.fileName
+    page.showTitle: true
     headBar.visible: true
     spacing: Maui.Style.space.huge
+
+    page.headerMargins: Maui.Style.defaultPadding
+    page.floatingHeader: true
 
     signal gpsEdited(var url)
     
