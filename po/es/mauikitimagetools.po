@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-02 00:41+0000\n"
+"POT-Creation-Date: 2025-05-05 00:40+0000\n"
 "PO-Revision-Date: 2025-04-16 11:43+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -26,100 +26,100 @@ msgstr ""
 "Componentes de herramientas de imagen para edición, visualización y "
 "navegación."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#: src/code/modules/editor/src/controls/ImageEditor.qml:37
 #, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
 msgstr "¿Seguro que quiere cancelar todas las modificaciones?"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:52
+#: src/code/modules/editor/src/controls/ImageEditor.qml:60
 #, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:181
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:180
+#: src/code/modules/editor/src/controls/ImageEditor.qml:194
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transformar"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:189
+#: src/code/modules/editor/src/controls/ImageEditor.qml:207
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Capa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#: src/code/modules/editor/src/controls/ImageEditor.qml:216
 #, kde-format
 msgid "Filters"
 msgstr "Filtros"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "Brillo"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "Saturación"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:123
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "Contraste"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:150
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr "Desenfoque"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:177
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr "Tono"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:203
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr "Nitidez"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:229
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr "Gamma"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:255
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
 msgstr "Umbral"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "Voltear"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:38
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:34
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "Reflejar"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:50
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:43
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
@@ -140,113 +140,113 @@ msgstr "Leer todo"
 msgid "Configure"
 msgstr "Configurar"
 
-#: src/controls.6/ImageInfoDialog.qml:105
+#: src/controls.6/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Edit"
 msgstr "Editar"
 
-#: src/controls.6/ImageInfoDialog.qml:106
+#: src/controls.6/ImageInfoDialog.qml:110
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Editando etiqueta Exif"
 
-#: src/controls.6/ImageInfoDialog.qml:114
+#: src/controls.6/ImageInfoDialog.qml:118
 #, kde-format
 msgid "Tag key"
 msgstr "Clave de la etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:121
+#: src/controls.6/ImageInfoDialog.qml:125
 #, kde-format
 msgid "Tag value"
 msgstr "Valor de la etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:132
+#: src/controls.6/ImageInfoDialog.qml:136
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "No se puede editar la etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:155
+#: src/controls.6/ImageInfoDialog.qml:159
 #, kde-format
 msgid "Remove"
 msgstr "Eliminar"
 
-#: src/controls.6/ImageInfoDialog.qml:156
+#: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "¿Seguro que quiere eliminar la etiqueta Exif %1?"
 
-#: src/controls.6/ImageInfoDialog.qml:167
+#: src/controls.6/ImageInfoDialog.qml:171
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "No se puede eliminar la etiqueta"
 
-#: src/controls.6/ImageInfoDialog.qml:188
+#: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
 msgid "Comment"
 msgstr "Comentario"
 
-#: src/controls.6/ImageInfoDialog.qml:213
-#: src/controls.6/ImageInfoDialog.qml:370
+#: src/controls.6/ImageInfoDialog.qml:217
+#: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
 msgstr "GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
 msgid "Latitude"
 msgstr "Latitud"
 
-#: src/controls.6/ImageInfoDialog.qml:233
+#: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
 msgstr "Longitud"
 
-#: src/controls.6/ImageInfoDialog.qml:269
+#: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
 msgid "Could not save the GPS data"
 msgstr "No se han podido guardar los datos de GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:283
+#: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
 msgid "Details"
 msgstr "Detalles"
 
-#: src/controls.6/ImageInfoDialog.qml:284
+#: src/controls.6/ImageInfoDialog.qml:288
 #, kde-format
 msgid "File information"
 msgstr "Información del archivo"
 
-#: src/controls.6/ImageInfoDialog.qml:332
+#: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
 msgstr "Comentario y descripción"
 
-#: src/controls.6/ImageInfoDialog.qml:350
+#: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
 msgid "Add Comment"
 msgstr "Añadir comentario"
 
-#: src/controls.6/ImageInfoDialog.qml:357
+#: src/controls.6/ImageInfoDialog.qml:361
 #, kde-format
 msgid "Remove Comment"
 msgstr "Eliminar comentario"
 
-#: src/controls.6/ImageInfoDialog.qml:371
+#: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
 msgstr "Etiquetas de geolocalización"
 
-#: src/controls.6/ImageInfoDialog.qml:376
+#: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
 msgid "City"
 msgstr "Ciudad"
 
-#: src/controls.6/ImageInfoDialog.qml:388
+#: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
 msgstr "Definir información de GPS"
 
-#: src/controls.6/ImageInfoDialog.qml:401
+#: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Eliminar información de GPS"

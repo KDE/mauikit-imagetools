@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-02 00:41+0000\n"
+"POT-Creation-Date: 2025-05-05 00:40+0000\n"
 "PO-Revision-Date: 2024-12-29 16:06+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -22,41 +22,41 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "सम्पादनार्थं, द्रष्टुं, मार्गदर्शनार्थं च चित्रसाधनघटकाः ।"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:34
+#: src/code/modules/editor/src/controls/ImageEditor.qml:37
 #, fuzzy, kde-format
 #| msgid "Are you sure you want to remove the Exif tag %1?"
 msgid "Are you sure you wanna cancel all the edits?"
 msgstr "किं भवान् निश्चयेन Exif टैग् %1 अपसारयितुम् इच्छति?"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:52
+#: src/code/modules/editor/src/controls/ImageEditor.qml:60
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:171
+#: src/code/modules/editor/src/controls/ImageEditor.qml:181
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "वर्ण"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:180
+#: src/code/modules/editor/src/controls/ImageEditor.qml:194
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "परिवर्तनं कुरुत"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:189
+#: src/code/modules/editor/src/controls/ImageEditor.qml:207
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "स्तर"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:198
+#: src/code/modules/editor/src/controls/ImageEditor.qml:216
 #, kde-format
 msgid "Filters"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:77
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image"
 #| msgid "Brightness"
@@ -64,7 +64,7 @@ msgctxt "@action:button Change image brightness"
 msgid "Brightness"
 msgstr "कान्तिः"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:106
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:94
 #, fuzzy, kde-format
 #| msgctxt "@action:button Crop an image"
 #| msgid "Saturation"
@@ -72,7 +72,7 @@ msgctxt "@action:button Change image saturation"
 msgid "Saturation"
 msgstr "संतृप्ति"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:135
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:123
 #, fuzzy, kde-format
 #| msgctxt "@action:button Rotate an image"
 #| msgid "Contrast"
@@ -80,49 +80,49 @@ msgctxt "@action:button Change image contrast"
 msgid "Contrast"
 msgstr "विप्रकर्ष"
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:162
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:150
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:189
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:177
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:215
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:203
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:241
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:229
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/ColourBar.qml:267
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:255
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:30
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
 msgstr "पर्यस्"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:38
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:34
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
 msgstr "दर्पण"
 
-#: src/code/modules/editor/src/controls/private/TransformationBar.qml:50
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:43
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
@@ -143,115 +143,115 @@ msgstr "सर्वं पठन्तु"
 msgid "Configure"
 msgstr "विन्यस्तं कुर्वन्तु"
 
-#: src/controls.6/ImageInfoDialog.qml:105
+#: src/controls.6/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Edit"
 msgstr "सम्पादन"
 
-#: src/controls.6/ImageInfoDialog.qml:106
+#: src/controls.6/ImageInfoDialog.qml:110
 #, kde-format
 msgid "Editing Exif tag"
 msgstr "Exif टैग सम्पादनम्"
 
-#: src/controls.6/ImageInfoDialog.qml:114
+#: src/controls.6/ImageInfoDialog.qml:118
 #, kde-format
 msgid "Tag key"
 msgstr "टैग कील"
 
-#: src/controls.6/ImageInfoDialog.qml:121
+#: src/controls.6/ImageInfoDialog.qml:125
 #, kde-format
 msgid "Tag value"
 msgstr "टैग मूल्य"
 
-#: src/controls.6/ImageInfoDialog.qml:132
+#: src/controls.6/ImageInfoDialog.qml:136
 #, kde-format
 msgid "Could not edit the tag"
 msgstr "टैग् सम्पादयितुं न शक्तवान्"
 
-#: src/controls.6/ImageInfoDialog.qml:155
+#: src/controls.6/ImageInfoDialog.qml:159
 #, kde-format
 msgid "Remove"
 msgstr "अपाकरोति"
 
-#: src/controls.6/ImageInfoDialog.qml:156
+#: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
 msgstr "किं भवान् निश्चयेन Exif टैग् %1 अपसारयितुम् इच्छति?"
 
-#: src/controls.6/ImageInfoDialog.qml:167
+#: src/controls.6/ImageInfoDialog.qml:171
 #, kde-format
 msgid "Could not remove the tag"
 msgstr "टैग् अपसारयितुं न शक्तवान्"
 
-#: src/controls.6/ImageInfoDialog.qml:188
+#: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
 msgid "Comment"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:213
-#: src/controls.6/ImageInfoDialog.qml:370
+#: src/controls.6/ImageInfoDialog.qml:217
+#: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:222
+#: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
 msgid "Latitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:233
+#: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:269
+#: src/controls.6/ImageInfoDialog.qml:273
 #, fuzzy, kde-format
 #| msgid "Could not remove the tag"
 msgid "Could not save the GPS data"
 msgstr "टैग् अपसारयितुं न शक्तवान्"
 
-#: src/controls.6/ImageInfoDialog.qml:283
+#: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
 msgid "Details"
 msgstr "वर्णन"
 
-#: src/controls.6/ImageInfoDialog.qml:284
+#: src/controls.6/ImageInfoDialog.qml:288
 #, kde-format
 msgid "File information"
 msgstr "सञ्चिकासूचना"
 
-#: src/controls.6/ImageInfoDialog.qml:332
+#: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:350
+#: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
 msgid "Add Comment"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:357
+#: src/controls.6/ImageInfoDialog.qml:361
 #, fuzzy, kde-format
 #| msgid "Remove"
 msgid "Remove Comment"
 msgstr "अपाकरोति"
 
-#: src/controls.6/ImageInfoDialog.qml:371
+#: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:376
+#: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
 msgid "City"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:388
+#: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
 msgstr ""
 
-#: src/controls.6/ImageInfoDialog.qml:401
+#: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""
