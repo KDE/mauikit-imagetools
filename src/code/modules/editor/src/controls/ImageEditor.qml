@@ -18,13 +18,45 @@ Maui.PageLayout
 {
     id: control
 
+    Keys.enabled: true
+    Keys.onPressed: (event) =>
+                    {
+                        if(event.key  === Qt.Key_Escape)
+                        {
+                            control.cancel()
+                            event.accepted = true
+                            return
+                        }
+
+                        if(event.key == Qt.Key_Z && (event.modifiers & Qt.ControlModifier))
+                        {
+                            imageDoc.undo()
+                            event.accepted =true
+                            return
+                        }
+
+                        if(event.key == Qt.Key_S && (event.modifiers & Qt.ControlModifier))
+                        {
+                            imageDoc.save()
+                            event.accepted =true
+                            return
+                        }
+
+                        if(event.key == Qt.Key_S && (event.modifiers & Qt.ControlModifier | Qt.ShiftModifier))
+                        {
+                            imageDoc.saveAs()
+                            event.accepted =true
+                            return
+                        }
+                    }
+
     property url url
 
     readonly property bool ready : String(control.url).length
     
     readonly property alias editor : imageDoc
 
-    property Item middleContentBar : null
+    property Item middleContentBar : _private.currentAction.bar
 
     property int preferredBorderThickness : 80
     property string preferredBorderColor : "white"
@@ -32,6 +64,103 @@ Maui.PageLayout
     signal saved()
     signal savedAs(string url)
     signal canceled()
+
+    enum ActionType
+    {
+        Colors,
+        Transform,
+        Layers,
+        Filters
+    }
+
+    component EditorAction : Action
+    {
+        property Item bar : null
+    }
+
+    property int initialActionType : ImageEditor.ActionType.Transform
+
+    QtObject
+    {
+        id: _private
+        property EditorAction currentAction : switch(initialActionType)
+                                              {
+                                              case ImageEditor.ActionType.Colors: return colorsAction
+                                              case ImageEditor.ActionType.Transform: return transformAction
+                                              case ImageEditor.ActionType.Layers: return layerAction
+                                              case ImageEditor.ActionType.Filters: return filterAction
+                                              default: return null
+                                              }
+
+    }
+
+    function getCurrentActionType()
+    {
+        if(_private.currentAction == colorsAction)
+            return ImageEditor.ActionType.Colors
+
+        if(_private.currentAction == transformAction)
+            return ImageEditor.ActionType.Transform
+
+        if(_private.currentAction == layerAction)
+            return ImageEditor.ActionType.Layers
+
+        if(_private.currentAction == filterAction)
+            return ImageEditor.ActionType.Filters
+    }
+
+    function cancel()
+    {
+        if(imageDoc.edited)
+        {
+            var dialog = _cancelDialogComponent.createObject(control)
+            dialog.open()
+        }
+        else
+            control.canceled()
+    }
+
+    function save()
+    {
+        imageDoc.save()
+        control.saved()
+    }
+
+    readonly property Action colorsAction : EditorAction
+    {
+        id: _colorsAction
+        icon.name: "color-mode-black-white"
+        text: i18nd("mauikitimagetools","Color")
+        checked: _private.currentAction == this
+        bar: _colourBar.bar
+        onTriggered: _private.currentAction = this
+    }
+
+    readonly property Action transformAction : EditorAction
+    {
+        icon.name: "dialog-transform"
+        text: i18nd("mauikitimagetools","Transform")
+        checked: _private.currentAction == this
+        bar: _transBar.bar
+        onTriggered: _private.currentAction = this
+    }
+
+    readonly property Action layerAction : EditorAction
+    {
+        icon.name: "layer-new"
+        text: i18nd("mauikitimagetools","Layer")
+        checked: _private.currentAction == this
+        onTriggered: _private.currentAction = this
+    }
+
+    readonly property Action filterAction : EditorAction
+    {
+        icon.name: "image-auto-adjust"
+        text: i18nd("mauikitimagetools","Filters")
+        checked: _private.currentAction == this
+        bar: effectBar
+        onTriggered: _private.currentAction = this
+    }
 
     Component
     {
@@ -80,41 +209,40 @@ Maui.PageLayout
         }
     }
 
-    Maui.InfoDialog
+    Component
     {
-        id: _cancelDialog
-        message: i18n("Are you sure you wanna cancel all the edits?")
-        standardButtons: Dialog.Yes | Dialog.Cancel
+        id: _cancelDialogComponent
 
-        onAccepted:
+        Maui.InfoDialog
         {
-            imageDoc.cancel()
-            control.canceled()
-        }
+            template.iconSource: "dialog-warning"
+            message: i18n("Before closing the editor, do you want to apply the changes made to the image or discard them? Pick cancel to return to the editor.")
+            standardButtons: Dialog.Apply | Dialog.Discard | Dialog.Cancel
 
-        onRejected: close()
+            onClosed: destroy()
+            onDiscarded:
+            {
+                imageDoc.cancel()
+                control.canceled()
+            }
+
+            onApplied: control.save()
+            onRejected: close()
+        }
     }
 
-    // headBar.visible: control.ready
-    // headBar.background: null
-
-    // altHeader: split
+    altHeader: width > 600
     splitIn: ToolBar.Footer
     splitSection: Maui.PageLayout.Section.Middle
-    split: true
+    split: width < 600
 
     // footerMargins: Maui.Style.defaultPadding
     rightContent: Button
     {
+        enabled: imageDoc.edited
         Maui.Controls.status : imageDoc.edited ? Maui.Controls.Negative : Maui.Controls.Normal
         text: i18n("Cancel")
-        onClicked:
-        {
-            if(imageDoc.edited)
-                _cancelDialog.open()
-            else
-                control.canceled()
-        }
+        onClicked: control.cancel()
     }
 
     middleContent: control.middleContentBar
@@ -123,14 +251,18 @@ Maui.PageLayout
         Button
         {
             icon.name: "go-previous"
-            text: "Save"
-            enabled: imageDoc.edited
+            text: imageDoc.edited ? i18n("Save") : i18n("Back")
             Maui.Controls.status : imageDoc.edited ? Maui.Controls.Positive : Maui.Controls.Normal
 
             onClicked:
             {
-                imageDoc.save()
-                control.saved()
+                if(imageDoc.edited)
+                {
+                    control.save()
+                }else
+                {
+                    control.canceled()
+                }
             }
         },
 
@@ -199,7 +331,7 @@ Maui.PageLayout
 
     Canvas
     {
-        visible: _transfromAction.checked
+        visible: transformAction.checked
         opacity: 0.15
         anchors.fill : parent
         property int wgrid: control.width / 20
@@ -224,59 +356,10 @@ Maui.PageLayout
         }
     }
 
-    Action
-    {
-        id: _colorsAction
-        icon.name: "color-mode-black-white"
-        text: i18nd("mauikitimagetools","Color")
-        checked: _actionsBarLoader.currentIndex === 0
-        onTriggered:
-        {
-            _actionsBarLoader.currentIndex = 0
-            control.middleContentBar = _colourBar.bar
-        }
-    }
-
-    Action
-    {
-        id: _transfromAction
-        icon.name: "dialog-transform"
-        text: i18nd("mauikitimagetools","Transform")
-        checked: _actionsBarLoader.currentIndex === 1
-        onTriggered:
-        {
-            _actionsBarLoader.currentIndex = 1
-            control.middleContentBar = _transBar.bar
-        }
-    }
-
-    Action
-    {
-        id: _layerAction
-        icon.name: "layer-new"
-        text: i18nd("mauikitimagetools","Layer")
-        checked: _actionsBarLoader.currentIndex === 3
-        onTriggered: _actionsBarLoader.currentIndex = 3
-    }
-
-    Action
-    {
-        id: _filterAction
-        icon.name: "image-auto-adjust"
-        text: i18nd("mauikitimagetools","Filters")
-        checked: _actionsBarLoader.currentIndex === 2
-        onTriggered:
-        {
-            _actionsBarLoader.currentIndex = 2
-            control.middleContentBar = effectBar
-        }
-    }
 
     Loader
     {
         id: _actionsBarLoader
-        property int currentIndex : 1
-        // active: settings.showActionsBar
         visible: status == Loader.Ready
         asynchronous: true
         anchors.bottom: parent.bottom
@@ -339,7 +422,7 @@ Maui.PageLayout
 
                 Repeater
                 {
-                    model: [_colorsAction, _transfromAction, _layerAction, _filterAction]
+                    model: [colorsAction, transformAction, layerAction, filterAction]
 
                     ToolButton
                     {
@@ -359,31 +442,30 @@ Maui.PageLayout
                     enabled: !imageDoc.changesApplied
 
                 }
-
             }
 
-            DragHandler
-            {
-                target: _pane
-                // target: _actionsBarLoader
-                // grabPermissions: PointerHandler.TakeOverForbidden | PointerHandler.CanTakeOverFromAnything
-                xAxis.maximum: control.width - _pane.width
-                xAxis.minimum: 0
+            // DragHandler
+            // {
+            //     target: _pane
+            //     // target: _actionsBarLoader
+            //     // grabPermissions: PointerHandler.TakeOverForbidden | PointerHandler.CanTakeOverFromAnything
+            //     xAxis.maximum: control.width - _pane.width
+            //     xAxis.minimum: 0
 
-                yAxis.enabled : false
+            //     yAxis.enabled : false
 
-                onActiveChanged:
-                {
-                    if(!active)
-                    {
-                        console.log(centroid.position, centroid.scenePosition, centroid.velocity.x)
+            //     onActiveChanged:
+            //     {
+            //         if(!active)
+            //         {
+            //             console.log(centroid.position, centroid.scenePosition, centroid.velocity.x)
 
-                        let pos = centroid.velocity.x
-                        _pane.x = Qt.binding(()=> { return pos < 0 ? Maui.Style.space.big : control.width - _pane.width - Maui.Style.space.big })
-                        _pane.y = Qt.binding(()=> { return control.height - _pane.height - Maui.Style.space.big })
-                    }
-                }
-            }
+            //             let pos = centroid.velocity.x
+            //             _pane.x = Qt.binding(()=> { return pos < 0 ? Maui.Style.space.big : control.width - _pane.width - Maui.Style.space.big })
+            //             _pane.y = Qt.binding(()=> { return control.height - _pane.height - Maui.Style.space.big })
+            //         }
+            //     }
+            // }
         }
     }
 
@@ -393,14 +475,14 @@ Maui.PageLayout
         Private.TransformationBar
         {
             id: _transBar
-            visible: _actionsBarLoader.currentIndex === 1 && control.ready
+            visible: transformAction.checked && control.ready
             width: parent.width
         },
 
         Private.ColourBar
         {
             id: _colourBar
-            visible: _actionsBarLoader.currentIndex === 0 && control.ready
+            visible: colorsAction.checked === 0 && control.ready
             width: parent.width
         }
     ]
