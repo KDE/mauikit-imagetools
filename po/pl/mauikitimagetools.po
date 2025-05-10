@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-05 00:40+0000\n"
+"POT-Creation-Date: 2025-05-10 00:41+0000\n"
 "PO-Revision-Date: 2023-12-27 18:40+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmai.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -22,38 +22,58 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Narzędzia do edytowania, oglądania i poruszania się po obrazach."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:37
+#: src/code/modules/editor/src/controls/ImageEditor.qml:43
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:47
+#, kde-format
+msgid "Border color"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:61
+#, kde-format
+msgid "Border thicknes"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:86
 #, fuzzy, kde-format
 #| msgid "Are you sure you want to remove the Exif tag %1?"
 msgid "Are you sure you wanna cancel all the edits?"
 msgstr "Czy na pewno chcesz usunąć znacznik Exif %1?"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:60
+#: src/code/modules/editor/src/controls/ImageEditor.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:181
+#: src/code/modules/editor/src/controls/ImageEditor.qml:231
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Barwa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:194
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Przekształć"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:207
+#: src/code/modules/editor/src/controls/ImageEditor.qml:257
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Warstwa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:216
+#: src/code/modules/editor/src/controls/ImageEditor.qml:266
 #, kde-format
 msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#, kde-format
+msgid "Border"
 msgstr ""
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65

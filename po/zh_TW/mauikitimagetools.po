@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-05 00:40+0000\n"
+"POT-Creation-Date: 2025-05-10 00:41+0000\n"
 "PO-Revision-Date: 2025-04-20 15:08+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -22,38 +22,58 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "編輯、檢視和瀏覽影像用的影像工具部件。"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:37
+#: src/code/modules/editor/src/controls/ImageEditor.qml:43
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:47
+#, kde-format
+msgid "Border color"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:61
+#, kde-format
+msgid "Border thicknes"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:86
 #, kde-format
 msgid "Are you sure you wanna cancel all the edits?"
 msgstr "您確定要取消所有編輯嗎？"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:60
+#: src/code/modules/editor/src/controls/ImageEditor.qml:110
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:181
+#: src/code/modules/editor/src/controls/ImageEditor.qml:231
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "色彩"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:194
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "變形"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:207
+#: src/code/modules/editor/src/controls/ImageEditor.qml:257
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "圖層"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:216
+#: src/code/modules/editor/src/controls/ImageEditor.qml:266
 #, kde-format
 msgid "Filters"
 msgstr "過濾器"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#, kde-format
+msgid "Border"
+msgstr ""
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
