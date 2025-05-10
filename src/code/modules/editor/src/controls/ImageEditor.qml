@@ -58,7 +58,7 @@ Maui.PageLayout
 
             Maui.FlexSectionItem
             {
-                label1.text: i18n("Border thicknes")
+                label1.text: i18n("Border thickness")
 
                 SpinBox
                 {
