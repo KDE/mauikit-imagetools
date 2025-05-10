@@ -26,10 +26,59 @@ Maui.PageLayout
 
     property Item middleContentBar : null
 
+    property int preferredBorderThickness : 80
+    property string preferredBorderColor : "white"
 
     signal saved()
     signal savedAs(string url)
     signal canceled()
+
+    Component
+    {
+        id: _boderDialogComponent
+        Maui.InfoDialog
+        {
+            onClosed: destroy()
+            standardButtons: Dialog.Apply | Dialog.Cancel
+            message: i18n("Select a color and thickness for the border effect.")
+
+            Maui.FlexSectionItem
+            {
+                label1.text: i18n("Border color")
+
+                Maui.ColorsRow
+                {
+                    id: _colorsRow
+                    currentColor: control.preferredBorderColor
+                    defaultColor: "white"
+                    colors: ["white", "black", "grey", "pink", "violet", "green", "blue", "yellow"]
+                    onColorPicked: (color) => control.preferredBorderColor = color
+                }
+            }
+
+            Maui.FlexSectionItem
+            {
+                label1.text: i18n("Border thicknes")
+
+                SpinBox
+                {
+                    id: _spinBox
+                    from: 1
+                    to: 200
+                    value: control.preferredBorderThickness
+                    onValueChanged: control.preferredBorderThickness = value
+                }
+            }
+
+            onApplied:
+            {
+                imageDoc.addBorder(control.preferredBorderThickness, control.preferredBorderColor)
+                close()
+            }
+
+            onRejected: close()
+        }
+    }
 
     Maui.InfoDialog
     {
@@ -54,6 +103,7 @@ Maui.PageLayout
     splitSection: Maui.PageLayout.Section.Middle
     split: true
 
+    // footerMargins: Maui.Style.defaultPadding
     rightContent: Button
     {
         Maui.Controls.status : imageDoc.edited ? Maui.Controls.Negative : Maui.Controls.Normal
@@ -396,11 +446,28 @@ Maui.PageLayout
             onClicked: editor.addVignette();
         }
 
-        Button
+        Maui.ToolActions
         {
-            text: "Border"
-            property color color : "pink"
-            onClicked: editor.addBorder(100, color);
+            checkable: false
+            autoExclusive: false
+
+
+            Action
+            {
+
+                text: i18n("Border")
+                onTriggered: editor.addBorder(preferredBorderThickness, preferredBorderColor);
+            }
+
+            Action
+            {
+                icon.name: "configuration"
+                onTriggered:
+                {
+                    var dialog = _boderDialogComponent.createObject(this)
+                    dialog.open()
+                }
+            }
         }
     }
 
