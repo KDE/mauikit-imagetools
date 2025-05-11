@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 07:27+0200\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"PO-Revision-Date: 2025-05-10 07:16+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -23,58 +23,71 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Komponente slikovnih orodij za urejanje, ogled in krmarjenje."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:43
-#, kde-format
-msgid "Select a color and thickness for the border effect."
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:47
-#, kde-format
-msgid "Border color"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:61
-#, kde-format
-msgid "Border thicknes"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:86
-#, kde-format
-msgid "Are you sure you wanna cancel all the edits?"
-msgstr "Ali ste prepričani, da želite preklicati vsa urejanja?"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:110
-#, kde-format
-msgid "Cancel"
-msgstr "Prekliči"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:231
+#: src/code/modules/editor/src/controls/ImageEditor.qml:133
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Barva"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Preoblikuj"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:257
+#: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Plast"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:266
+#: src/code/modules/editor/src/controls/ImageEditor.qml:159
 #, kde-format
 msgid "Filters"
 msgstr "Filtri"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr "Izberite barvo in debelino za učinek obrobe."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#, kde-format
+msgid "Border color"
+msgstr "Barva obrobe"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#, fuzzy, kde-format
+#| msgid "Border thicknes"
+msgid "Border thickness"
+msgstr "Debelina obrobe"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Back"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Obroba"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
@@ -267,6 +280,9 @@ msgstr "Nastavi GPS informacije"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Odstrani informacije GPS"
+
+#~ msgid "Are you sure you wanna cancel all the edits?"
+#~ msgstr "Ali ste prepričani, da želite preklicati vsa urejanja?"
 
 #~ msgctxt "@action:button Crop an image"
 #~ msgid "Crop"

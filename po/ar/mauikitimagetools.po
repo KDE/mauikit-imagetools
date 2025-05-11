@@ -1,49 +1,50 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
+# SPDX-FileCopyrightText: 2025 Zayed Al-Saidi <zayed.alsaidi@gmail.com>
 #
-# Geraldo Simiao <geraldosimiao@fedoraproject.org>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2023-07-29 22:19-0300\n"
-"Last-Translator: Geraldo Simiao <geraldosimiao@fedoraproject.org>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
-"Language: pt_BR\n"
+"PO-Revision-Date: 2025-05-10 18:27+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 23.04.3\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
-msgstr ""
+msgstr "مكونات أدوات الصورة للتحرير والعرض والتنقل."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:133
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
-msgstr "Cor"
+msgstr "اللون"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
-msgstr ""
+msgstr "التّحويل"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
-msgstr ""
+msgstr "الطبقة"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:159
 #, kde-format
 msgid "Filters"
-msgstr ""
+msgstr "المرشّحات"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:172
 #, kde-format
@@ -70,7 +71,7 @@ msgstr ""
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "ألغِ"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
@@ -91,194 +92,193 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
-msgstr ""
+msgstr "السطوع"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
-msgstr ""
+msgstr "التّشبّع"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:123
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
-msgstr ""
+msgstr "التباين"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:150
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "غشاوة"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:177
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "التدرج"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:203
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "الوضوح"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:229
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "غاما"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:255
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "العتبة"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
 #, kde-format
 msgctxt "@action:button Mirror an image vertically"
 msgid "Flip"
-msgstr ""
+msgstr "اقلب"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:34
 #, kde-format
 msgctxt "@action:button Mirror an image horizontally"
 msgid "Mirror"
-msgstr ""
+msgstr "اعكس"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:43
 #, kde-format
 msgctxt "@action:button Rotate an image 90°"
 msgid "Rotate 90°"
-msgstr ""
+msgstr "دوّر 90°"
 
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
-msgstr ""
+msgstr "اقرأ منطقة"
 
 #: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
-msgstr ""
+msgstr "اقرأ الكل"
 
 #: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
 msgid "Configure"
-msgstr ""
+msgstr "اضبط"
 
 #: src/controls.6/ImageInfoDialog.qml:109
 #, kde-format
 msgid "Edit"
-msgstr "Editar"
+msgstr "حرّر"
 
 #: src/controls.6/ImageInfoDialog.qml:110
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "حرر وسم Exif"
 
 #: src/controls.6/ImageInfoDialog.qml:118
 #, kde-format
 msgid "Tag key"
-msgstr ""
+msgstr "مفتاح الوسم"
 
 #: src/controls.6/ImageInfoDialog.qml:125
 #, kde-format
 msgid "Tag value"
-msgstr ""
+msgstr "قيمة الوسم"
 
 #: src/controls.6/ImageInfoDialog.qml:136
 #, kde-format
 msgid "Could not edit the tag"
-msgstr ""
+msgstr "تعذر تحرير الوسم"
 
 #: src/controls.6/ImageInfoDialog.qml:159
 #, kde-format
 msgid "Remove"
-msgstr ""
+msgstr "أزل"
 
 #: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
-msgstr ""
+msgstr "هل أنت متأكد أنك تريد إزالة وسم Exif %1؟"
 
 #: src/controls.6/ImageInfoDialog.qml:171
 #, kde-format
 msgid "Could not remove the tag"
-msgstr ""
+msgstr "تعذر إزالة الوسم"
 
 #: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "التعليق"
 
 #: src/controls.6/ImageInfoDialog.qml:217
 #: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "جي‌بي‌إس"
 
 #: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "خط العرض"
 
 #: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "خطّ الطول"
 
 #: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
 msgid "Could not save the GPS data"
-msgstr ""
+msgstr "تعذر حفظ معلومات جي بي اس"
 
 #: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
 msgid "Details"
-msgstr ""
+msgstr "التفاصيل"
 
 #: src/controls.6/ImageInfoDialog.qml:288
 #, kde-format
 msgid "File information"
-msgstr ""
+msgstr "معلومات الملفّ"
 
 #: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "التعليق والوصف"
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "أضف تعليقًا"
 
 #: src/controls.6/ImageInfoDialog.qml:361
 #, kde-format
 msgid "Remove Comment"
-msgstr ""
+msgstr "أزل التعليق"
 
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "وسوم الموقع الجغرافي"
 
 #: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "المدينة"
 
 #: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "عيّن معلومات جي بي اس"
 
 #: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "أزل معلومات جي بي اس"
 
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Cortar"
+#~ msgid "Are you sure you wanna cancel all the edits?"
+#~ msgstr "هل أنت متأكد أنك تريد إلغاء كافة التعديلات؟"

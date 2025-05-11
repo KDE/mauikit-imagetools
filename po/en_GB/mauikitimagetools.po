@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
 "PO-Revision-Date: 2024-05-24 17:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English\n"
@@ -22,56 +22,67 @@ msgstr ""
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Image tools components for editing, viewing and navigating."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:43
-#, kde-format
-msgid "Select a color and thickness for the border effect."
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:47
-#, kde-format
-msgid "Border color"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:61
-#, kde-format
-msgid "Border thicknes"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:86
-#, fuzzy, kde-format
-#| msgid "Are you sure you want to remove the Exif tag %1?"
-msgid "Are you sure you wanna cancel all the edits?"
-msgstr "Are you sure you want to remove the Exif tag %1?"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:110
-#, kde-format
-msgid "Cancel"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:231
+#: src/code/modules/editor/src/controls/ImageEditor.qml:133
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Colour"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transform"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:257
+#: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Layer"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:266
+#: src/code/modules/editor/src/controls/ImageEditor.qml:159
 #, kde-format
 msgid "Filters"
 msgstr ""
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#, kde-format
+msgid "Border color"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#, kde-format
+msgid "Border thickness"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Back"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
 msgstr ""
@@ -275,6 +286,11 @@ msgstr ""
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""
+
+#, fuzzy
+#~| msgid "Are you sure you want to remove the Exif tag %1?"
+#~ msgid "Are you sure you wanna cancel all the edits?"
+#~ msgstr "Are you sure you want to remove the Exif tag %1?"
 
 #~ msgctxt "@action:button Crop an image"
 #~ msgid "Crop"

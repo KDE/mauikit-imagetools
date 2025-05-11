@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 11:19+0200\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"PO-Revision-Date: 2025-05-10 10:35+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -17,65 +17,78 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 22.12.3\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Components d'eines d'imatges per a editar, veure i navegar."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:43
-#, kde-format
-msgid "Select a color and thickness for the border effect."
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:47
-#, kde-format
-msgid "Border color"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:61
-#, kde-format
-msgid "Border thicknes"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:86
-#, kde-format
-msgid "Are you sure you wanna cancel all the edits?"
-msgstr "Esteu segur que voleu cancel·lar totes les edicions?"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:110
-#, kde-format
-msgid "Cancel"
-msgstr "Cancel·la"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:231
+#: src/code/modules/editor/src/controls/ImageEditor.qml:133
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transforma"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:257
+#: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Capa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:266
+#: src/code/modules/editor/src/controls/ImageEditor.qml:159
 #, kde-format
 msgid "Filters"
 msgstr "Filtres"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr "Seleccioneu un color i un gruix per a l'efecte de la vora."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#, kde-format
+msgid "Border color"
+msgstr "Color de la vora"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#, fuzzy, kde-format
+#| msgid "Border thicknes"
+msgid "Border thickness"
+msgstr "Gruix de la vora"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Back"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Vora"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
@@ -269,10 +282,5 @@ msgstr "Estableix la informació del GPS"
 msgid "Remove GPS info"
 msgstr "Elimina la informació del GPS"
 
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Escapça"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Rotate"
-#~ msgstr "Gira"
+#~ msgid "Are you sure you wanna cancel all the edits?"
+#~ msgstr "Esteu segur que voleu cancel·lar totes les edicions?"

@@ -1,15 +1,15 @@
 # Spanish translations for mauikitimagetools.po package.
 # Copyright (C) 2022-2025 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
+# Automatically generated, 2022.
 #
 # SPDX-FileCopyrightText: 2022, 2023, 2025 Eloy Cuadra <ecuadra@eloihr.net>
-# Automatically generated, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-10 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 11:43+0100\n"
+"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"PO-Revision-Date: 2025-05-10 16:22+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -26,58 +26,71 @@ msgstr ""
 "Componentes de herramientas de imagen para edición, visualización y "
 "navegación."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:43
-#, kde-format
-msgid "Select a color and thickness for the border effect."
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:47
-#, kde-format
-msgid "Border color"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:61
-#, kde-format
-msgid "Border thicknes"
-msgstr ""
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:86
-#, kde-format
-msgid "Are you sure you wanna cancel all the edits?"
-msgstr "¿Seguro que quiere cancelar todas las modificaciones?"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:110
-#, kde-format
-msgid "Cancel"
-msgstr "Cancelar"
-
-#: src/code/modules/editor/src/controls/ImageEditor.qml:231
+#: src/code/modules/editor/src/controls/ImageEditor.qml:133
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Color"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:142
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transformar"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:257
+#: src/code/modules/editor/src/controls/ImageEditor.qml:151
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Capa"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:266
+#: src/code/modules/editor/src/controls/ImageEditor.qml:159
 #, kde-format
 msgid "Filters"
 msgstr "Filtros"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:458
+#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr "Seleccionar un color y el grosor para el efecto del borde."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#, kde-format
+msgid "Border color"
+msgstr "Color del borde"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#, fuzzy, kde-format
+#| msgid "Border thicknes"
+msgid "Border thickness"
+msgstr "Grosor del borde"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#, kde-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#, kde-format
+msgid "Back"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Borde"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
@@ -270,3 +283,6 @@ msgstr "Definir información de GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Eliminar información de GPS"
+
+#~ msgid "Are you sure you wanna cancel all the edits?"
+#~ msgstr "¿Seguro que quiere cancelar todas las modificaciones?"
