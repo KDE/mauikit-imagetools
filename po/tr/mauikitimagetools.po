@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 19:56+0300\n"
+"PO-Revision-Date: 2025-05-11 18:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -56,8 +56,7 @@ msgid "Border color"
 msgstr "Kenarlık rengi"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
-#, fuzzy, kde-format
-#| msgid "Border thicknes"
+#, kde-format
 msgid "Border thickness"
 msgstr "Kenarlık kalınlığı"
 
@@ -67,6 +66,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Düzenleyiciyi kapatmadan önce görsele yapılan değişiklikleri uygulamak "
+"istiyor musunuz? Düzenleyiciye dönmek için “İptal” düğmesine basın."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -76,12 +77,12 @@ msgstr "İptal"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Kaydet"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Geri"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format

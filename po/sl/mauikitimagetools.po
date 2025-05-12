@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 07:16+0200\n"
+"PO-Revision-Date: 2025-05-11 08:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -57,8 +57,7 @@ msgid "Border color"
 msgstr "Barva obrobe"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
-#, fuzzy, kde-format
-#| msgid "Border thicknes"
+#, kde-format
 msgid "Border thickness"
 msgstr "Debelina obrobe"
 
@@ -68,6 +67,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Preden zaprete urejevalnik, ali želite uporabiti spremembe slike ali jih "
+"zavreči? Izberite Prekliči, da se vrnete v urejevalnik."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -77,12 +78,12 @@ msgstr "Prekliči"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Shrani"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Nazaj"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format

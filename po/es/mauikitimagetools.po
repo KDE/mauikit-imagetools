@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: mauikitimagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 16:22+0100\n"
+"PO-Revision-Date: 2025-05-11 11:55+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -60,8 +60,7 @@ msgid "Border color"
 msgstr "Color del borde"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
-#, fuzzy, kde-format
-#| msgid "Border thicknes"
+#, kde-format
 msgid "Border thickness"
 msgstr "Grosor del borde"
 
@@ -71,6 +70,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Antes de cerrar el editor, ¿quiere aplicar los cambios realizados en la "
+"imagen o descartarlos? Pulse «Cancelar» para volver al editor."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -80,12 +81,12 @@ msgstr "Cancelar"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Guardar"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Volver"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
@@ -283,6 +284,3 @@ msgstr "Definir información de GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Eliminar información de GPS"
-
-#~ msgid "Are you sure you wanna cancel all the edits?"
-#~ msgstr "¿Seguro que quiere cancelar todas las modificaciones?"

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 23:33+0200\n"
+"PO-Revision-Date: 2025-05-11 14:28+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -58,8 +58,7 @@ msgid "Border color"
 msgstr "Randkleur"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
-#, fuzzy, kde-format
-#| msgid "Border thicknes"
+#, kde-format
 msgid "Border thickness"
 msgstr "Dikte van rand"
 
@@ -69,6 +68,9 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Voor het sluiten van de bewerker, wilt u de gemaakte wijzigingen aan de "
+"afbeelding toepassen of verwerpen? Kies annuleren om terug te gaan naar de "
+"bewerker."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -78,12 +80,12 @@ msgstr "Annuleren"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Opslaan"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Terug"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format

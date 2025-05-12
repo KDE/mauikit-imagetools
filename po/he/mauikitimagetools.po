@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-04-16 08:51+0300\n"
+"PO-Revision-Date: 2025-05-11 18:55+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.0\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -49,17 +49,17 @@ msgstr "מסננים"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:172
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "נא לבחור צבע ועובי לאפקט המסגרת."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:176
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "צבע מסגרת"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "עובי מסגרת"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:219
 #, kde-format
@@ -67,6 +67,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"בטרם סגירת העורך, להחיל את השינויים שנערכו לתמונה או להתעלם מהם? בחירה "
+"בביטול תחזיר אותך לעורך."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -76,17 +78,17 @@ msgstr "ביטול"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "שמירה"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "חזרה"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "מסגרת"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
