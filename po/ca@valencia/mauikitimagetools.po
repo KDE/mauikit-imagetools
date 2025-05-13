@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 10:35+0200\n"
+"PO-Revision-Date: 2025-05-11 08:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -58,8 +58,7 @@ msgid "Border color"
 msgstr "Color de la vora"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
-#, fuzzy, kde-format
-#| msgid "Border thicknes"
+#, kde-format
 msgid "Border thickness"
 msgstr "Gruix de la vora"
 
@@ -69,6 +68,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Abans de tancar l'editor, voleu aplicar els canvis fets a la imatge o "
+"descartar-los? Seleccioneu cancel·la per a tornar a l'editor."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -78,12 +79,12 @@ msgstr "Cancel·la"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Guarda"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Arrere"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
@@ -230,7 +231,7 @@ msgstr "Latitud"
 #: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
-msgstr "Longitud"
+msgstr "Llargària"
 
 #: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
@@ -281,6 +282,3 @@ msgstr "Establix la informació del GPS"
 #, kde-format
 msgid "Remove GPS info"
 msgstr "Elimina la informació del GPS"
-
-#~ msgid "Are you sure you wanna cancel all the edits?"
-#~ msgstr "Segur que voleu cancel·lar totes les edicions?"

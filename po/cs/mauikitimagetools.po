@@ -53,7 +53,7 @@ msgstr ""
 #: src/code/modules/editor/src/controls/ImageEditor.qml:176
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "Barva čáry"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
 #, kde-format
@@ -75,41 +75,35 @@ msgstr "Zrušit"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Uložit"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Zpět"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Okraj"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Brightness"
+#, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
-msgstr "Jas"
+msgstr ""
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:94
-#, fuzzy, kde-format
-#| msgctxt "@action:button Crop an image"
-#| msgid "Saturation"
+#, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
-msgstr "Nasycení"
+msgstr ""
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:123
-#, fuzzy, kde-format
-#| msgctxt "@action:button Rotate an image"
-#| msgid "Contrast"
+#, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
-msgstr "Kontrast"
+msgstr ""
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:150
 #, kde-format
@@ -284,23 +278,3 @@ msgstr ""
 #, kde-format
 msgid "Remove GPS info"
 msgstr ""
-
-#~ msgctxt "@action:button Crop an image"
-#~ msgid "Crop"
-#~ msgstr "Oříznout"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Rotate"
-#~ msgstr "Otočit"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Exposure"
-#~ msgstr "Expozice"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Highlights"
-#~ msgstr "Světla"
-
-#~ msgctxt "@action:button Rotate an image"
-#~ msgid "Shadows"
-#~ msgstr "Stíny"
