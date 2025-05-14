@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-04-17 08:58+0200\n"
+"PO-Revision-Date: 2025-05-12 13:58+0200\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: French <French <kde-francophone@kde.org>>\n"
 "Language: fr\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -46,17 +46,17 @@ msgstr "Filtres"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:172
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "Sélectionnez une couleur et une épaisseur pour l'effet de bordure."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:176
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "Couleur de la bordure"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "Épaisseur de la bordure"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:219
 #, kde-format
@@ -64,6 +64,9 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Avant de fermer l'éditeur, voulez-vous appliquer les modifications apportées "
+"à l'image ou les supprimer ? Veuillez sélectionner « Annuler » pour revenir "
+"à l'éditeur."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -73,17 +76,17 @@ msgstr "Annuler"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Enregistrer"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Bordure"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
