@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-05-10 18:27+0400\n"
+"PO-Revision-Date: 2025-05-14 21:26+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -49,17 +49,17 @@ msgstr "المرشّحات"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:172
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "حدد اللون والسُمك لتأثير الحدود."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:176
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "لون الحد"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "سُمك الحدود"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:219
 #, kde-format
@@ -67,6 +67,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"بل إغلاق المحرِّر، هل تريد تطبيق التغييرات التي أجريتها على الصورة أم تجاهلها؟ "
+"اختر ألغ للعودة إلى المحرر."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -76,17 +78,17 @@ msgstr "ألغِ"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "احفظ"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "عُد"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "الحدود"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
