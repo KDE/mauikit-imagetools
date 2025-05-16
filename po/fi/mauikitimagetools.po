@@ -1,13 +1,13 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2025 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
-# Tommi Nieminen <translator@legisign.org>, 2022, 2023.
+# SPDX-FileCopyrightText: 2022, 2023, 2025 Tommi Nieminen <translator@legisign.org>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2023-12-11 18:15+0200\n"
+"PO-Revision-Date: 2025-04-08 08:22+0300\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -15,6 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #: src/code/moduleinfo.cpp:21
 #, kde-format
@@ -216,29 +217,28 @@ msgstr "Tunnistetta ei voi poistaa"
 #: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "Huomautus"
 
 #: src/controls.6/ImageInfoDialog.qml:217
 #: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "Leveysaste"
 
 #: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "Pituusaste"
 
 #: src/controls.6/ImageInfoDialog.qml:273
-#, fuzzy, kde-format
-#| msgid "Could not remove the tag"
+#, kde-format
 msgid "Could not save the GPS data"
-msgstr "Tunnistetta ei voi poistaa"
+msgstr "GPS-tietoja ei voitu tallentaa"
 
 #: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
@@ -253,38 +253,37 @@ msgstr "Tiedoston tiedot"
 #: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Huomautus ja kuvaus"
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "Lisää huomautus"
 
 #: src/controls.6/ImageInfoDialog.qml:361
-#, fuzzy, kde-format
-#| msgid "Remove"
+#, kde-format
 msgid "Remove Comment"
-msgstr "Poista"
+msgstr "Poista huomautus"
 
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Paikkasijaintiluokitukset"
 
 #: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "Kaupunki"
 
 #: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Aseta GPS-tiedot"
 
 #: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Poista GPS-tiedot"
 
 #, fuzzy
 #~| msgid "Are you sure you want to remove the Exif tag %1?"
