@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-11 00:41+0000\n"
-"PO-Revision-Date: 2025-04-20 15:08+0900\n"
+"PO-Revision-Date: 2025-05-17 09:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -48,17 +48,17 @@ msgstr "過濾器"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:172
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "選擇邊框效果的色彩與粗細。"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:176
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "邊框顏色"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:190
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "邊框粗細"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:219
 #, kde-format
@@ -66,6 +66,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"關閉編輯器前，您要套用對影像進行的變更，還是要捨棄它們？選擇取消來不關閉而回"
+"到編輯器。"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:244
 #, kde-format
@@ -75,17 +77,17 @@ msgstr "取消"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "儲存"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:254
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:540
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "邊框"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
