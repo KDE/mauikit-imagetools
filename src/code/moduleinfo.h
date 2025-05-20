@@ -29,11 +29,15 @@ namespace MauiKitImageTools
     */
    IMAGETOOLS_EXPORT KAboutComponent exiv2Data();
    IMAGETOOLS_EXPORT KAboutComponent libKexiv2Data();
+
+#ifndef Q_OS_ANDROID
+
    IMAGETOOLS_EXPORT KAboutComponent opencvData();
 
    /**
     * @brief
     */
    IMAGETOOLS_EXPORT KAboutComponent tesseractData();
+#endif
 
 };

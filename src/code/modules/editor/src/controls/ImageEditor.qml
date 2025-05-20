@@ -14,7 +14,7 @@ import "private" as Private
  * @brief A control with different tools for editingan image
  *
  */
-Maui.PageLayout
+Maui.Page
 {
     id: control
 
@@ -113,11 +113,18 @@ Maui.PageLayout
     {
         if(imageDoc.edited)
         {
-            var dialog = _cancelDialogComponent.createObject(control)
-            dialog.open()
+            openCloseDialog()
         }
         else
+        {
             control.canceled()
+        }
+    }
+
+    function openCloseDialog()
+    {
+        var dialog = _cancelDialogComponent.createObject(control)
+        dialog.open()
     }
 
     function save()
@@ -231,13 +238,13 @@ Maui.PageLayout
         }
     }
 
-    altHeader: width > 600
-    splitIn: ToolBar.Footer
-    splitSection: Maui.PageLayout.Section.Middle
-    split: width < 600
+    altHeader: width < 600
+    // splitIn: ToolBar.Footer
+    // splitSection: Maui.PageLayout.Section.Middle
+    // split: width < 600
 
     // footerMargins: Maui.Style.defaultPadding
-    rightContent: Button
+    headBar.farRightContent: Button
     {
         enabled: imageDoc.edited
         Maui.Controls.status : imageDoc.edited ? Maui.Controls.Negative : Maui.Controls.Normal
@@ -245,9 +252,9 @@ Maui.PageLayout
         onClicked: control.cancel()
     }
 
-    middleContent: control.middleContentBar
+    footBar.middleContent: control.middleContentBar
 
-    leftContent: [
+    headBar.farLeftContent: [
         Button
         {
             icon.name: "go-previous"
@@ -475,14 +482,14 @@ Maui.PageLayout
         Private.TransformationBar
         {
             id: _transBar
-            visible: transformAction.checked && control.ready
+            visible: _private.currentAction == transformAction && control.ready
             width: parent.width
         },
 
         Private.ColourBar
         {
             id: _colourBar
-            visible: colorsAction.checked === 0 && control.ready
+            visible:  _private.currentAction == colorsAction && control.ready
             width: parent.width
         }
     ]

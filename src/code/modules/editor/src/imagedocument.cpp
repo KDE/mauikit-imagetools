@@ -25,8 +25,13 @@ ImageDocument::ImageDocument(QObject *parent)
         m_image = QImage(url.isLocalFile() ? url.toLocalFile() : url.toString());
         m_originalImage = m_image;
         m_edited = false;
+        m_changesApplied = true;
+
         Q_EMIT editedChanged();
         Q_EMIT imageChanged();
+        Q_EMIT changesAppliedChanged();
+
+        resetValues();
     });
 }
 

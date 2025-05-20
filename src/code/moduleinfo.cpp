@@ -2,8 +2,11 @@
 #include "../imagetools_version.h"
 #include <KLocalizedString>
 #include <KExiv2Qt6/KExiv2/KExiv2>
+
+#ifndef Q_OS_ANDROID
 #include "ocs.h"
 #include <opencv4/opencv2/core/version.hpp>
+#endif
 
 QString MauiKitImageTools::versionString()
 {
@@ -42,7 +45,7 @@ KAboutComponent MauiKitImageTools::libKexiv2Data()
                            QStringLiteral("https://exiv2.org"),
                            KAboutLicense::LicenseKey::File);
 }
-
+#ifndef Q_OS_ANDROID
 KAboutComponent MauiKitImageTools::tesseractData()
 {
     return KAboutComponent(QStringLiteral("Tesseract"),
@@ -60,3 +63,4 @@ KAboutComponent MauiKitImageTools::opencvData()
                            QStringLiteral("https://opencv.org"),
                            KAboutLicense::LicenseKey::Apache_V2);
 }
+#endif

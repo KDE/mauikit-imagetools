@@ -161,7 +161,7 @@ QString Exiv2Extractor::cityId() const
 City Exiv2Extractor::city() const
 {
     if(error())
-        return {};
+        return City{};
 
     auto c = extractGPS();
     

@@ -42,7 +42,10 @@ OCS::OCS(QObject *parent) : QObject(parent)
 
 OCS::~OCS()
 {
+    qDebug() << "OCS object has been deleted" << this;
     m_tesseract->End();
+    delete m_tesseract;
+    m_tesseract = nullptr;
 }
 
 QString OCS::filePath() const
@@ -199,7 +202,12 @@ void OCS::getTextAsync()
 
     typedef QMap<BoxType, TextBoxes> Res;
     auto func = [ocs = this](QUrl url, BoxesType levels) -> Res
-    {      
+    {
+        if(ocs->m_tesseract == nullptr)
+        {
+            return Res{};
+        }
+
         tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
         api->Init(NULL, "eng");
 
@@ -253,7 +261,7 @@ void OCS::getTextAsync()
                         bool bold, italic, underlined, monospace, serif, smallcaps = false;
                         int pointsize, fontid;
                         auto prop = ri->WordFontAttributes(&bold, &italic, &underlined, &monospace, &serif, &smallcaps, &pointsize, &fontid);
-                         res << QVariantMap{{"text", QString::fromStdString(word)},
+                        res << QVariantMap{{"text", QString::fromStdString(word)},
                                            {"rect", QRect{x1, y1, x2-x1, y2-y1}},
                                            {"bold", bold}, {"italic", italic},
                                            {"underlined", underlined},
@@ -282,7 +290,6 @@ void OCS::getTextAsync()
             paragraphBoxes = levelFunc(api,  tesseract::RIL_PARA);
 
         api->End();
-
         delete api;
         return Res{{Word, wordBoxes}, {Line, lineBoxes}, {Paragraph, paragraphBoxes}};
     };    
@@ -304,26 +311,43 @@ void OCS::getTextAsync()
     }else
     {
         auto watcher = new QFutureWatcher<Res>;
-        connect(watcher, &QFutureWatcher<Res>::finished, [this, watcher]()
+        connect(watcher, &QFutureWatcher<Res>::finished, [this, watcher, url = m_filePath]()
                 {
-                  // Q_EMIT textReady(watcher.future().result());
-                    auto res = watcher->result();
-                    m_wordBoxes = res[Word];
-                    m_lineBoxes = res[Line];
-                    m_paragraphBoxes = res[Paragraph];
-                    Q_EMIT wordBoxesChanged();
-                    Q_EMIT lineBoxesChanged();
-                    Q_EMIT paragraphBoxesChanged();
-                    m_ready = true;
-                    Q_EMIT readyChanged();
 
-                    OCRCache.insert(m_filePath, res);
+                    Res res;
+                    res = watcher->result();
 
+                    if(!this->m_tesseract)
+                    {
+                        qDebug() << "Results from oCR operation discarded OCS object has been deleted";
+                    }else
+                    {
+                        m_wordBoxes = res[Word];
+                        m_lineBoxes = res[Line];
+                        m_paragraphBoxes = res[Paragraph];
+                        Q_EMIT wordBoxesChanged();
+                        Q_EMIT lineBoxesChanged();
+                        Q_EMIT paragraphBoxesChanged();
+                        m_ready = true;
+                        Q_EMIT readyChanged();
+                    }
+
+                    OCRCache.insert(url, res);
                     watcher->deleteLater();
                 });
 
         QFuture<Res> future = QtConcurrent::run(func, QUrl::fromUserInput(m_filePath), m_boxesTypes);
         watcher->setFuture(future);
+
+               // connect(this, &OCS::destroyed, [this, watcher]()
+               //         {
+               //             if(watcher)
+               //             {
+               //                 qDebug() << "OCS was destroyed before OCR process finished, so cancel it";
+               //                 watcher->future().cancel();
+               //                 // watcher->deleteLater();
+               //             }
+               // });
     }
 }
 
