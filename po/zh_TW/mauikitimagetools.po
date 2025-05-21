@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-17 09:45+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -17,50 +17,50 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 25.07.70\n"
 
-#: src/code/moduleinfo.cpp:21
+#: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "編輯、檢視和瀏覽影像用的影像工具部件。"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:133
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "色彩"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:142
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "變形"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:151
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "圖層"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:159
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
 #, kde-format
 msgid "Filters"
 msgstr "過濾器"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
 msgstr "選擇邊框效果的色彩與粗細。"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
 msgstr "邊框顏色"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
 msgstr "邊框粗細"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
 msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
@@ -69,22 +69,22 @@ msgstr ""
 "關閉編輯器前，您要套用對影像進行的變更，還是要捨棄它們？選擇取消來不關閉而回"
 "到編輯器。"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
 msgid "Cancel"
 msgstr "取消"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
 msgstr "儲存"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
 msgstr "返回"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:540
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
 msgstr "邊框"

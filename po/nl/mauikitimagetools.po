@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-11 14:28+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -17,52 +17,52 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 25.04.1\n"
 
-#: src/code/moduleinfo.cpp:21
+#: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr ""
 "Componenten van hulpmiddelen voor bewerken, bekijken en navigeren van "
 "afbeeldingen."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:133
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Kleur"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:142
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Transformeren"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:151
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Laag"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:159
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
 #, kde-format
 msgid "Filters"
 msgstr "Filters"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
 msgstr "Selecteer een kleur en dikte voor her randeffect."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
 msgstr "Randkleur"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
 msgstr "Dikte van rand"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
 msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
@@ -72,22 +72,22 @@ msgstr ""
 "afbeelding toepassen of verwerpen? Kies annuleren om terug te gaan naar de "
 "bewerker."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
 msgstr "Opslaan"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
 msgstr "Terug"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:540
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
 msgstr "Rand"

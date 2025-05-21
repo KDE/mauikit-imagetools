@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-11 05:59+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
@@ -18,50 +18,50 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 3.6\n"
 
-#: src/code/moduleinfo.cpp:21
+#: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "გამოსახულების ხელსაწყოები ჩასწორების, ნახვის და ნავიგაციისთვის."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:133
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "ფერი"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:142
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "ტრასფორმირება"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:151
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "ფენა"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:159
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
 #, kde-format
 msgid "Filters"
 msgstr "ფილტრები"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
 msgstr "აირჩიეთ ფერი და სისქე საზღვრის ეფექტისთვის."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
 msgstr "საზღვრის ფერი"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
 msgstr "საზღვრის სისქე"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
 msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
@@ -70,22 +70,22 @@ msgstr ""
 "რედაქტორის დახურვამდე, გნებავთ გადაატაროთ შეტანილი ცვლილებები გამოსახულებას, "
 "თუ მოაცილებთ მათ? რედაქტორში დასაბრუნებლად აირჩიეთ გაუქმება."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
 msgid "Cancel"
 msgstr "გაუქმება"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
 msgstr "შენახვა"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
 msgstr "უკან"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:540
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
 msgstr "საზღვარი"

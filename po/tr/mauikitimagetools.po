@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-05-11 00:41+0000\n"
+"POT-Creation-Date: 2025-05-21 00:41+0000\n"
 "PO-Revision-Date: 2025-05-11 18:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@îcloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17,50 +17,50 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Lokalize 25.04.0\n"
 
-#: src/code/moduleinfo.cpp:21
+#: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr "Düzenleme, görüntüleme ve dolaşma için görsel araçları bileşenleri."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:133
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
 #, kde-format
 msgid "Color"
 msgstr "Renk"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:142
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
 #: src/controls.6/linux/ImageEditor.qml:54
 #, kde-format
 msgid "Transform"
 msgstr "Dönüştür"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:151
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
 #: src/controls.6/linux/ImageEditor.qml:61
 #, kde-format
 msgid "Layer"
 msgstr "Katman"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:159
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
 #, kde-format
 msgid "Filters"
 msgstr "Süzgeçler"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:172
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
 msgstr "Kenarlık efekti için bir renk ve kalınlık seçin."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:176
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
 msgstr "Kenarlık rengi"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:190
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
 msgstr "Kenarlık kalınlığı"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:219
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
 msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
@@ -69,22 +69,22 @@ msgstr ""
 "Düzenleyiciyi kapatmadan önce görsele yapılan değişiklikleri uygulamak "
 "istiyor musunuz? Düzenleyiciye dönmek için “İptal” düğmesine basın."
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:244
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
 msgstr "Kaydet"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:254
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
 msgstr "Geri"
 
-#: src/code/modules/editor/src/controls/ImageEditor.qml:540
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
 msgstr "Kenarlık"
