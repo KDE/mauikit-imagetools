@@ -117,6 +117,7 @@ public Q_SLOTS:
 
     int wordBoxAt(const QPoint point);
     QVector<int> wordBoxesAt(const QRect &rect);
+    QVector<int> allWordBoxes();
 
     void setWhiteList(const QString &value);
     void setBlackList(const QString &value);

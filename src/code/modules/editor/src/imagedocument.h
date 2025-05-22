@@ -46,6 +46,7 @@ class ImageDocument : public QObject
     Q_PROPERTY(QImage image READ image NOTIFY imageChanged)
     Q_PROPERTY(bool edited READ edited NOTIFY editedChanged)
     Q_PROPERTY(bool changesApplied READ changesApplied NOTIFY changesAppliedChanged)
+    Q_PROPERTY(bool changesSaved READ changesSaved NOTIFY changesSavedChanged)
     Q_PROPERTY(int brightness READ brightness NOTIFY brightnessChanged FINAL)
     Q_PROPERTY(int contrast READ contrast NOTIFY contrastChanged FINAL)
     Q_PROPERTY(int saturation READ saturation NOTIFY saturationChanged FINAL)
@@ -169,6 +170,8 @@ public:
 
     bool changesApplied() const;
 
+    bool changesSaved() const;
+
 Q_SIGNALS:
     void pathChanged(const QUrl &url);
     void imageChanged();
@@ -183,6 +186,7 @@ Q_SIGNALS:
     void thresholdChanged();
     void changesAppliedChanged();
     void gaussianBlurChanged();
+    void changesSavedChanged();
 
 private:
     QUrl m_path;
@@ -201,5 +205,6 @@ private:
     QRectF m_area;
 
     void resetValues();
-    bool m_changesApplied;
+    bool m_changesApplied = true;
+    bool m_changesSaved = true;
 };

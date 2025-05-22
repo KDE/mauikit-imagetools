@@ -20,6 +20,7 @@ ImageDocument::ImageDocument(QObject *parent)
     QImageReader::setAllocationLimit(2000);
 
     m_changesApplied = true;
+    m_changesSaved = true;
 
     connect(this, &ImageDocument::pathChanged, this, [this](const QUrl &url) {
         m_image = QImage(url.isLocalFile() ? url.toLocalFile() : url.toString());
@@ -121,6 +122,9 @@ void ImageDocument::setEdited(bool value)
     m_changesApplied = !value;
     Q_EMIT changesAppliedChanged();
 
+    m_changesSaved = !value;
+    Q_EMIT changesSavedChanged();
+
     if (m_edited == value) {
         return;
     }
@@ -131,7 +135,14 @@ void ImageDocument::setEdited(bool value)
 bool ImageDocument::save()
 {
     applyChanges();
-    return m_originalImage.save(m_path.isLocalFile() ? m_path.toLocalFile() : m_path.toString());
+
+    if(m_originalImage.save(m_path.isLocalFile() ? m_path.toLocalFile() : m_path.toString()))
+    {
+        m_changesSaved = true;
+        Q_EMIT changesSavedChanged();
+    }
+
+    return false;
 }
 
 bool ImageDocument::saveAs(const QUrl &location)
@@ -542,4 +553,9 @@ void ImageDocument::resetValues()
 bool ImageDocument::changesApplied() const
 {
     return m_changesApplied;
+}
+
+bool ImageDocument::changesSaved() const
+{
+    return m_changesSaved;
 }

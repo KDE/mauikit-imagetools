@@ -128,6 +128,19 @@ QVector<int> OCS::wordBoxesAt(const QRect &rect)
     return res;
 }
 
+QVector<int> OCS::allWordBoxes()
+{
+    QVector<int> res;
+    int i = 0;
+    for(const auto &box : m_wordBoxes)
+    {
+        res << i;
+        i++;
+    }
+
+    return res;
+}
+
 void OCS::setWhiteList(const QString &value)
 {
     if(value == m_whiteList)
