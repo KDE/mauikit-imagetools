@@ -231,7 +231,7 @@ msgstr "Latitud"
 #: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
-msgstr "Llargària"
+msgstr "Longitud"
 
 #: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
