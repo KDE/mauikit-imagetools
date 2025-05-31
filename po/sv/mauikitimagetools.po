@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:41+0000\n"
-"PO-Revision-Date: 2025-04-17 12:43+0200\n"
+"PO-Revision-Date: 2025-05-30 21:11+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 24.12.3\n"
+"X-Generator: Lokalize 25.04.1\n"
 
 #: src/code/moduleinfo.cpp:24
 #, kde-format
@@ -48,17 +48,17 @@ msgstr "Filter"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "Välj en färg och tjocklek för kanteffekten."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "Kantfärg"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "Kantbredd"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
@@ -66,6 +66,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Innan du stänger editorn, vill du införa ändringarna som gjorts på bilden "
+"eller ignorera dem? Välj Avbryt för att återgå till editorn."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
@@ -75,17 +77,17 @@ msgstr "Avbryt"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "Spara"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "Tillbaka"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "Kant"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
