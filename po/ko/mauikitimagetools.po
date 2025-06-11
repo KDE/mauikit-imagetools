@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-05-21 00:41+0000\n"
-"PO-Revision-Date: 2025-04-22 01:28+0200\n"
+"PO-Revision-Date: 2025-06-10 22:42+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -48,17 +48,17 @@ msgstr "필터"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "테두리 효과에 사용할 색상과 두께를 선택하십시오."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "테두리 색상"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "테두리 두께"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
@@ -66,6 +66,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"편집기를 닫기 전에 변경 사항을 저장하거나 무시하시겠습니까? 취소를 선택하면 "
+"편집기로 돌아갑니다."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
@@ -75,17 +77,17 @@ msgstr "취소"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "저장"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "뒤로"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "테두리"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
