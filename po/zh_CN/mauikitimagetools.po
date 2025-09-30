@@ -49,17 +49,17 @@ msgstr ""
 #: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "选择边框效果的颜色和粗细。"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
 msgid "Border color"
-msgstr ""
+msgstr "边框颜色"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "边框粗细"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
@@ -67,26 +67,27 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"在关闭编辑器之前，您要应用对图像所做的更改还是丢弃它们？选择取消返回编辑器。"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:261
 #, kde-format
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:547
 #, kde-format
 msgid "Border"
-msgstr ""
+msgstr "边框"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:65
 #, kde-format
@@ -110,13 +111,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "模糊"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:177
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "色相"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:203
 #, kde-format
@@ -128,7 +129,7 @@ msgstr ""
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "伽玛值"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:255
 #, kde-format
@@ -212,28 +213,28 @@ msgstr ""
 #: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
 msgid "Comment"
-msgstr ""
+msgstr "注释"
 
 #: src/controls.6/ImageInfoDialog.qml:217
 #: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
-msgstr ""
+msgstr "GPS"
 
 #: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
 msgid "Latitude"
-msgstr ""
+msgstr "纬度"
 
 #: src/controls.6/ImageInfoDialog.qml:237
 #, kde-format
 msgid "Longitude"
-msgstr ""
+msgstr "经度"
 
 #: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
 msgid "Could not save the GPS data"
-msgstr ""
+msgstr "无法保存 GPS 数据"
 
 #: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
@@ -248,34 +249,34 @@ msgstr ""
 #: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "注释和描述"
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
 msgid "Add Comment"
-msgstr ""
+msgstr "添加注释"
 
 #: src/controls.6/ImageInfoDialog.qml:361
 #, kde-format
 msgid "Remove Comment"
-msgstr ""
+msgstr "删除注释"
 
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "地理位置标签"
 
 #: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
 msgid "City"
-msgstr ""
+msgstr "城市"
 
 #: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "设置 GPS 信息"
 
 #: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "移除 GPS 信息"
