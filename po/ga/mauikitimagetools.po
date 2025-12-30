@@ -1,0 +1,280 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This file is copyright:
+# This file is distributed under the same license as the mauikit-imagetools package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mauikit-imagetools\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/code/moduleinfo.cpp:24
+#, kde-format
+msgid "Image tools components for editing, viewing and navigating."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
+#, kde-format
+msgid "Filters"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
+#, kde-format
+msgid "Border color"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
+#, kde-format
+msgid "Border thickness"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
+#, kde-format
+msgid "Cancel"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
+#, kde-format
+msgid "Save"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
+#, kde-format
+msgid "Back"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
+#, kde-format
+msgid "Border"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:65
+#, kde-format
+msgctxt "@action:button Change image brightness"
+msgid "Brightness"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:94
+#, kde-format
+msgctxt "@action:button Change image saturation"
+msgid "Saturation"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:123
+#, kde-format
+msgctxt "@action:button Change image contrast"
+msgid "Contrast"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:150
+#, kde-format
+msgctxt "@action:button Change image blur"
+msgid "Blur"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:177
+#, kde-format
+msgctxt "@action:button Change image hue"
+msgid "Hue"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:203
+#, kde-format
+msgctxt "@action:button Change image sharpness"
+msgid "Sharpness"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:229
+#, kde-format
+msgctxt "@action:button Change image gamma"
+msgid "Gamma"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:255
+#, kde-format
+msgctxt "@action:button Change image threshold"
+msgid "Threshold"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:34
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr ""
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:43
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr ""
+
+#: src/controls.6/image2text/OCRPage.qml:35
+#, kde-format
+msgid "Read Area"
+msgstr ""
+
+#: src/controls.6/image2text/OCRPage.qml:47
+#, kde-format
+msgid "Read All"
+msgstr ""
+
+#: src/controls.6/image2text/OCRPage.qml:59
+#, kde-format
+msgid "Configure"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:109
+#, kde-format
+msgid "Edit"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:110
+#, kde-format
+msgid "Editing Exif tag"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:118
+#, kde-format
+msgid "Tag key"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:125
+#, kde-format
+msgid "Tag value"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:136
+#, kde-format
+msgid "Could not edit the tag"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:159
+#, kde-format
+msgid "Remove"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:160
+#, kde-format
+msgid "Are you sure you want to remove the Exif tag %1?"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:171
+#, kde-format
+msgid "Could not remove the tag"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:192
+#, kde-format
+msgid "Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:217
+#: src/controls.6/ImageInfoDialog.qml:374
+#, kde-format
+msgid "GPS"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:226
+#, kde-format
+msgid "Latitude"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:237
+#, kde-format
+msgid "Longitude"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:273
+#, kde-format
+msgid "Could not save the GPS data"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:287
+#, kde-format
+msgid "Details"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:288
+#, kde-format
+msgid "File information"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:336
+#, kde-format
+msgid "Comment & Description"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:354
+#, kde-format
+msgid "Add Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:361
+#, kde-format
+msgid "Remove Comment"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:375
+#, kde-format
+msgid "Geolocation tags"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:380
+#, kde-format
+msgid "City"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:392
+#, kde-format
+msgid "Set GPS info"
+msgstr ""
+
+#: src/controls.6/ImageInfoDialog.qml:405
+#, kde-format
+msgid "Remove GPS info"
+msgstr ""
