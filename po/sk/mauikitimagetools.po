@@ -18,7 +18,7 @@ msgstr ""
 #: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
-msgstr ""
+msgstr "Komponenty nástrojov obrázkov na úpravu, zobrazovanie a navigáciu."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -46,7 +46,7 @@ msgstr "Filtre"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "Vyberte farbu a hrúbku pre efekt okraja."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
@@ -56,7 +56,7 @@ msgstr "Okraj farba"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "Hrúbka okraja"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
@@ -64,6 +64,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Pred zatvorením editora chcete použiť zmeny vykonané na obrázku alebo ich "
+"zahodiť? Vyberte 'Zrušiť', ak nechcete zavrieť editor."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
@@ -174,7 +176,7 @@ msgstr "Upraviť"
 #: src/controls.6/ImageInfoDialog.qml:110
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "Úprava značky Exif"
 
 #: src/controls.6/ImageInfoDialog.qml:118
 #, kde-format
@@ -245,7 +247,7 @@ msgstr "Informácia o súbore"
 #: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Komentár a popis"
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
@@ -260,7 +262,7 @@ msgstr "Odstrániť komentár"
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Geolokačné značky"
 
 #: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
@@ -270,12 +272,12 @@ msgstr "Mesto:"
 #: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Nastaviť GPS informácie"
 
 #: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Odstrániť GPS informácie"
 
 #~ msgctxt "@action:button Crop an image"
 #~ msgid "Crop"
