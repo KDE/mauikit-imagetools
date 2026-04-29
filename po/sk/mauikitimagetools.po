@@ -201,7 +201,7 @@ msgstr "Odstrániť"
 #: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
-msgstr "Ste si istý, you want to remove the Exif tag %1?"
+msgstr "Naozaj chcete odstrániť značku Exif %1?"
 
 #: src/controls.6/ImageInfoDialog.qml:171
 #, kde-format
