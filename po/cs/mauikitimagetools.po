@@ -1,26 +1,29 @@
-# Copyright (C) YEAR This file is copyright:
+# Copyright (C) 2026 This file is copyright:
 # This file is distributed under the same license as the mauikit-imagetools package.
 # Vit Pelcak <vit@pelcak.org>, 2023.
+# SPDX-FileCopyrightText: 2026 Libor Filípek <libor.filipek@gmail.com>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2023-01-05 13:38+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-05-22 23:01+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.0\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: src/code/moduleinfo.cpp:24
 #, kde-format
 msgid "Image tools components for editing, viewing and navigating."
 msgstr ""
+"Komponenty nástrojů pro práci s obrázky určené k úpravám, prohlížení a "
+"orientaci."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:140
 #: src/controls.6/linux/ImageEditor.qml:47
@@ -48,7 +51,7 @@ msgstr "Filtry"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:179
 #, kde-format
 msgid "Select a color and thickness for the border effect."
-msgstr ""
+msgstr "Vyberte barvu a tloušťku efektu ohraničení."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:183
 #, kde-format
@@ -58,7 +61,7 @@ msgstr "Barva čáry"
 #: src/code/modules/editor/src/controls/ImageEditor.qml:197
 #, kde-format
 msgid "Border thickness"
-msgstr ""
+msgstr "Tloušťka okraje"
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:226
 #, kde-format
@@ -66,6 +69,8 @@ msgid ""
 "Before closing the editor, do you want to apply the changes made to the "
 "image or discard them? Pick cancel to return to the editor."
 msgstr ""
+"Chcete před zavřením editoru změny provedené na obrázku uložit, nebo je "
+"zrušit? Kliknutím na tlačítko Zrušit se vrátíte do editoru."
 
 #: src/code/modules/editor/src/controls/ImageEditor.qml:251
 #, kde-format
@@ -91,49 +96,50 @@ msgstr "Okraj"
 #, kde-format
 msgctxt "@action:button Change image brightness"
 msgid "Brightness"
-msgstr ""
+msgstr "Jas"
 
+# Viz saturation
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:94
 #, kde-format
 msgctxt "@action:button Change image saturation"
 msgid "Saturation"
-msgstr ""
+msgstr "Nasycení"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:123
 #, kde-format
 msgctxt "@action:button Change image contrast"
 msgid "Contrast"
-msgstr ""
+msgstr "Kontrast"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:150
 #, kde-format
 msgctxt "@action:button Change image blur"
 msgid "Blur"
-msgstr ""
+msgstr "Rozostření"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:177
 #, kde-format
 msgctxt "@action:button Change image hue"
 msgid "Hue"
-msgstr ""
+msgstr "Odstín"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:203
 #, kde-format
 msgctxt "@action:button Change image sharpness"
 msgid "Sharpness"
-msgstr ""
+msgstr "Ostrost"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:229
 #, kde-format
 msgctxt "@action:button Change image gamma"
 msgid "Gamma"
-msgstr ""
+msgstr "Gama"
 
 #: src/code/modules/editor/src/controls/private/ColourBar.qml:255
 #, kde-format
 msgctxt "@action:button Change image threshold"
 msgid "Threshold"
-msgstr ""
+msgstr "Práh"
 
 #: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
 #, kde-format
@@ -156,12 +162,12 @@ msgstr "Otočit 90°"
 #: src/controls.6/image2text/OCRPage.qml:35
 #, kde-format
 msgid "Read Area"
-msgstr ""
+msgstr "Oblast čtení"
 
 #: src/controls.6/image2text/OCRPage.qml:47
 #, kde-format
 msgid "Read All"
-msgstr ""
+msgstr "Číst vše"
 
 #: src/controls.6/image2text/OCRPage.qml:59
 #, kde-format
@@ -176,22 +182,22 @@ msgstr "Upravit"
 #: src/controls.6/ImageInfoDialog.qml:110
 #, kde-format
 msgid "Editing Exif tag"
-msgstr ""
+msgstr "Úprava EXIF značek"
 
 #: src/controls.6/ImageInfoDialog.qml:118
 #, kde-format
 msgid "Tag key"
-msgstr ""
+msgstr "Klíč značky"
 
 #: src/controls.6/ImageInfoDialog.qml:125
 #, kde-format
 msgid "Tag value"
-msgstr ""
+msgstr "Hodnota značky"
 
 #: src/controls.6/ImageInfoDialog.qml:136
 #, kde-format
 msgid "Could not edit the tag"
-msgstr ""
+msgstr "Značku nelze upravit"
 
 #: src/controls.6/ImageInfoDialog.qml:159
 #, kde-format
@@ -201,12 +207,12 @@ msgstr "Odstranit"
 #: src/controls.6/ImageInfoDialog.qml:160
 #, kde-format
 msgid "Are you sure you want to remove the Exif tag %1?"
-msgstr ""
+msgstr "Opravdu chcete odstranit Exif značku %1?"
 
 #: src/controls.6/ImageInfoDialog.qml:171
 #, kde-format
 msgid "Could not remove the tag"
-msgstr ""
+msgstr "Značku nelze odstranit"
 
 #: src/controls.6/ImageInfoDialog.qml:192
 #, kde-format
@@ -232,7 +238,7 @@ msgstr "Zem. délka"
 #: src/controls.6/ImageInfoDialog.qml:273
 #, kde-format
 msgid "Could not save the GPS data"
-msgstr ""
+msgstr "GPS data nelze uložit"
 
 #: src/controls.6/ImageInfoDialog.qml:287
 #, kde-format
@@ -247,7 +253,7 @@ msgstr "Informace o souboru"
 #: src/controls.6/ImageInfoDialog.qml:336
 #, kde-format
 msgid "Comment & Description"
-msgstr ""
+msgstr "Komentář a popis"
 
 #: src/controls.6/ImageInfoDialog.qml:354
 #, kde-format
@@ -262,7 +268,7 @@ msgstr "Odstranit komentář"
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
 msgid "Geolocation tags"
-msgstr ""
+msgstr "Geolokační značky"
 
 #: src/controls.6/ImageInfoDialog.qml:380
 #, kde-format
@@ -272,9 +278,9 @@ msgstr "Město"
 #: src/controls.6/ImageInfoDialog.qml:392
 #, kde-format
 msgid "Set GPS info"
-msgstr ""
+msgstr "Nastavit GPS údaje"
 
 #: src/controls.6/ImageInfoDialog.qml:405
 #, kde-format
 msgid "Remove GPS info"
-msgstr ""
+msgstr "Odstranit GPS údaje"
