@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: mauikit-imagetools\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:51+0000\n"
-"PO-Revision-Date: 2026-05-31 20:28-0400\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
@@ -218,7 +218,7 @@ msgstr "ئىزاھات"
 #: src/controls.6/ImageInfoDialog.qml:374
 #, kde-format
 msgid "GPS"
-msgstr "GPS"
+msgstr ""
 
 #: src/controls.6/ImageInfoDialog.qml:226
 #, kde-format
@@ -258,7 +258,7 @@ msgstr "ئىزاھات قوش"
 #: src/controls.6/ImageInfoDialog.qml:361
 #, kde-format
 msgid "Remove Comment"
-msgstr ""
+msgstr "ئىزاھاتلارنى چىقىرىۋېتىش"
 
 #: src/controls.6/ImageInfoDialog.qml:375
 #, kde-format
