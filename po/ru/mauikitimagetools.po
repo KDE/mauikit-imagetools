@@ -1,0 +1,283 @@
+# Translation of mauikitimagetools into Russian.
+# This file is distributed under the same license as the mauikit-imagetools package.
+# Alexander Yavorsky <kekcuha@gmail.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mauikitimagetools\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2025-11-17 11:51+0000\n"
+"PO-Revision-Date: 2026-10-10 13:01+0200\n"
+"Last-Translator: Alexander Yavorsky <kekcuha@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: src/code/moduleinfo.cpp:24
+#, kde-format
+msgid "Image tools components for editing, viewing and navigating."
+msgstr ""
+"Компоненты для редактирования и просмотра изображений и навигации по ним."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:140
+#: src/controls.6/linux/ImageEditor.qml:47
+#, kde-format
+msgid "Color"
+msgstr "Цвет"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:149
+#: src/controls.6/linux/ImageEditor.qml:54
+#, kde-format
+msgid "Transform"
+msgstr "Преобразование"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:158
+#: src/controls.6/linux/ImageEditor.qml:61
+#, kde-format
+msgid "Layer"
+msgstr "Слой"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:166
+#, kde-format
+msgid "Filters"
+msgstr "Фильтры"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:179
+#, kde-format
+msgid "Select a color and thickness for the border effect."
+msgstr "Выберите цвет и толщину рамки."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:183
+#, kde-format
+msgid "Border color"
+msgstr "Цвет рамки"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:197
+#, kde-format
+msgid "Border thickness"
+msgstr "Толщина рамки"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:226
+#, kde-format
+msgid ""
+"Before closing the editor, do you want to apply the changes made to the "
+"image or discard them? Pick cancel to return to the editor."
+msgstr ""
+"Перед закрытием редактора применить изменения, внесённые в изображение, или "
+"отменить их? Чтобы вернуться в редактор, нажмите кнопку «Отмена»."
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:251
+#, kde-format
+msgid "Cancel"
+msgstr "Отмена"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
+#, kde-format
+msgid "Save"
+msgstr "Сохранить"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:261
+#, kde-format
+msgid "Back"
+msgstr "Назад"
+
+#: src/code/modules/editor/src/controls/ImageEditor.qml:547
+#, kde-format
+msgid "Border"
+msgstr "Рамка"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:65
+#, kde-format
+msgctxt "@action:button Change image brightness"
+msgid "Brightness"
+msgstr "Яркость"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:94
+#, kde-format
+msgctxt "@action:button Change image saturation"
+msgid "Saturation"
+msgstr "Насыщенность"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:123
+#, kde-format
+msgctxt "@action:button Change image contrast"
+msgid "Contrast"
+msgstr "Контрастность"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:150
+#, kde-format
+msgctxt "@action:button Change image blur"
+msgid "Blur"
+msgstr "Размытие"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:177
+#, kde-format
+msgctxt "@action:button Change image hue"
+msgid "Hue"
+msgstr "Тон"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:203
+#, kde-format
+msgctxt "@action:button Change image sharpness"
+msgid "Sharpness"
+msgstr "Резкость"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:229
+#, kde-format
+msgctxt "@action:button Change image gamma"
+msgid "Gamma"
+msgstr "Гамма"
+
+#: src/code/modules/editor/src/controls/private/ColourBar.qml:255
+#, kde-format
+msgctxt "@action:button Change image threshold"
+msgid "Threshold"
+msgstr "Порог"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:26
+#, kde-format
+msgctxt "@action:button Mirror an image vertically"
+msgid "Flip"
+msgstr "Отразить по вертикали"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:34
+#, kde-format
+msgctxt "@action:button Mirror an image horizontally"
+msgid "Mirror"
+msgstr "Отразить по горизонтали"
+
+#: src/code/modules/editor/src/controls/private/TransformationBar.qml:43
+#, kde-format
+msgctxt "@action:button Rotate an image 90°"
+msgid "Rotate 90°"
+msgstr "Повернуть на 90°"
+
+#: src/controls.6/image2text/OCRPage.qml:35
+#, kde-format
+msgid "Read Area"
+msgstr "Область чтения"
+
+#: src/controls.6/image2text/OCRPage.qml:47
+#, kde-format
+msgid "Read All"
+msgstr "Прочитать всё"
+
+#: src/controls.6/image2text/OCRPage.qml:59
+#, kde-format
+msgid "Configure"
+msgstr "Настроить"
+
+#: src/controls.6/ImageInfoDialog.qml:109
+#, kde-format
+msgid "Edit"
+msgstr "Изменить"
+
+#: src/controls.6/ImageInfoDialog.qml:110
+#, kde-format
+msgid "Editing Exif tag"
+msgstr "Изменение тега EXIF"
+
+#: src/controls.6/ImageInfoDialog.qml:118
+#, kde-format
+msgid "Tag key"
+msgstr "Ключ тега"
+
+#: src/controls.6/ImageInfoDialog.qml:125
+#, kde-format
+msgid "Tag value"
+msgstr "Значение тега"
+
+#: src/controls.6/ImageInfoDialog.qml:136
+#, kde-format
+msgid "Could not edit the tag"
+msgstr "Не удалось изменить тег"
+
+#: src/controls.6/ImageInfoDialog.qml:159
+#, kde-format
+msgid "Remove"
+msgstr "Удалить"
+
+#: src/controls.6/ImageInfoDialog.qml:160
+#, kde-format
+msgid "Are you sure you want to remove the Exif tag %1?"
+msgstr "Удалить тег EXIF %1?"
+
+#: src/controls.6/ImageInfoDialog.qml:171
+#, kde-format
+msgid "Could not remove the tag"
+msgstr "Не удалось удалить тег"
+
+#: src/controls.6/ImageInfoDialog.qml:192
+#, kde-format
+msgid "Comment"
+msgstr "Комментарий"
+
+#: src/controls.6/ImageInfoDialog.qml:217
+#: src/controls.6/ImageInfoDialog.qml:374
+#, kde-format
+msgid "GPS"
+msgstr "GPS"
+
+#: src/controls.6/ImageInfoDialog.qml:226
+#, kde-format
+msgid "Latitude"
+msgstr "Широта"
+
+#: src/controls.6/ImageInfoDialog.qml:237
+#, kde-format
+msgid "Longitude"
+msgstr "Долгота"
+
+#: src/controls.6/ImageInfoDialog.qml:273
+#, kde-format
+msgid "Could not save the GPS data"
+msgstr "Не удалось сохранить данные GPS"
+
+#: src/controls.6/ImageInfoDialog.qml:287
+#, kde-format
+msgid "Details"
+msgstr "Подробности"
+
+#: src/controls.6/ImageInfoDialog.qml:288
+#, kde-format
+msgid "File information"
+msgstr "Сведения о файле"
+
+#: src/controls.6/ImageInfoDialog.qml:336
+#, kde-format
+msgid "Comment & Description"
+msgstr "Комментарий и описание"
+
+#: src/controls.6/ImageInfoDialog.qml:354
+#, kde-format
+msgid "Add Comment"
+msgstr "Добавить комментарий"
+
+#: src/controls.6/ImageInfoDialog.qml:361
+#, kde-format
+msgid "Remove Comment"
+msgstr "Удалить комментарий"
+
+#: src/controls.6/ImageInfoDialog.qml:375
+#, kde-format
+msgid "Geolocation tags"
+msgstr "Теги местоположения"
+
+#: src/controls.6/ImageInfoDialog.qml:380
+#, kde-format
+msgid "City"
+msgstr "Город"
+
+#: src/controls.6/ImageInfoDialog.qml:392
+#, kde-format
+msgid "Set GPS info"
+msgstr "Задать данные GPS"
+
+#: src/controls.6/ImageInfoDialog.qml:405
+#, kde-format
+msgid "Remove GPS info"
+msgstr "Удалить данные GPS"
